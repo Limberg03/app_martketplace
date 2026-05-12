@@ -1,0 +1,2608 @@
+﻿
+
+
+
+Facultad de Ingeniería de Ciencias Computacionales y Telecomunicaciones
+
+
+Ingeniería Informática
+
+
+294576511684000
+
+
+
+
+
+MARKETPLACE DE APLICACIONES DE EMPREDIMIENTO DIGITAL ACADEMICO CON MACHINE LEARNING PARA RECOMENDACIONES INTELIGENTE EN LA UAGRM
+
+
+
+
+DOCENTE:            Ing. Martínez Canedo Rolando Antonio
+
+
+
+
+
+INTEGRANTES:      
+
+
+Pecho Garnica Limberg 221045392
+
+
+
+
+MATERIA: Taller de Grado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SANTA CRUZ – BOLIVIA
+
+
+Tabla de contenido
+
+
+ TOC \o "1-3" \h \z \u 1. Introducción: PAGEREF _Toc228049513 \h 3
+
+
+2. Antecedentes: PAGEREF _Toc228049514 \h 5
+
+
+3. Descripción del Problema: PAGEREF _Toc228049515 \h 6
+
+
+4. Situación Problemática: PAGEREF _Toc228049516 \h 10
+
+
+5. Situación deseada: PAGEREF _Toc228049517 \h 10
+
+
+6. Objetivos: PAGEREF _Toc228049518 \h 11
+
+
+7. Alcance: PAGEREF _Toc228049519 \h 12
+
+
+8. Tecnología de desarrollo: PAGEREF _Toc228049520 \h 15
+
+
+9. Sprint 1 PAGEREF _Toc228049521 \h 15
+
+
+9.1. Sprint Planning PAGEREF _Toc228049522 \h 15
+
+
+Objetivo de Sprint PAGEREF _Toc228049523 \h 15
+
+
+Hitorias de Usuario PAGEREF _Toc228049524 \h 15
+
+
+Contexto del sistema PAGEREF _Toc228049525 \h 15
+
+
+Sprint Backlog PAGEREF _Toc228049526 \h 15
+
+
+Historias de usuario PAGEREF _Toc228049527 \h 15
+
+
+9.2. Diseño PAGEREF _Toc228049528 \h 15
+
+
+9.2.1. Diseño de la Arquitectura PAGEREF _Toc228049529 \h 15
+
+
+9.3. Modelado C4 PAGEREF _Toc228049530 \h 15
+
+
+Nivel 1: Diagrama de Contexto PAGEREF _Toc228049531 \h 15
+
+
+Nivel 2: Diagrama de Contenedores PAGEREF _Toc228049532 \h 15
+
+
+Nivel 3: Diagrama de Componentes PAGEREF _Toc228049533 \h 15
+
+
+Nivel 4: Diagrama de Código PAGEREF _Toc228049534 \h 15
+
+
+9.4. Diseño de Datos PAGEREF _Toc228049535 \h 15
+
+
+9.4.1. Diseño Conceptual PAGEREF _Toc228049536 \h 15
+
+
+9.4.2. Diseño Lógico PAGEREF _Toc228049537 \h 15
+
+
+9.4.3. Diseño Físico PAGEREF _Toc228049538 \h 15
+
+
+9.5. Diseño de la Lógica de Negocio PAGEREF _Toc228049539 \h 16
+
+
+9.5.1. Diagrama de Secuencia + Clases PAGEREF _Toc228049540 \h 16
+
+
+9.6. Diseño de Interfaces PAGEREF _Toc228049541 \h 16
+
+
+9.7. Implementación PAGEREF _Toc228049542 \h 16
+
+
+9.7.1. Componentes y artefactos generados PAGEREF _Toc228049543 \h 16
+
+
+9.8. Pruebas PAGEREF _Toc228049544 \h 16
+
+
+9.9. Diario Scrum PAGEREF _Toc228049545 \h 16
+
+
+9.10. Sprint Review PAGEREF _Toc228049546 \h 16
+
+
+9.11. Sprint Retrospective PAGEREF _Toc228049547 \h 16
+
+
+9.12. Scrum TaskBoard PAGEREF _Toc228049548 \h 16
+
+
+10. Bibliografía: PAGEREF _Toc228049549 \h 16
+
+
+11. Anexos: PAGEREF _Toc228049550 \h 16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Introducción:
+
+
+La educación universitaria en el ámbito de las ciencias computacionales y la ingeniería de software es un motor constante de innovación técnica. Semestre tras semestre, los estudiantes desarrollan sistemas complejos, arquitecturas de software robustas y soluciones funcionales como parte de sus exigencias académicas. Sin embargo, existe una brecha sistemática entre el entorno académico y el sector comercial: la inmensa mayoría de estos proyectos, una vez defendidos y calificados, quedan archivados en repositorios locales y su ciclo de vida concluye de manera abrupta. Esta realidad no solo representa una pérdida significativa de capital intelectual, sino que frena el potencial del estudiante para insertarse tempranamente en el mercado tecnológico.
+
+
+Para transformar este paradigma, el presente proyecto propone el desarrollo de un Marketplace de Aplicaciones de Emprendimiento Digital Académico. El propósito central de esta plataforma es transformar radicalmente el ciclo de vida de un proyecto académico universitario, logrando que deje de ser percibido como una simple tarea para aprobar una materia y se consolide como un activo digital real y 
+monetizable
+. El sistema servirá como un ecosistema transaccional donde los desarrolladores pueden ofrecer sus sistemas a Pequeñas y Medianas Empresas (Pymes) que demandan soluciones tecnológicas, pero que a menudo no cuentan con el presupuesto para desarrollos a medida desde cero.
+
+
+La gran novedad y el núcleo innovador de esta propuesta radica en que trasciende la arquitectura tradicional de un simple catálogo web. Mediante la integración profunda de Inteligencia Artificial (IA) y algoritmos de Machine 
+Learning
+ Analítico, el sistema asume un rol proactivo. Por un lado, incorpora una búsqueda inteligente y semántica impulsada por Procesamiento del Lenguaje Natural (PLN), la cual permite que los compradores busquen software utilizando un lenguaje coloquial. De este modo, la IA interpreta la intención real detrás de la búsqueda y localiza la aplicación que mejor resuelve ese problema específico en la base de datos.
+
+
+Adicionalmente, el proyecto aborda una de las barreras más críticas para el talento emergente: la falta de experiencia comercial de los estudiantes universitarios. Para mitigar esto, la plataforma actúa como un asesor de ventas mediante la predicción y optimización de precios, analizando características técnicas y tendencias para sugerir el valor óptimo del software, evitando así que el trabajo sea subvalorado o que sus precios queden fuera del mercado. De forma paralela, el sistema funciona como un consultor tecnológico al profesionalizar el producto entregable; utiliza modelos de lenguaje (
+LLMs
+) que analizan el código fuente para generar automáticamente la documentación técnica y los manuales de usuario. Este paso elimina de raíz la barrera técnica que suele generar desconfianza en las Pymes al momento de operar software desarrollado por universitarios.
+
+
+2. Antecedentes:
+
+
+La comercialización de software ha dependido de repositorios que actúan como vitrinas estáticas. En el entorno académico, los proyectos se alojan en sistemas que carecen por completo de un enfoque comercial orientado al usuario final. Por otro lado, los 
+marketplaces
+ de software actuales operan fundamentalmente como catálogos web tradicionales (sistemas CRUD) que exigen al comprador conocimientos técnicos previos para realizar búsquedas mediante palabras clave rígidas. Además, delegan en el desarrollador la compleja tarea de redactar manuales y fijar precios a ciegas sin orientación del mercado. Este panorama evidencia una carencia significativa: no existe un ecosistema que actúe simultáneamente como asesor comercial para el talento emergente y como consultor tecnológico para el sector empresarial.
+
+
+Para superar esta limitación, el presente proyecto se fundamenta en la convergencia de paradigmas de la ciencia de datos y la ingeniería de software. Teóricamente, la búsqueda se optimiza mediante Procesamiento del Lenguaje Natural (PLN) y 
+embeddings
+, permitiendo inferir las necesidades humanas evaluando la similitud semántica de las peticiones. A esto se suma el Machine 
+Learning
+ Analítico, que emplea algoritmos predictivos para estructurar sistemas de recomendación y optimizar precios con alta fidelidad. Esta inteligencia se apoya en una arquitectura de e-Commerce transaccional que respeta estrictamente las propiedades ACID en bases de datos relacionales, garantizando operaciones financieras seguras. Finalmente, se aplica la teoría de Comprensión de Código (
+Code
+ 
+Understanding
+) mediante Inteligencia Artificial para traducir lógicas complejas de programación a un lenguaje natural.
+
+
+Esta conjunción de antecedentes teóricos y tecnológicos se materializa en un caso de uso que redefine la interacción entre la universidad y el sector productivo. Cuando un estudiante sube su proyecto de Taller de Grado, el sistema no solo lo almacena, sino que analiza estadísticamente el software para sugerir un precio óptimo de venta. Simultáneamente, la IA genera de manera automática la documentación técnica y un manual de usuario sencillo. Posteriormente, el dueño de una Pyme ingresa a la plataforma y redacta con sus propias palabras: "Necesito un sistema para mi farmacia que controle inventario y ventas". La inteligencia artificial interpreta esta intención y la conecta directamente con el software del estudiante, logrando un encuentro perfecto entre la oferta universitaria profesionalizada y la demanda del mercado real.
+
+
+
+
+3. Descripción del Problema:
+
+3.1. El fenómeno del "Software de Cajón" en el entorno académico
+
+
+En facultades como la de Ciencias Computacionales y Telecomunicaciones, la producción de software es constante y de alta calidad. Sin embargo, existe una realidad silenciosa que afecta a casi todos los estudiantes: el proyecto que tomó meses diseñar, programar y testear termina su vida útil el día de la defensa final. Una vez obtenida la nota, ese código —que podría estar gestionando una farmacia, optimizando un inventario o ayudando a un emprendedor— se queda guardado en un disco duro o en un repositorio privado, sin volver a ejecutarse nunca más.
+
+
+Este escenario representa un desperdicio de talento y recursos. El estudiante invierte cientos de horas en resolver problemas reales, pero al no existir un canal formal para conectar ese resultado con el mundo exterior, el proyecto muere en la academia. El problema no es la falta de calidad del software, sino la falta de un puente que lo lleve al mercado real.
+
+3.2. El desafío de la monetización y la falta de experiencia comercial
+
+
+Incluso cuando un estudiante tiene la intención de vender su creación, se enfrenta a una pared invisible: no sabe cuánto vale su trabajo. La mayoría de los desarrolladores jóvenes carecen de herramientas para realizar un análisis de mercado o una estructura de costos. Esto deriva en dos extremos peligrosos: o piden precios exageradamente altos que espantan a cualquier comprador, o malbaratan su esfuerzo por montos simbólicos que no recompensan la complejidad técnica del sistema.
+
+
+A esto se suma la "pesadilla" de la documentación. Para que un software sea comercializable, debe tener manuales de usuario y guías técnicas. Para un programador, redactar estos documentos suele ser una tarea tediosa que consume tiempo que preferiría usar programando. Sin documentación, el software es básicamente "incomprobable" para una persona que no sabe de código, lo que cierra las puertas a cualquier venta formal.
+
+3.3. La Empresa boliviana y la barrera de la transformación digital
+
+
+Desde la otra vereda, encontramos a las Pequeñas y Medianas Empresas (Pymes) en Santa Cruz y el resto del país. Estos negocios necesitan digitalizarse para sobrevivir, pero se encuentran con presupuestos de desarrollo a medida que son inalcanzables. Una Empresa promedio no puede pagar miles de dólares por un sistema personalizado, pero tampoco sabe dónde buscar soluciones que ya estén hechas y que sean económicas.
+
+
+El problema aquí es la comunicación. Un dueño de negocio no busca un "
+Backend
+ en 
+FastAPI
+ con PostgreSQL"; busca algo que "controle sus ventas y deudas". Los 
+marketplaces
+ actuales son catálogos fríos que exigen que el comprador sepa términos técnicos para encontrar lo que necesita. Si el comprador no encuentra lo que busca en los primeros cinco minutos o si siente que el sistema es demasiado complejo de instalar, abandona la búsqueda. Existe una brecha de lenguaje y confianza que impide que el software universitario llegue a manos del empresario que lo necesita.
+
+3.4. Análisis del Modelo de Negocio y el Control de Acceso
+
+
+Para que una solución a este problema sea sostenible, no puede ser simplemente un foro gratuito de descarga de archivos. Se requiere un modelo de negocio que regule el uso y garantice que tanto el comprador como el vendedor perciban valor. El esquema propuesto utiliza un Modelo de Suscripción Freemium, que busca equilibrar el acceso democrático con la rentabilidad de las herramientas avanzadas.
+
+
+Para el Estudiante (Vendedor): El problema actual es el límite de visibilidad. El plan básico gratuito permite a cualquier estudiante probar la plataforma subiendo un número limitado de proyectos. Sin embargo, un desarrollador prolífico que quiera convertir esto en una carrera de emprendimiento digital necesita subir aplicaciones de forma ilimitada y acceder a herramientas de inteligencia artificial para optimizar sus precios y documentos, lo que justifica un modelo Premium.
+
+
+Para la Empresa (Comprador): El riesgo de compra es una barrera. El modelo gratuito permite realizar consultas limitadas para explorar soluciones. Si la empresa necesita una búsqueda profunda y constante para equipar diferentes áreas de su negocio, el modelo Premium le otorga acceso ilimitado a la consultoría inteligente de la plataforma.
+
+
+Este esquema no solo genera ingresos para mantener la infraestructura, sino que actúa como un filtro de calidad y compromiso dentro del ecosistema.
+
+3.5. La ausencia de intermediación inteligente
+
+
+Finalmente, el problema raíz es que no existe una entidad (humana o tecnológica) que traduzca las necesidades de la Pyme al lenguaje del estudiante y viceversa. Los catálogos actuales son "mudos"; no asesoran al vendedor ni guían al comprador.
+
+
+Sin un sistema que use Machine 
+Learning
+ para recomendar la aplicación exacta basándose en el comportamiento del usuario, o que use Procesamiento de Lenguaje Natural para entender un requerimiento sencillo en español, seguiremos viviendo en un ciclo donde los estudiantes "hacen por hacer" y las empresas "necesitan sin encontrar". El problema, en última instancia, es la desconexión total entre el potencial académico de la UAGRM y las necesidades reales del mercado cruceño.
+
+
+4. Situación Problemática:
+
+El problema central radica en la enorme desconexión que existe entre el software que se crea dentro de la UAGRM y las necesidades reales de las empresas. Semestre a semestre, los estudiantes desarrollan sistemas funcionales que, después de ser calificados, terminan archivados y sin uso comercial porque no existen canales adecuados para ofrecerlos, les falta experiencia para fijar precios y resulta tedioso redactar manuales técnicos. Al mismo tiempo, las pequeñas y medianas empresas (Pymes) necesitan digitalizarse con urgencia, pero se chocan contra costos de desarrollo a medida que no pueden pagar y plataformas que piden demasiados conocimientos técnicos al momento de comprar. Todo esto genera una barrera que perjudica a ambos lados: impide que el estudiante moneticé su trabajo y deja a los negocios sin herramientas accesibles para crecer.
+
+
+5. Situación deseada:
+
+La implementación de esta plataforma inteligente transforma radicalmente el destino de los proyectos universitarios. El software desarrollado deja de ser una simple tarea que se archiva y pasa a convertirse en un activo digital accesible para cualquier negocio. Al integrar inteligencia artificial, el sistema automatiza las barreras comerciales, permitiendo al estudiante monetizar su esfuerzo de forma continua con precios justos y manuales autogenerados. Del mismo modo, el pequeño empresario, sin necesidad de conocimientos técnicos complejos, encuentra y adquiere exactamente la solución que necesita para optimizar sus ventas o inventarios utilizando un lenguaje cotidiano. En definitiva, se logra construir un puente sólido donde el talento académico impulsa directamente la digitalización y el crecimiento económico del sector productivo.
+
+
+6. Objetivos:
+
+6.1. Objetivo General
+
+
+Desarrollar un Marketplace de aplicaciones de emprendimiento digital académico con Machine 
+Learning
+ para recomendaciones inteligentes en la UAGRM.
+
+6.2. Objetivos Específicos
+
+
+
+
+Diseñar el ecosistema de interfaces web interactivas (
+frontend
+ en React.js) con portales independientes para el vendedor, el comprador y la administración, implementando una arquitectura de Aplicación Web Progresiva (PWA) que soporte notificaciones en tiempo real.
+
+
+Construir un 
+backend
+ transaccional y una API REST robusta bajo el modelo Cliente-Servidor utilizando Python (
+FastAPI
+), garantizando la consistencia estricta (ACID) en la pasarela de pagos (
+Stripe
+) y el control de suscripciones Freemium.
+
+
+Implementar una base de datos relacional centralizada en PostgreSQL, integrando la extensión 
+pgvector
+ para unificar el almacenamiento de metadatos, usuarios, finanzas y los vectores matemáticos de la Inteligencia Artificial.
+
+
+Desarrollar un motor de búsqueda semántica basado en Procesamiento del Lenguaje Natural (PLN) que interprete la intención de búsqueda de los compradores (Pymes) utilizando lenguaje cotidiano.
+
+
+Integrar un módulo analítico de Machine 
+Learning
+ que evalúe el historial de datos del ecosistema y las características del software para sugerir al estudiante el precio óptimo de venta mediante algoritmos predictivos.
+
+
+Implementar Modelos de Lenguaje de Gran Escala (
+LLMs
+) que analicen automáticamente el código fuente subido por el estudiante para autogenerar la documentación técnica y los manuales de usuario.
+
+
+Construir un Asistente Virtual basado en la arquitectura RAG (
+Retrieval-Augmented
+ 
+Generation
+) que fragmente el código fuente en la base de datos vectorial, permitiendo a los compradores realizar consultas técnicas interactivas mediante un 
+chatbot
+ antes de su compra.
+
+
+Desarrollar un analizador estático de complejidad algorítmica y rendimiento que evalúe la eficiencia técnica del código fuente sin ejecutarlo, con el fin de otorgar un "Sello de Calidad" que justifique el valor comercial del software.
+
+
+7. Alcance:
+
+7.1. Módulo de Gestión de Usuarios y Suscripciones (Freemium)
+
+
+Este módulo será el encargado de controlar quién entra a la plataforma y qué permisos tiene, integrando un ecosistema Freemium.
+
+
+Gestión de Roles: Creación de perfiles separados para Vendedores (estudiantes/desarrolladores), Compradores (Pymes) y un Administrador general del sistema.
+
+
+Control de Membresías: Lógica para limitar las acciones según el plan. Para los compradores en plan básico, se limitarán las consultas a la IA a 3 por día; para los vendedores en plan básico, el límite será de 5 aplicaciones en su portafolio. Los usuarios con planes Premium tendrán uso ilimitado de estas funciones.
+
+
+Pasarela de Pagos (Suscripciones): Integración con la API oficial de 
+Stripe
+ para delegar la seguridad y el cobro de las membresías.
+
+7.2. Módulo del Comprador y Búsqueda Inteligente (Empresa)
+
+
+Enfocado en romper la barrera técnica para que cualquier dueño de negocio pueda adquirir software de manera intuitiva.
+
+
+Motor de Búsqueda Semántica: Un 
+prompt
+ donde la Pyme escribirá su necesidad utilizando lenguaje natural. Por ejemplo: "Necesito un sistema para mi farmacia que controle inventario y ventas". La IA interpretará esta intención y buscará en la base de datos la aplicación exacta que resuelva el problema.
+
+
+Sistema de Recomendaciones Personalizadas: Un algoritmo analítico que evaluará el comportamiento y el historial de compras de la Pyme para mostrarle proactivamente la sección "Recomendados para ti".
+
+
+Asistente Virtual (
+Chatbot
+ RAG): Un 
+bot
+ inteligente en la página de cada aplicación que permite al Comprador hacer preguntas técnicas (ej. "¿Este sistema exporta a Excel?"). El 
+bot
+ responderá basándose en la lectura directa de la lógica del código fuente.
+
+
+Biblioteca de Compras: Un espacio privado donde el comprador accederá a sus aplicaciones adquiridas, estadísticas de sus descargas y manuales.
+
+7.3. Módulo del Vendedor y Optimización Comercial (Estudiantes)
+
+
+Diseñado para que el talento universitario gestione y rentabilice sus proyectos académicos.
+
+
+Gestión de Portafolio: Interfaces donde el estudiante podrá subir sus proyectos, organizarlos y editar detalles visuales.
+
+
+
+Dashboard
+ de Rendimiento: Un panel central (como ilustran los prototipos) para que el desarrollador visualice un resumen de su rendimiento, ventas totales, calificación promedio y aplicaciones más vendidas.
+
+
+IA de Optimización de Precios: Algoritmos de Machine 
+Learning
+ que analizarán características como la tecnología, tamaño de la app y tendencias del mercado para sugerirle al estudiante el precio óptimo, evitando precios exagerados o malbaratar el software.
+
+
+Auditoría de Código y Sello de Calidad: Una herramienta automática que evalúa la complejidad y eficiencia con la que el estudiante programó el sistema. Si el código está bien estructurado y es eficiente, la plataforma le otorga un "Sello de Calidad Grado A" para justificar su precio y dar seguridad técnica al comprador.
+
+7.4. Módulo de IA para Comprensión de Código y Documentación
+
+
+Este es el puente técnico que profesionaliza el producto académico y elimina la barrera técnica con el comprador.
+
+
+Lectura de Código (
+Code
+ 
+Understanding
+): Aplicación de modelos de lenguaje de gran escala (
+LLMs
+) para analizar profundamente la estructura del código subido por el estudiante.
+
+
+Generador de Documentación Técnica: Creación automática de diagramas de flujo lógicos, descripción de módulos y requisitos del sistema.
+
+
+Generador de Manual de Usuario: Redacción automática de una guía paso a paso, utilizando un lenguaje sencillo, para que el comprador sepa exactamente cómo instalar y operar el sistema.
+
+7.5. Módulo Transaccional y Operaciones de Compra
+
+
+El motor de e-Commerce transaccional que asegura un intercambio financiero y de datos puro.
+
+
+Procesamiento de Pagos Unitarios: Conexión estrictamente manejada por PostgreSQL para asegurar que las transacciones (vía 
+Stripe
+) y las transferencias de los enlaces de descarga respeten las propiedades "ACID".
+
+
+Notificaciones en Tiempo Real y PWA: La plataforma funcionará como una Aplicación Web Progresiva (PWA) instalable en móviles y PC. Incluirá alertas instantáneas (In-App y 
+Push
+ nativas) para avisar de forma inmediata sobre nuevas ventas, actualizaciones o recomendaciones.
+
+
+Gestión de Reseñas: Un sistema para que los usuarios dejen calificaciones de estrellas y opiniones tras sus compras, lo cual retroalimentará la reputación de los vendedores.
+
+
+8. Tecnología de desarrollo:
+
+
+8.1. Metodología de Desarrollo y Gestión
+
+
+Proceso de Desarrollo Ágil (Scrum): Trabajaremos dividiendo el proyecto en entregas cortas llamadas 
+sprints
+. Esto nos permite revisar el progreso constantemente y adaptarnos rápido si algo debe cambiar, en lugar de esperar hasta el final para ver los resultados.
+
+
+Jira: Es nuestra pizarra digital para organizar el trabajo. Aquí anotaremos qué tareas faltan, quién está haciendo qué y cuáles son los errores a corregir. Nos ayuda a mantener el proyecto ordenado.
+
+
+8.2. Entorno de Trabajo y Control de Código
+
+
+Visual Studio 
+Code
+ (VS 
+Code
+): Será nuestro entorno de desarrollo integrado (IDE) principal. Es un editor de código muy ligero que podemos personalizar con extensiones para escribir código de forma más rápida y cómoda.
+
+
+Git y GitHub: Git es la herramienta que guarda un historial de todos los cambios que le hacemos al código, como si fuera una "máquina del tiempo". GitHub es la plataforma en la nube donde guardaremos ese código para no perderlo nunca y para poder trabajar en equipo sin que los archivos choquen entre sí.
+
+
+8.3. Herramientas CASE y Lenguaje de Modelado
+
+
+UML (Lenguaje Unificado de Modelado): Es el idioma universal de diagramas que usaremos para "dibujar los planos" del sistema antes de empezar a programar.
+
+
+Enterprise 
+Architect
+: Es la herramienta CASE (Ingeniería de Software Asistida por Computadora) donde crearemos todos los diagramas de UML. Aquí diseñaremos los casos de uso, la estructura de la base de datos y cómo se comunicarán los microservicios entre sí.
+
+
+8.4. 
+Frontend
+ (La interfaz visual de los usuarios)
+
+
+React.js: Es la librería visual que usaremos para construir las pantallas de la plataforma. Permite crear interfaces dinámicas y atractivas sin que la página tenga que recargarse a cada rato.
+
+
+
+TypeScript
+: Lo usaremos junto a 
+React
+ para darle mayor seguridad al código. 
+TypeScript
+ nos avisa de errores tontos (como escribir mal el nombre de una variable) antes de que la página se ejecute.
+
+
+Vite: Es un empaquetador ultrarrápido. Sirve para que, cuando el usuario abra la página, todo cargue a la velocidad de la luz.
+
+
+8.5. 
+Backend
+
+
+
+
+  Python
+: Es el lenguaje principal que usaremos en el servidor. Lo elegimos porque es el rey indiscutible para trabajar con datos e inteligencia artificial, permitiéndonos mezclar las rutas web con la IA en un solo lugar. Además, utilizaremos su módulo nativo 
+ast
+ (
+Abstract
+ 
+Syntax
+ 
+Tree
+) para realizar el análisis estático y evaluar la complejidad algorítmica del código que suban los estudiantes, sin necesidad de ejecutarlo.
+
+
+
+  
+FastAPI
+
+: Es un 
+framework
+ muy moderno y veloz construido sobre Python. Lo usaremos para crear las "API REST" (los canales por donde viaja la información) de nuestro sistema central. Asimismo, integraremos su librería de 
+WebSockets
+ para mantener una conexión abierta y constante con el navegador, lo que nos permitirá enviar las notificaciones en tiempo real a la PWA.
+
+
+8.6. Bases de Datos (Persistencia Políglota)
+
+
+Como estamos usando microservicios, no meteremos todo en una sola base de datos, sino que usaremos la mejor herramienta para cada tarea:
+
+
+
+  PostgreSQL
+: Es nuestro motor relacional principal y es extremadamente robusto. Aquí guardaremos lo más delicado: las cuentas de usuario, las contraseñas, los cobros y los historiales de compras. Su trabajo es garantizar que las transacciones financieras sean puras y no permitan errores.
+
+
+
+  Extensión
+ Vectorial (
+pgvector
+): En lugar de instalar una base de datos separada para la inteligencia artificial, instalaremos esta extensión directamente dentro de PostgreSQL. Aquí guardaremos los "vectores matemáticos" que crea la IA al leer el código de los estudiantes. Gracias a esto, el buscador semántico y el Asistente Virtual (RAG) podrán entender lo que escribe el comprador y conectarlo con la aplicación perfecta.
+
+
+8.7. Inteligencia Artificial y Análisis de Datos
+
+
+
+OpenAI
+ API: Será el "cerebro" prestado de nuestro sistema. Lo usaremos para leer el código de los estudiantes, generar los manuales automáticamente y entender las búsquedas en lenguaje natural.
+
+
+Pandas y 
+Scikit-learn
+: Son herramientas matemáticas de Python. Las usaremos para analizar el comportamiento del mercado y sugerirle al estudiante qué precio debería ponerle a su software.
+
+
+8.8. Despliegue y Servicios Externos
+
+
+
+Stripe
+: Es la pasarela de pagos oficial que integraremos. En lugar de programar un sistema de tarjetas de crédito desde cero (lo cual es muy peligroso), delegamos toda esa seguridad a 
+Stripe
+ para que cobre las suscripciones de forma confiable.
+
+
+
+
+9. Sprint 1
+
+
+9.1. Sprint 
+Planning
+
+
+
+
+
+
+Objetivo de Sprint
+
+
+
+
+
+
+Nro
+
+
+
+Casos de Uso
+
+
+  Tipo
+
+
+CU1
+
+
+Registrarse
+
+
+
+
+
+
+
+
+
+
+
+    Web
+
+
+CU2
+
+
+Inicio de sesión
+
+
+
+
+CU3
+
+
+Cierre de sesión
+
+
+
+
+CU4
+
+
+Recuperación de contraseña
+
+
+
+
+CU5
+
+
+Editar perfil
+
+
+
+
+
+
+
+
+Hitorias
+ de Usuario
+
+
+
+Código
+
+
+Historia de Usuario
+
+
+  Tipo
+
+
+HU-1
+
+
+Registro de usuario
+
+
+
+
+
+
+
+
+    Web
+
+
+HU-2
+
+
+Inicio de sesión
+
+
+
+
+HU-3
+
+
+Recuperación de contraseña
+
+
+
+
+HU-5
+
+
+Editar perfil
+
+
+
+
+
+
+
+Contexto del sistema
+
+
+
+
+
+
+
+
+
+Sprint Backlog
+
+
+
+
+Objetivo del Sprint:
+
+
+Sprint 
+numero
+:
+
+
+1
+
+
+Tiempo Programado:
+
+
+4 semanas
+
+
+Fecha de Inicio:
+
+
+07/04/2026
+
+
+Fecha de Finalización:
+
+
+28/04/2026
+
+
+Id
+
+
+Tarea
+
+
+Estimado
+
+
+Responsable
+
+
+Estado
+
+
+
+
+
+SP-1
+
+
+
+
+
+Registro de usuario
+
+
+
+
+
+1h
+
+
+Pecho Garnica Limberg
+
+
+
+
+
+Finalizado
+
+
+
+
+
+SP-2
+
+
+Inicio y cierre de 
+Sesion
+
+
+
+2h
+
+
+Pecho Garnica Limberg
+
+
+Finalizado
+
+
+
+
+
+SP-3
+
+
+
+Recuperacion
+ de Contraseña
+
+
+2h
+
+
+Pecho Garnica Limberg
+
+
+Finalizado
+
+
+SP-4
+
+
+Editar Perfil
+
+
+2h
+
+
+Pecho Garnica Limberg
+
+
+Finalizado
+
+
+
+
+
+
+
+
+
+
+Historias de usuario
+
+
+
+Historia de Usuario
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Logo del Proyecto
+
+
+
+
+
+
+
+
+Id
+
+
+Nombre de HU
+
+
+Prioridad
+
+
+PHU
+
+
+Estado
+
+
+HU-2
+
+
+Inicio de Sesión
+
+
+Media
+
+
+5
+
+
+Terminado
+
+
+Como:
+
+
+Usuario sin iniciar sesión
+
+
+Quiero:
+
+
+Poder iniciar sesión con una cuenta
+
+
+Para:
+
+
+Poder tener acceso a las demás funcionalidades del sistema
+
+
+
+
+
+
+
+
+Criterio Aceptación
+
+
+
+
+
+Tener cuenta existente en la Base de datos
+
+
+Que la contraseña tenga mínimo 5 caracteres
+
+
+Que el usuario coincida con la contraseña
+
+
+Ni el usuario ni la contraseña deben estar en blanco
+
+
+
+
+
+
+Historia de Usuario
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Logo del Proyecto
+
+
+
+
+
+
+
+
+Id
+
+
+Nombre de HU
+
+
+Prioridad
+
+
+PHU
+
+
+Estado
+
+
+HU-2
+
+
+Inicio de Sesión
+
+
+Media
+
+
+5
+
+
+Terminado
+
+
+Como:
+
+
+Usuario sin iniciar sesión
+
+
+Quiero:
+
+
+Poder iniciar sesión con una cuenta
+
+
+Para:
+
+
+Poder tener acceso a las demás funcionalidades del sistema
+
+
+
+
+
+
+
+
+Criterio Aceptación
+
+
+
+
+
+Tener cuenta existente en la Base de datos
+
+
+Que la contraseña tenga mínimo 5 caracteres
+
+
+Que el usuario coincida con la contraseña
+
+
+Ni el usuario ni la contraseña deben estar en blanco
+
+
+
+
+
+
+Historia de Usuario
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Logo del Proyecto
+
+
+
+
+
+
+
+
+Id
+
+
+Nombre de HU
+
+
+Prioridad
+
+
+PHU
+
+
+Estado
+
+
+HU-2
+
+
+Inicio de Sesión
+
+
+Media
+
+
+5
+
+
+Terminado
+
+
+Como:
+
+
+Usuario sin iniciar sesión
+
+
+Quiero:
+
+
+Poder iniciar sesión con una cuenta
+
+
+Para:
+
+
+Poder tener acceso a las demás funcionalidades del sistema
+
+
+
+
+
+
+
+
+Criterio Aceptación
+
+
+
+
+
+Tener cuenta existente en la Base de datos
+
+
+Que la contraseña tenga mínimo 5 caracteres
+
+
+Que el usuario coincida con la contraseña
+
+
+Ni el usuario ni la contraseña deben estar en blanco
+
+
+
+
+
+9.2. Diseño
+
+
+  9.2.1. Diseño de la Arquitectura
+
+Diagrama de Despliegue
+
+
+
+
+
+
+
+
+9.3. Modelado C4 
+
+
+
+Nivel 1: Diagrama de Contexto
+
+
+
+
+
+
+Nivel 2: Diagrama de Contenedores
+
+
+
+
+Nivel 3: Diagrama de Componentes
+
+
+
+
+
+Nivel 4: Diagrama de Código
+1080135161925
+
+
+
+9.4. Diseño de Datos
+
+
+9.4.1. Diseño Conceptual
+
+
+
+
+
+
+
+
+
+
+9.4.2. Diseño Lógico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9.4.3. Diseño Físico
+
+
+-- 1. Habilitar extensiones necesarias (UUID para seguridad y Vector para la IA)
+
+CREATE EXTENSION IF NOT EXISTS "
+uuid-ossp
+";
+
+CREATE EXTENSION IF NOT EXISTS vector;
+
+
+
+-- 2. Creación de Tipos ENUM (Para asegurar que no entren datos basura)
+
+CREATE TYPE 
+rol_usuario
+ AS ENUM ('VENDEDOR', 'COMPRADOR', 'ADMIN');
+
+CREATE TYPE 
+tipo_plan
+ AS ENUM ('BASIC', 'PREMIUM');
+
+CREATE TYPE 
+estado_aplicacion
+ AS ENUM ('ACTIVA', 'INACTIVA', 'EN_REVISION');
+
+CREATE TYPE 
+estado_transaccion
+ AS ENUM ('COMPLETADO', 'PENDIENTE', 'FALLIDO');
+
+CREATE TYPE 
+tipo_frag_vector
+ AS ENUM ('CODIGO_FUENTE', 'DESCRIPCION_NEGOCIO');
+
+
+
+-- 3. Creación de Tablas (Respetando el orden de llaves foráneas)
+
+
+
+CREATE TABLE 
+usuarios
+ (
+
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+
+    
+nombre_completo
+ 
+VARCHAR(
+150) NOT NULL,
+
+    
+correo
+ 
+VARCHAR(
+150) UNIQUE NOT NULL,
+
+    
+password_hash
+ 
+VARCHAR(
+255) NOT NULL,
+
+    
+rol
+ 
+rol_usuario
+ NOT NULL,
+
+    
+plan_suscripcion
+ 
+tipo_plan
+ DEFAULT 'BASIC',
+
+    
+consultas_ia_diarias
+ INT DEFAULT 0,
+
+    
+stripe_customer_id
+ 
+VARCHAR(
+100),
+
+    
+fecha_fin_suscripcion
+ TIMESTAMP,
+
+    
+fecha_registro
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
+
+
+
+CREATE TABLE aplicaciones (
+
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+
+    
+vendedor_id
+ UUID NOT NULL,
+
+    
+titulo
+ 
+VARCHAR(
+200) NOT NULL,
+
+    
+categoria
+ 
+VARCHAR(
+100) NOT NULL,
+
+    
+descripcion_corta
+ TEXT,
+
+    
+tecnologias
+ 
+VARCHAR[
+] NOT NULL, -- Arreglo de 
+strings
+ en PostgreSQL
+
+    
+precio_sugerido_ia
+ 
+DECIMAL(
+10, 2),
+
+    
+precio_venta
+ 
+DECIMAL(
+10, 2) NOT NULL,
+
+    
+complejidad_ciclomatica
+ INT,
+
+    
+sello_calidad_ia
+ BOOLEAN DEFAULT FALSE,
+
+    url_codigo_s3 
+VARCHAR(
+500),
+
+    
+url_manual_autogenerado
+ 
+VARCHAR(
+500),
+
+    estado 
+estado_aplicacion
+ DEFAULT 'EN_REVISION',
+
+    
+fecha_publicacion
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT 
+fk_vendedor
+ FOREIGN KEY (
+vendedor_id
+) REFERENCES usuarios(id) ON DELETE CASCADE
+
+);
+
+
+
+CREATE TABLE transacciones (
+
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+
+    
+comprador_id
+ UUID NOT NULL,
+
+    
+aplicacion_id
+ UUID NOT NULL,
+
+    
+stripe_session_id
+ 
+VARCHAR(
+255) UNIQUE NOT NULL,
+
+    
+monto_pagado
+ 
+DECIMAL(
+10, 2) NOT NULL,
+
+    
+estado_pago
+ 
+estado_transaccion
+ DEFAULT 'PENDIENTE',
+
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT 
+fk_comprador_transaccion
+ FOREIGN KEY (
+comprador_id
+) REFERENCES usuarios(id),
+
+    CONSTRAINT 
+fk_app_transaccion
+ FOREIGN KEY (
+aplicacion_id
+) REFERENCES aplicaciones(id)
+
+);
+
+
+
+CREATE TABLE 
+resenas
+ (
+
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+
+    
+comprador_id
+ UUID NOT NULL,
+
+    
+aplicacion_id
+ UUID NOT NULL,
+
+    
+estrellas
+ INT NOT NULL CHECK (
+estrellas
+ BETWEEN 1 AND 5),
+
+    
+comentario
+ TEXT,
+
+    
+fecha
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT 
+fk_comprador_resena
+ FOREIGN KEY (
+comprador_id
+) REFERENCES 
+usuarios
+(id) ON DELETE CASCADE,
+
+    CONSTRAINT 
+fk_app_resena
+ FOREIGN KEY (
+aplicacion_id
+) REFERENCES 
+aplicaciones
+(id) ON DELETE CASCADE
+
+);
+
+
+
+CREATE TABLE 
+app_vectores
+ (
+
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+
+    
+aplicacion_id
+ UUID NOT NULL,
+
+    
+tipo_fragmento
+ 
+tipo_frag_vector
+ NOT NULL,
+
+    
+contenido_texto
+ TEXT NOT NULL,
+
+    
+embedding
+ 
+vector(
+1536), -- Dimensión estándar de 
+OpenAI
+ text-embedding-3-small
+
+    CONSTRAINT 
+fk_app_vector
+ FOREIGN KEY (
+aplicacion_id
+) REFERENCES aplicaciones(id) ON DELETE CASCADE
+
+);
+
+
+
+CREATE TABLE 
+historial_consultas
+ (
+
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+
+    
+comprador_id
+ UUID NOT NULL,
+
+    
+texto_buscado
+ TEXT NOT NULL,
+
+    
+fecha_consulta
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT 
+fk_comprador_historial
+ FOREIGN KEY (
+comprador_id
+) REFERENCES 
+usuarios
+(id) ON DELETE CASCADE
+
+);
+
+
+
+CREATE TABLE 
+notificaciones
+ (
+
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+
+    
+usuario_id
+ UUID NOT NULL,
+
+    
+titulo
+ 
+VARCHAR(
+150) NOT NULL,
+
+    
+mensaje
+ TEXT NOT NULL,
+
+    
+leido
+ BOOLEAN DEFAULT FALSE,
+
+    
+fecha_creacion
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT 
+fk_usuario_notificacion
+ FOREIGN KEY (
+usuario_id
+) REFERENCES 
+usuarios
+(id) ON DELETE CASCADE
+
+);
+
+
+
+
+9.5. Diseño de la Lógica de Negocio
+
+
+9.5.1. Diagrama de Secuencia + Clases
+
+
+
+1080135161290
+
+
+
+
+
+
+
+1080135180975
+
+
+
+
+9.6. Diseño de Interfaces
+
+
+
+ 
+
+
+
+
+9.7. Implementación
+
+
+9.7.1. Componentes y artefactos generados
+
+
+
+
+
+
+9.8. Pruebas
+
+
+
+
+1. Filtro del Desarrollador: Pruebas Unitarias (Lógica de Código)
+
+
+Estas pruebas garantizan que las funciones individuales escritas en React.js y 
+FastAPI
+ operen sin errores.
+
+
+Prueba de Encriptación (
+Backend
+): Se validó que la función encargada de registrar usuarios aplique correctamente un algoritmo de 
+hashing
+ a la contraseña antes de insertarla en PostgreSQL. No es posible guardar contraseñas en texto plano bajo ninguna circunstancia.
+
+
+Prueba de Generación de Token (
+Backend
+): Se verificó 
+que
+ al procesar un inicio de sesión exitoso, el sistema genere un JWT (JSON Web Token) válido, que contenga el ID del usuario y su Rol (VENDEDOR o COMPRADOR), con un tiempo de expiración definido.
+
+
+Prueba de Validación de Formularios (
+Frontend
+): Se probó la interfaz de 
+React
+ para asegurar que el botón de "Registrar" se desactive si el correo electrónico no tiene un formato válido (ausencia del "@") o si la contraseña tiene menos de 8 caracteres, evitando enviar peticiones basura al servidor.
+
+2. Filtro de QA: Pruebas de Integración y Rendimiento (Tiempos de Respuesta)
+
+
+El objetivo de estas pruebas fue confirmar que el 
+Frontend
+ y el 
+Backend
+ se comuniquen fluidamente y soporten la carga de usuarios sin lentitud.
+
+
+Integración 
+End-to-End
+ (Registro y 
+Login
+): Se simuló el flujo completo: creación de un usuario desde la web, recepción de los datos en la API REST (
+FastAPI
+) y la correcta creación del registro en la tabla usuarios de PostgreSQL. Inmediatamente después, se probó el inicio de sesión con esas mismas credenciales, confirmando un código de estado HTTP 200 (OK).
+
+
+Prueba de Rendimiento (Tiempo de Respuesta): Se realizaron múltiples peticiones de inicio de sesión simultáneas. El servidor (
+FastAPI
+) demostró la capacidad de procesar la autenticación y devolver el token en un tiempo promedio inferior a 300 milisegundos, cumpliendo con el requerimiento de alta velocidad esperado para una PWA.
+
+
+Prueba de Tolerancia a Errores: Se forzó el inicio de sesión con credenciales incorrectas para asegurar que el sistema devuelva de forma rápida y segura un error HTTP 401 (
+Unauthorized
+), mostrando el mensaje correcto en la interfaz sin exponer detalles de la base de datos.
+
+3. Filtro del 
+Product
+ 
+Owner
+: Pruebas de Aceptación (Requerimientos de Negocio)
+
+
+Esta evaluación validó que el producto entregado en el Sprint 1 sea útil y cumpla las reglas del modelo de negocio del Marketplace.
+
+
+Validación de Redirección por Roles: Se verificó que el sistema respete los perfiles de usuario. Al iniciar sesión como un COMPRADOR (Pyme), el sistema redirige exitosamente a la vista "Explorar Apps". Al iniciar sesión como un VENDEDOR (Estudiante), el sistema dirige al "
+Dashboard
+ de Rendimiento".
+
+
+Validación del Modelo Freemium Básico: Se comprobó 
+que
+ al completar el formulario de registro, el sistema asigne por defecto el plan BASIC en la base de datos, garantizando que el usuario inicie con los límites correspondientes (ej. máximo 5 aplicaciones para estudiantes) antes de poder acceder a funciones Premium.
+
+
+Validación de Edición de Perfil: Se comprobó que un usuario autenticado puede actualizar sus datos personales (nombre, dirección, etc.) y que estos cambios se reflejen inmediatamente en la interfaz (
+React
+) y persistan correctamente en la base de datos.
+
+
+
+9.9. Diario Scrum
+
+
+
+Daily
+ Scrum
+
+
+Desarrolladores
+
+
+Pecho Garnica Limberg
+
+
+Dia
+
+
+¿Qué hice ayer?
+
+
+¿Qué voy a hacer
+
+
+hoy?
+
+
+¿Veo algún impedimento?
+
+
+
+
+
+
+
+
+07/04/2026
+
+
+Reunión de planificación
+
+
+.
+
+
+Asignación de HU-1 a HU-2.
+
+
+Investigar opciones de personalización de estilos en el
+
+
+
+frontend
+.
+
+
+
+
+
+Ninguno.
+
+
+
+
+
+
+
+
+08/04/2026
+
+
+Implementé selector de colores y
+
+
+tipografías para diapositivas (HU-1).
+
+
+Conectar los estilos personalizados al modelo de 
+slide
+.
+
+
+
+
+
+Faltan validaciones para combinación de colores.
+
+
+
+
+
+
+
+
+09/04/2026
+
+
+Validé cambios visuales y se almacenan estilos por 
+slide
+.
+
+
+Comenzar HU-10: estructura base para editor visual de diapositiva.
+
+
+La lógica de posicionamiento
+
+
+requiere una librería adicional.
+
+
+
+
+
+
+
+
+10/04/2026
+
+
+Integré 
+react-draggable
+ y 
+react-resizable
+ para mover elementos
+
+
+(HU-10).
+
+
+
+
+
+Implementar edición en tiempo real del contenido
+
+
+
+
+
+Coordinación entre estilos y contenido no está totalmente clara.
+
+
+
+
+
+
+
+
+11/04/2026
+
+
+Resolví conflictos entre edición de contenido y estilos.
+
+
+Hacer que los cambios se reflejen de inmediato en la
+
+
+vista previa.
+
+
+
+
+
+Ninguno.
+
+
+
+
+
+12/04/2026
+
+
+Vista previa actualiza al instante los cambios
+
+
+Comenzar rediseño visual del editor con mejor UX/UI.
+
+
+
+
+
+Ninguno.
+
+
+
+
+
+
+
+
+13/04/2026
+
+
+Agregué botones y menú flotante de edición rápida.
+
+
+Probar flujo completo de edición: crear → editar →
+
+
+guardar.
+
+
+
+
+
+Ninguno.
+
+
+
+
+
+
+
+
+14/04/2026
+
+
+
+
+
+
+
+
+Flujo funcional. Terminé HU-1.
+
+
+ya iniciada en Sprint anterior y añadir mejoras en entrada por voz.
+
+
+
+
+
+Ninguno
+
+
+
+
+
+
+
+
+15/04/2026
+
+
+
+
+
+Solucioné compatibilidad
+
+
+Validar resultado
+
+
+
+
+
+Algunos resultados poco
+
+
+precisos aún.
+
+
+
+
+
+16/04/2026
+
+
+Añadí controles de edición para el texto dictado.
+
+
+Finalizar HU-1
+
+
+
+
+
+Ninguno.
+
+
+
+
+
+17/04/2026
+
+
+HU-11 completa. Inicio de HU-2:
+
+
+Investigar 
+WebSockets
+ y uso
+
+
+No hay servidor 
+WebSocket
+ activo aún.
+
+
+
+
+
+18/04/2026
+
+
+
+
+
+Configuré socket.io en 
+
+backend
+ .
+
+
+
+Probar conexión entre dos usuarios en un mismo
+
+
+
+slide
+.
+
+
+
+
+
+Problemas iniciales de sincronización.
+
+
+
+
+
+
+
+
+
+
+
+19/04/2026
+
+
+Resolví sincronización y compartí sesión de
+
+
+trabajo entre dos navegadores.
+
+
+
+
+
+Permitir múltiples usuarios editando al
+
+
+mismo tiempo.
+
+
+
+
+
+Conflictos de escritura simultánea.
+
+
+
+
+
+
+
+
+20/04/2026
+
+
+Añadí control de bloqueo de elementos al ser
+
+
+editados.
+
+
+Crear indicador visual de presencia de usuarios
+
+
+colaborando.
+
+
+
+
+
+Ninguno.
+
+
+
+
+
+
+
+
+21/04/2026
+
+
+Agregué lista de usuarios
+
+
+conectados a la sesión.
+
+
+Pruebas funcionales de colaboración en
+
+
+tiempo real.
+
+
+
+
+
+Ninguno.
+
+
+
+
+
+
+
+
+22/04/2026
+
+
+Realicé pruebas entre dos dispositivos
+
+
+distintos.
+
+
+Documentar comportamiento
+
+
+colaborativo y casos de error.
+
+
+
+
+
+Ninguno.
+
+
+
+
+
+23/04/2026
+
+
+
+
+
+completada a nivel funcional.
+
+
+Iniciar pruebas integradas de todo
+
+
+el sistema del Sprint.
+
+
+
+
+
+Ninguno.
+
+
+
+
+
+24/04/2026
+
+
+Documenté bugs menores y
+
+
+correcciones.
+
+
+Mejoras visuales en estilos y mensajes
+
+
+de error.
+
+
+Ninguno.
+
+
+
+
+
+25/04/2026
+
+
+Ajustes visuales en edición y colores
+
+
+predefinidos.
+
+
+Añadir modo oscuro
+
+
+como extra en personalización.
+
+
+Ninguno.
+
+
+
+
+
+
+
+
+26/04/2026
+
+
+Agregado modo oscuro y temas personalizados
+
+
+(HU-9 ampliado).
+
+
+Revisar accesibilidad visual (contraste,
+
+
+legibilidad).
+
+
+
+
+
+Ninguno.
+
+
+
+
+
+9.10. Sprint 
+Review
+
+
+
+
+Revisión del Sprint
+
+
+Nombre del proyecto: Revisión: MARKETPLACE DE APLICACIONES DE EMPREDIMIENTO DIGITAL ACADEMICO CON MACHINE LEARNING PARA RECOMENDACIONES INTELIGENTE EN LA UAGRM
+
+
+Objetivo de la revisión:
+
+
+Implementar correctamente la base funcional del sistema, incluyendo autenticación, gestión de usuarios y operaciones iniciales de documentos, garantizando que los
+
+
+usuarios puedan registrarse, iniciar sesión y poder editar su perfil completamente.
+
+
+Lugar, fecha, hora: Santa Cruz de la Sierra, 27/04/2026, 20:00 
+hrs
+
+
+
+Participantes
+
+
+Nombre
+
+
+Rol
+
+
+Pecho Garnica Limberg
+
+
+
+Product
+ 
+Owner
+
+
+
+
+
+
+
+
+
+Tareas Completadas
+
+
+Tarea
+
+
+Estado
+
+
+Registro de usuario
+
+
+Finalizado
+
+
+Inicio de sesión
+
+
+Finalizado
+
+
+Cierre de sesión
+
+
+Finalizado
+
+
+Recuperación de contraseña
+
+
+Finalizado
+
+
+Editar perfil
+
+
+Finalizado
+
+
+Para lo que viene
+
+
+Lógica de negocio (Catálogo, Subir Apps, CRUD básico) y almacenamiento.
+
+
+Implementar estas funcionalidades en el 
+Backend
+ y 
+Frontend
+
+
+
+
+
+
+
+9.11. Sprint Retrospective
+
+
+
+Retrospectiva de Sprint
+
+
+Nombre del proyecto:
+
+
+MARKETPLACE DE APLICACIONES DE EMPREDIMIENTO DIGITAL ACADEMICO CON MACHINE LEARNING PARA RECOMENDACIONES INTELIGENTE EN LA UAGRM
+
+
+Objetivos de la retrospectiva:
+
+
+Lugar, Fecha,
+
+
+Hora
+
+
+Santa Cruz de La
+
+
+Sierra
+
+
+27/04/2026
+
+
+21:00
+
+
+Participantes:
+
+
+
+
+
+Pecho Garnica Limberg
+
+
+Discusión
+
+
+
+
+
+
+
+
+¿Qué salió bien?
+
+
+Coordinamos al equipo y nos aseguramos de que cada uno de nosotros cumpliera con nuestras tareas asignadas dentro de los plazos acordados. Nos apoyamos mutuamente para resolver dudas y facilitar el avance de las tareas. definimos También claramente los objetivos de cada requisito funcionalidad.
+
+
+
+
+
+
+
+
+
+
+¿Que no salió bien?
+
+
+Qué problemas se encontró y cómo
+
+
+esos problemas fueron (o no fueron) resuelto
+
+
+Algunas tareas tomaron más tiempo del estimado inicialmente, debido a una subestimación del esfuerzo requerido. Hubo momentos en que la comunicación entre los miembros del equipo no fue completamente fluida, especialmente al integrar módulos entre diferentes responsables. Se identificaron bugs y errores durante la implementación de ciertas funcionalidades, lo que generó retrasos en algunas tareas planificadas.
+
+
+
+
+
+
+
+
+
+
+¿Qué debemos cambiar para mejorar?
+
+
+Cumplir con los tiempos estimados para cada funcionalidad y con la planificación general del proyecto. Detallar mejor las tareas y optimizar la comunicación entre ambos para
+
+
+evitar malentendidos.
+
+
+
+
+
+
+
+
+9.12. Scrum 
+TaskBoard
+
+
+
+
+
+
+
+10. Bibliografía:
+
+Libros
+
+
+Bass, L., Weber, I., &amp; Zhu, L. (2015). DevOps: A software architect's perspective. Addison-Wesley Professional.
+
+
+
+Géron
+, A. (2022). Hands-on machine learning with Scikit-Learn, 
+Keras
+, and TensorFlow: Concepts, tools, and techniques to build intelligent systems (3.ª ed.). O'Reilly Media.
+
+
+Newman, S. (2021). Building microservices: Designing fine-grained systems (2.ª ed.). O'Reilly Media.
+
+
+Sommerville, I. (2015). Ingeniería de software (10.ª ed.). Pearson Educación.
+
+
+
+Sitios Web
+
+
+Meta. (2026). 
+React
+: La biblioteca para interfaces de usuario web y nativas. Recuperado el [Pon aquí la fecha, ej. 20 de abril de 2026], de https://es.react.dev/
+
+
+
+OpenAI
+. (2026). 
+OpenAI
+ platform documentation: Embeddings and text generation. Recuperado el [Pon aquí la fecha], de https://platform.openai.com/docs/
+
+
+Ramírez, S. (2026). 
+FastAPI
+: Web framework for building APIs with Python. Recuperado el [Pon aquí la fecha], de https://fastapi.tiangolo.com/
+
+
+Stripe. (2026). Stripe API reference: Subscriptions and payments. Recuperado el [Pon aquí la fecha], de https://stripe.com/docs/api
+
+Entrevista
+
+
+
+
+
+
+11. Anexos
+
+
+
+
+
+3ER ANEXO
+
+Enlace de acceso al CV Web:
+
+https://cv-ui-lqiq.vercel.app/
+
+
