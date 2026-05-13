@@ -8,6 +8,9 @@ export interface User {
   rol: 'VENDEDOR' | 'COMPRADOR';
   plan_suscripcion: string;
   consultas_ia: number;
+  telefono?: string;
+  descripcion?: string;
+  foto_url?: string;
 }
 
 interface AuthContextType {
@@ -16,17 +19,20 @@ interface AuthContextType {
   register: (nombre: string, correo: string, pass: string, rol: string) => Promise<boolean>;
   logout: () => void;
   updateProfile: (data: Partial<User>) => Promise<boolean>;
+  uploadPhoto: (file: File) => Promise<boolean>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+export const API_URL = 'http://127.0.0.1:8000/api';
+
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(() => {
-    const savedUser = localStorage.getItem('nexus_user');
-    return savedUser ? JSON.parse(savedUser) : null;
+    try {
+      const saved = localStorage.getItem('nexus_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch { return null; }
   });
-
-  const API_URL = 'http://127.0.0.1:8000/api';
 
   useEffect(() => {
     if (user) {
@@ -36,72 +42,68 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
   }, [user]);
 
-  const login = async (correo: string, pass: string) => {
+  // CU2 – Inicio de sesión
+  const login = async (correo: string, pass: string): Promise<boolean> => {
     try {
-      const response = await fetch(`${API_URL}/auth/login`, {
+      const res = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ correo, password: pass })
+        body: JSON.stringify({ correo, password: pass }),
       });
-      
-      if (response.ok) {
-        const userData = await response.json();
-        setUser(userData);
-        return true;
-      }
+      if (res.ok) { setUser(await res.json()); return true; }
       return false;
-    } catch (error) {
-      console.error("Login failed:", error);
-      return false;
-    }
+    } catch { return false; }
   };
 
-  const register = async (nombre: string, correo: string, pass: string, rol: string) => {
+  // CU1 – Registro
+  const register = async (nombre: string, correo: string, pass: string, rol: string): Promise<boolean> => {
     try {
-      const response = await fetch(`${API_URL}/auth/register`, {
+      const res = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nombre, correo, password: pass, rol })
+        body: JSON.stringify({ nombre, correo, password: pass, rol }),
       });
-      
-      if (response.ok) {
-        const userData = await response.json();
-        setUser(userData);
-        return true;
-      }
+      if (res.ok) { setUser(await res.json()); return true; }
       return false;
-    } catch (error) {
-      console.error("Register failed:", error);
-      return false;
-    }
+    } catch { return false; }
   };
 
-  const logout = () => setUser(null);
+  // CU3 – Cierre de sesión
+  const logout = () => {
+    setUser(null);
+  };
 
-  const updateProfile = async (data: Partial<User>) => {
+  // CU5 – Actualizar datos de perfil
+  const updateProfile = async (data: Partial<User>): Promise<boolean> => {
     if (!user) return false;
-    
     try {
-      const response = await fetch(`${API_URL}/auth/profile/${user.id}`, {
+      const res = await fetch(`${API_URL}/auth/profile/${user.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       });
-      
-      if (response.ok) {
-        const updatedUser = await response.json();
-        setUser(updatedUser);
-        return true;
-      }
+      if (res.ok) { setUser(await res.json()); return true; }
       return false;
-    } catch (error) {
-      console.error("Update profile failed:", error);
+    } catch { return false; }
+  };
+
+  // CU5 – Subir foto de perfil
+  const uploadPhoto = async (file: File): Promise<boolean> => {
+    if (!user) return false;
+    try {
+      const form = new FormData();
+      form.append('foto', file);
+      const res = await fetch(`${API_URL}/auth/profile/${user.id}/photo`, {
+        method: 'POST',
+        body: form,
+      });
+      if (res.ok) { setUser(await res.json()); return true; }
       return false;
-    }
+    } catch { return false; }
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout, updateProfile }}>
+    <AuthContext.Provider value={{ user, login, register, logout, updateProfile, uploadPhoto }}>
       {children}
     </AuthContext.Provider>
   );
@@ -109,8 +111,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
+  if (!context) throw new Error('useAuth must be used within an AuthProvider');
   return context;
 };

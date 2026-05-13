@@ -29,10 +29,17 @@ class Usuario(Base):
     nombre = Column(String, index=True)
     correo = Column(String, unique=True, index=True)
     password_hash = Column(String)
-    rol = Column(String) # Usar string para simplicidad, o Enum
+    rol = Column(String) # VENDEDOR | COMPRADOR | ADMIN
     plan_suscripcion = Column(String, default=PlanSuscripcion.BASICO.value)
     consultas_ia = Column(Integer, default=0)
     stripe_customer = Column(String, nullable=True)
+    # Campos de perfil extendido (CU5)
+    telefono = Column(String, nullable=True)
+    descripcion = Column(Text, nullable=True)
+    foto_url = Column(String, nullable=True)
+    # Recuperación de contraseña (CU4)
+    reset_token = Column(String, nullable=True)
+    reset_token_expiry = Column(DateTime, nullable=True)
     
     # Relaciones
     aplicaciones_publicadas = relationship("Aplicacion", back_populates="vendedor", foreign_keys='Aplicacion.vendedor_id')
@@ -60,6 +67,7 @@ class Aplicacion(Base):
     precio_venta = Column(Float)
     url_codigo = Column(String, nullable=True)
     url_manual = Column(String, nullable=True)
+    imagenes_urls = Column(Text, nullable=True)
     sello_calidad = Column(Boolean, default=False)
     fecha_publicacion = Column(DateTime, default=datetime.datetime.utcnow)
     fecha_actualizacion = Column(DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
@@ -132,3 +140,12 @@ class VectorAplicacion(Base):
     
     aplicacion_id = Column(Integer, ForeignKey("aplicaciones.id"))
     aplicacion = relationship("Aplicacion", back_populates="vectores")
+
+class VisitaApp(Base):
+    __tablename__ = "visitas_app"
+    id = Column(Integer, primary_key=True, index=True)
+    aplicacion_id = Column(Integer, ForeignKey("aplicaciones.id"), index=True)
+    ip_visitante = Column(String, index=True, nullable=True)
+    usuario_id = Column(Integer, ForeignKey("usuarios.id"), nullable=True)
+    fecha = Column(DateTime, default=datetime.datetime.utcnow)
+

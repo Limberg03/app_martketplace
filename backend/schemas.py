@@ -18,14 +18,27 @@ class UserLogin(BaseModel):
 class UserUpdate(BaseModel):
     nombre: Optional[str] = None
     correo: Optional[EmailStr] = None
+    telefono: Optional[str] = None
+    descripcion: Optional[str] = None
 
 class UserResponse(UserBase):
     id: int
     plan_suscripcion: str
     consultas_ia: int
+    telefono: Optional[str] = None
+    descripcion: Optional[str] = None
+    foto_url: Optional[str] = None
 
     class Config:
         from_attributes = True
+
+# --- Recuperación de contraseña (CU4) ---
+class ForgotPasswordRequest(BaseModel):
+    correo: EmailStr
+
+class ResetPasswordRequest(BaseModel):
+    token: str
+    nueva_password: str
 
 # --- Categoria ---
 class CategoriaBase(BaseModel):
@@ -48,6 +61,7 @@ class AplicacionBase(BaseModel):
     precio_venta: float
     url_codigo: Optional[str] = None
     url_manual: Optional[str] = None
+    imagenes_urls: Optional[str] = None
 
 class AplicacionCreate(AplicacionBase):
     categoria_id: int
@@ -57,6 +71,7 @@ class AplicacionUpdate(BaseModel):
     descripcion: Optional[str] = None
     precio_venta: Optional[float] = None
     estado: Optional[str] = None
+    tecnologia: Optional[str] = None
 
 class AplicacionResponse(AplicacionBase):
     id: int
@@ -66,6 +81,21 @@ class AplicacionResponse(AplicacionBase):
     estado: str
     vendedor_id: int
     categoria_id: int
+
+    class Config:
+        from_attributes = True
+
+# --- Resena ---
+class ResenaCreate(BaseModel):
+    estrellas: int
+    comentario: str
+
+class ResenaResponse(BaseModel):
+    id: int
+    estrellas: int
+    comentario: str
+    fecha: datetime
+    usuario_id: int
 
     class Config:
         from_attributes = True
