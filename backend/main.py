@@ -22,6 +22,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_origins=["https://app-martketplace.vercel.app"],
 )
 
 # Servir archivos estáticos (fotos de perfil, imágenes de apps, ZIPs)
