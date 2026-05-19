@@ -18,7 +18,6 @@ app = FastAPI(
 # Configurar CORS para permitir que el Frontend (React) se comunique
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
