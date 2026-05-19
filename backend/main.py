@@ -18,10 +18,10 @@ app = FastAPI(
 # Configurar CORS para permitir que el Frontend (React) se comunique
 app.add_middleware(
     CORSMiddleware,
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
-    allow_origins=["https://app-martketplace.vercel.app"],
 )
 
 # Servir archivos estáticos (fotos de perfil, imágenes de apps, ZIPs)
