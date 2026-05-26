@@ -1,0 +1,515 @@
+Plan de Desarrollo: Marketplace UAGRM
+
+Especificación Exacta de Casos de Uso por Sprints
+
+SPRINT 1: Fundamentos y MVP Básico
+
+CU1 – Registrar Usuario (con rol)
+
+Actor
+
+Usuario anónimo (estudiante o pyme)
+
+Prioridad
+
+Alta
+
+Qué hace
+
+Crea cuenta nueva y asigna rol (VENDEDOR o COMPRADOR).
+
+Experiencia del Usuario (Paso a paso)
+
+Entra a https://marketplace.uagrm.app/register (desde celular o PC).
+
+Ve un formulario limpio con logo de la UAGRM.
+
+Escribe: Nombre completo, Correo electrónico, Contraseña (mínimo 8 caracteres), Confirmar contraseña.
+
+Selecciona rol en un botón grande:
+
+Soy Estudiante / Vendedor (ícono de mochila)
+
+Soy Pyme / Comprador (ícono de empresa)
+
+Marca “Acepto términos” y pulsa “Crear cuenta”.
+
+En celular: aparece mensaje verde “¡Cuenta creada!” y se abre automáticamente la pantalla de login.
+
+Notificación: No aplica (todavía no tiene cuenta).
+
+Ejemplo de mensaje de éxito:
+
+“¡Bienvenido a Marketplace UAGRM! Tu cuenta de VENDEDOR ha sido creada. Ya puedes subir tu primera app.”
+
+Flujos alternativos
+
+Correo ya existe → mensaje rojo “Este correo ya está registrado”.
+
+Contraseña débil → formulario no deja enviar y muestra “Mínimo 8 caracteres”.
+
+Notas técnicas
+
+Inserta en tabla usuarios con plan_suscripcion = 'BASIC'.
+
+
+
+CU2 – Iniciar Sesión / Cerrar Sesión
+
+Actor
+
+Usuario registrado
+
+Experiencia del Usuario (Inicio de sesión)
+
+En la pantalla de login escribe correo y contraseña.
+
+Pulsa “Iniciar sesión”.
+
+En celular (PWA): la pantalla se oscurece 1 segundo y lo lleva directo al dashboard según su rol:
+
+Vendedor → Dashboard de Ventas
+
+Comprador → Explorar Apps
+
+Si marca “Recordarme”, la próxima vez entra automáticamente.
+
+Cerrar Sesión
+
+En cualquier pantalla hay un botón de perfil (arriba a la derecha).
+
+Al tocar “Cerrar sesión” → se limpia todo y vuelve a la pantalla de login.
+
+Notificación push: “Sesión cerrada correctamente” (solo in-app).
+
+
+
+CU3 – Recuperar Contraseña
+
+Actor
+
+Usuario registrado que olvidó su contraseña
+
+Experiencia del Usuario
+
+En login pulsa “¿Olvidaste tu contraseña?”.
+
+Escribe su correo y pulsa “Enviar enlace”.
+
+En celular: recibe email y notificación push del correo: “Enlace para restablecer contraseña”.
+
+Abre el enlace → nueva pantalla donde escribe y confirma nueva contraseña.
+
+Mensaje: “¡Contraseña actualizada! Ya puedes iniciar sesión”.
+
+
+
+CU4 – Ver y Editar Perfil
+
+Actor
+
+Usuario autenticado
+
+Experiencia del Usuario
+
+Entra a “Mi Perfil” (icono de usuario).
+
+Ve su foto, nombre, correo, rol y plan actual (BASIC o PREMIUM).
+
+Puede cambiar foto (arrastrar o seleccionar desde galería), nombre, teléfono, descripción corta.
+
+En celular: la foto se actualiza en tiempo real en la barra superior de la PWA.
+
+Al guardar: “Perfil actualizado correctamente”.
+
+
+
+CU5 – Subir Nueva Aplicación (básico)
+
+Actor
+
+VENDEDOR (Estudiante)
+
+Experiencia del Usuario (Vendedor)
+
+Va a “Mi Portafolio” → botón grande verde “+ Subir Nueva App”.
+
+Llena: Título, Categoría (select), Descripción corta, Tecnologías (chips que se agregan), Precio de venta (manual).
+
+Sube: archivo ZIP del código fuente + hasta 5 imágenes.
+
+Pulsa “Publicar”.
+
+En celular: barra de progreso mientras sube a S3.
+
+Al terminar: “¡App subida! Está en revisión. Te avisaremos cuando esté activa.”
+
+Recibe notificación push y in-app: “Tu app ‘Sistema Farmacia’ fue subida correctamente”.
+
+
+
+CU6 – Gestionar Portafolio (CRUD)
+
+Actor
+
+VENDEDOR
+
+Experiencia del Usuario
+
+Lista de tarjetas de sus apps (con foto, título, precio, estado: ACTIVA / EN_REVISION / INACTIVA).
+
+En cada tarjeta: botón Editar, Activar/Desactivar, Eliminar.
+
+Límite básico: Si tiene 5 apps y es BASIC, botón “Subir” aparece gris con tooltip “Actualiza a PREMIUM para subir más”.
+
+Notificación cuando alguien compra: (ver CU9 y CU21).
+
+
+
+CU7 – Explorar Marketplace (público)
+
+Actor
+
+Cualquiera (incluso sin login)
+
+Experiencia del Usuario
+
+Página pública con grid de apps.
+
+Puede filtrar por categoría sin registrarse.
+
+Al tocar una app → detalle (CU8).
+
+
+
+CU8 – Ver Detalle de Aplicación
+
+Actor
+
+Cualquiera
+
+Experiencia del Usuario
+
+Ve título grande, precio, sello de calidad (por ahora solo “En revisión”), descripciones, imágenes en carrusel, tecnologías.
+
+Botón “Comprar por Bs. XXX” (solo visible si está logueado como COMPRADOR).
+
+
+
+CU9 – Comprar Aplicación + Pago con Stripe
+
+Actor
+
+COMPRADOR autenticado
+
+Experiencia del Usuario (Comprador)
+
+En detalle de app pulsa “Comprar ahora”.
+
+Abre Stripe Checkout (pantalla segura de Stripe).
+
+Ingresa tarjeta y paga.
+
+Al completar: notificación push inmediata en celular:
+
+“¡Compra exitosa! 🎉 Ya tienes ‘Sistema Farmacia’ en tu biblioteca.”
+
+Redirección automática a “Mis Compras” con enlace de descarga.
+
+
+
+CU10 – Ver Mis Compras (Comprador)
+
+Actor
+
+COMPRADOR
+
+Experiencia del Usuario
+
+Lista de apps compradas con fecha, precio y botón “Descargar” (enlace temporal seguro).
+
+
+
+CU11 – Ver Ventas (Vendedor)
+
+Actor
+
+VENDEDOR
+
+Experiencia del Usuario
+
+Dashboard con tarjetas: “Total ganado este mes: Bs. 1.250”, “Apps vendidas: 3”, lista de últimas ventas.
+
+
+
+SPRINT 2: Inteligencia Artificial Básica
+
+CU12 – Búsqueda Inteligente y Semántica
+
+Actor
+
+COMPRADOR
+
+Experiencia del Usuario
+
+En la barra de búsqueda escribe en español normal:
+
+“Necesito un sistema para mi farmacia que controle inventario y ventas”.
+
+Pulsa Enter.
+
+La IA muestra las 3 mejores apps con porcentaje de coincidencia (“92% de coincidencia”).
+
+En celular: resultados cargan en menos de 2 segundos.
+
+
+
+CU13 – Sugerencia Automática de Precio
+
+Actor
+
+VENDEDOR (al subir app)
+
+Experiencia del Usuario
+
+Mientras sube la app hay botón “Obtener sugerencia IA”.
+
+Después de analizar: popup “La IA recomienda Bs. 280 – Bs. 350 (basado en apps similares)”.
+
+El vendedor puede aceptar o poner su precio.
+
+
+
+CU14 – Generación Automática de Documentación y Manual
+
+Actor
+
+VENDEDOR
+
+Experiencia del Usuario
+
+Al terminar de subir la app: barra de progreso “IA generando manual y documentación…”.
+
+Al finalizar: recibe notificación push:
+
+“¡Listo! Ya tienes Manual de Usuario y Documentación Técnica generados por IA.”
+
+
+
+CU15 – Analizador de Complejidad y Sello Grado A
+
+Actor
+
+Sistema (automático)
+
+Experiencia del Usuario (Vendedor)
+
+Al subir app: “Analizando código…”.
+
+Si pasa: aparece sello verde “Grado A” en la app.
+
+Notificación: “¡Felicidades! Tu app obtuvo Sello de Calidad Grado A”.
+
+
+
+CU16 – Sistema de Recomendaciones Personalizadas
+
+Actor
+
+COMPRADOR
+
+Experiencia del Usuario
+
+En la página principal aparece sección “Recomendados para ti” con 4 tarjetas.
+
+Ejemplo: “Basado en tu compra de sistema de inventario, te recomendamos esta app de facturación”.
+
+
+
+CU17 – Chatear con Asistente RAG (básico)
+
+Actor
+
+COMPRADOR
+
+Experiencia del Usuario
+
+En la página de detalle de app hay un chat flotante “Pregúntale a la IA sobre esta app”.
+
+Escribe: “¿Este sistema exporta a Excel?”
+
+El bot responde usando el código real: “Sí, en el módulo reportes hay una función export_to_excel()…”.
+
+
+
+CU18 – Dejar Reseña / Calificar App
+
+Actor
+
+COMPRADOR (solo después de comprar)
+
+Experiencia del Usuario
+
+En “Mis Compras” aparece botón “Dejar reseña” en cada app comprada.
+
+Estrellas + comentario → se publica inmediatamente.
+
+
+
+CU19 – Gestionar Suscripciones (Freemium)
+
+Actor
+
+Cualquier usuario
+
+Experiencia del Usuario
+
+En perfil → “Mi Plan”.
+
+Ve límites actuales (ej. “Te quedan 2 búsquedas IA hoy”).
+
+Botón “Pasar a PREMIUM – Bs. 49/mes” abre Stripe.
+
+
+
+SPRINT 3: Avanzado, Notificaciones y Pulido Final
+
+CU21 – Notificaciones Push Nativas + In-App (el que pediste de ejemplo)
+
+Actor
+
+Vendedor y Comprador (con PWA instalada)
+
+Prioridad
+
+Alta
+
+Qué hace
+
+Envía alertas en tiempo real incluso si la PWA está cerrada o el teléfono bloqueado.
+
+Cuándo se envía (ejemplos reales)
+
+Nueva venta (vendedor)
+
+Nueva compra confirmada (comprador)
+
+App aprobada después de revisión
+
+Nueva recomendación personalizada
+
+Límite de plan básico casi alcanzado
+
+Experiencia del Usuario (Vendedor - Celular)
+
+Estás en casa, teléfono en el bolsillo, PWA cerrada.
+
+De repente vibra el celular y aparece notificación nativa del sistema (como WhatsApp):
+
+Título: ¡Nueva Venta! 🎉
+
+Mensaje: Juan Pérez (Pyme) compró tu app “Sistema de Inventario” por Bs. 280.
+
+Hora: hace 10 segundos
+
+Acción: Tocar → abre directamente el dashboard de ventas de la PWA.
+
+Experiencia del Usuario (Comprador - Celular)
+
+Título: ¡Compra Exitosa!
+
+Mensaje: Ya tienes “Sistema Farmacia” en tu biblioteca. Descárgalo ahora.
+
+Botón: “Abrir app”
+
+Notificación In-App
+
+Además, dentro de la PWA (si está abierta) aparece una campanita con el mismo mensaje en tiempo real.
+
+
+
+CU20 – Notificaciones en Tiempo Real (WebSockets)
+
+Actor
+
+Todos
+
+Experiencia
+
+Igual que CU21 pero mientras estás dentro de la plataforma (barra lateral o campanita se actualiza instantáneamente sin recargar página).
+
+
+
+CU22 – Actualizar Aplicación (nuevas versiones)
+
+Actor
+
+VENDEDOR
+
+Experiencia
+
+Sube nueva versión de una app ya vendida.
+
+Todos los compradores anteriores reciben notificación push:
+
+“Tu app ‘Sistema Farmacia’ tiene una nueva versión disponible. Descárgala gratis.”
+
+
+
+CU23 – Dashboard Avanzado Vendedor
+
+Actor
+
+VENDEDOR
+
+Experiencia
+
+Gráficos bonitos (ventas por mes, apps más vendidas, ingresos). En celular se ve scroll vertical limpio.
+
+
+
+CU24 – Gestión de Suscripciones Avanzada
+
+Actor
+
+Usuario
+
+Experiencia
+
+Puede cancelar plan y ver historial completo de pagos de Stripe.
+
+
+
+CU25 – Reportar Aplicación + Moderación (Admin)
+
+Actor
+
+Cualquier usuario + Admin
+
+Experiencia
+
+Botón “Reportar” en detalle de app → formulario rápido. Admin recibe notificación push.
+
+
+
+CU26 – Filtros avanzados y Ordenamiento
+
+Actor
+
+Todos
+
+Experiencia
+
+En marketplace puede ordenar por “Mejor valorados”, “Con Sello Grado A”, “Más baratos”, etc.
+
+
+
+CU27 – Optimizaciones finales y Pruebas
+
+Actor
+
+Equipo
+
+Experiencia
+
+(No es visible para usuario final – es interno).

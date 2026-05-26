@@ -27,11 +27,13 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/recover-password" element={<RecoverPassword />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/perfil" element={<Profile />} />
               <Route path="/marketplace" element={<Marketplace />} />
               <Route path="/app/:id" element={<AppDetail />} />
               <Route path="/upload" element={<UploadApp />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/purchases" element={<MyPurchases />} />
+              <Route path="/compras" element={<MyPurchases />} />
               <Route path="/sales" element={<SalesDashboard />} />
             </Routes>
           </main>

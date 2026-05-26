@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUpload, faFileCode, faImage, faTimes,
-  faSpinner, faPlus, faCheckCircle, faExclamationCircle
+  faSpinner, faPlus, faCheckCircle, faExclamationCircle, faRobot
 } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -31,6 +31,8 @@ const UploadApp: React.FC = () => {
   const [progress, setProgress]     = useState(0);
   const [error, setError]           = useState('');
   const [exito, setExito]           = useState(false);
+  const [sugiriendo, setSugiriendo] = useState(false);
+  const [sugerenciaModal, setSugerenciaModal] = useState<{ open: boolean, data: string | null }>({ open: false, data: null });
 
   useEffect(() => {
     fetch(`${API_URL}/apps/categorias`)
@@ -58,6 +60,41 @@ const UploadApp: React.FC = () => {
     setImagenes(prev => [...prev, ...files].slice(0, 5));
   };
   const removeImage = (idx: number) => setImagenes(prev => prev.filter((_, i) => i !== idx));
+
+  // ── Sugerencia de Precio (IA) ─────────────────────────────────────────────
+  const handleSuggestPrice = async () => {
+    if (!titulo || !descripcion || tecnologias.length === 0) {
+      setError('Completa Título, Descripción y Tecnologías para usar la IA.');
+      return;
+    }
+    setSugiriendo(true);
+    setError('');
+    try {
+      const form = new FormData();
+      form.append('usuario_id', user.id.toString());
+      form.append('titulo', titulo);
+      form.append('descripcion', descripcion);
+      form.append('tecnologia', tecnologias.join(', '));
+      if (zipFile) {
+        form.append('codigo_zip', zipFile);
+      }
+
+      const res = await fetch(`${API_URL}/ai/suggest-price`, {
+        method: 'POST',
+        body: form
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setSugerenciaModal({ open: true, data: data.sugerencia });
+      } else {
+        setError(data.detail || 'Error al sugerir precio.');
+      }
+    } catch {
+      setError('Error de conexión con la IA.');
+    } finally {
+      setSugiriendo(false);
+    }
+  };
 
   // ── Submit ────────────────────────────────────────────────────────────────
   const handleSubmit = async (e: React.FormEvent) => {
@@ -110,8 +147,8 @@ const UploadApp: React.FC = () => {
       <div className="animate-fade-in">
         <FontAwesomeIcon icon={faCheckCircle} style={{ fontSize: '80px', color: 'var(--success)', marginBottom: '24px' }} />
         <h2 style={{ fontSize: '2rem', marginBottom: '12px' }}>¡App subida exitosamente!</h2>
-        <p style={{ color: 'var(--text-secondary)', maxWidth: '420px' }}>
-          Tu aplicación está en revisión. Te avisaremos cuando esté activa en el marketplace.
+        <p style={{ color: 'var(--text-secondary)', maxWidth: '420px', lineHeight: 1.6 }}>
+          Tu aplicación está en revisión. La <strong>Inteligencia Artificial</strong> está analizando la calidad del código (Sello Grado A) y generando la documentación técnica en segundo plano.
         </p>
         <p style={{ color: 'var(--text-secondary)', marginTop: '16px', fontSize: '0.9rem' }}>
           Redirigiendo a tu portafolio...
@@ -122,6 +159,59 @@ const UploadApp: React.FC = () => {
 
   return (
     <div className="container" style={{ padding: '40px 24px', flex: 1 }}>
+      
+      {/* Overlay de Sugerencia de Precio (Modal Flotante) */}
+      {(sugiriendo || sugerenciaModal.open) && (
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)',
+          backdropFilter: 'blur(8px)', zIndex: 1000,
+          display: 'flex', alignItems: 'center', justifyContent: 'center'
+        }}>
+          <div className="glass-card animate-fade-in" style={{ maxWidth: '540px', width: '90%', padding: '40px', textAlign: 'center', position: 'relative', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
+            {sugiriendo ? (
+              <>
+                <FontAwesomeIcon icon={faRobot} bounce style={{ fontSize: '56px', color: '#8b5cf6', marginBottom: '24px' }} />
+                <h3 style={{ fontSize: '1.6rem', marginBottom: '16px' }}>La IA está analizando tu proyecto...</h3>
+                <p style={{ color: 'var(--text-secondary)', marginBottom: '16px', lineHeight: 1.6 }}>
+                  Extrayendo información clave del <strong>Título</strong>, <strong>Descripción</strong> y las <strong>Tecnologías</strong> seleccionadas.
+                </p>
+                {zipFile ? (
+                  <div style={{ background: 'rgba(16, 185, 129, 0.1)', padding: '12px 16px', borderRadius: '8px', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                    <p style={{ color: 'var(--success)', fontWeight: 600, fontSize: '0.95rem', margin: 0 }}>
+                      <FontAwesomeIcon icon={faCheckCircle} /> Leyendo la arquitectura interna del ZIP ({zipFile.name}) para sugerir un precio de máxima precisión.
+                    </p>
+                  </div>
+                ) : (
+                  <div style={{ background: 'rgba(245, 158, 11, 0.1)', padding: '12px 16px', borderRadius: '8px', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
+                    <p style={{ color: '#fbbf24', fontSize: '0.95rem', margin: 0, fontWeight: 500 }}>
+                      <FontAwesomeIcon icon={faExclamationCircle} /> Nota: No has subido el archivo ZIP. El análisis se basará únicamente en el texto descriptivo. Para mayor exactitud, adjunta el código fuente.
+                    </p>
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                <button onClick={() => setSugerenciaModal({ open: false, data: null })} style={{
+                  position: 'absolute', top: '20px', right: '20px', background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '1.4rem'
+                }}>
+                  <FontAwesomeIcon icon={faTimes} />
+                </button>
+                <FontAwesomeIcon icon={faRobot} style={{ fontSize: '56px', color: 'var(--success)', marginBottom: '24px' }} />
+                <h3 style={{ fontSize: '1.6rem', marginBottom: '20px' }}>Análisis Completado</h3>
+                <div style={{ background: 'rgba(255,255,255,0.03)', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', marginBottom: '32px', textAlign: 'left' }}>
+                  <p style={{ fontSize: '1.1rem', lineHeight: 1.6, color: 'var(--text-primary)', margin: 0 }}>
+                    {sugerenciaModal.data}
+                  </p>
+                </div>
+                <button type="button" className="btn btn-primary" onClick={() => setSugerenciaModal({ open: false, data: null })} style={{ width: '100%', padding: '14px', fontSize: '1.1rem' }}>
+                  Aceptar y Continuar
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
       <div style={{ maxWidth: '820px', margin: '0 auto' }}>
         <h1 style={{ fontSize: '2.2rem', marginBottom: '8px' }}>Subir Nueva Aplicación</h1>
         <p style={{ color: 'var(--text-secondary)', marginBottom: '36px' }}>
@@ -171,9 +261,14 @@ const UploadApp: React.FC = () => {
             </div>
             <div className="form-group" style={{ marginBottom: 0 }}>
               <label className="form-label">Precio de venta (Bs.) *</label>
-              <input type="number" className="form-control" required min="0" step="0.01"
-                value={precio} onChange={e => setPrecio(e.target.value)}
-                placeholder="ej. 250.00" />
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <input type="number" className="form-control" required min="0" step="0.01"
+                  value={precio} onChange={e => setPrecio(e.target.value)}
+                  placeholder="ej. 250.00" style={{ flex: 1 }} />
+                <button type="button" onClick={handleSuggestPrice} disabled={sugiriendo} className="btn btn-outline" style={{ padding: '0 16px' }} title="Sugerir precio con IA">
+                  {sugiriendo ? <FontAwesomeIcon icon={faSpinner} spin /> : <FontAwesomeIcon icon={faRobot} />}
+                </button>
+              </div>
             </div>
           </div>
 

@@ -61,6 +61,7 @@ class AplicacionBase(BaseModel):
     precio_venta: float
     url_codigo: Optional[str] = None
     url_manual: Optional[str] = None
+    manual_markdown: Optional[str] = None
     imagenes_urls: Optional[str] = None
 
 class AplicacionCreate(AplicacionBase):
@@ -72,6 +73,7 @@ class AplicacionUpdate(BaseModel):
     precio_venta: Optional[float] = None
     estado: Optional[str] = None
     tecnologia: Optional[str] = None
+    manual_markdown: Optional[str] = None
 
 class AplicacionResponse(AplicacionBase):
     id: int

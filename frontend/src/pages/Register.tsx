@@ -34,8 +34,12 @@ const Register: React.FC = () => {
       });
       if (res.ok) {
         // El AuthContext.register también lo llama pero aquí navegamos directo
-        await register(name, email, password, dbRole);
-        navigate('/marketplace');
+        const user = await register(name, email, password, dbRole);
+        if (user && user.rol === 'VENDEDOR') {
+          navigate('/portfolio');
+        } else {
+          navigate('/marketplace');
+        }
       } else {
         const data = await res.json();
         setError(data.detail || 'Error en el registro. Intente con otro correo.');

@@ -4,8 +4,10 @@ from fastapi.staticfiles import StaticFiles
 from database import engine
 import models
 import os
-from routers import auth, apps, dashboard
+from dotenv import load_dotenv
+load_dotenv()
 
+from routers import auth, apps, dashboard, stripe_router, ai, reviews
 # Crea las tablas en PostgreSQL si no existen (incluye los nuevos campos de CU4/CU5)
 models.Base.metadata.create_all(bind=engine)
 
@@ -34,6 +36,9 @@ app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 app.include_router(auth.router)
 app.include_router(apps.router)
 app.include_router(dashboard.router)
+app.include_router(stripe_router.router)
+app.include_router(ai.router)
+app.include_router(reviews.router)
 
 @app.get("/")
 def read_root():

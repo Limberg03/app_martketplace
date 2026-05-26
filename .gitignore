@@ -25,3 +25,20 @@ dist-ssr
 
 __pycache__/
 *.pyc
+
+
+#----------------
+
+# Dependencias de Node / React (Frontend)
+node_modules/
+
+# Entornos virtuales y caché de Python / FastAPI (Backend)
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Variables de entorno
+.env
+
+backend/uploads/zips/

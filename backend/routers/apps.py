@@ -1,17 +1,21 @@
-from fastapi import APIRouter, Depends, HTTPException, File, UploadFile, Form, Query, Request
+from fastapi import APIRouter, Depends, HTTPException, File, UploadFile, Form, Query, Request, BackgroundTasks
 from sqlalchemy.orm import Session
 import models, schemas
-from database import get_db
+from database import get_db, SessionLocal
+from services import ai_service
 from typing import List, Optional
 import os
 import shutil
 import uuid
+import datetime
 
 router = APIRouter(prefix="/api/apps", tags=["Aplicaciones (Marketplace)"])
 
 UPLOADS_IMG = "uploads/images"
 UPLOADS_ZIP = "uploads/zips"
 LIMITE_BASIC = 5  # Máximo apps plan BASICO (CU7)
+
+# La lógica de IA ahora se maneja manualmente a través del router /ai/
 
 # ─── CU8 – Explorar Marketplace (público) ────────────────────────────────────
 @router.get("/", response_model=List[schemas.AplicacionResponse])
@@ -68,6 +72,7 @@ def get_portfolio(seller_id: int, db: Session = Depends(get_db)):
             "estado": app.estado,
             "visitas": app.visitas,
             "sello_calidad": app.sello_calidad,
+            "manual_markdown": app.manual_markdown,
             "fecha_publicacion": app.fecha_publicacion,
             "vendedor_id": app.vendedor_id,
             "categoria_id": app.categoria_id,
@@ -117,6 +122,7 @@ def view_app_detail(app_id: int, request: Request, usuario_id: Optional[int] = N
 # ─── CU6 – Subir Nueva Aplicación ────────────────────────────────────────────
 @router.post("/", response_model=schemas.AplicacionResponse, status_code=201)
 async def upload_new_app(
+    background_tasks: BackgroundTasks,
     titulo: str = Form(...),
     descripcion: str = Form(...),
     tecnologia: str = Form(...),
@@ -136,7 +142,9 @@ async def upload_new_app(
     if not vendedor:
         raise HTTPException(status_code=404, detail="Vendedor no encontrado")
 
-    if vendedor.plan_suscripcion == models.PlanSuscripcion.BASICO.value:
+    is_premium = (vendedor.plan_suscripcion == models.PlanSuscripcion.PREMIUM.value)
+
+    if not is_premium:
         total_apps = db.query(models.Aplicacion).filter(
             models.Aplicacion.vendedor_id == vendedor_id
         ).count()
@@ -145,6 +153,22 @@ async def upload_new_app(
                 status_code=403,
                 detail=f"Plan BÁSICO permite máximo {LIMITE_BASIC} aplicaciones. Actualiza a PREMIUM para subir más."
             )
+
+    # Validar límite de manuales generados
+    limit_manuales = 10 if is_premium else 1
+    hoy = datetime.datetime.utcnow().date()
+    if vendedor.fecha_ultima_actividad:
+        last_date = vendedor.fecha_ultima_actividad.date()
+        if last_date.month != hoy.month or last_date.year != hoy.year:
+            vendedor.manuales_generados_mes = 0
+            
+    if vendedor.manuales_generados_mes >= limit_manuales:
+        raise HTTPException(
+            status_code=403,
+            detail=f"Has alcanzado el límite de {limit_manuales} manual(es) autogenerado(s) este mes."
+        )
+    vendedor.manuales_generados_mes += 1
+    vendedor.fecha_ultima_actividad = datetime.datetime.utcnow()
 
     # Validar ZIP
     if not codigo_zip.filename.lower().endswith(('.zip', '.rar')):
@@ -189,7 +213,9 @@ async def upload_new_app(
     )
     db.add(new_app)
     db.commit()
+    db.commit()
     db.refresh(new_app)
+    
     return new_app
 
 # ─── CU7 – Editar App ────────────────────────────────────────────────────────
@@ -218,6 +244,8 @@ def update_app(
         db_app.tecnologia = app_update.tecnologia
     if app_update.estado is not None:
         db_app.estado = app_update.estado
+    if app_update.manual_markdown is not None:
+        db_app.manual_markdown = app_update.manual_markdown
 
     db.commit()
     db.refresh(db_app)

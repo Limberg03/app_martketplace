@@ -15,11 +15,12 @@ export interface User {
 
 interface AuthContextType {
   user: User | null;
-  login: (correo: string, pass: string) => Promise<boolean>;
-  register: (nombre: string, correo: string, pass: string, rol: string) => Promise<boolean>;
+  login: (correo: string, pass: string) => Promise<User | null>;
+  register: (nombre: string, correo: string, pass: string, rol: string) => Promise<User | null>;
   logout: () => void;
   updateProfile: (data: Partial<User>) => Promise<boolean>;
   uploadPhoto: (file: File) => Promise<boolean>;
+  updateLocalUser: (data: Partial<User>) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -43,29 +44,35 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }, [user]);
 
   // CU2 – Inicio de sesión
-  const login = async (correo: string, pass: string): Promise<boolean> => {
+  const login = async (correo: string, pass: string): Promise<User | null> => {
     try {
       const res = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ correo, password: pass }),
       });
-      if (res.ok) { setUser(await res.json()); return true; }
-      return false;
-    } catch { return false; }
+      if (res.ok) { 
+        const userData = await res.json();
+        setUser(userData); 
+        return userData; 
+      }
+      return null;
+    } catch { return null; }
   };
 
   // CU1 – Registro
-  const register = async (nombre: string, correo: string, pass: string, rol: string): Promise<boolean> => {
+  const register = async (nombre: string, correo: string, pass: string, rol: string): Promise<User | null> => {
     try {
       const res = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre, correo, password: pass, rol }),
       });
-      if (res.ok) { setUser(await res.json()); return true; }
-      return false;
-    } catch { return false; }
+      if (res.ok) {
+        return await login(correo, pass);
+      }
+      return null;
+    } catch { return null; }
   };
 
   // CU3 – Cierre de sesión
@@ -102,8 +109,12 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     } catch { return false; }
   };
 
+  const updateLocalUser = (data: Partial<User>) => {
+    if (user) setUser({ ...user, ...data });
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, register, logout, updateProfile, uploadPhoto }}>
+    <AuthContext.Provider value={{ user, login, register, logout, updateProfile, uploadPhoto, updateLocalUser }}>
       {children}
     </AuthContext.Provider>
   );

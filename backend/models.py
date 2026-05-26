@@ -32,6 +32,9 @@ class Usuario(Base):
     rol = Column(String) # VENDEDOR | COMPRADOR | ADMIN
     plan_suscripcion = Column(String, default=PlanSuscripcion.BASICO.value)
     consultas_ia = Column(Integer, default=0)
+    sugerencias_precio_diarias = Column(Integer, default=0)
+    manuales_generados_mes = Column(Integer, default=0)
+    fecha_ultima_actividad = Column(DateTime, default=datetime.datetime.utcnow)
     stripe_customer = Column(String, nullable=True)
     # Campos de perfil extendido (CU5)
     telefono = Column(String, nullable=True)
@@ -67,6 +70,7 @@ class Aplicacion(Base):
     precio_venta = Column(Float)
     url_codigo = Column(String, nullable=True)
     url_manual = Column(String, nullable=True)
+    manual_markdown = Column(Text, nullable=True)
     imagenes_urls = Column(Text, nullable=True)
     sello_calidad = Column(Boolean, default=False)
     fecha_publicacion = Column(DateTime, default=datetime.datetime.utcnow)
@@ -148,4 +152,27 @@ class VisitaApp(Base):
     ip_visitante = Column(String, index=True, nullable=True)
     usuario_id = Column(Integer, ForeignKey("usuarios.id"), nullable=True)
     fecha = Column(DateTime, default=datetime.datetime.utcnow)
+
+# PESOS DE INTERACCION:
+# visita = 2 pts | ver_doc = 3 pts | compra = 5 pts | busqueda_ia = 1 pt
+PESOS_INTERACCION = {
+    "visita": 2,
+    "ver_doc": 3,
+    "compra": 5,
+    "busqueda_ia": 1,
+}
+
+class HistorialInteraccion(Base):
+    """CU16: Registra cada señal de comportamiento del comprador para recomendaciones personalizadas."""
+    __tablename__ = "historial_interacciones"
+    id = Column(Integer, primary_key=True, index=True)
+    usuario_id = Column(Integer, ForeignKey("usuarios.id"), index=True)
+    aplicacion_id = Column(Integer, ForeignKey("aplicaciones.id"), index=True)
+    # tipo: 'visita' | 'ver_doc' | 'compra' | 'busqueda_ia'
+    tipo_accion = Column(String, index=True)
+    peso = Column(Integer, default=2)
+    fecha = Column(DateTime, default=datetime.datetime.utcnow)
+
+    usuario = relationship("Usuario", backref="interacciones")
+    aplicacion = relationship("Aplicacion", backref="interacciones")
 

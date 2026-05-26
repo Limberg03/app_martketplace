@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEdit, faEye, faPlus, faTrash, faToggleOn, faToggleOff,
   faSave, faTimes, faSpinner, faCheckCircle, faExclamationCircle,
-  faBoxOpen, faCrown
+  faBoxOpen, faCrown, faRobot, faFileAlt, faEye as faEyeSolid
 } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../context/AuthContext';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const API_URL = 'http://127.0.0.1:8000/api';
 const LIMITE_BASIC = 5;
@@ -23,6 +25,7 @@ interface AppItem {
   fecha_publicacion: string;
   ventas: number;
   ingresos: number;
+  manual_markdown: string | null;
 }
 
 interface EditForm {
@@ -64,6 +67,14 @@ const Portfolio: React.FC = () => {
   // Modal eliminar
   const [deleteApp, setDeleteApp] = useState<AppItem | null>(null);
   const [deleting, setDeleting]   = useState(false);
+
+  // Modal IA
+  const [aiModalApp, setAiModalApp] = useState<AppItem | null>(null);
+  const [analyzingQuality, setAnalyzingQuality] = useState(false);
+  const [generatingManual, setGeneratingManual] = useState(false);
+  const [savingManual, setSavingManual] = useState(false);
+  const [manualText, setManualText] = useState('');
+  const [showPreview, setShowPreview] = useState(false);
 
   if (!user || user.rol !== 'VENDEDOR') return <Navigate to="/marketplace" />;
 
@@ -152,6 +163,67 @@ const Portfolio: React.FC = () => {
         showToast(d.detail || 'No se pudo eliminar', true);
       }
     } finally { setDeleting(false); }
+  };
+
+  // ── Gestión IA ───────────────────────────────────────────────────────────
+  const handleAnalyzeQuality = async () => {
+    if (!aiModalApp) return;
+    setAnalyzingQuality(true);
+    try {
+      const res = await fetch(`${API_URL}/ai/analyze-quality/${aiModalApp.id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ usuario_id: user.id })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        showToast(data.sello_calidad ? '¡Felicidades! Obtuviste el Sello Grado A' : 'Auditoría completada. No se obtuvo el sello.');
+        setAiModalApp({ ...aiModalApp, sello_calidad: data.sello_calidad });
+        fetchPortfolio();
+      } else {
+        showToast(data.detail || 'Error al auditar', true);
+      }
+    } finally { setAnalyzingQuality(false); }
+  };
+
+  const handleGenerateManual = async () => {
+    if (!aiModalApp) return;
+    setGeneratingManual(true);
+    try {
+      const res = await fetch(`${API_URL}/ai/generate-manual/${aiModalApp.id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ usuario_id: user.id })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setManualText(data.manual_markdown);
+        showToast('Manual generado exitosamente');
+        fetchPortfolio();
+      } else {
+        showToast(data.detail || 'Error al generar manual', true);
+      }
+    } finally { setGeneratingManual(false); }
+  };
+
+  const handleSaveManual = async () => {
+    if (!aiModalApp) return;
+    setSavingManual(true);
+    try {
+      const res = await fetch(`${API_URL}/apps/${aiModalApp.id}?seller_id=${user.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ manual_markdown: manualText })
+      });
+      if (res.ok) {
+        showToast('Manual guardado correctamente');
+        setAiModalApp({ ...aiModalApp, manual_markdown: manualText });
+        fetchPortfolio();
+      } else {
+        const d = await res.json();
+        showToast(d.detail || 'Error al guardar manual', true);
+      }
+    } finally { setSavingManual(false); }
   };
 
   return (
@@ -278,6 +350,11 @@ const Portfolio: React.FC = () => {
                       title="Editar" style={{ padding: '6px 10px' }}>
                       <FontAwesomeIcon icon={faEdit} />
                     </button>
+                    {/* IA */}
+                    <button onClick={() => { setAiModalApp(app); setManualText(app.manual_markdown || ''); }} className="btn btn-outline btn-sm"
+                      title="Gestión de IA" style={{ padding: '6px 10px', color: '#8b5cf6', borderColor: 'rgba(139,92,246,0.3)' }}>
+                      <FontAwesomeIcon icon={faRobot} />
+                    </button>
                     {/* Toggle */}
                     <button onClick={() => handleToggle(app)} className="btn btn-outline btn-sm"
                       title={app.estado === 'ACTIVA' ? 'Desactivar' : 'Activar'}
@@ -363,6 +440,91 @@ const Portfolio: React.FC = () => {
                 {deleting ? <><FontAwesomeIcon icon={faSpinner} spin /> Eliminando...</> : <><FontAwesomeIcon icon={faTrash} /> Sí, eliminar</>}
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Modal Gestión IA ────────────────────────────────────────────── */}
+      {aiModalApp && (
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)',
+          backdropFilter: 'blur(6px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          zIndex: 1000, padding: '20px'
+        }}>
+          <div className="glass-card animate-fade-in" style={{ width: '100%', maxWidth: '800px', maxHeight: '90vh', overflowY: 'auto' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+              <h3 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <FontAwesomeIcon icon={faRobot} color="#8b5cf6" />
+                Gestión de IA para: {aiModalApp.titulo}
+              </h3>
+              <button onClick={() => setAiModalApp(null)} style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '1.2rem' }}>
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+            </div>
+
+            {/* Tarjeta 1: Sello de Calidad */}
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '24px', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <h4 style={{ margin: '0 0 8px 0', fontSize: '1.2rem' }}>Auditoría de Código (Sello Grado A)</h4>
+                  <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>La IA evaluará la arquitectura de tu código fuente. Si está bien estructurado, obtendrás el sello de calidad.</p>
+                </div>
+                <div style={{ textAlign: 'right', minWidth: '180px' }}>
+                  {aiModalApp.sello_calidad ? (
+                    <div style={{ color: 'var(--success)', fontWeight: 'bold', marginBottom: '12px' }}><FontAwesomeIcon icon={faCheckCircle} /> Sello Otorgado</div>
+                  ) : (
+                    <div style={{ color: 'var(--text-secondary)', marginBottom: '12px', fontSize: '0.9rem' }}>Aún no auditado</div>
+                  )}
+                  <button onClick={handleAnalyzeQuality} disabled={analyzingQuality} className="btn btn-outline" style={{ width: '100%' }}>
+                    {analyzingQuality ? <><FontAwesomeIcon icon={faSpinner} spin /> Auditando...</> : 'Solicitar Auditoría'}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Tarjeta 2: Manual Técnico */}
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '24px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <div>
+                  <h4 style={{ margin: '0 0 8px 0', fontSize: '1.2rem' }}>Generador de Manual Técnico</h4>
+                  <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>La IA escribirá la documentación leyendo tu código (formato Markdown).</p>
+                </div>
+                <button onClick={handleGenerateManual} disabled={generatingManual} className="btn btn-outline" style={{ color: '#8b5cf6', borderColor: '#8b5cf6', minWidth: '180px' }}>
+                  {generatingManual ? <><FontAwesomeIcon icon={faSpinner} spin /> Escribiendo...</> : <><FontAwesomeIcon icon={faFileAlt} /> Generar Manual</>}
+                </button>
+              </div>
+              
+              {manualText && manualText.length > 0 && (
+                <div className="animate-fade-in">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <label className="form-label" style={{ fontWeight: 600, color: 'var(--primary)', margin: 0 }}>
+                      {showPreview ? 'Vista Previa HTML (Comprador)' : 'Editor Markdown (Modificable)'}
+                    </label>
+                    <button onClick={() => setShowPreview(!showPreview)} className="btn btn-outline btn-sm" style={{ padding: '6px 12px' }}>
+                      <FontAwesomeIcon icon={showPreview ? faEdit : faEyeSolid} style={{ marginRight: '6px' }} />
+                      {showPreview ? 'Volver a Editar' : 'Ver Vista Previa'}
+                    </button>
+                  </div>
+                  
+                  {showPreview ? (
+                    <div className="markdown-reader" style={{ background: 'rgba(0,0,0,0.3)', padding: '24px', borderRadius: '8px', border: '1px solid var(--border-color)', height: '350px', overflowY: 'auto' }}>
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {manualText}
+                      </ReactMarkdown>
+                    </div>
+                  ) : (
+                    <textarea className="form-control" rows={14} value={manualText} onChange={(e) => setManualText(e.target.value)} style={{ fontFamily: 'monospace', fontSize: '0.95rem', background: 'rgba(0,0,0,0.2)' }}></textarea>
+                  )}
+
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
+                    <button onClick={handleSaveManual} disabled={savingManual} className="btn btn-primary" style={{ padding: '12px 24px' }}>
+                      {savingManual ? <><FontAwesomeIcon icon={faSpinner} spin /> Guardando...</> : <><FontAwesomeIcon icon={faSave} /> Guardar Documentación</>}
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
           </div>
         </div>
       )}

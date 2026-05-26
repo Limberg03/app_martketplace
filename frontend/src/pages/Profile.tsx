@@ -1,17 +1,17 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUser, faEnvelope, faCamera, faSave,
   faExclamationCircle, faPhone, faInfoCircle,
-  faCheckCircle, faSpinner, faCrown
+  faCheckCircle, faSpinner, faCrown, faRocket, faRobot, faCode, faChartLine
 } from '@fortawesome/free-solid-svg-icons';
 
 const API_BASE = 'http://127.0.0.1:8000';
 
 const Profile: React.FC = () => {
-  const { user, updateProfile, uploadPhoto } = useAuth();
+  const { user, updateProfile, uploadPhoto, updateLocalUser } = useAuth();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [name, setName]           = useState(user?.nombre || '');
@@ -22,6 +22,28 @@ const Profile: React.FC = () => {
   const [saved, setSaved]         = useState(false);
   const [error, setError]         = useState('');
   const [photoLoading, setPhotoLoading] = useState(false);
+  const [loadingPremium, setLoadingPremium] = useState(false);
+  
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Mostrar mensaje si vuelve de Stripe
+  const isPremiumSuccess = new URLSearchParams(location.search).get('premium') === 'true';
+
+  useEffect(() => {
+    const upgradeUser = async () => {
+      if (isPremiumSuccess && user && user.plan_suscripcion !== 'PREMIUM') {
+        try {
+          await fetch(`${API_BASE}/api/stripe/simulate-upgrade/${user.id}`, { method: 'POST' });
+          updateLocalUser({ plan_suscripcion: 'PREMIUM' });
+          navigate('/perfil', { replace: true });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    };
+    upgradeUser();
+  }, [isPremiumSuccess, user]);
 
   if (!user) return <Navigate to="/login" />;
 
@@ -56,7 +78,24 @@ const Profile: React.FC = () => {
   };
 
   const planColor = user.plan_suscripcion === 'PREMIUM' ? '#f59e0b' : 'var(--primary)';
-  const planLabel = user.plan_suscripcion === 'PREMIUM' ? 'PREMIUM ⭐' : 'BÁSICO';
+  const planLabel = user.plan_suscripcion === 'PREMIUM' ? 'PREMIUM ' : 'BÁSICO';
+
+  const handleUpgrade = async () => {
+    setLoadingPremium(true);
+    try {
+      const res = await fetch(`${API_BASE}/api/stripe/create-subscription-session?usuario_id=${user.id}`, { method: 'POST' });
+      const data = await res.json();
+      if (res.ok && data.checkout_url) {
+        window.location.href = data.checkout_url;
+      } else {
+        setError('Error al iniciar el pago.');
+      }
+    } catch {
+      setError('Error de conexión.');
+    } finally {
+      setLoadingPremium(false);
+    }
+  };
 
   return (
     <div className="container" style={{ padding: '40px 24px', flex: 1 }}>
@@ -69,6 +108,18 @@ const Profile: React.FC = () => {
             Gestiona tu información personal y preferencias de cuenta.
           </p>
         </div>
+
+        {/* Notificación de Stripe Premium */}
+        {isPremiumSuccess && (
+          <div className="animate-fade-in" style={{
+            background: 'rgba(245, 158, 11, 0.15)', border: '1px solid #f59e0b',
+            borderRadius: '12px', padding: '14px 20px', marginBottom: '24px',
+            display: 'flex', alignItems: 'center', gap: '10px', color: '#f59e0b', fontWeight: 600
+          }}>
+            <FontAwesomeIcon icon={faCheckCircle} />
+            ¡Felicidades! Ahora eres un usuario PREMIUM. Tu cuenta se actualizará en breve.
+          </div>
+        )}
 
         {/* Notificación guardado */}
         {saved && (
@@ -136,13 +187,26 @@ const Profile: React.FC = () => {
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', marginBottom: '10px' }}>
                   Haz clic en la foto para cambiarla. JPG, PNG o WEBP · máx. 2MB
                 </p>
-                <span style={{
-                  padding: '4px 14px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 700,
-                  background: `${planColor}22`, color: planColor, border: `1px solid ${planColor}44`
-                }}>
-                  <FontAwesomeIcon icon={faCrown} style={{ marginRight: '6px' }} />
-                  Plan {planLabel}
-                </span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '8px' }}>
+                  <span style={{
+                    padding: '4px 14px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 700,
+                    background: `${planColor}22`, color: planColor, border: `1px solid ${planColor}44`
+                  }}>
+                    <FontAwesomeIcon icon={faCrown} style={{ marginRight: '6px' }} />
+                    Plan {planLabel}
+                  </span>
+                  
+                  {user.plan_suscripcion !== 'PREMIUM' && (
+                    <button 
+                      type="button"
+                      onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="btn btn-outline btn-sm"
+                      style={{ fontSize: '0.75rem', padding: '4px 12px', borderColor: '#3b82f6', color: '#3b82f6', borderRadius: '20px' }}
+                    >
+                      Mejorar a PREMIUM
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -257,6 +321,125 @@ const Profile: React.FC = () => {
             </div>
           </form>
         </div>
+
+        {/* Pricing Cards */}
+        {user.plan_suscripcion !== 'PREMIUM' && (
+          <div id="pricing-section" style={{ marginTop: '60px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+              <h2 style={{ fontSize: '2rem', marginBottom: '8px' }}>Elige el plan ideal para ti</h2>
+              <p style={{ color: 'var(--text-secondary)' }}>Desbloquea el poder total de la Inteligencia Artificial y lleva tu negocio al siguiente nivel.</p>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+              {/* Plan Basico */}
+              <div style={{
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '16px',
+                padding: '32px',
+                display: 'flex',
+                flexDirection: 'column',
+                backdropFilter: 'blur(10px)',
+                transition: 'transform 0.3s ease'
+              }}>
+                <div style={{ marginBottom: '24px' }}>
+                  <h3 style={{ fontSize: '1.5rem', marginBottom: '8px', color: 'var(--text-primary)' }}>Básico</h3>
+                  <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--text-primary)' }}>Gratis</div>
+                  <p style={{ color: 'var(--text-secondary)', marginTop: '8px' }}>Acceso esencial a la plataforma.</p>
+                </div>
+                
+                <div style={{ flex: 1 }}>
+                  <p style={{ fontWeight: 'bold', marginBottom: '16px' }}>Incluye:</p>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'var(--text-secondary)' }}>
+                    {user.rol === 'VENDEDOR' ? (
+                      <>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}><FontAwesomeIcon icon={faCheckCircle} style={{ color: 'var(--text-secondary)' }}/> Portafolio máx. 5 apps</li>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}><FontAwesomeIcon icon={faCheckCircle} style={{ color: 'var(--text-secondary)' }}/> 1 Optimización de precio/día</li>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}><FontAwesomeIcon icon={faCheckCircle} style={{ color: 'var(--text-secondary)' }}/> 1 Manual autogenerado/mes</li>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}><FontAwesomeIcon icon={faCheckCircle} style={{ color: 'var(--text-secondary)' }}/> Sin sello de calidad IA</li>
+                      </>
+                    ) : (
+                      <>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}><FontAwesomeIcon icon={faCheckCircle} style={{ color: 'var(--text-secondary)' }}/> 3 Consultas IA/día (Búsqueda)</li>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}><FontAwesomeIcon icon={faCheckCircle} style={{ color: 'var(--text-secondary)' }}/> 5 Preguntas técnicas RAG/app</li>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}><FontAwesomeIcon icon={faCheckCircle} style={{ color: 'var(--text-secondary)' }}/> Soporte estándar</li>
+                      </>
+                    )}
+                  </ul>
+                </div>
+                <button className="btn btn-outline" style={{ marginTop: '24px', width: '100%', borderColor: 'rgba(255,255,255,0.2)', cursor: 'default' }} disabled>
+                  Tu plan actual
+                </button>
+              </div>
+
+              {/* Plan Premium */}
+              <div style={{
+                background: 'linear-gradient(180deg, rgba(20,25,35,0.8) 0%, rgba(10,12,18,0.9) 100%)',
+                border: '1px solid #3b82f6',
+                borderRadius: '16px',
+                padding: '32px',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: '0 10px 40px -10px rgba(59,130,246,0.3)',
+                transform: 'scale(1.02)'
+              }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #d946ef)' }}></div>
+                
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+                  <span style={{ background: '#ffffff', color: '#000000', padding: '4px 12px', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 'bold' }}>
+                    Recomendado
+                  </span>
+                </div>
+
+                <div style={{ marginBottom: '24px', textAlign: 'center' }}>
+                  <h3 style={{ fontSize: '1.8rem', marginBottom: '8px', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                    <FontAwesomeIcon icon={faCrown} style={{ color: '#fbbf24' }}/> PREMIUM
+                  </h3>
+                  <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#ffffff' }}>10 USD<span style={{ fontSize: '1rem', color: '#9ca3af', fontWeight: 'normal' }}>/mes</span></div>
+                  <p style={{ color: '#9ca3af', marginTop: '8px' }}>Poder ilimitado y posicionamiento.</p>
+                </div>
+                
+                <div style={{ flex: 1 }}>
+                  <p style={{ fontWeight: 'bold', marginBottom: '16px', color: '#ffffff' }}>Incluye todo lo básico, y:</p>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: '#e5e7eb' }}>
+                    {user.rol === 'VENDEDOR' ? (
+                      <>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}><FontAwesomeIcon icon={faRocket} style={{ color: '#3b82f6' }}/> Portafolio Ilimitado</li>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}><FontAwesomeIcon icon={faChartLine} style={{ color: '#3b82f6' }}/> 10 Optimizaciones de precio/día</li>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}><FontAwesomeIcon icon={faCode} style={{ color: '#3b82f6' }}/> 10 Manuales autogenerados/mes</li>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}><FontAwesomeIcon icon={faCrown} style={{ color: '#fbbf24' }}/> Sello de Calidad IA (Grado A)</li>
+                      </>
+                    ) : (
+                      <>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}><FontAwesomeIcon icon={faRobot} style={{ color: '#3b82f6' }}/> 20 Consultas IA/día (Búsqueda)</li>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}><FontAwesomeIcon icon={faCode} style={{ color: '#3b82f6' }}/> Consultas ilimitadas RAG al código</li>
+                        <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}><FontAwesomeIcon icon={faCrown} style={{ color: '#fbbf24' }}/> Recomendaciones de alta precisión</li>
+                      </>
+                    )}
+                  </ul>
+                </div>
+                <button 
+                  onClick={handleUpgrade}
+                  disabled={loadingPremium}
+                  className="btn btn-primary" 
+                  style={{ 
+                    marginTop: '24px', 
+                    width: '100%', 
+                    padding: '16px',
+                    background: 'linear-gradient(90deg, #2563eb, #7c3aed)',
+                    border: 'none',
+                    fontWeight: 'bold',
+                    fontSize: '1.1rem'
+                  }}
+                >
+                  {loadingPremium ? <FontAwesomeIcon icon={faSpinner} spin /> : 'Mejorar a PREMIUM'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

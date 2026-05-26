@@ -16,10 +16,14 @@ const Login: React.FC = () => {
     e.preventDefault();
     setError('');
     setLoading(true);
-    const success = await login(email, password);
+    const user = await login(email, password);
     setLoading(false);
-    if (success) {
-      navigate('/marketplace');
+    if (user) {
+      if (user.rol === 'VENDEDOR') {
+        navigate('/portfolio');
+      } else {
+        navigate('/marketplace');
+      }
     } else {
       setError('Correo o contraseña incorrectos. Verifique sus datos o cree una cuenta nueva.');
     }
