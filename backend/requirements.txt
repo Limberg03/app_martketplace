@@ -29,3 +29,5 @@ websockets==16.0
 stripe
 google-generativeai
 chromadb
+
+pywebpush

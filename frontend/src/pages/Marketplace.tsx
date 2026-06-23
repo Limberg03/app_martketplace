@@ -21,6 +21,7 @@ interface AppItem {
   url_manual: string | null;
   sello_calidad?: boolean;
   razon_ia?: string;
+  promedio_resenas?: number;
 }
 
 const Marketplace: React.FC = () => {
@@ -33,6 +34,8 @@ const Marketplace: React.FC = () => {
   const [loading, setLoading]           = useState(true);
   const [isAiSearch, setIsAiSearch]     = useState(false);
   const [searchTrigger, setSearchTrigger] = useState(0);
+  const [ordering, setOrdering]         = useState('fecha_desc');
+  const [soloGradoA, setSoloGradoA]     = useState(false);
 
   const [isListening, setIsListening] = useState(false);
   const recognitionRef = useRef<any>(null);
@@ -40,6 +43,7 @@ const Marketplace: React.FC = () => {
   // CU16: Recomendaciones personalizadas
   const [recommendations, setRecommendations] = useState<any[]>([]);
   const [loadingRec, setLoadingRec] = useState(false);
+  const [showRecommendations, setShowRecommendations] = useState(false);
 
   // Inicializar Web Speech API
   useEffect(() => {
@@ -99,14 +103,17 @@ const Marketplace: React.FC = () => {
 
   // CU16: Cargar recomendaciones personalizadas cuando el usuario está logueado como COMPRADOR
   useEffect(() => {
-    if (!user || user.rol !== 'COMPRADOR') return;
+    if (!user || user.rol !== 'COMPRADOR' || !showRecommendations) {
+      setRecommendations([]);
+      return;
+    }
     setLoadingRec(true);
     fetch(`${API_URL}/ai/recommendations/${user.id}`)
       .then(r => r.json())
       .then(data => setRecommendations(Array.isArray(data) ? data : []))
       .catch(() => setRecommendations([]))
       .finally(() => setLoadingRec(false));
-  }, [user?.id]);
+  }, [user?.id, showRecommendations]);
 
   // Cargar aplicaciones
   useEffect(() => {
@@ -143,6 +150,8 @@ const Marketplace: React.FC = () => {
       const params = new URLSearchParams();
       if (!isAiSearch && debouncedSearch) params.append('q', debouncedSearch);
       if (categoriaId) params.append('categoria_id', categoriaId);
+      if (ordering) params.append('ordering', ordering);
+      if (soloGradoA) params.append('solo_grado_a', 'true');
 
       fetch(`${API_URL}/apps/?${params.toString()}`)
         .then(r => r.json())
@@ -150,7 +159,7 @@ const Marketplace: React.FC = () => {
         .catch(() => setApps([]))
         .finally(() => setLoading(false));
     }
-  }, [debouncedSearch, categoriaId, isAiSearch, searchTrigger]);
+  }, [debouncedSearch, categoriaId, isAiSearch, searchTrigger, ordering, soloGradoA]);
 
   const handleManualSearch = () => {
     if (isAiSearch && searchTerm.trim()) {
@@ -171,6 +180,17 @@ const Marketplace: React.FC = () => {
           <h1 style={{ fontSize: '2.5rem', marginBottom: '8px' }}>Explorar Marketplace</h1>
           <p style={{ color: 'var(--text-secondary)' }}>Descubre soluciones de software universitario para tu negocio.</p>
         </div>
+        
+        {user && user.rol === 'COMPRADOR' && (
+          <button 
+            onClick={() => setShowRecommendations(!showRecommendations)}
+            className={`btn ${showRecommendations ? 'btn-primary' : 'btn-outline'}`}
+            style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 20px', borderRadius: '30px' }}
+          >
+            <FontAwesomeIcon icon={faWandMagicSparkles} /> 
+            {showRecommendations ? 'Ocultar Recomendaciones' : 'Recomendarme Apps'}
+          </button>
+        )}
       </div>
 
       <div style={{ display: 'flex', gap: '16px', marginBottom: '40px', flexWrap: 'wrap' }}>
@@ -225,7 +245,7 @@ const Marketplace: React.FC = () => {
           <FontAwesomeIcon icon={faWandMagicSparkles} /> {isAiSearch ? 'Búsqueda IA Activa' : 'Usar IA'}
         </button>
         
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
           <FontAwesomeIcon icon={faFilter} style={{ color: 'var(--text-secondary)' }} />
           <select 
             className="form-control" 
@@ -238,6 +258,27 @@ const Marketplace: React.FC = () => {
               <option key={c.id} value={c.id}>{c.nombre}</option>
             ))}
           </select>
+
+          <select 
+            className="form-control" 
+            style={{ width: 'auto' }}
+            value={ordering} 
+            onChange={e => setOrdering(e.target.value)}
+          >
+            <option value="fecha_desc">Más recientes primero</option>
+            <option value="precio_asc">Precio: de menor a mayor</option>
+            <option value="precio_desc">Precio: de mayor a menor</option>
+            <option value="valoracion_desc">Mejor valoradas</option>
+          </select>
+
+          <button 
+            className={`btn ${soloGradoA ? 'btn-primary' : 'btn-outline'}`}
+            style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '0 16px', height: '100%' }}
+            onClick={() => setSoloGradoA(!soloGradoA)}
+            title="Mostrar solo aplicaciones con sello Grado A"
+          >
+            <FontAwesomeIcon icon={faShieldHalved} /> Solo Grado A
+          </button>
         </div>
       </div>
 
@@ -265,8 +306,8 @@ const Marketplace: React.FC = () => {
       <div style={{ marginTop: '24px' }}>
 
       {/* CU16: Sección Recomendado para Ti */}
-      {user && user.rol === 'COMPRADOR' && (recommendations.length > 0 || loadingRec) && (
-        <div style={{ marginBottom: '48px' }}>
+      {user && user.rol === 'COMPRADOR' && showRecommendations && (
+        <div style={{ marginBottom: '48px' }} className="animate-fade-in">
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
             <div style={{ background: 'linear-gradient(135deg, #8b5cf6, #3b82f6)', borderRadius: '10px', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', fontWeight: 700, color: 'white' }}>
               <FontAwesomeIcon icon={faWandMagicSparkles} /> Recomendado para ti
@@ -412,7 +453,7 @@ const Marketplace: React.FC = () => {
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginBottom: '24px', fontSize: '0.85rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
-                      <FontAwesomeIcon icon={faStar} style={{ color: '#fbbf24' }} /> 5.0
+                      <FontAwesomeIcon icon={faStar} style={{ color: '#fbbf24' }} /> {app.promedio_resenas ? app.promedio_resenas.toFixed(1) : '5.0'}
                     </div>
                   </div>
                 

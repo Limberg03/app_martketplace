@@ -197,8 +197,8 @@ const RecoverPassword: React.FC = () => {
                   style={{ paddingLeft: '44px', letterSpacing: '0.3em', textAlign: 'center', fontSize: '1.2rem' }}
                 />
               </div>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '6px' }}>
-                ⚠️ Modo demo: el código se completó automáticamente. En producción llegaría al correo.
+              <p style={{ marginTop: '16px', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                Nota: Modo demo. El código se completó automáticamente. En producción llegaría al correo.
               </p>
             </div>
 

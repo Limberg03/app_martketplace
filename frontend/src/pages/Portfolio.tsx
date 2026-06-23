@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEdit, faEye, faPlus, faTrash, faToggleOn, faToggleOff,
   faSave, faTimes, faSpinner, faCheckCircle, faExclamationCircle,
-  faBoxOpen, faCrown, faRobot, faFileAlt, faEye as faEyeSolid
+  faBoxOpen, faCrown, faRobot, faFileAlt, faEye as faEyeSolid, faCloudUploadAlt
 } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../context/AuthContext';
 import ReactMarkdown from 'react-markdown';
@@ -75,6 +75,11 @@ const Portfolio: React.FC = () => {
   const [savingManual, setSavingManual] = useState(false);
   const [manualText, setManualText] = useState('');
   const [showPreview, setShowPreview] = useState(false);
+
+  // Modal actualizar ZIP
+  const [updateApp, setUpdateApp] = useState<AppItem | null>(null);
+  const [updateFile, setUpdateFile] = useState<File | null>(null);
+  const [updating, setUpdating] = useState(false);
 
   if (!user || user.rol !== 'VENDEDOR') return <Navigate to="/marketplace" />;
 
@@ -226,6 +231,31 @@ const Portfolio: React.FC = () => {
     } finally { setSavingManual(false); }
   };
 
+  // ── Actualizar ZIP ────────────────────────────────────────────────────────
+  const handleUpdateZip = async () => {
+    if (!updateApp || !updateFile) return;
+    setUpdating(true);
+    try {
+      const formData = new FormData();
+      formData.append('seller_id', user.id.toString());
+      formData.append('codigo_zip', updateFile);
+
+      const res = await fetch(`${API_URL}/apps/${updateApp.id}/update-zip`, {
+        method: 'POST',
+        body: formData
+      });
+      if (res.ok) {
+        setUpdateApp(null);
+        setUpdateFile(null);
+        showToast('¡Nueva versión subida! Se ha notificado a los compradores.');
+        fetchPortfolio();
+      } else {
+        const d = await res.json();
+        showToast(d.detail || 'Error al actualizar versión', true);
+      }
+    } finally { setUpdating(false); }
+  };
+
   return (
     <div className="container" style={{ padding: '40px 24px', flex: 1 }}>
 
@@ -361,6 +391,11 @@ const Portfolio: React.FC = () => {
                       style={{ padding: '6px 10px', color: app.estado === 'ACTIVA' ? 'var(--success)' : '#f59e0b' }}>
                       <FontAwesomeIcon icon={app.estado === 'ACTIVA' ? faToggleOn : faToggleOff} />
                     </button>
+                    {/* Actualizar Versión (CU22) */}
+                    <button onClick={() => setUpdateApp(app)} className="btn btn-outline btn-sm"
+                      title="Subir Nueva Versión" style={{ padding: '6px 10px', color: '#3b82f6', borderColor: 'rgba(59,130,246,0.3)' }}>
+                      <FontAwesomeIcon icon={faCloudUploadAlt} />
+                    </button>
                     {/* Eliminar */}
                     <button onClick={() => setDeleteApp(app)} className="btn btn-outline btn-sm"
                       title="Eliminar" style={{ padding: '6px 10px', color: '#ef4444', borderColor: '#ef444440' }}>
@@ -438,6 +473,46 @@ const Portfolio: React.FC = () => {
               <button onClick={handleDelete} className="btn btn-primary"
                 disabled={deleting} style={{ background: '#ef4444', borderColor: '#ef4444' }}>
                 {deleting ? <><FontAwesomeIcon icon={faSpinner} spin /> Eliminando...</> : <><FontAwesomeIcon icon={faTrash} /> Sí, eliminar</>}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Modal Actualizar ZIP (CU22) ────────────────────────────────────── */}
+      {updateApp && (
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          zIndex: 1000, padding: '20px'
+        }}>
+          <div className="glass-card animate-fade-in" style={{ width: '100%', maxWidth: '480px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+              <h3 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <FontAwesomeIcon icon={faCloudUploadAlt} color="#3b82f6" />
+                Subir Nueva Versión
+              </h3>
+              <button onClick={() => { setUpdateApp(null); setUpdateFile(null); }} style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '1.2rem' }}>
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+            </div>
+            
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '20px', fontSize: '0.95rem' }}>
+              Selecciona el nuevo archivo <strong>.zip o .rar</strong> para la aplicación "<strong>{updateApp.titulo}</strong>". 
+              Al guardarlo, notificaremos automáticamente por la campanita y Push a todos los compradores.
+            </p>
+
+            <div className="form-group">
+              <label className="form-label">Archivo de Código (.zip / .rar)</label>
+              <input type="file" className="form-control" accept=".zip,.rar"
+                onChange={e => setUpdateFile(e.target.files?.[0] || null)} />
+            </div>
+
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end', marginTop: '28px' }}>
+              <button onClick={() => { setUpdateApp(null); setUpdateFile(null); }} className="btn btn-outline">Cancelar</button>
+              <button onClick={handleUpdateZip} className="btn btn-primary"
+                disabled={updating || !updateFile}>
+                {updating ? <><FontAwesomeIcon icon={faSpinner} spin /> Subiendo...</> : <><FontAwesomeIcon icon={faCloudUploadAlt} /> Guardar Versión</>}
               </button>
             </div>
           </div>

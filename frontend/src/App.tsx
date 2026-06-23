@@ -13,16 +13,36 @@ import UploadApp from './pages/UploadApp';
 import Portfolio from './pages/Portfolio';
 import MyPurchases from './pages/MyPurchases';
 import SalesDashboard from './pages/SalesDashboard';
+import AdminLayout from './pages/admin/AdminLayout';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminApps from './pages/admin/AdminApps';
+import AdminReports from './pages/admin/AdminReports';
+import AdminUsers from './pages/admin/AdminUsers';
+import { useLocation } from 'react-router-dom';
 
-function App() {
+function MainLayout() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  if (isAdminRoute) {
+    return (
+      <Routes>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="apps" element={<AdminApps />} />
+          <Route path="reports" element={<AdminReports />} />
+          <Route path="users" element={<AdminUsers />} />
+        </Route>
+      </Routes>
+    );
+  }
+
   return (
-    <AuthProvider>
-      <Router>
-        <div className="app-wrapper">
-          <Navbar />
-          <main className="main-content">
-            <Routes>
-              <Route path="/" element={<Home />} />
+    <div className="app-wrapper">
+      <Navbar />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/recover-password" element={<RecoverPassword />} />
@@ -35,10 +55,18 @@ function App() {
               <Route path="/purchases" element={<MyPurchases />} />
               <Route path="/compras" element={<MyPurchases />} />
               <Route path="/sales" element={<SalesDashboard />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <MainLayout />
       </Router>
     </AuthProvider>
   );

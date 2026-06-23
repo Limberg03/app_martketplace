@@ -1,9 +1,12 @@
 import os
 from fastapi import APIRouter, Depends, HTTPException, Request
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
 import stripe
 import models
 from database import get_db
+from routers.notificaciones import enviar_notificacion
+import asyncio
 
 router = APIRouter(prefix="/api/stripe", tags=["Pagos con Stripe"])
 
@@ -102,15 +105,100 @@ def create_subscription_session(usuario_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/simulate-upgrade/{usuario_id}")
-def simulate_upgrade(usuario_id: int, db: Session = Depends(get_db)):
+async def simulate_upgrade(usuario_id: int, db: Session = Depends(get_db)):
     """Simula el webhook de Stripe para actualizar a PREMIUM en localhost."""
     usuario = db.query(models.Usuario).filter(models.Usuario.id == usuario_id).first()
     if not usuario:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
         
     usuario.plan_suscripcion = models.PlanSuscripcion.PREMIUM.value
+    # Para la simulación local le ponemos un ID falso para que el botón de Portal no falle totalmente
+    usuario.stripe_customer = f"cus_simulated_{usuario.id}"
     db.commit()
+    await enviar_notificacion(db, usuario.id, "¡Bienvenido a Premium!", "Tu suscripción ha sido activada correctamente. Ya puedes subir apps ilimitadas.")
     return {"status": "success", "message": "Usuario actualizado a PREMIUM exitosamente."}
+
+class PortalRequest(BaseModel):
+    usuario_id: int
+
+@router.post("/create-portal-session")
+def create_portal_session(req: PortalRequest, db: Session = Depends(get_db)):
+    """CU24: Crea una sesión del portal de Stripe para cancelar o ver facturas."""
+    usuario = db.query(models.Usuario).filter(models.Usuario.id == req.usuario_id).first()
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+        
+    # En desarrollo / pruebas locales sin webhooks reales, stripe_customer puede estar vacío.
+    # Se recomienda en producción que el webhook 'checkout.session.completed' guarde el customer ID.
+    if not usuario.stripe_customer:
+        raise HTTPException(status_code=400, detail="No tienes un registro de facturación en Stripe activo.")
+        
+    try:
+        session = stripe.billing_portal.Session.create(
+            customer=usuario.stripe_customer,
+            return_url=f"{FRONTEND_URL}/perfil"
+        )
+        return {"url": session.url}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/simulate-purchase/{tx_id}")
+async def simulate_purchase(tx_id: int, db: Session = Depends(get_db)):
+    """Simula una compra de prueba en localhost."""
+    tx = db.query(models.Transaccion).filter(models.Transaccion.id == tx_id).first()
+    if not tx:
+        raise HTTPException(status_code=404, detail="Transacción no encontrada")
+        
+    tx.estado_pago = models.EstadoPago.COMPLETADO.value
+    db.commit()
+    
+    # Notificar al Vendedor
+    await enviar_notificacion(db, tx.aplicacion.vendedor_id, "¡Nueva Venta!", f"**{tx.comprador.nombre}** ha comprado tu app '{tx.aplicacion.titulo}' por Bs. {tx.monto_pagado}.")
+    
+    # Notificar al Comprador
+    await enviar_notificacion(db, tx.comprador_id, "¡Compra Exitosa!", f"Ya tienes '{tx.aplicacion.titulo}' en tu biblioteca. ¡Ve a Mis Compras para descargarla!")
+    
+    # CU16: Registrar Interacción de compra
+    interaccion = models.HistorialInteraccion(
+        usuario_id=tx.comprador_id,
+        aplicacion_id=tx.aplicacion_id,
+        tipo_accion='compra',
+        peso=models.PESOS_INTERACCION['compra']
+    )
+    db.add(interaccion)
+    db.commit()
+    
+    return {"status": "success", "message": "Compra simulada exitosamente."}
+
+@router.post("/verify-session/{session_id}")
+async def verify_session(session_id: str, db: Session = Depends(get_db)):
+    """Verifica si una sesión fue pagada y actualiza la BD localmente (útil sin webhooks)."""
+    try:
+        session = stripe.checkout.Session.retrieve(session_id)
+        if session.payment_status == 'paid':
+            tx_id_str = session.client_reference_id
+            if tx_id_str and not tx_id_str.startswith('SUB_'):
+                tx = db.query(models.Transaccion).filter(models.Transaccion.id == int(tx_id_str)).first()
+                if tx and tx.estado_pago == models.EstadoPago.PENDIENTE.value:
+                    tx.estado_pago = models.EstadoPago.COMPLETADO.value
+                    db.commit()
+                    # Notificar
+                    await enviar_notificacion(db, tx.aplicacion.vendedor_id, "¡Nueva Venta!", f"**{tx.comprador.nombre}** ha comprado tu app '{tx.aplicacion.titulo}'.")
+                    await enviar_notificacion(db, tx.comprador_id, "¡Compra Exitosa!", f"Ya tienes '{tx.aplicacion.titulo}' en tu biblioteca.")
+                    
+                    # Registrar Interacción de compra
+                    interaccion = models.HistorialInteraccion(
+                        usuario_id=tx.comprador_id,
+                        aplicacion_id=tx.aplicacion_id,
+                        tipo_accion='compra',
+                        peso=models.PESOS_INTERACCION.get('compra', 5)
+                    )
+                    db.add(interaccion)
+                    db.commit()
+            return {"status": "ok", "message": "Sesión verificada y compra confirmada."}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+    return {"status": "pending"}
 
 @router.post("/webhook")
 async def stripe_webhook(request: Request, db: Session = Depends(get_db)):
@@ -139,12 +227,17 @@ async def stripe_webhook(request: Request, db: Session = Depends(get_db)):
                 usuario = db.query(models.Usuario).filter(models.Usuario.id == usuario_id).first()
                 if usuario:
                     usuario.plan_suscripcion = models.PlanSuscripcion.PREMIUM.value
+                    customer_id = session.get('customer')
+                    if customer_id:
+                        usuario.stripe_customer = customer_id
                     db.commit()
             else:
                 tx = db.query(models.Transaccion).filter(models.Transaccion.id == int(tx_id_str)).first()
                 if tx and tx.estado_pago == models.EstadoPago.PENDIENTE.value:
                     tx.estado_pago = models.EstadoPago.COMPLETADO.value
                     db.commit()
-                # Aquí se podría crear una Notificación (CU21)
+                    # CU21 Notificar Vendedor y Comprador
+                    await enviar_notificacion(db, tx.aplicacion.vendedor_id, "¡Nueva Venta! 🎉", f"**{tx.comprador.nombre}** ha comprado tu app '{tx.aplicacion.titulo}'.")
+                    await enviar_notificacion(db, tx.comprador_id, "¡Compra Exitosa! 📦", f"Ya tienes '{tx.aplicacion.titulo}' en tu biblioteca.")
                 
     return {"status": "success"}

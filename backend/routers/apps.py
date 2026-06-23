@@ -4,6 +4,7 @@ import models, schemas
 from database import get_db, SessionLocal
 from services import ai_service
 from typing import List, Optional
+from sqlalchemy import func
 import os
 import shutil
 import uuid
@@ -22,9 +23,11 @@ LIMITE_BASIC = 5  # Máximo apps plan BASICO (CU7)
 def explore_marketplace(
     categoria_id: Optional[int] = Query(None),
     q: Optional[str] = Query(None, description="Búsqueda por título"),
+    ordering: Optional[str] = Query('fecha_desc', description="Ordenamiento (fecha_desc, precio_asc, precio_desc, valoracion_desc)"),
+    solo_grado_a: Optional[bool] = Query(False, description="Filtrar solo código verificado"),
     db: Session = Depends(get_db)
 ):
-    """CU8 – Explorar Marketplace. Filtra por categoría y/o texto."""
+    """CU8/CU26 – Explorar Marketplace con filtros avanzados."""
     query = db.query(models.Aplicacion).filter(
         models.Aplicacion.estado == models.EstadoApp.ACTIVA.value
     )
@@ -32,7 +35,21 @@ def explore_marketplace(
         query = query.filter(models.Aplicacion.categoria_id == categoria_id)
     if q:
         query = query.filter(models.Aplicacion.titulo.ilike(f"%{q}%"))
-    return query.order_by(models.Aplicacion.fecha_publicacion.desc()).all()
+    if solo_grado_a:
+        query = query.filter(models.Aplicacion.sello_calidad == True)
+        
+    # Ordenamiento
+    if ordering == 'precio_asc':
+        query = query.order_by(models.Aplicacion.precio_venta.asc())
+    elif ordering == 'precio_desc':
+        query = query.order_by(models.Aplicacion.precio_venta.desc())
+    elif ordering == 'valoracion_desc':
+        # Ordenar por el promedio de reseñas. Outer join a Resena
+        query = query.outerjoin(models.Resena).group_by(models.Aplicacion.id).order_by(func.avg(models.Resena.estrellas).desc().nullslast())
+    else: # fecha_desc (default)
+        query = query.order_by(models.Aplicacion.fecha_publicacion.desc())
+        
+    return query.all()
 
 # ─── Listar categorías ────────────────────────────────────────────────────────
 @router.get("/categorias", response_model=List[schemas.CategoriaResponse])
@@ -251,6 +268,68 @@ def update_app(
     db.refresh(db_app)
     return db_app
 
+# ─── CU22 – Actualizar Archivo de Aplicación (Nueva Versión) ──────────────────
+from routers.notificaciones import enviar_notificacion
+import asyncio
+
+@router.post("/{app_id}/update-zip", response_model=schemas.AplicacionResponse)
+async def update_app_zip(
+    app_id: int,
+    seller_id: int = Form(...),
+    codigo_zip: UploadFile = File(...),
+    db: Session = Depends(get_db)
+):
+    """CU22 – Sube una nueva versión del ZIP y notifica a los compradores."""
+    db_app = db.query(models.Aplicacion).filter(
+        models.Aplicacion.id == app_id,
+        models.Aplicacion.vendedor_id == seller_id
+    ).first()
+    
+    if not db_app:
+        raise HTTPException(status_code=404, detail="App no encontrada o sin permisos")
+
+    if not codigo_zip.filename.lower().endswith(('.zip', '.rar')):
+        raise HTTPException(status_code=400, detail="El archivo debe ser .zip o .rar")
+
+    # Guardar nuevo ZIP
+    zip_ext = codigo_zip.filename.rsplit('.', 1)[-1]
+    zip_filename = f"{seller_id}_{uuid.uuid4().hex[:8]}_v2.{zip_ext}"
+    zip_path = f"{UPLOADS_ZIP}/{zip_filename}"
+    with open(zip_path, "wb") as buf:
+        shutil.copyfileobj(codigo_zip.file, buf)
+
+    # Eliminar ZIP anterior si existe
+    if db_app.url_codigo:
+        old_path = db_app.url_codigo.lstrip("/")
+        if os.path.exists(old_path):
+            try: os.remove(old_path)
+            except: pass
+
+    db_app.url_codigo = f"/uploads/zips/{zip_filename}"
+    db_app.fecha_actualizacion = datetime.datetime.utcnow()
+    db.commit()
+    db.refresh(db_app)
+    
+    # Notificar a todos los compradores (CU22)
+    compras = db.query(models.Transaccion).filter(
+        models.Transaccion.aplicacion_id == app_id,
+        models.Transaccion.estado_pago == models.EstadoPago.COMPLETADO.value
+    ).all()
+    
+    # Enviar notificación a cada comprador único
+    compradores_notificados = set()
+    for compra in compras:
+        if compra.comprador_id not in compradores_notificados:
+            compradores_notificados.add(compra.comprador_id)
+            await enviar_notificacion(
+                db, 
+                compra.comprador_id, 
+                "¡Actualización Disponible!", 
+                f"**{db_app.vendedor.nombre}** ha subido una nueva versión de '{db_app.titulo}'. ¡Descárgala ahora!"
+            )
+
+    return db_app
+
 # ─── CU7 – Activar / Desactivar App ─────────────────────────────────────────
 @router.patch("/{app_id}/toggle", response_model=schemas.AplicacionResponse)
 def toggle_app_estado(app_id: int, seller_id: int = Query(...), db: Session = Depends(get_db)):
@@ -323,3 +402,41 @@ def seed_categorias(db: Session = Depends(get_db)):
             creadas += 1
     db.commit()
     return {"message": f"{creadas} categorías creadas"}
+
+# ─── CU25 – Reportar Aplicación ──────────────────────────────────────────────
+@router.post("/{app_id}/reportar")
+async def reportar_aplicacion(
+    app_id: int,
+    request: Request,
+    db: Session = Depends(get_db)
+):
+    """CU25 – Un usuario reporta una aplicación. Se notifica al vendedor/admin."""
+    data = await request.json()
+    usuario_id = data.get("usuario_id")
+    motivo = data.get("motivo")
+    descripcion = data.get("descripcion")
+    
+    app = db.query(models.Aplicacion).filter(models.Aplicacion.id == app_id).first()
+    if not app:
+        raise HTTPException(status_code=404, detail="App no encontrada")
+        
+    nuevo_reporte = models.Reporte(
+        aplicacion_id=app_id,
+        usuario_id=usuario_id,
+        motivo=motivo,
+        descripcion=descripcion
+    )
+    db.add(nuevo_reporte)
+    db.commit()
+    
+    # Notificar al vendedor de que su app fue reportada
+    await enviar_notificacion(
+        db,
+        app.vendedor_id,
+        "Advertencia: App Reportada",
+        f"Tu aplicación '{app.titulo}' ha sido reportada por '{motivo}'. Por favor revisa que cumpla los lineamientos."
+    )
+    
+    # (Si existiera un usuario admin, también se le notificaría aquí)
+    
+    return {"status": "ok", "message": "Reporte enviado exitosamente."}

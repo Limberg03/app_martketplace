@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload, faFilePdf, faCheckCircle, faSpinner, faBoxOpen, faStar, faCommentDots } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faFilePdf, faCheckCircle, faSpinner, faBoxOpen, faStar, faCommentDots, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../context/AuthContext';
 
 const API_URL = 'http://127.0.0.1:8000/api';
@@ -32,16 +32,32 @@ const MyPurchases: React.FC = () => {
   const [reviewError, setReviewError] = useState('');
 
   const location = useLocation();
-  const isSuccess = new URLSearchParams(location.search).get('success') === 'true';
+  const searchParams = new URLSearchParams(location.search);
+  const isSuccess = searchParams.get('success') === 'true';
+  const sessionId = searchParams.get('session_id');
 
   useEffect(() => {
     if (!user) return;
-    fetch(`${API_URL}/dashboard/compras/${user.id}`)
-      .then(res => res.json())
-      .then(data => setCompras(Array.isArray(data) ? data : []))
-      .catch(() => setCompras([]))
-      .finally(() => setLoading(false));
-  }, [user?.id]);
+    
+    // Verificar sesión si venimos de un pago exitoso
+    const verifyAndLoad = async () => {
+      if (isSuccess && sessionId) {
+        try {
+          await fetch(`${API_URL}/stripe/verify-session/${sessionId}`, { method: 'POST' });
+        } catch (e) {
+          console.error("Error verificando sesión", e);
+        }
+      }
+      // Luego cargar las compras
+      fetch(`${API_URL}/dashboard/compras/${user.id}`)
+        .then(res => res.json())
+        .then(data => setCompras(Array.isArray(data) ? data : []))
+        .catch(() => setCompras([]))
+        .finally(() => setLoading(false));
+    };
+
+    verifyAndLoad();
+  }, [user?.id, isSuccess, sessionId]);
 
   if (!user || user.rol !== 'COMPRADOR') return <Navigate to="/marketplace" />;
 
@@ -50,13 +66,12 @@ const MyPurchases: React.FC = () => {
     setReviewLoading(true);
     setReviewError('');
     try {
-      const res = await fetch(`${API_URL}/reviews/`, {
+      const res = await fetch(`${API_URL}/reviews/?app_id=${reviewAppId}&usuario_id=${user.id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          app_id: reviewAppId,
-          usuario_id: user.id,
-          review: { estrellas: reviewStars, comentario: reviewText }
+          estrellas: reviewStars, 
+          comentario: reviewText 
         })
       });
       const data = await res.json();
@@ -157,15 +172,26 @@ const MyPurchases: React.FC = () => {
               <FontAwesomeIcon icon={faCommentDots} /> Califica la aplicación
             </h3>
             
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '24px', fontSize: '24px', cursor: 'pointer' }}>
-              {[1, 2, 3, 4, 5].map(star => (
-                <FontAwesomeIcon 
-                  key={star} 
-                  icon={faStar} 
-                  style={{ color: star <= reviewStars ? '#fbbf24' : 'var(--border-color)', transition: 'color 0.2s' }}
-                  onClick={() => setReviewStars(star)}
-                />
-              ))}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
+              <div style={{ display: 'flex', gap: '8px', fontSize: '24px', alignItems: 'center' }}>
+                <span style={{ fontWeight: 'bold', color: '#fbbf24', minWidth: '40px' }}>{reviewStars.toFixed(1)}</span>
+                {[1, 2, 3, 4, 5].map(star => (
+                  <FontAwesomeIcon 
+                    key={star} 
+                    icon={star <= reviewStars ? faStar : (star - 0.5 === reviewStars ? faStarHalfAlt : faStar)} 
+                    style={{ color: star <= Math.ceil(reviewStars) ? '#fbbf24' : 'var(--border-color)', transition: 'color 0.2s' }}
+                  />
+                ))}
+              </div>
+              <input 
+                type="range" 
+                min="1" 
+                max="5" 
+                step="0.5" 
+                value={reviewStars} 
+                onChange={e => setReviewStars(parseFloat(e.target.value))}
+                style={{ width: '100%', cursor: 'pointer', accentColor: '#fbbf24' }}
+              />
             </div>
 
             <textarea 

@@ -83,18 +83,19 @@ class AplicacionResponse(AplicacionBase):
     estado: str
     vendedor_id: int
     categoria_id: int
+    promedio_resenas: float = 5.0
 
     class Config:
         from_attributes = True
 
 # --- Resena ---
 class ResenaCreate(BaseModel):
-    estrellas: int
+    estrellas: float
     comentario: str
 
 class ResenaResponse(BaseModel):
     id: int
-    estrellas: int
+    estrellas: float
     comentario: str
     fecha: datetime
     usuario_id: int

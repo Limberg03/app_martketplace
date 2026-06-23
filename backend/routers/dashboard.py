@@ -3,6 +3,8 @@ from sqlalchemy.orm import Session
 import models
 from database import get_db
 from typing import List
+from sqlalchemy import func
+import calendar
 
 router = APIRouter(prefix="/api/dashboard", tags=["Dashboard (Compras y Ventas)"])
 
@@ -56,3 +58,46 @@ def ver_mis_ventas(vendedor_id: int, db: Session = Depends(get_db)):
         "cantidad_ventas": len(historial),
         "historial": sorted(historial, key=lambda x: x["fecha"], reverse=True)
     }
+
+@router.get("/metricas/{vendedor_id}")
+def metricas_avanzadas(vendedor_id: int, db: Session = Depends(get_db)):
+    """CU23: Métricas avanzadas para gráficos (ventas por mes, etc)."""
+    aplicaciones = db.query(models.Aplicacion).filter(models.Aplicacion.vendedor_id == vendedor_id).all()
+    app_ids = [app.id for app in aplicaciones]
+    
+    if not app_ids:
+        return {"ventas_mensuales": [], "top_apps": []}
+        
+    # Ventas por mes
+    ventas = db.query(models.Transaccion).filter(
+        models.Transaccion.aplicacion_id.in_(app_ids),
+        models.Transaccion.estado_pago == models.EstadoPago.COMPLETADO.value
+    ).all()
+    
+    # Agrupar por mes (0-11)
+    mensuales_dict = {i: 0 for i in range(1, 13)}
+    for v in ventas:
+        mensuales_dict[v.fecha.month] += v.monto_pagado
+        
+    ventas_mensuales = [
+        {"name": calendar.month_abbr[month], "Ventas": amount}
+        for month, amount in mensuales_dict.items()
+    ]
+    
+    # Top Apps
+    top_apps_dict = {}
+    for v in ventas:
+        if v.aplicacion.titulo not in top_apps_dict:
+            top_apps_dict[v.aplicacion.titulo] = 0
+        top_apps_dict[v.aplicacion.titulo] += v.monto_pagado
+        
+    top_apps = [
+        {"name": app, "Ingresos": amount}
+        for app, amount in sorted(top_apps_dict.items(), key=lambda x: x[1], reverse=True)[:3]
+    ]
+    
+    return {
+        "ventas_mensuales": ventas_mensuales,
+        "top_apps": top_apps
+    }
+

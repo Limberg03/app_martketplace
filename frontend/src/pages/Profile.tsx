@@ -23,6 +23,7 @@ const Profile: React.FC = () => {
   const [error, setError]         = useState('');
   const [photoLoading, setPhotoLoading] = useState(false);
   const [loadingPremium, setLoadingPremium] = useState(false);
+  const [managingBilling, setManagingBilling] = useState(false);
   
   const location = useLocation();
   const navigate = useNavigate();
@@ -74,6 +75,28 @@ const Profile: React.FC = () => {
       setTimeout(() => setSaved(false), 3000);
     } else {
       setError('Error al guardar. Verifique que el correo no esté en uso.');
+    }
+  };
+
+  const handleManageBilling = async () => {
+    if (!user) return;
+    setManagingBilling(true);
+    try {
+      const res = await fetch(`${API_BASE}/api/stripe/create-portal-session`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ usuario_id: user.id })
+      });
+      const data = await res.json();
+      if (res.ok && data.url) {
+        window.location.href = data.url;
+      } else {
+        setError(data.detail || 'Error al abrir el portal de facturación');
+      }
+    } catch (e) {
+      setError('Error de conexión con Stripe');
+    } finally {
+      setManagingBilling(false);
     }
   };
 
@@ -196,7 +219,7 @@ const Profile: React.FC = () => {
                     Plan {planLabel}
                   </span>
                   
-                  {user.plan_suscripcion !== 'PREMIUM' && (
+                  {user.plan_suscripcion !== 'PREMIUM' ? (
                     <button 
                       type="button"
                       onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}
@@ -204,6 +227,16 @@ const Profile: React.FC = () => {
                       style={{ fontSize: '0.75rem', padding: '4px 12px', borderColor: '#3b82f6', color: '#3b82f6', borderRadius: '20px' }}
                     >
                       Mejorar a PREMIUM
+                    </button>
+                  ) : (
+                    <button 
+                      type="button"
+                      onClick={handleManageBilling}
+                      className="btn btn-outline btn-sm"
+                      disabled={managingBilling}
+                      style={{ fontSize: '0.75rem', padding: '4px 12px', borderColor: 'var(--primary)', color: 'var(--primary)', borderRadius: '20px' }}
+                    >
+                      {managingBilling ? 'Redirigiendo...' : 'Gestionar Facturación'}
                     </button>
                   )}
                 </div>
@@ -306,18 +339,56 @@ const Profile: React.FC = () => {
             </div>
 
             {/* Botón guardar */}
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '36px' }}>
               <button
-                type="submit" className="btn btn-primary"
+                type="submit"
+                className="btn btn-primary"
                 disabled={saving}
-                style={{ minWidth: '180px', padding: '14px 28px' }}
+                style={{ padding: '14px 28px', fontSize: '1rem', borderRadius: '30px', boxShadow: '0 8px 24px rgba(139, 92, 246, 0.4)' }}
               >
                 {saving ? (
                   <><FontAwesomeIcon icon={faSpinner} spin /> Guardando...</>
                 ) : (
-                  <><FontAwesomeIcon icon={faSave} /> Guardar cambios</>
+                  <><FontAwesomeIcon icon={faSave} /> Guardar Cambios</>
                 )}
               </button>
+            </div>
+
+            {/* ── SECCIÓN DE LÍMITES (CU19) ── */}
+            <div style={{ marginTop: '40px', paddingTop: '30px', borderTop: '1px solid var(--border-color)' }}>
+              <h4 style={{ marginBottom: '20px', fontSize: '1.2rem', color: '#fff' }}>Uso y Límites de Inteligencia Artificial</h4>
+              
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+                {/* Búsquedas IA */}
+                <div style={{ background: 'rgba(255,255,255,0.03)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                    <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Búsquedas con IA</span>
+                    <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>{user.consultas_ia} / {user.plan_suscripcion === 'PREMIUM' ? '∞' : '5'}</span>
+                  </div>
+                  <div style={{ width: '100%', height: '8px', background: 'var(--surface-color)', borderRadius: '4px', overflow: 'hidden' }}>
+                    <div style={{ 
+                      width: user.plan_suscripcion === 'PREMIUM' ? '100%' : `${Math.min(100, (user.consultas_ia / 5) * 100)}%`, 
+                      height: '100%', 
+                      background: user.plan_suscripcion === 'PREMIUM' ? 'var(--primary)' : (user.consultas_ia >= 5 ? '#ef4444' : '#3b82f6') 
+                    }}></div>
+                  </div>
+                </div>
+
+                {/* Manuales IA */}
+                <div style={{ background: 'rgba(255,255,255,0.03)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                    <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Manuales Generados (Mes)</span>
+                    <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>{user.manuales_generados_mes || 0} / {user.plan_suscripcion === 'PREMIUM' ? '∞' : '2'}</span>
+                  </div>
+                  <div style={{ width: '100%', height: '8px', background: 'var(--surface-color)', borderRadius: '4px', overflow: 'hidden' }}>
+                    <div style={{ 
+                      width: user.plan_suscripcion === 'PREMIUM' ? '100%' : `${Math.min(100, ((user.manuales_generados_mes || 0) / 2) * 100)}%`, 
+                      height: '100%', 
+                      background: user.plan_suscripcion === 'PREMIUM' ? 'var(--primary)' : ((user.manuales_generados_mes || 0) >= 2 ? '#ef4444' : '#10b981') 
+                    }}></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </form>
         </div>
@@ -435,6 +506,62 @@ const Profile: React.FC = () => {
                   }}
                 >
                   {loadingPremium ? <FontAwesomeIcon icon={faSpinner} spin /> : 'Mejorar a PREMIUM'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Panel de Suscripción Premium (CU24) */}
+        {user.plan_suscripcion === 'PREMIUM' && (
+          <div style={{ marginTop: '60px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+              <h2 style={{ fontSize: '2rem', marginBottom: '8px', color: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+                <FontAwesomeIcon icon={faCrown} /> Gestión de Suscripción Premium
+              </h2>
+              <p style={{ color: 'var(--text-secondary)' }}>Administra los detalles de tu membresía activa.</p>
+            </div>
+            
+            <div className="glass-card" style={{ border: '1px solid rgba(245, 158, 11, 0.3)', background: 'linear-gradient(135deg, rgba(20,25,35,0.8), rgba(245,158,11,0.05))', padding: '32px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px', marginBottom: '32px' }}>
+                <div>
+                  <p style={{ color: 'var(--text-secondary)', margin: '0 0 8px 0', fontSize: '0.9rem' }}>Estado del Plan</p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--success)', fontWeight: 'bold', fontSize: '1.2rem' }}>
+                    <FontAwesomeIcon icon={faCheckCircle} /> Activo
+                  </div>
+                </div>
+                <div>
+                  <p style={{ color: 'var(--text-secondary)', margin: '0 0 8px 0', fontSize: '0.9rem' }}>Facturación</p>
+                  <div style={{ color: 'var(--text-primary)', fontWeight: 'bold', fontSize: '1.2rem' }}>
+                    10.00 USD / mes
+                  </div>
+                </div>
+                <div>
+                  <p style={{ color: 'var(--text-secondary)', margin: '0 0 8px 0', fontSize: '0.9rem' }}>Próximo cobro</p>
+                  <div style={{ color: 'var(--text-primary)', fontWeight: 'bold', fontSize: '1.2rem' }}>
+                    {new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString()}
+                  </div>
+                </div>
+              </div>
+              
+              <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '24px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                <button 
+                  className="btn btn-outline" 
+                  style={{ borderColor: '#f59e0b', color: '#f59e0b' }}
+                  onClick={() => alert('Esta función redirigiría al portal de facturación de Stripe para actualizar métodos de pago.')}
+                >
+                  Actualizar Método de Pago
+                </button>
+                <button 
+                  className="btn btn-outline" 
+                  style={{ borderColor: 'rgba(239, 68, 68, 0.4)', color: '#ef4444' }}
+                  onClick={() => {
+                    if(window.confirm('¿Estás seguro de que deseas cancelar tu suscripción Premium? Perderás acceso a los beneficios exclusivos al finalizar tu ciclo de facturación actual.')) {
+                      alert('Suscripción cancelada exitosamente (Simulado).');
+                    }
+                  }}
+                >
+                  Cancelar Suscripción
                 </button>
               </div>
             </div>

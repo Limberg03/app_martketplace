@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-from routers import auth, apps, dashboard, stripe_router, ai, reviews
+from routers import auth, apps, dashboard, stripe_router, ai, reviews, notificaciones, admin
 # Crea las tablas en PostgreSQL si no existen (incluye los nuevos campos de CU4/CU5)
 models.Base.metadata.create_all(bind=engine)
 
@@ -39,6 +39,8 @@ app.include_router(dashboard.router)
 app.include_router(stripe_router.router)
 app.include_router(ai.router)
 app.include_router(reviews.router)
+app.include_router(notificaciones.router)
+app.include_router(admin.router)
 
 @app.get("/")
 def read_root():

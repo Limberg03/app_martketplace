@@ -7,10 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Dependencias de Node / React (Frontend)
+node_modules/
+dist/
+dist-ssr/
 
 # Editor directories and files
 .vscode/*
@@ -23,22 +23,28 @@ dist-ssr
 *.sln
 *.sw?
 
-__pycache__/
-*.pyc
-
-
-#----------------
-
-# Dependencias de Node / React (Frontend)
-node_modules/
-
 # Entornos virtuales y caché de Python / FastAPI (Backend)
 venv/
 env/
 __pycache__/
-*.pyc
+*/__pycache__/
+**/*.pyc
+*.pyo
+*.pyd
+
+# Base de datos local (Inteligencia Artificial y SQLite)
+backend/chroma_db/
+backend/test.db
+*.sqlite3
+*.db
+*.bin
+
+# Archivos subidos por los usuarios (ZIPs, fotos, etc.)
+backend/uploads/
+
+# Archivos temporales
+docx_content.txt
 
 # Variables de entorno
 .env
-
-backend/uploads/zips/
+.env.local

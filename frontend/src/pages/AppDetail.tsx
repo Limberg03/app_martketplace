@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faArrowLeft, faMicrochip, faCheckCircle, faShoppingCart, faCalendarAlt,
   faBookOpen, faCodeBranch, faSpinner, faBoxOpen, faUser,
-  faChevronLeft, faChevronRight, faLock, faSignInAlt, faStar, faComment, faTimes, faShieldHalved
+  faChevronLeft, faChevronRight, faLock, faSignInAlt, faStar, faComment, faTimes, faShieldHalved, faExclamationTriangle, faFlag, faStarHalfAlt
 } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../context/AuthContext';
 import AIChatbot from '../components/AIChatbot';
@@ -53,6 +53,12 @@ const AppDetail: React.FC = () => {
   
   // Modal de Lector de Documento
   const [showDocModal, setShowDocModal] = useState(false);
+
+  // CU25: Reportar App
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [reportMotivo, setReportMotivo] = useState('Contenido inapropiado');
+  const [reportDescripcion, setReportDescripcion] = useState('');
+  const [reporting, setReporting] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -152,6 +158,34 @@ const AppDetail: React.FC = () => {
       alert("Error de conexión al procesar el pago.");
     } finally {
       setLoadingPurchase(false);
+    }
+  };
+
+  const handleReport = async () => {
+    if (!user) return;
+    setReporting(true);
+    try {
+      const res = await fetch(`${API_URL}/apps/${app.id}/reportar`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          usuario_id: user.id,
+          motivo: reportMotivo,
+          descripcion: reportDescripcion
+        })
+      });
+      if (res.ok) {
+        alert('Reporte enviado exitosamente. Revisaremos el caso a la brevedad.');
+        setShowReportModal(false);
+        setReportDescripcion('');
+      } else {
+        const d = await res.json();
+        alert(d.detail || 'Error al enviar reporte');
+      }
+    } catch (e) {
+      alert('Error de conexión.');
+    } finally {
+      setReporting(false);
     }
   };
 
@@ -326,8 +360,12 @@ const AppDetail: React.FC = () => {
                   <div key={r.id} style={{ padding: '20px', background: 'var(--surface-hover)', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#fbbf24' }}>
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <FontAwesomeIcon key={i} icon={faStar} style={{ opacity: i < r.estrellas ? 1 : 0.3 }} />
+                        {[1, 2, 3, 4, 5].map(star => (
+                          <FontAwesomeIcon 
+                            key={star} 
+                            icon={star <= r.estrellas ? faStar : (star - 0.5 === r.estrellas ? faStarHalfAlt : faStar)} 
+                            style={{ opacity: star <= Math.ceil(r.estrellas) ? 1 : 0.3 }} 
+                          />
                         ))}
                       </div>
                       <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
@@ -383,6 +421,17 @@ const AppDetail: React.FC = () => {
                     </p>
                   </div>
                 )}
+                
+                {/* CU25: Botón Reportar (Solo visible para compradores/logueados) */}
+                {user && (
+                  <button 
+                    onClick={() => setShowReportModal(true)}
+                    className="btn btn-outline" 
+                    style={{ width: '100%', marginTop: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', color: '#ef4444', borderColor: 'rgba(239,68,68,0.3)', fontSize: '0.9rem' }}
+                  >
+                    <FontAwesomeIcon icon={faFlag} /> Reportar Aplicación
+                  </button>
+                )}
               </>
             ) : (
               <div style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.3)', padding: '16px', borderRadius: '12px', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
@@ -431,6 +480,61 @@ const AppDetail: React.FC = () => {
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {app.manual_markdown || ''}
               </ReactMarkdown>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── CU25: Modal Reportar Aplicación ────────────────────────────────────────────── */}
+      {showReportModal && (
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          zIndex: 1000, padding: '20px'
+        }}>
+          <div className="glass-card animate-fade-in" style={{ width: '100%', maxWidth: '480px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+              <h3 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <FontAwesomeIcon icon={faExclamationTriangle} color="#ef4444" />
+                Reportar Aplicación
+              </h3>
+              <button onClick={() => setShowReportModal(false)} style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '1.2rem' }}>
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+            </div>
+            
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '20px', fontSize: '0.95rem' }}>
+              ¿Encontraste un problema con esta aplicación? Selecciona el motivo y descríbelo para que nuestro equipo lo revise.
+            </p>
+
+            <div className="form-group">
+              <label className="form-label">Motivo del reporte</label>
+              <select className="form-control" value={reportMotivo} onChange={e => setReportMotivo(e.target.value)}>
+                <option value="Contenido inapropiado">Contenido inapropiado</option>
+                <option value="Código malicioso o virus">Código malicioso o virus</option>
+                <option value="Falsa descripción / Estafa">Falsa descripción / Estafa</option>
+                <option value="Derechos de autor / Plagio">Derechos de autor / Plagio</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Descripción detallada (Opcional)</label>
+              <textarea 
+                className="form-control" 
+                rows={4} 
+                value={reportDescripcion} 
+                onChange={e => setReportDescripcion(e.target.value)}
+                placeholder="Por favor, da más detalles sobre el problema..."
+              ></textarea>
+            </div>
+
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end', marginTop: '28px' }}>
+              <button onClick={() => setShowReportModal(false)} className="btn btn-outline">Cancelar</button>
+              <button onClick={handleReport} className="btn btn-primary"
+                disabled={reporting} style={{ background: '#ef4444', borderColor: '#ef4444' }}>
+                {reporting ? <><FontAwesomeIcon icon={faSpinner} spin /> Enviando...</> : <><FontAwesomeIcon icon={faFlag} /> Enviar Reporte</>}
+              </button>
             </div>
           </div>
         </div>

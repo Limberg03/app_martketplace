@@ -88,6 +88,12 @@ class Aplicacion(Base):
     resenas = relationship("Resena", back_populates="aplicacion")
     vectores = relationship("VectorAplicacion", back_populates="aplicacion")
 
+    @property
+    def promedio_resenas(self) -> float:
+        if not self.resenas:
+            return 5.0
+        return round(sum(r.estrellas for r in self.resenas) / len(self.resenas), 1)
+
 class Transaccion(Base):
     __tablename__ = "transacciones"
     id = Column(Integer, primary_key=True, index=True)
@@ -105,7 +111,7 @@ class Transaccion(Base):
 class Resena(Base):
     __tablename__ = "resenas"
     id = Column(Integer, primary_key=True, index=True)
-    estrellas = Column(Integer)
+    estrellas = Column(Float)
     comentario = Column(Text)
     fecha = Column(DateTime, default=datetime.datetime.utcnow)
     
@@ -176,3 +182,28 @@ class HistorialInteraccion(Base):
     usuario = relationship("Usuario", backref="interacciones")
     aplicacion = relationship("Aplicacion", backref="interacciones")
 
+class SuscripcionPush(Base):
+    """CU21: Guarda las suscripciones VAPID del navegador del usuario para Web Push Notifications."""
+    __tablename__ = "suscripciones_push"
+    id = Column(Integer, primary_key=True, index=True)
+    usuario_id = Column(Integer, ForeignKey("usuarios.id"), index=True)
+    endpoint = Column(String, unique=True, index=True)
+    p256dh = Column(String)
+    auth = Column(String)
+    fecha_creacion = Column(DateTime, default=datetime.datetime.utcnow)
+
+    usuario = relationship("Usuario", backref="suscripciones_push")
+
+class Reporte(Base):
+    """CU25: Guarda los reportes de aplicaciones para moderación."""
+    __tablename__ = "reportes"
+    id = Column(Integer, primary_key=True, index=True)
+    aplicacion_id = Column(Integer, ForeignKey("aplicaciones.id"), index=True)
+    usuario_id = Column(Integer, ForeignKey("usuarios.id"), index=True)
+    motivo = Column(String)
+    descripcion = Column(Text)
+    estado = Column(String, default="PENDIENTE") # PENDIENTE | REVISADO | DESCARTADO
+    fecha_creacion = Column(DateTime, default=datetime.datetime.utcnow)
+
+    aplicacion = relationship("Aplicacion", backref="reportes")
+    usuario = relationship("Usuario", backref="reportes_realizados")

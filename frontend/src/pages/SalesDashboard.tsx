@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign, faShoppingCart, faChartLine, faSpinner, faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../context/AuthContext';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 const API_URL = 'http://127.0.0.1:8000/api';
 
@@ -23,17 +24,24 @@ interface DashboardData {
 const SalesDashboard: React.FC = () => {
   const { user } = useAuth();
   const [data, setData] = useState<DashboardData | null>(null);
+  const [metrics, setMetrics] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   if (!user || user.rol !== 'VENDEDOR') return <Navigate to="/marketplace" />;
 
   useEffect(() => {
-    fetch(`${API_URL}/dashboard/ventas/${user.id}`)
-      .then(res => res.json())
-      .then(setData)
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, [user.id]);
+    if (!user) return;
+    Promise.all([
+      fetch(`${API_URL}/dashboard/ventas/${user.id}`).then(res => res.json()),
+      fetch(`${API_URL}/dashboard/metricas/${user.id}`).then(res => res.json())
+    ])
+    .then(([ventasData, metricasData]) => {
+      setData(ventasData);
+      setMetrics(metricasData);
+    })
+    .catch(console.error)
+    .finally(() => setLoading(false));
+  }, [user]);
 
   if (loading) return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 1, height: '60vh' }}>
@@ -85,7 +93,67 @@ const SalesDashboard: React.FC = () => {
         </div>
       </div>
 
-      <div className="glass-card animate-fade-in" style={{ padding: 0, overflow: 'hidden', animationDelay: '0.3s' }}>
+      {/* Gráficos Recharts */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+        <div className="glass-card animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <h3 style={{ margin: '0 0 24px 0', borderBottom: '1px solid var(--border-color)', paddingBottom: '16px' }}>Ingresos Mensuales</h3>
+          <div style={{ height: 300, width: '100%' }}>
+            {metrics?.ventas_mensuales?.length > 0 ? (
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={metrics.ventas_mensuales}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                  <XAxis dataKey="name" stroke="var(--text-secondary)" />
+                  <YAxis stroke="var(--text-secondary)" />
+                  <Tooltip cursor={{fill: 'rgba(255,255,255,0.05)'}} contentStyle={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border-color)', borderRadius: '8px', color: 'var(--text-primary)' }} />
+                  <Bar dataKey="Ventas" fill="var(--primary)" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            ) : (
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: 'var(--text-secondary)' }}>No hay datos suficientes para el gráfico.</div>
+            )}
+          </div>
+        </div>
+
+        <div className="glass-card animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <h3 style={{ margin: '0 0 24px 0', borderBottom: '1px solid var(--border-color)', paddingBottom: '16px' }}>Top 3 Aplicaciones Más Vendidas</h3>
+          <div style={{ height: 300, width: '100%' }}>
+            {metrics?.top_apps?.length > 0 ? (
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={metrics.top_apps}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={100}
+                    paddingAngle={5}
+                    dataKey="Ingresos"
+                  >
+                    {metrics.top_apps.map((entry: any, index: number) => (
+                      <Cell key={`cell-${index}`} fill={['#8b5cf6', '#3b82f6', '#10b981', '#f59e0b'][index % 4]} />
+                    ))}
+                  </Pie>
+                  <Tooltip contentStyle={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border-color)', borderRadius: '8px', color: 'var(--text-primary)' }} />
+                </PieChart>
+              </ResponsiveContainer>
+            ) : (
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: 'var(--text-secondary)' }}>No hay suficientes ventas.</div>
+            )}
+            {metrics?.top_apps?.length > 0 && (
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '16px' }}>
+                {metrics.top_apps.map((app: any, idx: number) => (
+                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{ width: 12, height: 12, borderRadius: '50%', backgroundColor: ['#8b5cf6', '#3b82f6', '#10b981', '#f59e0b'][idx % 4] }} />
+                    <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{app.name}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="glass-card animate-fade-in" style={{ padding: 0, overflow: 'hidden', animationDelay: '0.5s' }}>
         <h3 style={{ padding: '24px', borderBottom: '1px solid var(--border-color)', margin: 0 }}>Últimas Transacciones</h3>
         
         {historial.length === 0 ? (
