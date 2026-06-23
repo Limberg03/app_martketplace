@@ -13,8 +13,8 @@ router = APIRouter(prefix="/api/stripe", tags=["Pagos con Stripe"])
 # Configurar Stripe
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY", "sk_test_placeholder")
 
-# En frontend debes tener estas URLs (por ahora hardcodeadas para local)
-FRONTEND_URL = "http://localhost:5173"
+# En frontend debes tener estas URLs (se configuran por variable de entorno en producción)
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
 
 @router.post("/create-checkout-session")
 def create_checkout_session(app_id: int, comprador_id: int, db: Session = Depends(get_db)):
