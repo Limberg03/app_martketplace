@@ -40,7 +40,9 @@ backend/test.db
 *.bin
 
 # Archivos subidos por los usuarios (ZIPs, fotos, etc.)
-backend/uploads/
+backend/uploads/*
+!backend/uploads/images/
+!backend/uploads/avatars/
 
 # Archivos temporales
 docx_content.txt
