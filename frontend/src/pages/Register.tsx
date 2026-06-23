@@ -13,6 +13,7 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading]   = useState(false);
   const [error, setError]       = useState('');
+  const [showTermsModal, setShowTermsModal] = useState(false);
   const { register } = useAuth();
   const navigate = useNavigate();
 
@@ -23,23 +24,22 @@ const Register: React.FC = () => {
       setError('La contraseña debe tener al menos 6 caracteres.');
       return;
     }
+    setShowTermsModal(true);
+  };
+
+  const handleAcceptTerms = async () => {
+    setShowTermsModal(false);
     setLoading(true);
     try {
       const dbRole = role === 'developer' ? 'VENDEDOR' : 'COMPRADOR';
-      // Llamamos al endpoint directamente para capturar el mensaje de error
       const res = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre: name, correo: email, password, rol: dbRole }),
       });
       if (res.ok) {
-        // El AuthContext.register también lo llama pero aquí navegamos directo
         const user = await register(name, email, password, dbRole);
-        if (user && user.rol === 'VENDEDOR') {
-          navigate('/portfolio');
-        } else {
-          navigate('/marketplace');
-        }
+        navigate('/profile');
       } else {
         const data = await res.json();
         setError(data.detail || 'Error en el registro. Intente con otro correo.');
@@ -164,6 +164,79 @@ const Register: React.FC = () => {
           ¿Ya tienes cuenta? <Link to="/login">Iniciar sesión</Link>
         </div>
       </div>
+
+      {showTermsModal && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+          background: 'rgba(15, 23, 42, 0.8)', backdropFilter: 'blur(8px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          zIndex: 1000, padding: '20px'
+        }}>
+          <div className="glass-card animate-fade-in" style={{
+            background: 'var(--surface)', border: '1px solid var(--border-color)',
+            borderRadius: '16px', padding: '28px', maxWidth: '600px', width: '100%',
+            maxHeight: '85vh', display: 'flex', flexDirection: 'column',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '16px' }}>
+              <FontAwesomeIcon icon={faStore} style={{ fontSize: '24px', color: 'var(--primary)' }} />
+              <h2 style={{ fontSize: '1.5rem', margin: 0, color: 'var(--text-primary)' }}>Términos y Condiciones</h2>
+            </div>
+
+            <div style={{
+              overflowY: 'auto', flex: 1, paddingRight: '8px', marginBottom: '24px',
+              fontSize: '0.92rem', lineHeight: '1.6', color: 'var(--text-secondary)'
+            }}>
+              <p style={{ marginBottom: '16px' }}>
+                Por favor, lee y acepta los términos legales que rigen el uso del Marketplace <strong>NexusApp (AppSwap)</strong> de la <strong>U.A.G.R.M.</strong>:
+              </p>
+              
+              <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginTop: '16px', marginBottom: '8px' }}>1. Introducción</h3>
+              <p style={{ marginBottom: '16px' }}>
+                Al registrarte en nuestra plataforma para la compra o venta de proyectos de software y código fuente, aceptas estar legalmente sujeto a estas políticas.
+              </p>
+
+              <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginTop: '16px', marginBottom: '8px' }}>2. Propiedad Intelectual y Licencias</h3>
+              <p style={{ marginBottom: '16px' }}>
+                Los vendedores declaran ser los autores originales del código subido. Los compradores adquieren una licencia de uso, modificación y estudio del código para fines académicos o profesionales, quedando prohibida su reventa directa sin cambios sustanciales.
+              </p>
+
+              <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginTop: '16px', marginBottom: '8px' }}>3. Transacciones y Pagos</h3>
+              <p style={{ marginBottom: '16px' }}>
+                Las compras se realizan de manera segura mediante Stripe. NexusApp retiene una comisión por transacción para el mantenimiento de los servicios en la nube.
+              </p>
+
+              <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginTop: '16px', marginBottom: '8px' }}>4. Responsabilidades</h3>
+              <p style={{ marginBottom: '16px' }}>
+                La plataforma y la U.A.G.R.M. no se responsabilizan por fallos o vulnerabilidades en el código fuente adquirido. La compra se realiza bajo la responsabilidad del comprador.
+              </p>
+            </div>
+
+            <div style={{
+              display: 'flex', gap: '12px', justifyContent: 'flex-end',
+              borderTop: '1px solid var(--border-color)', paddingTop: '16px'
+            }}>
+              <button
+                type="button" className="btn btn-outline"
+                onClick={() => {
+                  setShowTermsModal(false);
+                  setError('Debes aceptar los términos y condiciones para poder crear tu cuenta.');
+                }}
+                style={{ padding: '10px 20px' }}
+              >
+                Rechazar
+              </button>
+              <button
+                type="button" className="btn btn-primary"
+                onClick={handleAcceptTerms}
+                style={{ padding: '10px 24px' }}
+              >
+                Aceptar y Continuar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

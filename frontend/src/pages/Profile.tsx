@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUser, faEnvelope, faCamera, faSave,
   faExclamationCircle, faPhone, faInfoCircle,
-  faCheckCircle, faSpinner, faCrown, faRocket, faRobot, faCode, faChartLine
+  faCheckCircle, faSpinner, faCrown, faRocket, faRobot, faCode, faChartLine,
+  faScaleBalanced, faFileContract
 } from '@fortawesome/free-solid-svg-icons';
 
 const API_BASE = '';
@@ -567,6 +568,46 @@ const Profile: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* Sección de Descarga de Términos y Condiciones */}
+        <div style={{
+          marginTop: '60px',
+          paddingTop: '40px',
+          borderTop: '1px solid var(--border-color)',
+          textAlign: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '16px'
+        }}>
+          <h3 style={{ fontSize: '1.2rem', margin: 0, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FontAwesomeIcon icon={faScaleBalanced} style={{ color: 'var(--primary)' }} />
+            Términos y Condiciones Legales
+          </h3>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', maxWidth: '500px', margin: 0 }}>
+            Puedes descargar las políticas vigentes de propiedad intelectual, licencias, responsabilidades y pagos de la plataforma en formato PDF.
+          </p>
+          <a
+            href="/terminos_y_condiciones.pdf"
+            download="terminos_y_condiciones.pdf"
+            className="btn btn-outline"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '12px 24px',
+              borderColor: 'var(--primary)',
+              color: 'var(--primary)',
+              borderRadius: '8px',
+              fontWeight: 'bold',
+              textDecoration: 'none',
+              cursor: 'pointer'
+            }}
+          >
+            <FontAwesomeIcon icon={faFileContract} />
+            Descargar Términos y Condiciones (PDF)
+          </a>
+        </div>
       </div>
     </div>
   );
