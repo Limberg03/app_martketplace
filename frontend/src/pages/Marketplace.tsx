@@ -19,10 +19,18 @@ interface AppItem {
   precio_venta: number;
   tecnologia: string;
   url_manual: string | null;
+  imagenes_urls?: string;
   sello_calidad?: boolean;
   razon_ia?: string;
   promedio_resenas?: number;
 }
+
+const getImageUrl = (url: string | null | undefined) => {
+  if (!url) return 'none';
+  const firstUrl = url.split(',')[0];
+  if (firstUrl.startsWith('http')) return `url(${firstUrl})`;
+  return `url(http://127.0.0.1:8000${firstUrl})`;
+};
 
 const Marketplace: React.FC = () => {
   const { user, updateLocalUser } = useAuth();
@@ -152,6 +160,7 @@ const Marketplace: React.FC = () => {
       if (categoriaId) params.append('categoria_id', categoriaId);
       if (ordering) params.append('ordering', ordering);
       if (soloGradoA) params.append('solo_grado_a', 'true');
+      if (user?.id) params.append('usuario_id', user.id.toString());
 
       fetch(`${API_URL}/apps/?${params.toString()}`)
         .then(r => r.json())
@@ -325,7 +334,7 @@ const Marketplace: React.FC = () => {
                 <div key={`rec-${app.id}`} className="glass-card" style={{ padding: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden', border: '1px solid rgba(139,92,246,0.25)' }}>
                   <div style={{
                     height: '130px', background: 'var(--surface-hover)',
-                    backgroundImage: app.imagenes_urls ? `url(http://127.0.0.1:8000${app.imagenes_urls.split(',')[0]})` : 'none',
+                    backgroundImage: getImageUrl(app.imagenes_urls || app.url_manual),
                     backgroundSize: 'cover', backgroundPosition: 'center',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     borderBottom: '1px solid var(--border-color)', position: 'relative'
@@ -400,12 +409,12 @@ const Marketplace: React.FC = () => {
             <div key={app.id} className="glass-card" style={{ padding: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
               <div style={{ 
                 height: '160px', background: 'var(--surface-hover)', 
-                backgroundImage: app.url_manual ? `url(http://127.0.0.1:8000${app.url_manual})` : 'none',
+                backgroundImage: getImageUrl(app.imagenes_urls || app.url_manual),
                 backgroundSize: 'cover', backgroundPosition: 'center',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderBottom: '1px solid var(--border-color)', position: 'relative'
               }}>
-                {!app.url_manual && <FontAwesomeIcon icon={faBoxOpen} style={{ fontSize: '48px', color: 'var(--border-color)' }} />}
+                {!(app.imagenes_urls || app.url_manual) && <FontAwesomeIcon icon={faBoxOpen} style={{ fontSize: '48px', color: 'var(--border-color)' }} />}
                 {app.sello_calidad && (
                   <div style={{
                     position: 'absolute', top: '10px', right: '10px',

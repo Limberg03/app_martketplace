@@ -108,6 +108,7 @@ const Navbar: React.FC = () => {
             </div>
           ) : (
             <>
+              <Link to="/demo" className="btn btn-outline" style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}>Cuenta Demo</Link>
               <Link to="/login" className="btn btn-outline">Log in</Link>
               <Link to="/register" className="btn btn-primary">
                 Get Started

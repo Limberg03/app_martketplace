@@ -1,78 +1,57 @@
-.footer {
-  margin-top: auto;
-  padding-top: 64px;
-  border-top: 1px solid var(--glass-border);
-  border-bottom: none;
+.footer-container {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  padding: 4rem 2rem 2rem;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid #1e293b;
 }
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 48px;
-  margin-bottom: 48px;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
 }
 
-.footer-brand {
-  max-width: 300px;
+.footer-column {
+  flex: 1;
+  min-width: 200px;
 }
 
-.footer-description {
-  color: var(--text-secondary);
-  margin: 16px 0 24px;
-  font-size: 0.95rem;
-}
-
-.social-links {
-  display: flex;
-  gap: 16px;
-}
-
-.social-link {
-  color: var(--text-secondary);
-  transition: color 0.2s, transform 0.2s;
-}
-
-.social-link:hover {
-  color: var(--primary);
-  transform: translateY(-2px);
+.footer-title {
+  color: #f8fafc;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 
 .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  gap: 80px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.link-group h3 {
-  color: var(--text-primary);
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
-.link-group a {
-  display: block;
-  color: var(--text-secondary);
-  margin-bottom: 12px;
+.footer-links li a {
+  color: #94a3b8;
+  text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.2s, transform 0.2s;
+  transition: color 0.2s ease;
 }
 
-.link-group a:hover {
-  color: var(--primary);
-  transform: translateX(4px);
+.footer-links li a:hover {
+  color: #38bdf8;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 24px 0;
   text-align: center;
-  color: var(--text-secondary);
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #1e293b;
+  color: #64748b;
   font-size: 0.85rem;
-}
-
-@media (max-width: 768px) {
-  .footer-links {
-    gap: 40px;
-  }
 }

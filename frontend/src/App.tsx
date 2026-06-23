@@ -19,6 +19,9 @@ import AdminApps from './pages/admin/AdminApps';
 import AdminReports from './pages/admin/AdminReports';
 import AdminUsers from './pages/admin/AdminUsers';
 import { useLocation } from 'react-router-dom';
+import About from './pages/About';
+import UserGuide from './pages/UserGuide';
+import DemoMode from './pages/DemoMode';
 
 function MainLayout() {
   const location = useLocation();
@@ -55,6 +58,9 @@ function MainLayout() {
               <Route path="/purchases" element={<MyPurchases />} />
               <Route path="/compras" element={<MyPurchases />} />
               <Route path="/sales" element={<SalesDashboard />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/guide" element={<UserGuide />} />
+              <Route path="/demo" element={<DemoMode />} />
         </Routes>
       </main>
       <Footer />

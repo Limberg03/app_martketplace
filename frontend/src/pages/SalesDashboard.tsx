@@ -139,15 +139,47 @@ const SalesDashboard: React.FC = () => {
             ) : (
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: 'var(--text-secondary)' }}>No hay suficientes ventas.</div>
             )}
-            {metrics?.top_apps?.length > 0 && (
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '16px' }}>
-                {metrics.top_apps.map((app: any, idx: number) => (
-                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: 12, height: 12, borderRadius: '50%', backgroundColor: ['#8b5cf6', '#3b82f6', '#10b981', '#f59e0b'][idx % 4] }} />
-                    <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{app.name}</span>
-                  </div>
-                ))}
-              </div>
+          </div>
+          {metrics?.top_apps?.length > 0 && (
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '16px', flexWrap: 'wrap' }}>
+              {metrics.top_apps.map((app: any, idx: number) => (
+                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ width: 12, height: 12, borderRadius: '50%', backgroundColor: ['#8b5cf6', '#3b82f6', '#10b981', '#f59e0b'][idx % 4] }} />
+                  <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{app.name}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Gráfico Ventas por Categoría */}
+      <div style={{ marginBottom: '40px' }}>
+        <div className="glass-card animate-fade-in" style={{ animationDelay: '0.45s' }}>
+          <h3 style={{ margin: '0 0 24px 0', borderBottom: '1px solid var(--border-color)', paddingBottom: '16px' }}>Ventas por Categoría</h3>
+          <div style={{ height: 350, width: '100%' }}>
+            {metrics?.ventas_por_categoria?.length > 0 ? (
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={metrics.ventas_por_categoria}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={70}
+                    outerRadius={120}
+                    paddingAngle={3}
+                    dataKey="value"
+                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                  >
+                    {metrics.ventas_por_categoria.map((entry: any, index: number) => (
+                      <Cell key={`cell-cat-${index}`} fill={['#f43f5e', '#ec4899', '#8b5cf6', '#3b82f6', '#10b981', '#f59e0b'][index % 6]} />
+                    ))}
+                  </Pie>
+                  <Tooltip contentStyle={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border-color)', borderRadius: '8px', color: 'var(--text-primary)' }} formatter={(value: number) => `Bs. ${value.toFixed(2)}`} />
+                </PieChart>
+              </ResponsiveContainer>
+            ) : (
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: 'var(--text-secondary)' }}>No hay suficientes ventas categorizadas.</div>
             )}
           </div>
         </div>

@@ -66,7 +66,7 @@ def metricas_avanzadas(vendedor_id: int, db: Session = Depends(get_db)):
     app_ids = [app.id for app in aplicaciones]
     
     if not app_ids:
-        return {"ventas_mensuales": [], "top_apps": []}
+        return {"ventas_mensuales": [], "top_apps": [], "ventas_por_categoria": []}
         
     # Ventas por mes
     ventas = db.query(models.Transaccion).filter(
@@ -95,9 +95,22 @@ def metricas_avanzadas(vendedor_id: int, db: Session = Depends(get_db)):
         {"name": app, "Ingresos": amount}
         for app, amount in sorted(top_apps_dict.items(), key=lambda x: x[1], reverse=True)[:3]
     ]
+    # Ventas por Categoría
+    cat_dict = {}
+    for v in ventas:
+        cat_nombre = v.aplicacion.categoria.nombre if v.aplicacion.categoria else "Sin categoría"
+        if cat_nombre not in cat_dict:
+            cat_dict[cat_nombre] = 0
+        cat_dict[cat_nombre] += v.monto_pagado
+        
+    ventas_por_categoria = [
+        {"name": cat, "value": amount}
+        for cat, amount in cat_dict.items()
+    ]
     
     return {
         "ventas_mensuales": ventas_mensuales,
-        "top_apps": top_apps
+        "top_apps": top_apps,
+        "ventas_por_categoria": ventas_por_categoria
     }
 

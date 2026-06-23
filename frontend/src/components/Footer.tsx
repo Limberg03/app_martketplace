@@ -1,48 +1,49 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStore } from '@fortawesome/free-solid-svg-icons';
-import './Footer.css';
+import { Link } from 'react-router-dom';
+import './Footer.css'; // O usar CSS in JS / clases Tailwind si prefieres
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer glass">
-      <div className="container footer-content">
-        <div className="footer-brand">
-          <div className="brand">
-            <FontAwesomeIcon icon={faStore} className="brand-icon" />
-            <span className="brand-name">Nexus<span className="text-gradient">App</span></span>
-          </div>
-          <p className="footer-description">
-            The premium academic marketplace for AI-powered digital entrepreneurship.
-          </p>
-        </div>
+    <footer className="footer-container">
+      <div className="footer-content">
         
-        <div className="footer-links">
-          <div className="link-group">
-            <h3>Marketplace</h3>
-            <a href="#">All Apps</a>
-            <a href="#">Top Rated</a>
-            <a href="#">For Startups</a>
-            <a href="#">For Retail</a>
-          </div>
-          <div className="link-group">
-            <h3>Resources</h3>
-            <a href="#">Documentation</a>
-            <a href="#">API Reference</a>
-            <a href="#">AI Guidelines</a>
-            <a href="#">Blog</a>
-          </div>
-          <div className="link-group">
-            <h3>Company</h3>
-            <a href="#">About UAGRM</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Contact</a>
-          </div>
+        {/* Columna 1 */}
+        <div className="footer-column">
+          <h3 className="footer-title">Marketplace</h3>
+          <ul className="footer-links">
+            <li><Link to="/marketplace">All Apps</Link></li>
+            <li><Link to="/marketplace?sort=top">Top Rated</Link></li>
+            <li><Link to="/marketplace?category=startups">For Startups</Link></li>
+            <li><Link to="/marketplace?category=retail">For Retail</Link></li>
+          </ul>
         </div>
+
+        {/* Columna 2 */}
+        <div className="footer-column">
+          <h3 className="footer-title">Resources</h3>
+          <ul className="footer-links">
+            <li><Link to="/guide">Documentation</Link></li>
+            <li><Link to="/api-reference">API Reference</Link></li>
+            <li><Link to="/ai-guidelines">AI Guidelines</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
+          </ul>
+        </div>
+
+        {/* Columna 3 */}
+        <div className="footer-column">
+          <h3 className="footer-title">Company</h3>
+          <ul className="footer-links">
+            <li><Link to="/about">About UAGRM</Link></li>
+            <li><Link to="/terms">Terms of Service</Link></li>
+            <li><Link to="/privacy">Privacy Policy</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
+        </div>
+
       </div>
+      
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} NexusApp Marketplace UAGRM. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} NexusApp Marketplace U.A.G.R.M. All rights reserved.</p>
       </div>
     </footer>
   );

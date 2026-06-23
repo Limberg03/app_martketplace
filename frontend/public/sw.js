@@ -1,5 +1,26 @@
 // sw.js
-// Service Worker para Web Push Notifications
+// Service Worker para Web Push Notifications y Caché Offline PWA
+
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/7.0.0/workbox-sw.js');
+
+if (workbox) {
+  // En producción, vite-plugin-pwa inyectará el listado de archivos aquí
+  workbox.precaching.precacheAndRoute(self.__WB_MANIFEST || []);
+  
+  // Estrategia para las imágenes
+  workbox.routing.registerRoute(
+    ({request}) => request.destination === 'image',
+    new workbox.strategies.CacheFirst({
+      cacheName: 'images-cache',
+      plugins: [
+        new workbox.expiration.ExpirationPlugin({
+          maxEntries: 50,
+          maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Días
+        })
+      ],
+    })
+  );
+}
 
 self.addEventListener('push', function(event) {
   if (event.data) {

@@ -1,0 +1,8477 @@
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Marketplace de Aplicaciones de Emprendimiento Digital Académico con Machine 
+Learning
+ para Recomendaciones Inteligentes en la UAGRM
+"APPSWAP"
+Grupo
+ # 15
+Integrantes:
+Mollo 
+Ayll
+o
+n
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz - Bolivia
+Índice
+1
+Plan de Administración de Proyecto de Software (PAPS)
+6
+2
+Modelo De Desarrollo
+11
+2.1
+Definiciones Iniciales (Sprint 0)
+13
+2.1.1
+Definir el Equipo Scrum
+13
+2.1.2
+Definir el Objetivo del Producto
+13
+2.1.3
+Definir Tiempo de Duración de Sprint
+14
+2.1.4
+Definir Infraestructura Tecnológica (hardware y software)
+14
+2.1.5
+Actividades durante todo el Sprint
+16
+2.1.6
+Esbozar Modelos
+17
+2.1.7
+Definición de Criterios de Calidad
+21
+2.1.8
+Product Backlog
+22
+2.2
+Sprint 1
+25
+2.2.1
+Sprint Planing
+25
+2.2.2
+Sprint Backlog
+26
+2.2.3
+Historias de usuario
+27
+2.2.4
+Diseño
+33
+2.2.5
+Modelado C4
+33
+2.2.6
+Diseño de Datos
+36
+2.2.7
+Diseño de la Lógica de Negocio
+41
+2.2.8
+Diseño de Interfaces
+44
+2.2.9
+Implementación
+44
+2.2.10
+Pruebas
+45
+2.2.11
+Diario Scrum
+47
+2.2.12
+Sprint Review
+49
+2.2.13
+Sprint Retrospective
+50
+2.2.14
+Scrum TaskBoard
+51
+2.3
+Sprint 2
+51
+2.3.1
+Sprint Planing
+51
+2.3.2
+Sprint Backlog
+53
+2.3.3
+Historias de usuario
+53
+2.3.4
+Diseño
+58
+2.3.5
+Modelado C4
+58
+2.3.6
+Diseño de Datos
+61
+2.3.7
+Diseño de la Lógica de Negocio
+66
+2.3.8
+Diseño de Interfaces
+68
+2.3.9
+Implementación
+69
+2.3.10
+Pruebas
+70
+2.3.11
+Diario 
+Scrum
+72
+2.3.12
+Sprint Review
+74
+2.3.13
+Sprint Retrospective
+74
+2.3.14
+Scrum TaskBoard
+75
+2.4
+Sprint 3
+75
+3
+Manual de Calidad SQAP
+76
+3.1
+Introducción
+78
+3.2
+Misión
+78
+3.3
+Visión
+79
+3.4
+Valor
+79
+3.5
+Estándares
+80
+3.6
+Organigrama
+82
+3.7
+Políticas de Calidad
+82
+3.8
+Plan de Aseguramiento de la Calidad del Software
+83
+3.8.1
+Propósito
+84
+3.8.2
+Documentos de referencia
+84
+3.8.3
+Gestión
+86
+3.8.4
+Organización
+86
+3.8.5
+Tareas
+87
+3.8.6
+Criterios
+88
+3.8.7
+Hitos
+89
+3.8.8
+Recursos estimados de aseguramiento de la calidad
+89
+3.8.9
+Especificación de Requerimientos (SRS)
+90
+3.8.10
+Restricciones
+96
+3.8.11
+Requisitos
+ 
+de
+ 
+software
+ 
+y
+ 
+versiones
+96
+3.8.12
+Requisitos Específicos
+98
+3.8.13
+Especificación de requisitos funcionales
+100
+3.8.14
+Diagrama general de casos de uso
+108
+3.8.15
+Herramientas, técnicas y metodologías
+111
+3.8.16
+Control De Medios
+112
+3.8.17
+Control de
+ 
+proveedores
+114
+4
+Herramientas Case
+116
+4.1
+Aspectos relacionados con la productividad
+117
+4.1.1
+Enterprise Architec
+117
+4.1.2
+Jira
+122
+4.1.3
+Git y GitHub
+126
+5
+Aspectos Legales
+131
+5.1
+Aspectos Legales para la apertura de una empresa de desarrollo de software
+132
+5.1.1
+Licencias de Software
+132
+5.1.2
+Razón Social
+133
+5.1.3
+Organización Jurídica
+133
+5.1.4
+Apertura de una Empresa
+136
+5.1.5
+Obtención de la Patente Municipal
+143
+5.1.6
+Registro de la Marca Comercial y Logotipo en SENAPI
+145
+6
+Infraestructura para la Producción de Software
+147
+6.1
+Infraestructura para la Producción del Software.
+148
+6.1.1
+Gestión de Configuración
+148
+6.1.2
+Gestión para la Configuración del Software
+148
+6.1.3
+Gestión de Proyectos
+155
+6.1.4
+Gestión de Versiones
+157
+6.1.5
+Gestión de Documentos
+159
+7
+Sitio Web de la Empresa
+161
+7.1
+Sitio Web Corporativo
+162
+7.1.1
+Groq
+162
+7.1.2
+Página Web
+162
+8
+Estudio de Mercado
+166
+8.1
+Resumen Ejecutivo
+167
+8.2
+Descripción del producto
+167
+8.3
+Análisis del Problema
+170
+8.4
+Análisis de la Competencia
+171
+8.4.1
+Tendencias Actuales
+171
+8.4.2
+Competencias
+172
+8.4.3
+Público Objetivo
+173
+8.5
+Segmentación del Mercado
+174
+8.5.1
+Tendencias de uso digital y pagos en Bolivia
+174
+8.5.2
+Público Objetivo
+175
+8.6
+Análisis de Tecnologías y Tendencias
+176
+8.7
+Mecanismos de Monetización para AppSwap
+179
+8.8
+Anexos
+181
+9
+Pruebas en el Software
+184
+9.1
+Planeación de Pruebas
+185
+9.2
+Diseño de las Pruebas
+185
+9.3
+Realización de Pruebas
+186
+9.3.1
+Prueba de ca
+j
+a Negra
+186
+10
+Marketing
+190
+11
+Aspectos de Prueba en Marcha del Software
+192
+12
+Software como Producto
+194
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Plan de Administración de Proyecto de Software (PAPS)
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz - Bolivia
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Modelo De Desarrollo
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz - Bolivia
+Definiciones
+ Iniciales (Sprint 0)
+Definir el Equipo Scrum
+Personas
+Valores
+Rol
+Características
+Pecho Garnica 
+Limberg
+Conocedor de los procesos de la metodología SCRUM y ágil manejo de documentación
+SCRUM MASTER
+El más capacitado para asegurar que el equipo siga el plan SCRUM y encargado de hacer posible el desarrollo del proyecto bajo la metodología.
+Mollo 
+Ayllon
+ Waldo Frank
+Alto entusiasmo y capacidad de comunicación. Mediador sosegado y coherente.
+PRODUCT OWNER
+Encargado de la coordinación y acuerdos con el cliente, es el mediador entre cliente y el resto del equipo.
+Pecho Garnica 
+Limberg
+ 
+Mollo 
+Ayllon
+ Waldo Frank 
+Desarrolladores del proyecto en artefactos del proyecto.
+DEVELOPER'S
+Encargados del desarrollo de los artefactos que se necesiten para el avance del proyecto y desarrolladores del software.
+Definir el Objetivo del Producto
+El objetivo principal del presente proyecto es desarrollar un 
+Marketplace de Aplicaciones de Emprendimiento Digital Académico con Machine 
+Learning
+ para Recomendaciones Inteligente
+s
+, denominado 
+AppSwap
+, orientado a estudiantes, docentes y desarrolladores de la Universidad Autónoma Gabriel René Moreno (U.A.G.R.M.).
+Definiciones Iniciales (Sprint 0)
+Id
+Tarea
+1
+Identificar y analizar los requerimientos iniciales del proyecto.
+2
+Definir y organizar el equipo Scrum.
+3
+Definir el “patrón de desarrollo” y las prácticas ágiles que se aplicarán en cada sprint.
+4
+Establecer la duración de cada Sprint
+.
+5
+Definir las herramientas para la gestión del proyecto
+.
+6
+Seleccionar las herramientas para la implementación del software
+.
+7
+Elaborar un primer esbozo del modelo de contexto del sistema 
+AppSwap
+.
+8
+Esbozar el modelo de arquitectura inicial.
+9
+Esbozar el modelo inicial de la base de datos.
+10
+Generar el 
+Product
+ Backlog inicial priorizado
+Definir Tiempo de Duración de Sprint
+SPRINT
+DURACIÓN
+0
+1 
+semana
+1
+3 
+semanas
+2
+3
+ 
+semanas
+3
+3
+ 
+semanas
+Definir Infraestructura Tecnológica (hardware y software)
+Hardware 
+Componente
+Descripción / Uso
+PC / Laptop del equipo Scrum
+Equipos
+ del Product Owner, Scrum Master y Development Team.
+Conexión a Internet (≥10 Mbps)
+Acceso estable a Jira, Trello, repositorios Git y videollamadas.
+Auriculares y micrófono
+Comunicación clara en reuniones de planificación, revisión y retrospectiva.
+Cámara web
+Reuniones sincrónicas durante 
+dailys
+ y eventos Scrum.
+Software
+Software / Herramienta
+Tipo
+Uso en el Proyecto (Gestión + Desarrollo)
+Jira / Azure DevOps / Trello
+Gestión de proyecto
+Administración del 
+Product
+ Backlog, tareas, 
+sprints
+ y seguimiento.
+GitHub / 
+GitLab
+Control de versiones
+Repositorio de código, ramas, 
+issues
+ y 
+pull
+ 
+requests
+.
+Microsoft Teams / Google Meet / Zoom
+Comunicación
+Dailys
+, retrospectivas, revisión de sprint y reuniones técnicas.
+Google Drive / OneDrive
+Almacenamiento documental
+Archivo de manuales, reportes, artefactos Scrum y diagramas UML.
+VS 
+Code
+ 
+IDE
+Desarrollo del 
+frontend
+ 
+React
+ y 
+backend
+ 
+Django
+.
+Python
+ 3.12
+Entorno de ejecución
+Plataforma para el 
+backend
+.
+React
+ +19
+Framework 
+frontend
+Desarrollo de la SPA (Single Page 
+Application
+).
+PostgreSQL 14+
+SGBDR
+Almacenamiento estructurado de usuarios, aplicaciones, pagos y reseñas.
+Python + 
+FastAPI
+Microservicio ML
+Implementación del sistema de recomendaciones inteligentes.
+Docker / Docker 
+Compose
+Contenedorización
+Empaquetado y ejecución de microservicios en entornos aislados.
+Postman
+ / 
+Thunder
+ Client
+Pruebas manuales de API
+Validación funcional de 
+endpoints
+ REST.
+Jest
+ / Jasmine / Karma
+Pruebas automatizadas
+Unit
+ 
+testing
+ y pruebas de integración 
+frontend
+–
+backend
+.
+SonarQube (opcional)
+Calidad de código
+Métricas de mantenibilidad, duplicación y cobertura.
+Stripe
+ (Sandbox)
+Integración externa
+Simulación de pagos mediante QR para flujo de compras.
+PlantUML
+ / Draw.io
+/ 
+Architect
+Modelado UML
+Diagramas de arquitectura, casos de uso y secuencia.
+Actividades durante todo el Sprint
+Fase / Actividad Técnica
+Descripción de la Actividad
+1. Análisis del Requerimiento
+Se revisan las historias de usuario priorizadas en el Sprint Backlog, comprendiendo criterios de aceptación, reglas de negocio y restricciones técnicas.
+2. Diseño de la Solución
+Se realiza el diseño técnico: componentes, interfaces, 
+endpoints
+, modelo de datos afectado y flujos de interacción. Incluye actualización de diagramas UML si corresponde.
+3. Configuración del Entorno y Repositorio
+Se crean ramas específicas del Sprint o 
+feature
+, configurando el entorno de desarrollo (Docker, dependencias, servicios externos y microservicio ML).
+4. Implementación (Programación)
+Desarrollo del código siguiendo estándares de codificación, arquitectura definida y buenas prácticas. Incluye 
+frontend
+, 
+backend
+, microservicio de recomendaciones y manejo de pagos QR.
+5. Pruebas Unitarias
+Se desarrollan y ejecutan pruebas unitarias (≥ 70% cobertura objetivo). Se validan funciones, controladores y servicios independientes.
+6. Pruebas de Integración
+Se integran módulos y servicios (API REST, BD, ML, carga de apps) verificando funcionamiento conjunto sin errores.
+7. Pruebas Funcionales
+Pruebas de aceptación respecto a criterios definidos en la historia de usuario. Validación de flujos completos: registro, compra QR, gestión de apps, reseñas.
+8. Corrección y Refactorización
+Ajuste de errores encontrados en pruebas. Refactorización ligera para mejorar legibilidad y rendimiento sin alterar funcionalidad.
+9. Documentación Técnica
+Actualización de documentación del sprint: 
+endpoints
+, componentes, flujos, decisiones técnicas, configuración necesaria.
+10. Integración Continua (CI/CD)
+Se valida la integración al repositorio principal mediante pipeline (
+linting
+, pruebas automáticas, 
+build
+). Generación del artefacto del sprint.
+11. Preparación para Demo
+Se prepara una versión estable para ser mostrada en la Revisión del Sprint. Incluye datos de prueba, capturas o escenarios organizados.
+12. Retrospectiva Técnica
+Se evalúan buenas prácticas, problemas técnicos, rendimiento, deuda técnica generada y mejoras para el siguiente sprint.
+Esbozar Modelos
+Modelo de contexto inicial
+Modelo de datos
+Modelo de arquitectura
+Definición de Criterios de Calidad
+Factor de Calidad
+Definición práctica en el contexto del software 
+AppSwap
+Correcto (Corrección)
+El sistema cumple exactamente los requisitos funcionales definidos: registro, autenticación, gestión de apps, pagos mediante QR, recomendaciones inteligentes y reseñas. Produce resultados correctos y coherentes en todas las situaciones previstas.
+Eficiente (Eficiencia)
+Utiliza de forma óptima los recursos disponibles (CPU, memoria, red, base de datos). La carga de apps, ejecución web y generación de recomendaciones deben operar con tiempos de respuesta adecuados para garantizar fluidez en el uso.
+Fiable (Confiabilidad)
+Mantiene un funcionamiento estable incluso ante picos de usuarios o actividad. Los errores son mínimos y controlados; se evitan caídas del servicio, pérdidas de datos y comportamientos inesperados en pagos o estadísticas.
+Fácil de usar (Usabilidad)
+La interfaz es intuitiva, moderna y accesible. Usuarios sin conocimientos técnicos pueden navegar, comprar apps, usar QR y dejar reseñas sin dificultad. Se prioriza experiencia agradable y fluida.
+Fácil de mantener (Mantenibilidad)
+La arquitectura modular (
+frontend
+, 
+backend
+ y microservicio ML) facilita corregir errores, agregar nuevas funcionalidades y mejorar componentes sin afectar al sistema completo. El código es legible y documentado.
+Portátil (Portabilidad)
+El sistema puede ejecutarse en distintos entornos (Docker, Linux, Windows, AWS). Es posible migrarlo o escalarlo sin alterar significativamente su estructura. El 
+frontend
+ y 
+backend
+ pueden desplegarse en servicios en la nube sin cambios.
+Seguro (Seguridad)
+Los datos sensibles (usuarios, pagos, apps) están protegidos mediante cifrado, autenticación JWT y roles. Se previenen ataques comunes (SQL 
+Injection
+, XSS). Se garantiza integridad en el manejo de pagos por QR.
+Compatible (Interoperabilidad)
+Se integra correctamente con servicios externos como 
+Stripe
+ (modo QR), microservicio de ML para recomendaciones y almacenamiento en la nube. La API REST es estándar y compatible con distintos sistemas.
+Escalable (Escalabilidad)
+Puede crecer en número de usuarios, apps, descargas y operaciones sin perder rendimiento. Soporta replicación de servicios, balanceo de carga y crecimiento horizontal en AWS.
+Disponibilidad
+La plataforma está accesible la mayor parte del tiempo, minimizando interrupciones. Se utilizan servicios en la nube, contenedores y mecanismos de monitoreo para asegurar continuidad operativa.
+Product
+ Backlog
+Product
+ Backlog
+Proyecto
+Marketplace de Aplicaciones de Emprendimiento Digital Académico con Machine 
+Learning
+ para Recomendaciones Inteligentes en la UAGRM. "APPSWAP"
+Product
+ 
+Owner
+Mollo 
+Ayllon
+ Waldo Frank
+Version
+3
+Fecha
+15
+/0
+3
+/202
+6
+Id
+Nombre corto del Requerimiento
+Descripción del requerimiento funcional 
+( )
+Prioridad
+HU1
+Registro de Vendedor
+Como vendedor quiero registrarme en la plataforma para poder publicar y gestionar mis aplicaciones.
+Alta
+HU2
+Inicio de sesión (Vendedor)
+Como vendedor quiero iniciar sesión para acceder a mis aplicaciones y ventas.
+Alta
+HU3
+Gestión de Apps (CRUD)
+Como vendedor quiero crear, editar, visualizar y eliminar mis aplicaciones para administrarlas dentro del 
+marketplace
+.
+Alta
+HU4
+Dashboard
+ de Rendimiento
+Como vendedor quiero visualizar estadísticas, reseñas, calificaciones y pagos de mis aplicaciones para analizar su desempeño comercial.
+Media
+HU5
+Gestión de Pagos QR (Vendedor)
+Como vendedor quiero recibir notificaciones y confirmar pagos realizados mediante QR para validar las ventas de mis aplicaciones.
+Alta
+HU6
+Recomendaciones Inteligentes (Vendedor)
+Como vendedor quiero recibir sugerencias de nuevas aplicaciones y tendencias generadas mediante Machine 
+Learning
+ para mejorar mi catálogo y aumentar mis ventas.
+Media
+HU7
+Cerrar sesión (Vendedor)
+Como vendedor quiero cerrar sesión para proteger la seguridad de mi cuenta.
+Baja
+HU8
+Registro de Comprador
+Como comprador quiero registrarme en la plataforma para acceder al catálogo de aplicaciones.
+Alta
+HU9
+Inicio de sesión (Comprador)
+Como comprador quiero iniciar sesión para acceder a las aplicaciones adquiridas y funcionalidades del sistema.
+Alta
+HU10
+Ver Apps Disponibles
+Como comprador quiero visualizar las aplicaciones publicadas para explorar las opciones disponibles en el 
+marketplace
+.
+Alta
+HU11
+Buscar Apps
+Como comprador quiero buscar aplicaciones por nombre, categoría o palabras clave para encontrar soluciones de forma rápida.
+Media
+HU12
+Explorar y Utilizar Apps
+Como comprador quiero ejecutar aplicaciones web dentro de la plataforma 
+para utilizarlas sin necesidad de descargarlas o instalarlas localmente.
+Alta
+HU13
+Pago por Código QR
+Como comprador quiero realizar pagos mediante código QR para adquirir aplicaciones sin utilizar una pasarela de pago tradicional.
+Alta
+HU14
+Recomendaciones Inteligentes (Comprador)
+Como comprador quiero recibir sugerencias personalizadas de aplicaciones basadas en mis intereses y comportamiento de uso para descubrir soluciones relevantes.
+Media
+HU15
+Dejar Reseñas y Calificaciones
+Como comprador quiero calificar y comentar las aplicaciones utilizadas para compartir mi experiencia y ayudar a otros usuarios.
+Media
+HU16
+Historial de Aplicaciones Adquiridas
+Como comprador quiero visualizar el historial de aplicaciones compradas para acceder fácilmente a ellas cuando las necesite.
+Alta
+HU17
+Cerrar sesión (Comprador)
+Como comprador quiero cerrar sesión para proteger la seguridad de mi cuenta.
+Baja
+HU18
+Gestión de Usuarios
+Como administrador quiero gestionar cuentas de vendedores y compradores para mantener el control de la plataforma.
+Alta
+HU19
+Aprobación de Aplicaciones
+Como administrador quiero revisar y aprobar aplicaciones antes de su publicación para garantizar la calidad del 
+marketplace
+.
+Alta
+HU20
+Gestión de Categorías
+Como administrador quiero crear, modificar y eliminar categorías para 
+organizar adecuadamente las aplicaciones publicadas.
+Media
+HU21
+Reportes Generales
+Como administrador quiero visualizar reportes de usuarios, aplicaciones, ventas y pagos para monitorear el funcionamiento de la plataforma.
+Media
+HU22
+Gestión de Pagos
+Como administrador quiero supervisar los pagos y transacciones realizadas para garantizar la integridad financiera del 
+marketplace
+.
+Alta
+Sprint 1
+Sprint 
+Planing
+Objetivo del Sprint
+Entregar las funcionalidades esenciales del Marketplace, permitiendo a los usuarios realizar operaciones fundamentales dentro de la plataforma. Durante este sprint se busca habilitar el registro e inicio de sesión tanto para vendedores como compradores, así como la capacidad de que los vendedores gestionen sus aplicaciones (crear, editar, visualizar y eliminar). De esta manera, se establecerá la base operativa del sistema, asegurando que los usuarios puedan autenticarse correctamente y que el flujo inicial de publicación de aplicaciones esté completamente disponible y funcional
+.
+Nro
+Casos de
+ 
+Uso
+  Tipo
+CU1
+Registrarse
+    
+Web
+CU2
+Inicio
+ 
+de
+ 
+sesión
+CU3
+Cierre
+ 
+de
+ 
+sesión
+CU4
+Recuperación
+ 
+de
+ 
+contraseña
+CU5
+Editar
+ 
+perfil
+CU6
+Subir Nueva App
+CU7
+Explorar Marketplace
+Sprint Backlog
+Objetivo
+ 
+del 
+Sprint:
+Sprint 
+número
+:
+1
+Tiempo
+ 
+Programado:
+4 
+semanas
+Fecha
+ 
+de 
+Inicio:
+07/04/2026
+Fecha
+ 
+de
+ 
+Finalización:
+28/04/2026
+Id
+Tarea
+Estimado
+Responsable
+Estado
+SP-
+1
+Registro
+ 
+de
+ 
+usuario
+1h
+Pecho
+ 
+Garnica 
+Limberg
+Finalizado
+SP-
+2
+Inicio
+ 
+y
+ 
+cierre
+ 
+de 
+Sesion
+2h
+Pecho
+ 
+Garnica 
+Limberg
+Finalizado
+SP-
+3
+Recuperacion
+ 
+de 
+Contraseña
+2h
+Pecho
+ 
+Garnica 
+Limberg
+Finalizado
+SP-
+4
+Editar Perfil
+2h
+Pecho
+ 
+Garnica 
+Limberg
+Finalizado
+Contexto del sistema
+Historias de usuario
+HU- 
+Iniciar
+ 
+Sesión 
+Cerrar Sesión 
+Historia
+ 
+de
+ 
+Usuario
+Logo
+ 
+del
+ 
+Proyecto
+Id
+Nombre
+ 
+de
+ 
+Corto de 
+HU
+Prioridad
+PHU
+Estado
+HU-
+2
+Cerrar Sesión
+Media
+3
+Terminado
+Como:
+Usuario
+ 
+cerrar Sesión
+Quiero:
+Poder
+ 
+cerrar sesión para seguridad del sistema
+Para:
+Poder estar seguro que no estoy autenticado
+Criterio 
+Aceptación
+Tener
+ 
+cuenta
+ 
+existente
+ 
+en
+ 
+la
+ 
+Base
+ 
+de
+ 
+datos
+Que
+ 
+la
+ 
+contraseña
+ 
+tenga mínimo
+ 
+5
+ 
+caracteres
+Que
+ 
+el
+ 
+usuario
+ 
+coincida
+ 
+con
+ 
+la
+ 
+contraseña
+Ni
+ 
+el
+ 
+usuario
+ 
+ni
+ 
+la
+ 
+contraseña
+ 
+deben
+ 
+estar
+ 
+en
+ 
+blanco
+Conversacion
+/Reglas
+Un usuario solo puede tener una cuenta por correo electrónico
+Prototipo/Mockup
+Desarrollador
+Mollo 
+Ayllon
+ Waldo Frank
+Editar Perfil
+Historia
+ 
+de
+ 
+Usuario
+Logo
+ 
+del
+ 
+Proyecto
+Id
+Nombre de HU
+Prioridad
+PHU
+Estado
+HU-1
+Inicio de Sesión
+Media
+5
+Terminado
+Como:
+Editar Perfil
+Quiero:
+Poder editar perfil para tener mayor aceptación por parte del comprador
+Para:
+Los usuarios puedan ver más información 
+Tener
+ 
+cuenta
+ 
+existente
+ 
+en
+ 
+la
+ 
+Base
+ 
+de
+ 
+datos
+Que
+ 
+la
+ 
+contraseña
+ 
+tenga mínimo
+ 
+5
+ 
+caracteres
+Que
+ 
+el
+ 
+usuario
+ 
+coincida
+ 
+con
+ 
+la
+ 
+contraseña
+Ni
+ 
+el
+ 
+usuario
+ 
+ni
+ 
+la
+ 
+contraseña
+ 
+deben
+ 
+estar
+ 
+en
+ 
+blanco
+Conversación
+/Reglas
+Un usuario solo puede tener una cuenta por correo electrónico
+Prototipo/Mockup
+Desarrollador
+Mollo 
+Ayllon
+ Waldo Frank
+Usuario sin iniciar sesión
+Historia
+ 
+de
+ 
+Usuario
+Logo
+ 
+del
+ 
+Proyecto
+Id
+Nombre de HU
+Prioridad
+PHU
+Estado
+HU-3
+Iniciar 
+Sesion
+Media
+5
+Terminado
+Como:
+Usuario sin iniciar sesión
+Quiero:
+Poder iniciar sesión con una cuenta
+Para:
+Poder tener acceso a las demás funcionalidades del sistema
+Tener
+ 
+cuenta
+ 
+existente
+ 
+en
+ 
+la
+ 
+Base
+ 
+de
+ 
+datos
+Que
+ 
+la
+ 
+contraseña
+ 
+tenga mínimo
+ 
+5
+ 
+caracteres
+Que
+ 
+el
+ 
+usuario
+ 
+coincida
+ 
+con
+ 
+la
+ 
+contraseña
+Ni
+ 
+el
+ 
+usuario
+ 
+ni
+ 
+la
+ 
+contraseña
+ 
+deben
+ 
+estar
+ 
+en
+ 
+blanco
+Conversación/Reglas
+Un usuario solo puede tener una cuenta por correo electrónico
+Prototipo/Mockup
+Desarrollador
+Mollo 
+Ayllon
+ Waldo Frank
+Usuario Vendedor Sube una Aplicación
+ 
+Historia
+ 
+de
+ 
+Usuario
+Logo
+ 
+del
+ 
+Proyecto
+Id
+Nombre de HU
+Prioridad
+PHU
+Estado
+HU-6
+Subir una App
+Alta
+6
+Terminado
+Como:
+Usuario Vendedor Sube una Aplicación
+Quiero:
+Subir una Aplicación
+Para:
+Poder vender mi app y generar ingresos
+Tener
+ 
+cuenta
+ 
+existente
+ 
+en
+ 
+la
+ 
+Base
+ 
+de
+ 
+datos
+Descripción detallada de la App
+Seleccionar a que categoría pertenece
+Seleccionar el precio, subir archivo ZIP, subir múltiples imágenes
+Conversación/Reglas
+Un usuario solo puede tener una cuenta por correo electrónico
+Prototipo/Mockup
+Desarrollador
+Pecho Garnica 
+Limberg
+Explorar Marketplace
+Historia
+ 
+de
+ 
+Usuario
+Logo
+ 
+del
+ 
+Proyecto
+Id
+Nombre de HU
+Prioridad
+PHU
+Estado
+HU-7
+Explorar Marketplace
+Alta
+7
+Terminado
+Como:
+Usuario Comprador visualiza las apps en ventas
+Quiero:
+Comprar una Aplicación
+Para:
+Poder usarlo dentro de mi Empresa
+Tener
+ 
+cuenta
+ 
+existente
+ 
+en
+ 
+la
+ 
+Base
+ 
+de
+ 
+datos
+Visualizar la app
+Realizar consultas IA
+Realizar Compras
+Conversación/Reglas
+Un usuario solo puede tener una cuenta por correo electrónico
+Prototipo/Mockup
+Desarrollador
+Pecho Garnica 
+Limberg
+Diseño
+Diseño de la Arquitectura
+Diagrama de Despliegue
+Modelado C4
+Nivel 1: Diagrama de Contexto
+Nivel 2: Diagrama de Contenedores
+Nivel 3: 
+Diagrama de Componentes
+Nivel 4: Diagrama de Código
+Diseño de Datos
+ 
+Diseño Conceptual
+ 
+Diseño Lógic
+o
+Diseño Físico
+-- 1. Habilitar extensiones necesarias (UUID para seguridad y Vector para la IA)
+CREATE EXTENSION IF NOT EXISTS "
+uuid-ossp
+";
+CREATE EXTENSION IF NOT EXISTS vector;
+-- 2. Creación de Tipos ENUM (Para asegurar que no entren datos basura)
+CREATE TYPE 
+rol_usuario
+ AS ENUM ('VENDEDOR', 'COMPRADOR', 'ADMIN');
+CREATE TYPE 
+tipo_plan
+ AS ENUM ('BASIC', 'PREMIUM');
+CREATE TYPE 
+estado_aplicacion
+ AS ENUM ('ACTIVA', 'INACTIVA', 'EN_REVISION');
+CREATE TYPE 
+estado_transaccion
+ AS ENUM ('COMPLETADO', 'PENDIENTE', 'FALLIDO');
+CREATE TYPE 
+tipo_frag_vector
+ AS ENUM ('CODIGO_FUENTE', 'DESCRIPCION_NEGOCIO');
+-- 3. Creación de Tablas (Respetando el orden de llaves foráneas)
+CREATE TABLE usuarios (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+nombre_completo
+ 
+VARCHAR(
+150) NOT NULL,
+    correo 
+VARCHAR(
+150) UNIQUE NOT NULL,
+    
+password_hash
+ 
+VARCHAR(
+255) NOT NULL,
+    rol 
+rol_usuario
+ NOT NULL,
+    
+plan_suscripcion
+ 
+tipo_plan
+ DEFAULT 'BASIC',
+    
+consultas_ia_diarias
+ INT DEFAULT 0,
+    
+stripe_customer_id
+ 
+VARCHAR(
+100),
+    
+fecha_fin_suscripcion
+ TIMESTAMP,
+    
+fecha_registro
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE aplicaciones (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+vendedor_id
+ UUID NOT NULL,
+    titulo 
+VARCHAR(
+200) NOT NULL,
+    
+categoria
+ 
+VARCHAR(
+100) NOT NULL,
+    
+descripcion_corta
+ TEXT,
+    
+tecnologias
+ 
+VARCHAR[
+] NOT NULL, -- Arreglo de 
+strings
+ en PostgreSQL
+    
+precio_sugerido_ia
+ 
+DECIMAL(
+10, 2),
+    
+precio_venta
+ 
+DECIMAL(
+10, 2) NOT NULL,
+    
+complejidad_ciclomatica
+ INT,
+    
+sello_calidad_ia
+ BOOLEAN DEFAULT FALSE,
+    url_codigo_s3 
+VARCHAR(
+500),
+    
+url_manual_autogenerado
+ 
+VARCHAR(
+500),
+    estado 
+estado_aplicacion
+ DEFAULT 'EN_REVISION',
+    
+fecha_publicacion
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT 
+fk_vendedor
+ FOREIGN KEY (
+vendedor_id
+) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+CREATE TABLE transacciones (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+comprador_id
+ UUID NOT NULL,
+    
+aplicacion_id
+ UUID NOT NULL,
+    
+stripe_session_id
+ 
+VARCHAR(
+255) UNIQUE NOT NULL,
+    
+monto_pagado
+ 
+DECIMAL(
+10, 2) NOT NULL,
+    
+estado_pago
+ 
+estado_transaccion
+ DEFAULT 'PENDIENTE',
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT 
+fk_comprador_transaccion
+ FOREIGN KEY (
+comprador_id
+) REFERENCES usuarios(id),
+    CONSTRAINT 
+fk_app_transaccion
+ FOREIGN KEY (
+aplicacion_id
+) REFERENCES aplicaciones(id)
+);
+CREATE TABLE 
+resenas
+ (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+comprador_id
+ UUID NOT NULL,
+    
+aplicacion_id
+ UUID NOT NULL,
+    estrellas INT NOT NULL CHECK (estrellas BETWEEN 1 AND 5),
+    comentario TEXT,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT 
+fk_comprador_resena
+ FOREIGN KEY (
+comprador_id
+) REFERENCES usuarios(id) ON DELETE CASCADE,
+    CONSTRAINT 
+fk_app_resena
+ FOREIGN KEY (
+aplicacion_id
+) REFERENCES aplicaciones(id) ON DELETE CASCADE
+);
+CREATE TABLE 
+app_vectores
+ (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+aplicacion_id
+ UUID NOT NULL,
+    
+tipo_fragmento
+ 
+tipo_frag_vector
+ NOT NULL,
+    
+contenido_texto
+ TEXT NOT NULL,
+    
+embedding
+ 
+vector(
+1536), -- Dimensión estándar de 
+OpenAI
+ text-embedding-3-small
+    CONSTRAINT 
+fk_app_vector
+ FOREIGN KEY (
+aplicacion_id
+) REFERENCES aplicaciones(id) ON DELETE CASCADE
+);
+CREATE TABLE 
+historial_consultas
+ (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+comprador_id
+ UUID NOT NULL,
+    
+texto_buscado
+ TEXT NOT NULL,
+    
+fecha_consulta
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT 
+fk_comprador_historial
+ FOREIGN KEY (
+comprador_id
+) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+CREATE TABLE notificaciones (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+usuario_id
+ UUID NOT NULL,
+    titulo 
+VARCHAR(
+150) NOT NULL,
+    mensaje TEXT NOT NULL,
+    
+leido
+ BOOLEAN DEFAULT FALSE,
+    
+fecha_creacion
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT 
+fk_usuario_notificacion
+ FOREIGN KEY (
+usuario_id
+) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+Diseño de la Lógica de Negocio
+Diagrama de Secuencia + Clases
+Diseño de Interfaces
+ 
+ 
+ 
+Implementación
+ 
+Componentes y artefactos generados
+Pruebas
+1. Filtro del Desarrollador: Pruebas Unitarias (Lógica de Código)
+Estas pruebas garantizan que las funciones individuales escritas en React.js y 
+FastAPI
+ operen sin errores.
+Prueba de Encriptación (
+Backend
+):
+ Se validó que la función encargada de registrar usuarios aplique correctamente un algoritmo de 
+hashing
+ a la contraseña antes de insertarla en PostgreSQL. No es posible guardar contraseñas en texto plano bajo ninguna circunstancia.
+Prueba de Generación de Token (
+Backend
+):
+ Se verificó 
+que
+ al procesar un inicio de sesión exitoso, el sistema genere un JWT (JSON Web Token) válido, que contenga el ID del usuario y su Rol (VENDEDOR o COMPRADOR), con un tiempo de expiración definido.
+Prueba de Validación de Formularios (
+Frontend
+):
+ Se probó la interfaz de 
+React
+ para asegurar que el botón de "Registrar" se desactive si el correo electrónico no tiene un formato válido (ausencia del "@") o si la contraseña tiene menos de 8 caracteres, evitando enviar peticiones basura al servidor.
+2. Filtro de QA: Pruebas de Integración y Rendimiento (Tiempos de Respuesta)
+El objetivo de estas pruebas fue confirmar que el 
+Frontend
+ y el 
+Backend
+ se comuniquen fluidamente y soporten la carga de usuarios sin lentitud.
+Integración 
+End-to-End
+ (Registro y 
+Login
+):
+ Se simuló el flujo completo: creación de un usuario desde la web, recepción de los datos en la API REST (
+FastAPI
+) y la correcta creación del registro en la tabla usuarios de PostgreSQL. Inmediatamente después, se probó el inicio de sesión con esas mismas credenciales, confirmando un código de estado HTTP 200 (OK).
+Prueba de Rendimiento (Tiempo de Respuesta):
+ Se realizaron múltiples peticiones de inicio de sesión simultáneas. El servidor (
+FastAPI
+) demostró la capacidad de procesar la autenticación y devolver el token en un tiempo promedio inferior a 300 milisegundos, cumpliendo con el requerimiento de alta velocidad esperado para una PWA.
+Prueba de Tolerancia a Errores:
+ Se forzó el inicio de sesión con credenciales incorrectas para asegurar que el sistema devuelva de forma rápida y segura un error HTTP 401 (
+Unauthorized
+), mostrando el mensaje correcto en la interfaz sin exponer detalles de la base de datos.
+3. Filtro del 
+Product
+ 
+Owner
+: Pruebas de Aceptación (Requerimientos de Negocio)
+Esta evaluación validó que el producto entregado en el Sprint 1 sea útil y cumpla las reglas del modelo de negocio del Marketplace.
+Validación de Redirección por Roles:
+ Se verificó que el sistema respete los perfiles de usuario. Al iniciar sesión como un COMPRADOR (Pyme), el sistema redirige exitosamente a la vista "Explorar Apps". Al iniciar sesión como un VENDEDOR (Estudiante), el sistema dirige al "
+Dashboard
+ de Rendimiento".
+Validación del Modelo Freemium Básico:
+ Se comprobó 
+que
+ al completar el formulario de registro, el sistema asigne por defecto el plan BASIC en la base de datos, garantizando que el usuario inicie con los límites correspondientes (ej. máximo 5 aplicaciones para estudiantes) antes de poder acceder a funciones Premium.
+Validación de Edición de Perfil:
+ Se comprobó que un usuario autenticado puede actualizar sus datos personales (nombre, dirección, etc.) y que estos cambios se reflejen inmediatamente en la interfaz (
+React
+) y persistan correctamente en la base de datos.
+Diario Scrum
+Daily
+ Scrum
+Desarrolladores
+Pecho Garnica 
+Limberg
+, Mollo 
+Ayllon
+ Waldo Frank
+Dia
+¿Qué hice ayer?
+¿Qué voy a hacer hoy?
+¿Veo algún impedimento?
+07/04/2026
+Reunión de planificación. Asignación de HU-1 a HU-2.
+Investigar opciones de personalización de estilos en el 
+frontend
+.
+Ninguno.
+08/04/2026
+Implementé selector de colores y tipografías 
+para diapositivas (HU-1).
+Conectar los estilos personalizados al modelo de 
+slide
+.
+Faltan validaciones para combinación de colores.
+09/04/2026
+Validé cambios visuales y se almacenan estilos por 
+slide
+.
+Comenzar HU-10: estructura base para editor visual de diapositiva.
+La lógica de posicionamiento requiere una librería adicional.
+10/04/2026
+Integré 
+react-draggable
+ y 
+react-resizable
+ para mover elementos (HU-10).
+Implementar edición en tiempo real del contenido.
+Coordinación entre estilos y contenido no está totalmente clara.
+11/04/2026
+Resolví conflictos entre edición de contenido y estilos.
+Hacer que los cambios se reflejen de inmediato en la vista previa.
+Ninguno.
+12/04/2026
+Vista previa actualiza al instante los cambios.
+Comenzar rediseño visual del editor con mejor UX/UI.
+Ninguno.
+13/04/2026
+Agregué botones y menú flotante de edición rápida.
+Probar flujo completo de edición: crear → editar → guardar.
+Ninguno.
+14/04/2026
+Flujo funcional. Terminé HU-1.
+Continuar con tarea ya iniciada en Sprint anterior y añadir mejoras en entrada por voz.
+Ninguno.
+15/04/2026
+Solucioné compatibilidad.
+Validar resultado.
+Algunos resultados poco precisos aún.
+16/04/2026
+Añadí controles de edición para el texto dictado.
+Finalizar HU-1.
+Ninguno.
+17/04/2026
+HU-11 completa. Inicio de HU-2.
+Investigar 
+WebSockets
+ y uso.
+No hay servidor 
+WebSocket
+ activo aún.
+18/04/2026
+Configuré socket.io en 
+backend
+.
+Probar conexión entre dos usuarios en un mismo 
+slide
+.
+Problemas iniciales de sincronización.
+19/04/2026
+Resolví sincronización y compartí sesión de trabajo entre dos navegadores.
+Permitir múltiples usuarios editando al mismo tiempo.
+Conflictos de escritura simultánea.
+20/04/2026
+Añadí control de bloqueo de elementos al ser editados.
+Crear indicador visual de presencia de usuarios colaborando.
+Ninguno.
+21/04/2026
+Agregué lista de usuarios conectados a la sesión.
+Pruebas funcionales de colaboración en tiempo real.
+Ninguno.
+22/04/2026
+Realicé pruebas entre dos dispositivos distintos.
+Documentar comportamiento colaborativo y casos de error.
+Ninguno.
+23/04/2026
+Completada a nivel funcional.
+Iniciar pruebas integradas de todo el sistema del Sprint.
+Ninguno.
+24/04/2026
+Documenté bugs menores y correcciones.
+Mejoras visuales en estilos y mensajes de error.
+Ninguno.
+25/04/2026
+Ajustes visuales en edición y colores predefinidos.
+Añadir modo oscuro como extra en personalización.
+Ninguno.
+26/04/2026
+Agregado modo oscuro y temas personalizados (HU-9 ampliado).
+Revisar accesibilidad visual (contraste, legibilidad).
+Ninguno.
+Sprint 
+Review
+Revisión
+ 
+del 
+Sprint
+Nombre
+ 
+del
+ 
+proyecto:
+ 
+Revisión:
+ 
+MARKETPLACE DE APLICACIONES DE EMPREDIMIENTO DIGITAL ACADEMICO CON MACHINE LEARNING PARA RECOMENDACIONES INTELIGENTE EN LA UAGRM
+Objetivo
+ 
+de
+ 
+la
+ 
+revisión:
+Implementar
+ 
+correctamente
+ 
+la
+ 
+base
+ 
+funcional
+ 
+del
+ 
+sistema,
+ 
+incluyendo
+ 
+autenticación, gestión de usuarios y operaciones iniciales de documentos, garantizando que los
+usuarios
+ 
+puedan
+ 
+registrarse,
+ 
+iniciar
+ 
+sesión
+ 
+y
+ 
+poder editar su perfil completamente.
+Lugar,
+ 
+fecha,
+ 
+hora:
+ 
+Santa
+ 
+Cruz
+ 
+de
+ 
+la
+ 
+Sierra,
+ 
+27/04/2026,
+ 
+20:00
+ 
+hrs
+Participantes
+Nombre
+Rol
+Pecho
+ 
+Garnica
+ 
+Limberg
+Product
+ 
+Owner
+Mollo 
+Ayllon
+ Waldo Frank
+Tareas
+ 
+Completadas
+Tarea
+Estado
+Registro
+ 
+de
+ 
+usuario
+Finalizado
+Inicio
+ 
+de
+ 
+sesión
+Finalizado
+Cierre
+ 
+de
+ 
+sesión
+Finalizado
+Recuperación
+ 
+de
+ contraseña
+Finalizado
+Editar
+ 
+perfil
+Finalizado
+Para
+ 
+lo que 
+viene
+Lógica de negocio (Catálogo, Subir Apps, CRUD básico) y almacenamiento.
+Implementar
+ 
+estas funcionalidades
+ 
+en
+ 
+el 
+Backend
+ y 
+Frontend
+Sprint Retrospective
+Retrospectiva
+ 
+de
+ Sprint
+Nombre
+ 
+del 
+proyecto:
+MARKETPLACE DE APLICACIONES DE EMPREDIMIENTO DIGITAL
+ 
+ACADEMICO CON MACHINE LEARNING PARA
+ 
+RECOMENDACIONES INTELIGENTE EN LA UAGRM
+Objetivos
+ 
+de
+ 
+la
+ 
+retrospectiva:
+Lugar,
+ 
+Fecha,
+Hora
+Santa
+ 
+Cruz
+ 
+de
+ 
+La
+Sierra
+27/04/2026
+21:00
+Participantes:
+ 
+Pecho Garnica 
+Limberg
+Discusión
+¿Qué
+ 
+salió
+ 
+bien?
+Coordinamos al equipo y nos aseguramos de que cada
+ 
+uno de nosotros cumpliera
+ 
+con
+ 
+nuestras tareas
+ 
+asignadas dentro de los plazos
+ 
+acordados.
+ 
+Nos
+ 
+apoyamos
+ 
+mutuamente
+ 
+para
+ 
+resolver
+ 
+dudas y facilitar el avance de las tareas. definimos También claramente los objetivos de cada requisito funcionalidad.
+¿Que
+ 
+no
+ 
+salió
+ 
+bien?
+Qué
+ 
+problemas
+ 
+se
+ 
+encontró
+ 
+y
+ 
+cómo
+ 
+esos
+ 
+problemas
+ 
+fueron
+ 
+(o
+ 
+no
+ 
+fueron)
+ 
+resuelto
+Algunas tareas tomaron más tiempo del estimado inicialmente, debido a una subestimación del esfuerzo requerido. Hubo momentos
+ 
+en
+ 
+que
+ 
+la
+ 
+comunicación
+ 
+entre
+ 
+los
+ 
+miembros
+ 
+del
+ 
+equipo no fue completamente fluida, especialmente al integrar módulos entre diferentes responsables. Se identificaron bugs y errores durante la implementación de ciertas funcionalidades, lo que generó retrasos en algunas tareas planificadas.
+¿Qué
+ 
+debemos 
+cambiar para 
+mejorar?
+Cumplir con los tiempos estimados
+ 
+para
+ 
+cada funcionalidad y con la planificación general del proyecto. Detallar mejor las tareas y optimizar la comunicación entre ambos para
+evitar
+ 
+malentendidos.
+Scrum 
+TaskBoard
+Sprint 
+2
+S
+print 
+Planing
+Objetivo del Sprint
+Implementar las funcionalidades esenciales para el rol de Comprador y los primeros módulos de Machine 
+Learning
+.
+Objetivo de Sprint
+Nro
+Casos de
+ 
+Uso
+  Tipo
+CU12
+Búsqueda Inteligente y Semántica
+    
+Web
+CU13
+Sugerencia Automática de Precio
+CU14
+Generación Automática de Documentación y Manual
+CU15
+Analizador de Complejidad y Sello Grado A
+CU16
+Sistema de Recomendaciones Personalizadas
+CU17
+Plan de 
+Suscripcion
+CU18
+Dejar Reseña / Calificar App
+Contexto del sistema
+Sprint Backlog
+Objetivo
+ 
+del 
+Sprint:
+Sprint 
+número
+:
+2
+Tiempo
+ 
+Programado:
+3 
+semanas
+Fecha
+ 
+de 
+Inicio:
+28/04/2026
+Fecha
+ 
+de
+ 
+Finalización:
+20/04/2026
+Id
+Tarea
+Estimado
+Responsable
+Estado
+SP-
+1
+Búsqueda Inteligente y Semántica
+1h
+Pecho
+ 
+Garnica 
+Limberg
+Finalizado
+SP-
+2
+Sugerencia Automática de Precio
+2h
+Pecho
+ 
+Garnica 
+Limberg
+Finalizado
+SP-
+3
+Generación Automática de Documentación y Manual
+2h
+Pecho
+ 
+Garnica 
+Limberg
+Finalizado
+SP-
+4
+Analizador de Complejidad y Sello Grado A
+2h
+Pecho
+ 
+Garnica 
+Limberg
+Finalizado
+Historias de usuario
+HU-
+ 
+Búsqueda Inteligente y Semántica
+Historia
+ 
+de
+ 
+Usuario
+Logo
+ 
+del
+ 
+Proyecto
+Id
+Nombre de HU
+Prioridad
+PHU
+Estado
+HU-2
+Búsqueda Inteligente y Semántica
+Media
+5
+Terminado
+Como:
+Usuario realiza consultas a la IA
+Quiero:
+El usuario Comprador, podrá consultar a la IA, a través de 
+prompt
+Para:
+Tener una mayor facilidad en buscar apps que quiere comprar
+Criterio 
+Aceptación
+Consultas específicas, etc.
+Consultas; entrada LN y Voz
+Debe proporcionar información clara
+Conversación
+/Reglas
+Un usuario solo puede tener una cuenta por correo electrónico
+Prototipo/Mockup
+Desarrollador
+Pecho Garnica 
+Limberg
+H
+U
+-
+ 
+Sugerencia de precio automática
+Historia
+ 
+de
+ 
+Usuario
+Logo
+ 
+del
+ 
+Proyecto
+Id
+Nombre de HU
+Prioridad
+PHU
+Estado
+HU-1
+Sugerencia de precio automática
+Media
+5
+Terminado
+Como:
+Usuario (estudiante) consulta sobre el precio de su app
+Quiero:
+Saber 
+cuánto
+ puedo vender mi app, consultando a la Inteligencia Artificial
+Para:
+Poder tener un precio estándar y poder vender mi app
+Criterio 
+Aceptación
+Debe presionar al botón Sugerir precios
+Debe esperar el usuario que la IA haga el análisis
+La IA analiza la app, hace un estudio oferta y demanda
+LA IA observa la complejidad y lo factores calidad de la app
+Conversación/Reglas
+Un usuario solo puede tener una cuenta por correo electrónico
+Prototipo/Mockup
+Desarrollador
+Pecho Garnica 
+Limberg
+HU-
+ 
+Generación de Documentación y Manual
+ Usuario
+Historia
+ 
+de
+ 
+Usuario
+Logo
+ 
+del
+ 
+Proyecto
+Id
+Nombre de HU
+Prioridad
+PHU
+Estado
+HU-6
+Plan de Suscripción
+Alta
+6
+Terminado
+Como:
+Actualizar su plan, realizando pago
+Quiero:
+Realizar consultas a la IA, optimizar precio, etc.
+Para:
+Subir apps ilimitadamente, realizar consultas
+Criterio 
+Aceptación
+Consultas ilimitadas
+Acceso a 
+IA´s
+ 
+Tener menos restricciones
+Acceder al 
+chabot
+Conversación/Reglas
+Un usuario solo puede tener una cuenta por correo electrónico
+Prototipo/Mockup
+Desarrollador
+Mollo 
+Ayllon
+ Waldo Frank
+HU-Realizar Pago
+Historia
+ 
+de
+ 
+Usuario
+Logo
+ 
+del
+ 
+Proyecto
+Id
+Nombre de HU
+Prioridad
+PHU
+Estado
+HU-7
+Realizar Pago
+Alta
+7
+Terminado
+Como:
+Usuario realiza pago mediante 
+stripe
+Quiero:
+Comprar una suscripción o app
+Para:
+Poder tener acceso a 
+más
+ funciones
+Criterio 
+Aceptación
+Api 
+key
+ 
+Stripe
+Integración 
+Stripe
+ simulado
+Realización de pago para suscripción premium
+Realizar Compras
+Conversación/Reglas
+Un usuario solo puede tener una cuenta por correo electrónico
+Prototipo/Mockup
+Desarrollador
+Mollo 
+Ayllon
+ Waldo Frank
+Diseño
+Diseño de la Arquitectura
+Diagrama de Despliegue
+Modelado C4
+Nivel 1: Diagrama de Contexto
+Nivel 2: Diagrama de Contenedores
+Nivel 3: Diagrama de Componentes
+Nivel 4: Diagrama de Código
+Diseño de Datos
+ 
+Diseño Conceptual 
+Diseño Lógico
+Diseño Físico
+-- 1. Habilitar extensiones necesarias (UUID para seguridad y Vector para la IA)
+CREATE EXTENSION IF NOT EXISTS "
+uuid-ossp
+";
+CREATE EXTENSION IF NOT EXISTS vector;
+-- 2. Creación de Tipos ENUM (Para asegurar que no entren datos basura)
+CREATE TYPE 
+rol_usuario
+ AS ENUM ('VENDEDOR', 'COMPRADOR', 'ADMIN');
+CREATE TYPE 
+tipo_plan
+ AS ENUM ('BASIC', 'PREMIUM');
+CREATE TYPE 
+estado_aplicacion
+ AS ENUM ('ACTIVA', 'INACTIVA', 'EN_REVISION');
+CREATE TYPE 
+estado_transaccion
+ AS ENUM ('COMPLETADO', 'PENDIENTE', 'FALLIDO');
+CREATE TYPE 
+tipo_frag_vector
+ AS ENUM ('CODIGO_FUENTE', 'DESCRIPCION_NEGOCIO');
+-- 3. Creación de Tablas (Respetando el orden de llaves foráneas)
+CREATE TABLE usuarios (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+nombre_completo
+ 
+VARCHAR(
+150) NOT NULL,
+    correo 
+VARCHAR(
+150) UNIQUE NOT NULL,
+    
+password_hash
+ 
+VARCHAR(
+255) NOT NULL,
+    rol 
+rol_usuario
+ NOT NULL,
+    
+plan_suscripcion
+ 
+tipo_plan
+ DEFAULT 'BASIC',
+    
+consultas_ia_diarias
+ INT DEFAULT 0,
+    
+stripe_customer_id
+ 
+VARCHAR(
+100),
+    
+fecha_fin_suscripcion
+ TIMESTAMP,
+    
+fecha_registro
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE aplicaciones (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+vendedor_id
+ UUID NOT NULL,
+    titulo 
+VARCHAR(
+200) NOT NULL,
+    
+categoria
+ 
+VARCHAR(
+100) NOT NULL,
+    
+descripcion_corta
+ TEXT,
+    
+tecnologias
+ 
+VARCHAR[
+] NOT NULL, -- Arreglo de 
+strings
+ en PostgreSQL
+    
+precio_sugerido_ia
+ 
+DECIMAL(
+10, 2),
+    
+precio_venta
+ 
+DECIMAL(
+10, 2) NOT NULL,
+    
+complejidad_ciclomatica
+ INT,
+    
+sello_calidad_ia
+ BOOLEAN DEFAULT FALSE,
+    url_codigo_s3 
+VARCHAR(
+500),
+    
+url_manual_autogenerado
+ 
+VARCHAR(
+500),
+    estado 
+estado_aplicacion
+ DEFAULT 'EN_REVISION',
+    
+fecha_publicacion
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT 
+fk_vendedor
+ FOREIGN KEY (
+vendedor_id
+) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+CREATE TABLE transacciones (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+comprador_id
+ UUID NOT NULL,
+    
+aplicacion_id
+ UUID NOT NULL,
+    
+stripe_session_id
+ 
+VARCHAR(
+255) UNIQUE NOT NULL,
+    
+monto_pagado
+ 
+DECIMAL(
+10, 2) NOT NULL,
+    
+estado_pago
+ 
+estado_transaccion
+ DEFAULT 'PENDIENTE',
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT 
+fk_comprador_transaccion
+ FOREIGN KEY (
+comprador_id
+) REFERENCES usuarios(id),
+    CONSTRAINT 
+fk_app_transaccion
+ FOREIGN KEY (
+aplicacion_id
+) REFERENCES aplicaciones(id)
+);
+CREATE TABLE 
+resenas
+ (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+comprador_id
+ UUID NOT NULL,
+    
+aplicacion_id
+ UUID NOT NULL,
+    estrellas INT NOT NULL CHECK (estrellas BETWEEN 1 AND 5),
+    comentario TEXT,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT 
+fk_comprador_resena
+ FOREIGN KEY (
+comprador_id
+) REFERENCES usuarios(id) ON DELETE CASCADE,
+    CONSTRAINT 
+fk_app_resena
+ FOREIGN KEY (
+aplicacion_id
+) REFERENCES aplicaciones(id) ON DELETE CASCADE
+);
+CREATE TABLE 
+app_vectores
+ (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+aplicacion_id
+ UUID NOT NULL,
+    
+tipo_fragmento
+ 
+tipo_frag_vector
+ NOT NULL,
+    
+contenido_texto
+ TEXT NOT NULL,
+    
+embedding
+ 
+vector(
+1536), -- Dimensión estándar de 
+OpenAI
+ text-embedding-3-small
+    CONSTRAINT 
+fk_app_vector
+ FOREIGN KEY (
+aplicacion_id
+) REFERENCES aplicaciones(id) ON DELETE CASCADE
+);
+CREATE TABLE 
+historial_consultas
+ (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+comprador_id
+ UUID NOT NULL,
+    
+texto_buscado
+ TEXT NOT NULL,
+    
+fecha_consulta
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT 
+fk_comprador_historial
+ FOREIGN KEY (
+comprador_id
+) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+CREATE TABLE notificaciones (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    
+usuario_id
+ UUID NOT NULL,
+    titulo 
+VARCHAR(
+150) NOT NULL,
+    mensaje TEXT NOT NULL,
+    
+leido
+ BOOLEAN DEFAULT FALSE,
+    
+fecha_creacion
+ TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT 
+fk_usuario_notificacion
+ FOREIGN KEY (
+usuario_id
+) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+Diseño de la Lógica de Negocio
+Diagrama de Secuencia + Clases
+Diseño de Interfaces
+ 
+ 
+ 
+Implementación
+ 
+Componentes y artefactos generados
+Pruebas
+1. Filtro del Desarrollador: Pruebas Unitarias (Lógica de Código)
+Estas pruebas garantizan que las funciones individuales escritas en React.js y 
+FastAPI
+ operen sin errores.
+Prueba de Encriptación (
+Backend
+):
+ Se validó que la función encargada de registrar usuarios aplique correctamente un algoritmo de 
+hashing
+ a la contraseña antes de insertarla en PostgreSQL. No es posible guardar contraseñas en texto plano bajo ninguna circunstancia.
+Prueba de Generación de Token (
+Backend
+):
+ Se verificó 
+que
+ al procesar un inicio de sesión exitoso, el sistema genere un JWT (JSON Web Token) válido, que contenga el ID del usuario y su Rol (VENDEDOR o COMPRADOR), con un tiempo de expiración definido.
+Prueba de Validación de Formularios (
+Frontend
+):
+ Se probó la interfaz de 
+React
+ para asegurar que el botón de "Registrar" se desactive si el correo electrónico no tiene un formato válido (ausencia del "@") o si la contraseña tiene menos de 8 caracteres, evitando enviar peticiones basura al servidor.
+2. Filtro de QA: Pruebas de Integración y Rendimiento (Tiempos de Respuesta)
+El objetivo de estas pruebas fue confirmar que el 
+Frontend
+ y el 
+Backend
+ se comuniquen fluidamente y soporten la carga de usuarios sin lentitud.
+Integración 
+End-to-End
+ (Registro y 
+Login
+):
+ Se simuló el flujo completo: creación de un usuario desde la web, recepción de los datos en la API REST (
+FastAPI
+) y la correcta creación del registro en la tabla usuarios de PostgreSQL. Inmediatamente después, 
+se probó el inicio de sesión con esas mismas credenciales, confirmando un código de estado HTTP 200 (OK).
+Prueba de Rendimiento (Tiempo de Respuesta):
+ Se realizaron múltiples peticiones de inicio de sesión simultáneas. El servidor (
+FastAPI
+) demostró la capacidad de procesar la autenticación y devolver el token en un tiempo promedio inferior a 300 milisegundos, cumpliendo con el requerimiento de alta velocidad esperado para una PWA.
+Prueba de Tolerancia a Errores:
+ Se forzó el inicio de sesión con credenciales incorrectas para asegurar que el sistema devuelva de forma rápida y segura un error HTTP 401 (
+Unauthorized
+), mostrando el mensaje correcto en la interfaz sin exponer detalles de la base de datos.
+3. Filtro del 
+Product
+ 
+Owner
+: Pruebas de Aceptación (Requerimientos de Negocio)
+Esta evaluación validó que el producto entregado en el Sprint 1 sea útil y cumpla las reglas del modelo de negocio del Marketplace.
+Validación de Redirección por Roles:
+ Se verificó que el sistema respete los perfiles de usuario. Al iniciar sesión como un COMPRADOR (Pyme), el sistema redirige exitosamente a la vista "Explorar Apps". Al iniciar sesión como un VENDEDOR (Estudiante), el sistema dirige al "
+Dashboard
+ de Rendimiento".
+Validación del Modelo Freemium Básico:
+ Se comprobó 
+que
+ al completar el formulario de registro, el sistema asigne por defecto el plan BASIC en la base de datos, garantizando que el usuario inicie con los límites correspondientes (ej. máximo 5 aplicaciones para estudiantes) antes de poder acceder a funciones Premium.
+Validación de Edición de Perfil:
+ Se comprobó que un usuario autenticado puede actualizar sus datos personales (nombre, dirección, etc.) y que estos cambios se reflejen inmediatamente en la interfaz (
+React
+) y persistan correctamente en la base de datos.
+Diario 
+Scrum
+Daily
+ Scrum
+Desarrolladores
+Pecho Garnica 
+Limberg
+, Mollo 
+Ayllon
+ Waldo Frank
+Dia
+¿Qué hice ayer?
+¿Qué voy a hacer hoy?
+¿Veo algún impedimento?
+28/04/2026
+Reunión de planificación. Asignación de HU-1 a HU-2.
+Investigar opciones de personalización de estilos en el 
+frontend
+.
+Ninguno.
+29/04/2026
+Implementé selector de colores y tipografías para diapositivas (HU-1).
+Conectar los estilos personalizados al modelo de 
+slide
+.
+Faltan validaciones para combinación de colores.
+30/04/2026
+Validé cambios visuales y se almacenan estilos por 
+slide
+.
+Comenzar HU-10: estructura base para editor visual de diapositiva.
+La lógica de posicionamiento requiere una librería adicional.
+01/05/2026
+Integré 
+react-draggable
+ y 
+react-resizable
+ para mover elementos (HU-10).
+Implementar edición en tiempo real del contenido.
+Coordinación entre estilos y contenido no está totalmente clara.
+02/05/2026
+Resolví conflictos entre edición de contenido y estilos.
+Hacer que los cambios se reflejen de inmediato en la vista previa.
+Ninguno.
+03/05/2026
+Vista previa actualiza al instante los cambios.
+Comenzar rediseño visual del editor con mejor UX/UI.
+Ninguno.
+04/05/2026
+Agregué botones y menú flotante de edición rápida.
+Probar flujo completo de edición: crear → editar → guardar.
+Ninguno.
+05/05/2026
+Flujo funcional. Terminé HU-1.
+Continuar con tarea ya iniciada en Sprint anterior y añadir 
+mejoras en entrada por voz.
+Ninguno.
+06/05/2026
+Solucioné compatibilidad.
+Validar resultado.
+Algunos resultados poco precisos aún.
+07/05/2026
+Añadí controles de edición para el texto dictado.
+Finalizar HU-1.
+Ninguno.
+08/05/2026
+HU-11 completa. Inicio de HU-2:
+Investigar 
+WebSockets
+ y uso.
+No hay servidor 
+WebSocket
+ activo aún.
+09/05/2026
+Configuré socket.io en 
+backend
+.
+Probar conexión entre dos usuarios en un mismo 
+slide
+.
+Problemas iniciales de sincronización.
+10/05/2026
+Resolví sincronización y compartí sesión de trabajo entre dos navegadores.
+Permitir múltiples usuarios editando al mismo tiempo.
+Conflictos de escritura simultánea.
+11/05/2026
+Añadí control de bloqueo de elementos al ser editados.
+Crear indicador visual de presencia de usuarios colaborando.
+Ninguno.
+12/05/2026
+Agregué lista de usuarios conectados a la sesión.
+Pruebas funcionales de colaboración en tiempo real.
+Ninguno.
+13/05/2026
+Realicé pruebas entre dos dispositivos distintos.
+Documentar comportamiento colaborativo y casos de error.
+Ninguno.
+14/05/2026
+Completada a nivel funcional.
+Iniciar pruebas integradas de todo el sistema del Sprint.
+Ninguno.
+15/05/2026
+Documenté bugs menores y correcciones.
+Mejoras visuales en estilos y mensajes de error.
+Ninguno.
+16/05/2026
+Ajustes visuales en edición y colores predefinidos.
+Añadir modo oscuro como extra en personalización.
+Ninguno.
+17/05/2026
+Agregado modo oscuro y temas personalizados (HU-9 ampliado).
+Revisar accesibilidad visual (contraste, legibilidad).
+Ninguno.
+Sprint 
+Review
+Revisión
+ 
+del 
+Sprint
+Nombre
+ 
+del
+ 
+proyecto:
+ 
+Revisión:
+ 
+MARKETPLACE DE APLICACIONES DE EMPREDIMIENTO DIGITAL ACADEMICO CON MACHINE LEARNING PARA RECOMENDACIONES INTELIGENTE EN LA UAGRM
+Objetivo
+ 
+de
+ 
+la
+ 
+revisión:
+Implementar
+ 
+correctamente
+ 
+la
+ 
+base
+ 
+funcional
+ 
+del
+ 
+sistema,
+ 
+incluyendo
+ 
+autenticación, gestión de usuarios y operaciones iniciales de documentos, garantizando que los
+usuarios
+ 
+puedan
+ 
+registrarse,
+ 
+iniciar
+ 
+sesión
+ 
+y
+ 
+poder editar su perfil completamente.
+Lugar,
+ 
+fecha,
+ 
+hora:
+ 
+Santa
+ 
+Cruz
+ 
+de
+ 
+la
+ 
+Sierra,
+ 
+20/05/2026,
+ 
+19:00
+ 
+hrs
+Participantes
+Nombre
+Rol
+Pecho
+ 
+Garnica
+ 
+Limberg
+Product
+ 
+Owner
+Mollo 
+Ayllon
+ Waldo Frank
+Tareas
+ 
+Completadas
+Tarea
+Estado
+Búsqueda Inteligente y Semántica
+Finalizado
+Sugerencia Automática de Precio
+Finalizado
+Generación Automática de Documentación y Manual
+Finalizado
+Analizador de Complejidad y Sello Grado A
+Finalizado
+Sistema de Recomendaciones Personalizadas
+Finalizado
+Para
+ 
+lo que 
+viene
+Lógica de negocio (Catálogo 
+mas
+ detallado, IA, 
+Chatbot
+) y almacenamiento.
+Implementar
+ 
+estas funcionalidades
+ 
+en
+ 
+el 
+Backend
+ y 
+Frontend
+Sprint Retrospective
+Retrospectiva
+ 
+de
+ Sprint
+Nombre
+ 
+del 
+proyecto:
+MARKETPLACE DE APLICACIONES DE EMPREDIMIENTO DIGITAL
+ 
+ACADEMICO CON MACHINE LEARNING PARA
+ 
+RECOMENDACIONES INTELIGENTE EN LA UAGRM
+Objetivos
+ 
+de
+ 
+la
+ 
+retrospectiva:
+Lugar,
+ 
+Fecha,
+ 
+Hora
+Santa
+ 
+Cruz
+ 
+de
+ 
+La
+Sierra
+20/05/2026
+19:00
+Pecho Garnica 
+Limberg
+Discusión
+¿Qué
+ 
+salió
+ 
+bien?
+Coordinamos al equipo y nos aseguramos de que cada
+ 
+uno de nosotros cumpliera
+ 
+con
+ 
+nuestras tareas
+ 
+asignadas dentro de los plazos
+ 
+acordados.
+ 
+Nos
+ 
+apoyamos
+ 
+mutuamente
+ 
+para
+ 
+resolver
+ 
+dudas y facilitar el avance de las tareas. definimos También claramente los objetivos de cada requisito funcionalidad.
+¿Que
+ 
+no
+ 
+salió
+ 
+bien?
+Qué
+ 
+problemas
+ 
+se
+ 
+encontró
+ 
+y
+ 
+cómo
+ 
+esos
+ 
+problemas
+ 
+fueron
+ 
+(o
+ 
+no
+ 
+fueron)
+ 
+resuelto
+Algunas tareas tomaron más tiempo del estimado inicialmente, debido a una subestimación del esfuerzo requerido. Hubo momentos
+ 
+en
+ 
+que
+ 
+la
+ 
+comunicación
+ 
+entre
+ 
+los
+ 
+miembros
+ 
+del
+ 
+equipo no fue completamente fluida, especialmente al integrar módulos entre diferentes responsables. Se identificaron bugs y errores durante la implementación de ciertas funcionalidades, lo que generó retrasos en algunas tareas planificadas.
+¿Qué
+ 
+debemos 
+cambiar para 
+mejorar?
+Cumplir con los tiempos estimados
+ 
+para
+ 
+cada funcionalidad y con la planificación general del proyecto. Detallar mejor las tareas y optimizar la comunicación entre ambos para
+evitar
+ 
+malentendidos.
+Scrum 
+TaskBoard
+Sprint 3
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Manual de Calidad SQAP
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz - Bolivia
+Introducción
+El presente Manual de Aseguramiento de la Calidad del Software (SQAP) se ha elaborado con el propósito de establecer un guía clara, estructurada y comprensible sobre los procesos, procedimientos y estándares que 
+regiran
+ la calidad del software desarrollado en el marco del proyecto “
+AppSwap
+: Marketplace de Aplicaciones de Emprendimiento Digital Académico con Machine 
+Learning
+ para la U.A.G.R.M
+.”. Este documento busca garantizar que el producto final cumpla con los 
+mas
+ altos niveles de calidad 
+técnica, funcional y de seguridad, respondiendo a las necesidades de la comunidad universitaria y alineándose con los objetivos estratégicos de la institución. 
+El propósito principal de este plan es delinear como la Aplicación asegurara la calidad del software durante todas las fases de su ciclo de vida, desde el análisis y diseño hasta la implementación, prueba, despliegue y mantenimiento. Para alcanzar este objetivo, se aplicarán acciones planificados y sistemáticas que brinden una visibilidad completa del proceso de desarrollo y de la entregables generados. Estas acciones incluyen la adopción de estándares reconocidos a nivel internacional como IEEE730(para el aseguramiento de calidad del software), ISO 9000 (para la gestión de calidad), OWASP (para la seguridad de aplicaciones web) y las buenas prácticas de desarrollo en 
+Python
+ 
+FastAPI
+, 
+React.js
+ y 
+PostgreSQL.
+El objetivo final del SQAP es garantizar la confiabilidad, eficiencia y seguridad del sistema 
+AppSwap
+, promoviendo la mejora continua en los procesos de desarrollo y contribuyendo al fortalecimiento de la calidad del software producido dentro del ámbito académico de la Universidad Autónoma Gabriel Rene Moreno (U.A.G.R.M.).
+Misión
+Desarrollar una plataforma digital innovadora, segura y confiable que potencie el emprendimiento tecnológico dentro de la 
+Universidad Autónoma Gabriel René Moreno (U.A.G.R.M.).
+ A través del uso de tecnología moderna como Machine 
+Learning
+, arquitecturas web escalables y mecanismos de pago automatizados, nos comprometemos a ofrecer un espacio donde estudiantes y docentes puedan publicar, descubrir y comercializar aplicaciones académicas de manera 
+transparente
+ y eficiente
+.
+Visión
+Ser la plataforma líder de emprendimiento digital académico dentro de la 
+Universidad
+ 
+Autónoma
+ 
+Gabriel
+ 
+René
+ 
+Moreno (U.A.G.R.M.). y a futuro, en otras instituciones de educación superior del país y la región. Buscamos ser un referente en la integración de tecnología, innovación y educación, promoviendo un ecosistema donde el talento universitario se transforma en soluciones tecnológicas útiles, seguras y de alto valor.
+Valor
+ 
+Compromiso con la Universidad
+Comprendemos las necesidades tecnológicas y académicas de la U.A.G.R.M. y de sus distintas facultades, por lo que trabajamos para ofrecer una solución que promueva la excelencia educativa, la innovación digital y el emprendimiento estudiantil mediante el uso responsable y eficiente de la tecnología. 
+Calidad 
+Tecnica
+ y Funcional:
+Buscamos la excelencia en cada componente del sistema, garantizando que 
+AppSwap
+ cumpla con los más altos estándares de seguridad, rendimiento, escalabilidad y usabilidad, asegurando un funcionamiento optimo tanto para desarrolladores como para compradores.
+Trabajo en Equipo:
+Fomentamos la colaboración constante entre los miembros del proyecto - desarrolladores, QA, diseñadores y análisis - reconociendo que el éxito del sistema depende de la sinergia, comunicación efectiva y responsabilidad compartida de todos los involucrados.
+Integridad y Transparencia:
+Actuamos con ética y transparencia en todos los procesos, desde la gestión de datos personales hasta la administración de transacciones y royalties, cumpliendo con la Ley N.º 164 de Protección de Datos Personales en Bolivia y garantizando la trazabilidad y confiabilidad de la información.
+Respeto a la Diversidad y al Usuario Final:
+Valoramos la diversidad académica y cultural de la comunidad universitaria, diseñando 
+AppSwap
+ como una plataforma inclusiva, accesible y adaptable a las distintas carreras, necesidades y niveles de conocimiento técnico de sus usuarios.
+Aprendizaje Continuo e Innovación:
+Nos comprometemos con la mejora constante de nuestras prácticas de desarrollo, aplicando metodologías ágiles, adoptando tecnologías emergentes (como Machine 
+Learning
+ y microservicios en la nube) y fomentando una cultura de investigación, creatividad y actualización permanente.
+Estándares
+ 
+N.º
+Estándar (Sigla + Año)
+Título Oficial / Dominio
+Sección o Título donde se aplica en el SQAP
+1
+IEEE 
+Std
+ 730-2002
+Software 
+Quality
+ 
+Assurance
+ 
+Plans
+Base estructural del manual (Cap. 2 y 
+subsecs
+. 2.8.x)
+2
+IEEE 
+Std
+ 1540-2001
+Software 
+Life-Cycle
+ 
+Processes
+ — 
+Risk
+ Management
+Plan de gestión de riesgos (2.8.14.*)
+3
+IEEE/EIA 12207-0/1/2-1996/97
+Software 
+Life-Cycle
+ 
+Processes
+Referencia metodológica y alineación de procesos QA
+4
+ISO/IEC 27001:2013
+Sistemas de gestión de la seguridad de la información
+Restricciones y estándares de seguridad (2.5 Estándares)
+5
+IEEE 
+Std
+ 830-1998
+Software 
+Requirements
+ 
+Specifications
+Criterios de documentación (2.8.4.2.1 SRS)
+6
+IEEE 
+Std
+ 829-1998
+Software Test 
+Documentation
+Referenciado en verificación y validación (2.8.4.2.3)
+7
+IEEE 
+Std
+ 1012-1998
+Software 
+Verification
+ & 
+Validation
+ 
+Plans
+Base para V&V y métricas de integridad (2.8.7 Test)
+8
+IEEE 
+Std
+ 1028-1997
+Software 
+Reviews
+ & 
+Audits
+Política de revisiones y auditorías técnicas (2.8.6 Revisiones de software)
+9
+IEEE 
+Std
+ 1058-1998
+Software Project Management 
+Plans
+Planificación y gestión del proyecto (2.8.3 Gestión)
+10
+IEEE 
+Std
+ 1219-1998
+Software 
+Maintenance
+Referido en documentación SCMP y métricas de mantenimiento (2.8.4.2.6)
+11
+IEEE 
+Std
+ 1228-1994
+Software Safety 
+Plans
+Consideraciones de seguridad y riesgos (2.8.14 Riesgos)
+12
+IEEE 
+Std
+ 828-1998
+Software 
+Configuration
+ Management 
+Plans
+Plantilla SCMP (2.8.4.2.6)
+13
+IEEE 
+Std
+ 1008-1987
+Software 
+Unit
+ 
+Testing
+Buenas prácticas de pruebas unitarias (2.8.7 Test)
+14
+IEEE 
+Std
+ 982.1 / 982.2-1988
+Métricas de fiabilidad de software
+Selección de métricas SQA (2.8.5 Métricas)
+15
+ISO/IEC 15026-1998
+System
+ & Software 
+Integrity
+ 
+Levels
+Derivación de umbrales de riesgo (2.8.14.2.2)
+16
+OWASP ASVS / Top-10
+Estándares de seguridad web
+Prácticas de codificación segura y protección contra vulnerabilidades (Cap. 2 Estándares)
+17
+PCI DSS v4.0
+Estándar de seguridad para datos de pago
+Restricciones legales para la gestión de pagos y royalties (2.5 Estándares)
+18
+Ley N.º
+ 164 (Bolivia)
+Protección de datos personales y privacidad digital
+Cumplimiento legal nacional (2.5 Estándares)
+19
+PEP8 / Django Style Guide
+Convenciones de codificación 
+Backend
+ (Python/Django)
+Estándares de código para el 
+backend
+ (2.5 Estándares)
+20
+Airbnb 
+React
+ Style Guide
+Convenciones de codificación 
+Frontend
+ (
+React
+/JSX)
+Estándares de interfaz y usabilidad (2.5 Estándares)
+21
+ISO/IEC 25010:2011
+Modelo de calidad del software
+Métricas de calidad: usabilidad, seguridad, mantenibilidad (2.8.5 Métricas)
+Organigrama
+Políticas de Calidad
+AppSwap
+, como proyecto orientado al desarrollo de un Marketplace académico con Machine 
+Learning
+ para la U.A.G.R.M., se compromete formalmente a operar bajo los más altos estándares de calidad, adoptando un Sistema de Gestión de la Calidad (SGC) basado en las mejores prácticas de la industria del software. Su propósito es garantizar un producto confiable, seguro y escalable que fomente el emprendimiento digital estudiantil, satisfaga plenamente las necesidades de la comunidad universitaria y fortalezca la reputación tecnológica de la Universidad Autónoma Gabriel René Moreno.
+La dirección de 
+AppSwap
+ considera esta política como un componente esencial de su estrategia de desarrollo y se compromete a difundirla, comprenderla y aplicarla en todos los niveles del equipo. En este marco, se establecen los siguientes lineamientos fundamentales:
+ 
+Promover la mejora continua en todos los procesos de desarrollo, implementación y mantenimiento, con el fin de ofrecer una plataforma innovadora y de alta calidad para la comercialización y distribución de software académico.
+Comprender y satisfacer las necesidades de los diferentes actores involucrados — estudiantes desarrolladores, compradores, administradores y unidades académicas— asegurando que la plataforma responda a sus expectativas de usabilidad, seguridad y eficiencia.
+Cumplir estrictamente con los cronogramas, entregables y métricas de calidad establecidos en el plan del proyecto, garantizando la entrega oportuna de versiones estables, actualizaciones y mejoras funcionales.
+Capacitar continuamente al equipo en tecnologías relevantes como Django, 
+React
+, Docker, PostgreSQL y Machine 
+Learning
+, impulsando la excelencia técnica, la innovación y la integración interdisciplinaria.
+Aplicar una estrategia de mejora 
+continua
+ basada en el ciclo Planificar–Hacer–Verificar– Actuar (PHVA), verificando la calidad en cada fase del ciclo de vida del software: análisis, diseño, implementación, pruebas y despliegue.
+Plan de Aseguramiento de la Calidad del Software
+Propósito
+El propósito de esta sección es definir el alcance y los objetivos específicos del Plan de Aseguramiento de la Calidad del Software (SQAP) aplicado al proyecto 
+AppSwap
+: Marketplace de Aplicaciones de Emprendimiento Digital Académico con Machine 
+Learning
+ para la U.A.G.R.M.
+ El SQAP tiene como finalidad establecer los procedimientos, responsabilidades, herramientas y estándares necesarios para garantizar que todos los componentes de software desarrollados cumplan con los requisitos funcionales, no funcionales y de calidad definidos en las especificaciones del sistema. Asimismo, busca asegurar que el proceso de desarrollo se lleve a cabo de manera controlada, verificable y conforme a los estándares internacionales de ingeniería de software (IEEE 730, ISO 9000, ISO/IEC 25010).
+Documentos de referencia
+Esta sección presenta la lista completa de los documentos, normas, políticas y referencias técnicas que han sido utilizadas para la elaboración del presente Plan de Aseguramiento de la Calidad del Software (SQAP) del proyecto 
+AppSwap
+: Marketplace de Aplicaciones de Emprendimiento Digital Académico con Machine 
+Learning
+ para la U.A.G.R.M.
+Los documentos listados a continuación constituyen el marco normativo, metodológico y técnico sobre el cual se fundamentan los procesos descritos en el SQAP. Incluyen tanto estándares internacionales de ingeniería de software como normativas nacionales y documentos internos del proyecto.
+Nº
+Documento / Estándar
+Descripción / Dominio
+Versión
+Fecha
+1
+IEEE 
+Std
+ 730-2014
+Software 
+Quality
+ 
+Assurance
+ 
+Plans
+ – Define la estructura formal de planes de calidad de software.
+2014
+Vigente
+2
+ISO/IEC/IEEE 12207:2017
+Software 
+Life-Cycle
+ 
+Processes
+ – Guía metodológica del ciclo de vida de software.
+2017
+Vigente
+3
+IEEE 
+Std
+ 829-2008
+Software Test 
+Documentation
+ – Estándar para documentación de pruebas.
+2008
+Vigente
+4
+IEEE 
+Std
+ 830-1998 (R2009)
+Software 
+Requirements
+ 
+Specification
+ – Guía para la especificación de requisitos.
+2009
+Vigente
+5
+IEEE 
+Std
+ 1012-2016
+Verification
+ and 
+Validation
+ 
+Plans
+ – Definición de procesos de V&V en software.
+2016
+Vigente
+6
+IEEE 
+Std
+ 1028-2008
+Software 
+Reviews
+ and 
+Audits
+ – Lineamientos para revisiones técnicas formales.
+2008
+Vigente
+7
+ISO 9000:2015
+Sistemas de gestión de la calidad – Principios y vocabulario.
+2015
+Vigente
+8
+ISO/IEC 27001:2022
+Seguridad de la información – Sistemas de gestión de seguridad.
+2022
+Vigente
+9
+ISO/IEC 25010:2023
+Modelo de calidad del software – Características y 
+subcaracterísticas
+ de calidad.
+2023
+Vigente
+10
+IEEE 
+Std
+ 1540-2001 (R2008)
+Software 
+Life-Cycle
+ 
+Processes
+ – 
+Risk
+ Management.
+2008
+Vigente
+11
+IEEE 
+Std
+ 828-2012
+Software 
+Configuration
+ Management 
+Plans
+ – Control y gestión de versiones.
+2012
+Vigente
+12
+IEEE 
+Std
+ 1058-1998 (R2008)
+Software Project Management 
+Plans
+ – Planificación y gestión de proyectos.
+2008
+Vigente
+13
+OWASP ASVS v4.0.3 / OWASP Top-10
+Estándares internacionales de seguridad web y prácticas de codificación segura.
+2023
+Actualizado
+14
+PCI DSS v4.0.1
+Estándar de seguridad para protección de datos de pago electrónico.
+2024
+Vigente
+15
+Ley N.º
+ 164 (Bolivia)
+Ley de Telecomunicaciones y Protección de Datos Personales.
+2011
+Vigente
+16
+Guía de Estilo PEP8 (Python/Django)
+Convenciones de codificación para 
+backend
+.
+—
+Vigente
+17
+Guía de Estilo Airbnb 
+React
+Convenciones de codificación para 
+frontend
+.
+—
+Vigente
+18
+Manual del Proyecto 
+AppSwap
+ – Documento Base
+Documento técnico principal del proyecto 
+AppSwap
+.
+1.1
+2026
+19
+Plan de Gestión del Proyecto (PMP)
+Documento interno de planificación, cronogramas y gestión de recursos.
+1.3
+2026
+20
+Política Institucional de Calidad – U.A.G.R.M.
+Lineamientos generales de aseguramiento de calidad universitaria.
+2024
+Vigente
+Gestión
+Esta sección describe la estructura organizativa, tareas, roles y responsabilidades establecidas para la correcta ejecución del Plan de Aseguramiento de la Calidad del Software (SQAP) del proyecto 
+AppSwap
+: Marketplace de Aplicaciones de Emprendimiento Digital Académico con Machine 
+Learning
+ para la 
+U.A.G.R.M..
+La gestión del proyecto se basa en los lineamientos del estándar IEEE 
+Std
+ 1058-1998 (Software Project Management 
+Plans
+), que define las directrices para la planificación, organización, supervisión y control de todas las actividades relacionadas con el desarrollo y aseguramiento de la calidad del software.
+Organización
+Esta sección describe la estructura organizativa que influye y controla la calidad del software dentro del proyecto 
+AppSwap
+: Marketplace de Aplicaciones de Emprendimiento Digital Académico con Machine 
+Learning
+ para la U.A.G.R.M. La organización del aseguramiento de la calidad se basa en una jerarquía funcional que garantiza la independencia, objetividad y autoridad técnica necesarias para evaluar la calidad del software, monitorear los procesos de desarrollo y verificar la resolución de los problemas detectados.
+El Equipo de Aseguramiento de la Calidad (SQA) tiene la responsabilidad principal de preparar, mantener y supervisar la aplicación del SQAP, asegurando que las actividades de control se realicen de forma imparcial, independiente y conforme a los estándares internacionales de calidad.
+Rol / Equipo
+Responsabilidades principales
+Autoridad /Independencia
+Responsable del SQAP
+Gerente de Proyecto
+Supervisar el proyecto, aprobar entregables, gestionar recursos y riesgos, coordinar equipos y velar por el cumplimiento del cronograma.
+Autoridad total sobre los recursos, planificación y decisiones finales del proyecto.
+No
+Responsable de SQA (SQA Lead)
+Elaborar, mantener y actualizar el SQAP; auditar los procesos de desarrollo; validar la calidad del producto; reportar hallazgos y solicitar acciones correctivas.
+Independencia respecto al área de desarrollo, con autoridad para requerir verificaciones y validar soluciones implementadas.
+Sí
+Líder Técnico
+Coordinar el desarrollo técnico, revisar e implementar soluciones, aplicar estándares de calidad y supervisar a su equipo de desarrollo.
+Autoridad limitada a su equipo o módulo técnico asignado.
+No
+Equipo de Desarrollo
+Implementar funcionalidades, corregir defectos, seguir los estándares y procedimientos definidos, participar en revisiones y pruebas internas.
+Bajo supervisión del Líder Técnico y sujeto a auditorías del SQA.
+No
+Comité de Calidad
+Evaluar resultados de auditorías y revisiones, analizar métricas, recomendar mejoras y proponer actualizaciones al proceso de calidad.
+Puede recomendar ajustes y mejoras, pero no tomar decisiones finales sobre la ejecución del proyecto.
+No
+Tareas
+El presente Plan de Aseguramiento de la Calidad del Software (SQAP) abarca las siguientes fases del ciclo de vida del software:
+Fase del Ciclo de Vida
+Tareas y Actividades SQA
+Requisitos
+Revisión y validación de los requisitos funcionales y no funcionales definidos en el Software 
+Requirements
+ 
+Specification
+ (SRS), asegurando su claridad, completitud, consistencia y trazabilidad.
+Análisis y Diseño
+Revisión de los diagramas UML, modelos de datos, arquitectura de software y especificaciones técnicas, verificando la coherencia con los requisitos aprobados.
+Desarrollo
+Auditoría de los planes de prueba y del cumplimiento de los estándares de codificación (PEP8, Airbnb 
+React
+ Style Guide); seguimiento de defectos detectados durante las pruebas unitarias e integrales.
+Pruebas
+Auditoría de los planes de prueba, validación de los casos de prueba definidos, verificación de resultados esperados y ejecución de pruebas funcionales, de rendimiento y seguridad.
+Integración y Entrega
+Verificación de la correcta integración entre los módulos de 
+frontend
+, 
+backend
+ y microservicios de Machine 
+Learning
+; validación de versiones previas al despliegue en entornos de 
+staging
+ y producción.
+Mantenimiento
+Revisión final del sistema, aseguramiento de la documentación técnica, validación de actualizaciones, control de versiones y verificación del cumplimiento de políticas de mejora continua.
+Criterios
+En esta sección se establecen los criterios de entrada y salida que deben cumplirse para la correcta ejecución de las tareas de aseguramiento de la calidad (SQA) dentro del proyecto.
+Tarea SQA
+Criterio de Entrada
+Criterio de Salida
+Revisión de requisitos
+Documento de requisitos (Software 
+Requirements
+ 
+Specification
+ – SRS) disponible y aprobado por el equipo de análisis.
+Lista de hallazgos emitida, observaciones corregidas y requisitos validados y aprobados por SQA.
+Revisión de diseño
+Diagramas UML, modelos de datos y arquitectura del sistema finalizados y documentados.
+Informe de revisión de diseño aprobado y autorización formal para iniciar la fase de desarrollo.
+Inspección de código
+Código fuente entregado por el equipo de desarrollo, controlado en el repositorio de versiones.
+Informe de inspección generado, defectos corregidos y verificados, aprobación para integración.
+Auditoría de pruebas
+Planes de prueba, casos de prueba y datos de prueba definidos y revisados.
+Ejecución validada, reporte de defectos documentado y resultados aprobados por SQA.
+Revisión de entregables
+Producto integrado, probado y documentado conforme a las especificaciones del proyecto.
+Entregable validado, aprobado por el área de SQA y autorizado para entrega al cliente o despliegue en producción.
+Seguimiento de incidencias
+Registro de incidencias abierto y asignado en el sistema de gestión de defectos.
+Incidencia solucionada, validada por QA y registrada como cerrada en el informe de control de calidad.
+Hitos
+Los hitos de aseguramiento de la calidad (SQA) definen los puntos de control críticos dentro del ciclo de vida del desarrollo del proyecto. Cada hito representa una fase clave en la que se realizan actividades de revisión, validación y verificación de los entregables, garantizando la trazabilidad y conformidad con los estándares de calidad definidos en el SQAP.
+Hito Principal
+Tareas SQA Relacionadas
+Relación / Secuencia
+Aprobación de requisitos
+Revisión y validación de requisitos.
+Antes de iniciar el diseño.
+Fin de la fase de diseño
+Revisión y aprobación de modelos y especificaciones técnicas.
+Antes de iniciar el desarrollo.
+Entrega de módulo / desarrollo
+Inspección de código, revisión de integración y control de versiones.
+Antes de la fase de pruebas.
+Ejecución de pruebas
+Auditoría de planes y casos de prueba, ejecución supervisada, reporte de defectos.
+Durante las pruebas del sistema.
+Entrega final
+Revisión final de entregables, cierre de incidencias y validación del cumplimiento de estándares.
+Antes de la entrega al cliente o usuario final.
+Recursos estimados de aseguramiento de la calidad
+Esta sección presenta la estimación de recursos humanos, temporales y financieros destinados a las actividades de aseguramiento de la calidad del software (SQA) durante el ciclo de vida del proyecto. La planificación se basa en las fases del Proceso Unificado de Desarrollo de Software (PUDS) y en las directrices del estándar IEEE 12207, que establecen la necesidad de 
+asignar recursos específicos para garantizar la calidad del producto a lo largo de todas las etapas del desarrollo.
+Fase (PUDS / IEEE 12207)
+Duración estimada
+Rol SQA (FTE)
+Horas-persona SQA
+% Presupuesto SQA
+Principales entregables SQA
+Inicio
+2 
+sem
+0.2
+32 h
+8%
+Revisión del SQAP, 
+checklist
+ de requisitos iniciales.
+Elaboración
+1 
+sem
+0.3
+48 h
+10%
+Auditorías de arquitectura, plan de riesgos aprobado.
+Construcción
+5 
+sem
+0.7
+140 h
+45%
+Revisión de código, métricas de calidad, control de defectos.
+Transición / Pruebas
+2 
+sem
+0.4
+64 h
+20%
+Validación funcional, pruebas integrales y reporte de resultados.
+Entrega y Mantenimiento Inicial
+2 
+sem
+0.3
+48 h
+17%
+Revisión final, documentación de cierre e informe de calidad.
+Total
+ Proyecto
+12 
+sem
+ (3 meses)
+—
+332 h
+100%
+—
+Especificación de Requerimientos (SRS)
+Introducción 
+Propósito
+El presente documento tiene como objetivo definir de manera clara, completa y verificable los requisitos del software. Se especifican las funcionalidades principales, restricciones técnicas y no funcionales que deberá cumplir el sistema, facilitando la comunicación entre el equipo de desarrollo, los usuarios académicos (estudiantes, docentes, facultades) y el área de tecnología (DTIC).
+Ámbito del sistema
+Nombre del Proyecto:
+ 
+AppSwap
+ – Marketplace de Aplicaciones de Emprendimiento Digital Académico con Machine 
+Learning
+”
+Funcionalidades que realizará el sistema:
+Publicación de aplicaciones académicas desarrolladas por estudiantes y docentes.
+Descarga o compra de aplicaciones a través de un sistema de pago digital seguro.
+Asignación automática de regalías (85% al desarrollador, 15% a la administración).
+Integración con un módulo de Machine 
+Learning
+ que recomienda aplicaciones según perfil del usuario y tendencia de uso.
+Gestión de usuarios por roles: administrador, desarrollador y comprador.
+Validación y moderación de contenido antes de su publicación.
+Generación de estadísticas sobre descargas, ventas y rendimiento académico de las apps.
+Panel de administración con control de métricas, incidencias y reportes.
+Beneficios del proyecto:
+Fomenta
+ 
+el
+ 
+emprendimiento
+ 
+tecnológico
+ 
+dentro
+ 
+del
+ 
+ámbito
+ 
+académico.
+Facilita
+ 
+la
+ 
+distribución
+ 
+y
+ 
+monetización
+ 
+de
+ 
+aplicaciones
+ 
+desarrolladas
+ 
+por estudiantes y docentes.
+Promueve
+ 
+la
+ 
+innovación
+ 
+mediante
+ 
+el
+ 
+uso
+ 
+de
+ 
+Machine
+ 
+Learning
+ 
+para
+ 
+la 
+personalización.
+Centralizar la gestión, validación y control de contenidos tecnológicos universitarios.
+Ofrece
+ 
+un
+ 
+entorno
+ 
+seguro
+ 
+y
+ 
+transparente,
+ 
+con
+ 
+protección
+ 
+de
+ 
+datos
+ 
+y
+ 
+trazabilidad
+ 
+de 
+transacciones.
+Definiciones
+ 
+acrónimos
+ 
+y
+ 
+observaciones
+Nombre / Sigla
+Descripción
+RF
+Requerimiento funcional
+RNF
+Requerimiento no funcional
+SRS
+Especificación de Requerimientos del Software
+ML
+Machine 
+Learning
+, modelo predictivo que analiza tendencias de uso
+API
+Interfaz de Programación de Aplicaciones
+UI/UX
+Interfaz de Usuario / Experiencia de Usuario
+JWT
+Token de autenticación JSON Web Token
+PWA
+Aplicación Web Progresiva (
+Progressive
+ Web App)
+Django
+Framework 
+backend
+ basado en Python
+React
+Biblioteca JavaScript para interfaces de usuario
+PostgreSQL
+Sistema de gestión de bases de datos relacional
+Docker
+Plataforma de contenedores para empaquetar y desplegar aplicaciones
+CI/CD
+Integración y Despliegue Continuo
+DTIC
+Dirección de Tecnología de Información y Comunicación (U.A.G.R.M.)
+Referencias
+IEEE 
+Std
+ 830-1998: Software 
+Requirements
+ 
+Specification
+.
+IEEE/EIA 12207.1-1997: Software 
+Life
+ 
+Cycle
+ 
+Processes
+.
+ISO/IEC 25010:2011: Modelo de Calidad del Software.
+Ley N.º
+ 164 (Bolivia): Protección de Datos Personales.
+OWASP ASVS v4.0: 
+Application
+ Security 
+Verification
+ Standard.
+Visión General del documento 
+Descripción General
+El
+ 
+presente
+ 
+documento
+ 
+está
+ 
+estructurado en
+ 
+tres
+ 
+secciones
+ 
+principales.
+En la primera sección se presenta una introducción que establece el propósito, el alcance, las definiciones, las referencias normativas y la estructura general de la Especificación de Requerimientos del Software (SRS).
+La segunda sección describe el sistema 
+AppSwap
+ de manera global, destacando sus principales
+ 
+funciones,
+ 
+características,
+ 
+restricciones
+ 
+y
+ 
+dependencias
+ 
+tecnológicas,
+ 
+con
+ 
+el
+ 
+fin
+ 
+de 
+ofrecer una visión integral de su contexto operativo y sus interacciones con los usuarios y otros sistemas institucionales, sin entrar aún en los detalles técnicos específicos.
+Finalmente, la tercera sección define de forma detallada los requerimientos que debe cumplir
+ 
+el
+ 
+sistema,
+ 
+abarcando
+ 
+tanto
+ 
+los
+ 
+requisitos
+ 
+funcionales
+ 
+y
+ 
+no
+ 
+funcionales,
+ 
+como
+ 
+las
+ 
+interfaces de usuario, la arquitectura de la base de datos, las restricciones de seguridad y los criterios de calidad, esenciales para su correcto diseño, implementación y evaluación.
+Perspectiva
+ 
+del
+ 
+Proyecto
+El sistema se concibe como una plataforma SaaS (Software as a 
+Service
+) gestionada de forma centralizada
+ 
+por
+ 
+la Dirección de Tecnología de
+ 
+Información y Comunicación (DTIC)
+ 
+de
+ 
+la Universidad Autónoma Gabriel René Moreno (U.A.G.R.M.).
+AppSwap
+ 
+proporciona
+ 
+un
+ 
+entorno
+ 
+digital
+ 
+para
+ 
+la
+ 
+publicación,
+ 
+comercialización
+ 
+y
+ 
+descarga de
+ 
+aplicaciones
+ 
+académicas,
+ 
+desarrolladas
+ 
+por
+ 
+miembros
+ 
+de
+ 
+la
+ 
+comunidad
+ 
+universitaria.
+ 
+El
+ 
+sistema integra servicios de nube, autenticación segura y algoritmos de Machine 
+Learning
+, que permiten generar recomendaciones personalizadas y promover la innovación dentro del ámbito 
+universitario.
+Funciones
+ 
+del
+ 
+Producto
+F1.
+ 
+Publicación de
+ 
+Aplicaciones
+ 
+Académicas
+Los
+ 
+desarrolladores
+ 
+(estudiantes
+ 
+o
+ 
+docentes)
+ 
+podrán
+ 
+subir
+ 
+sus
+ 
+aplicaciones,
+ 
+con metadatos como título, descripción, categoría, versión y archivos adjuntos.
+F2.
+ 
+Validación y
+ 
+Moderación de
+ Contenido
+El sistema permitirá a los administradores revisar y aprobar las aplicaciones antes de su publicación en el 
+marketplace
+, garantizando la calidad y pertinencia del 
+contenido.
+F3.
+ 
+Descarga
+ 
+y Compra
+ 
+de
+ 
+Aplicaciones
+Los
+ 
+usuarios
+ 
+podrán
+ 
+descargar
+ 
+o
+ 
+adquirir
+ 
+aplicaciones
+ 
+mediante
+ 
+un
+ 
+sistema
+ 
+de
+ 
+pago seguro, con distribución automática de regalías (85% al desarrollador, 15% a la 
+administración).
+F4.
+ 
+Recomendación
+ 
+Inteligente
+ 
+de
+ 
+Aplicaciones (Machine
+ 
+Learning
+)
+El sistema empleará modelos de aprendizaje automático para analizar el comportamiento de los usuarios y recomendar aplicaciones relacionadas con sus intereses académicos.
+F5.
+ 
+Gestión de
+ 
+Usuarios y 
+Roles
+Se implementarán diferentes roles de usuario (administrador, desarrollador y comprador), con permisos específicos para garantizar la seguridad y el control de 
+accesos.
+F6.
+ 
+Monitoreo
+ 
+y
+ 
+Estadísticas
+ 
+de
+ 
+Uso
+El panel de administración permitirá visualizar métricas de descargas, ventas, usuarios activos, categorías más demandadas y desempeño de los desarrolladores.
+F7.
+ 
+Seguridad
+ 
+y
+ 
+Protección
+ 
+de
+ 
+Datos
+Se garantizará la autenticación de usuarios mediante JWT, cifrado de datos sensibles (AES-256) y cumplimiento de la Ley N.º 164 (Bolivia) de protección de datos personales.
+F8.
+ 
+Notificaciones
+ Automatizadas
+Los usuarios recibirán notificaciones sobre publicaciones nuevas, actualizaciones de aplicaciones, confirmaciones de compra y sugerencias personalizadas del 
+sistema.
+Características de los usuarios
+Actor
+Rol
+Características
+Habilidades Técnicas
+Restricciones
+Desarrollador Académico
+Publicador de aplicaciones
+Estudiantes o docentes responsables de subir sus aplicaciones académicas al 
+marketplace
+, definir categorías, precios, versiones y mantener actualizados los proyectos.
+Conocimientos básicos de empaquetado de aplicaciones, uso de formularios de subida y manejo de la interfaz web de publicación.
+Requiere cuenta de desarrollador activa, conexión a Internet y cumplimiento de políticas de publicación.
+Comprador / Usuario Final
+Usuario del 
+marketplace
+Estudiantes, docentes o público académico que navega, descarga o adquiere 
+aplicaciones dentro de la plataforma.
+Uso básico de navegadores web o aplicaciones móviles; lectura e interacción con 
+interfaces intuitivas.
+Debe tener cuenta activa y acceso a medios de pago habilitados por el sistema.
+Analista de Machine 
+Learning
+Evaluador de datos y tendencias
+Usuario técnico que analiza las métricas recolectadas para mejorar los modelos de recomendación y optimizar la experiencia del usuario.
+Conocimientos en Python, análisis de datos y uso de paneles de métricas.
+Acceso restringido a datos anonimizados; debe cumplir con políticas de privacidad (Ley 164).
+Restricciones
+ 
+Requisitos
+ 
+de
+ 
+hardware
+Servidores de aplicación: 
+instancias en la nube con ≥ 8 GB de RAM, 4 
+vCPU
+ y almacenamiento SSD ≥ 100 GB, optimizadas para despliegues con contenedores 
+Docker.
+Dispositivos cliente: 
+computadoras personales o dispositivos móviles con navegador moderno y conexión estable a Internet (
+Wi
+-Fi o 4G).
+Equipos
+ 
+administrativos:
+ 
+procesadores
+ 
+≥
+ 
+Intel
+ 
+i5
+ 
+/
+ 
+AMD
+ 
+Ryzen
+ 
+5,
+ 
+8
+ 
+GB
+ 
+de
+ 
+RAM y conexión de red segura para acceso al panel de administración.
+Requisitos
+ 
+de
+ 
+software
+ 
+y
+ 
+versiones
+ 
+Backend
+:
+Django
+ 
+≥ 4.0 con Python ≥ 
+3.10
+Django
+ 
+REST
+ 
+Framework
+ 
+≥
+ 
+3.14
+PostgreSQL
+ 
+≥ 
+14
+Redis
+ 
+≥
+ 
+7.0
+ 
+(para
+ 
+gestión
+ 
+de
+ 
+caché
+ 
+y
+ 
+colas
+ 
+de
+ 
+tareas)
+Frontend
+:
+React
+ 
+≥
+ 
+18.0 con
+ 
+soporte
+ 
+para
+ 
+Progressive
+ 
+Web
+ 
+App 
+(PWA)
+Node.js
+ 
+≥
+ 
+18.x
+Axios
+ 
+≥
+ 
+1.6
+ 
+para
+ 
+consumo
+ 
+de
+ 
+API
+Tailwind
+ 
+CSS ≥
+ 
+3.3
+ 
+para
+ 
+diseño 
+adaptable
+Módulo
+ 
+de
+ 
+Machine
+ 
+Learning
+:
+TensorFlow
+ 
+≥
+ 
+2.11
+ 
+o
+ 
+Scikit-Learn
+ 
+≥
+ 
+1.3
+Pandas
+ 
+≥
+ 
+2.0
+ 
+y
+ 
+NumPy
+ 
+≥
+ 
+1.24
+ 
+para
+ 
+procesamiento
+ 
+de
+ 
+datos
+FastAPI
+ 
+≥
+ 
+0.100
+ 
+para
+ 
+el
+ 
+servicio
+ 
+ML 
+independiente
+Infraestructura:
+Docker
+ 
+≥
+ 
+20.10
+ 
+para 
+contenerización
+Docker
+ 
+Compose
+ 
+≥
+ 
+1.29 para
+ 
+orquestación
+ 
+local
+GitHub
+ 
+Actions
+ 
+o Jenkins
+ 
+para
+ CI/CD
+Nginx
+ 
+≥
+ 
+1.22
+ 
+para
+ 
+balanceo
+ 
+y
+ 
+seguridad 
+HTTPS
+Limitaciones
+ 
+de
+ 
+red
+Dependencia
+ 
+de
+ 
+conexión
+ 
+estable
+ 
+con
+ 
+latencia
+ 
+≤
+ 
+150
+ 
+ms
+ 
+entre
+ 
+e
+l servidor y clientes.
+Acceso HTTPS
+ 
+obligatorio
+ 
+mediante
+ 
+certificado
+ 
+SSL/TLS
+ 
+1.3.
+Monitoreo de tráfico en tiempo real mediante herramientas como
+ 
+Prometheus
+ o
+ 
+Grafana
+.
+Entorno
+ 
+de
+ 
+desarrollo
+ 
+y
+ 
+despliegue
+Contenerización
+:
+ 
+toda
+ 
+la
+ 
+aplicación
+ 
+(
+backend
+,
+ 
+frontend
+ 
+y
+ 
+servicio
+ 
+ML)
+ 
+se empaqueta en imágenes Docker.
+Despliegue:
+ 
+las
+ 
+imágenes
+ 
+se
+ 
+ejecutan
+ 
+en
+ 
+instancias
+ 
+AWS
+ 
+EC2
+ 
+o
+ 
+Digital
+ 
+Ocean
+ 
+Droplets
+, con sistemas operativos Ubuntu 22.04 LTS o Amazon Linux 2.
+Automatización: 
+se emplea Docker 
+Compose
+ para desarrollo local y pipelines CI/CD para despliegue automatizado.
+Gestión de secretos: 
+las credenciales sensibles (tokens JWT, claves API, contraseñas
+ 
+de
+ 
+base
+ 
+de
+ 
+datos)
+ 
+se
+ 
+almacenan
+ 
+de
+ 
+forma
+ 
+segura
+ 
+mediante
+ 
+AWS
+ 
+Secrets
+ Manager 
+o .
+env
+ cifrados en el servidor.
+Normativas
+ 
+y estándares 
+aplicables
+ISO/IEC
+ 
+27001
+:
+ 
+Seguridad de
+ 
+la 
+información.
+IEEE
+ 
+830-1998
+:
+ 
+Especificación
+ 
+de
+ 
+requerimientos
+ 
+de
+ 
+software.
+ISO/IEC
+ 
+25010
+:
+ 
+Calidad de
+ 
+producto
+ 
+de 
+software.
+Ley
+ 
+N.º
+ 
+164
+ 
+(Bolivia
+):
+ 
+Protección
+ 
+de
+ 
+datos
+ 
+personales
+ 
+y 
+confidencialidad.
+OWASP
+ 
+ASVS
+ 
+/
+ 
+Top-10
+:
+ 
+Estándares
+ 
+para
+ 
+seguridad
+ 
+en
+ 
+aplicaciones
+ 
+web.
+Rendimiento
+ 
+y 
+escalabilidad
+Tiempo
+ 
+promedio
+ 
+de
+ 
+respuesta
+ 
+≤
+ 
+2
+ 
+segundos
+ 
+por 
+solicitud.
+Soporte
+ 
+para
+ 
+≥
+ 
+300
+ 
+usuarios
+ 
+concurrentes
+ 
+sin
+ 
+degradación
+ 
+perceptible.
+Capacidad de manejar hasta 5,000 descargas o transacciones por día durante los picos de uso.
+Escalabilidad
+ 
+horizontal mediante
+ 
+contenedores adicionales
+ 
+según
+ 
+la
+ 
+demanda.
+Suposiciones
+ 
+y
+ dependencias
+Se asume que los usuarios contarán con dispositivos compatibles y navegadores actualizados (Chrome, Edge, Firefox o Safari).
+Se presupone una conexión a Internet estable en los entornos de uso, tanto para desarrolladores como para usuarios finales.
+La
+ 
+DTIC-U.A.G.R.M.
+ 
+proporcionará
+ 
+la
+ 
+infraestructura
+ 
+en
+ 
+la
+ 
+nube
+ 
+y
+ 
+el mantenimiento de servidores.
+Las
+ 
+aplicaciones
+ 
+subidas
+ 
+al
+ 
+marketplace
+ 
+serán
+ 
+revisadas
+ 
+antes
+ 
+de
+ 
+su
+ 
+publicación
+ 
+por un comité técnico designado.
+Los modelos de Machine 
+Learning
+ dependen de datos anonimizados obtenidos de interacciones reales, y su precisión mejorará progresivamente con el uso.
+Los desarrolladores deberán cumplir con las políticas de publicación, propiedad
+ 
+intelectual y uso ético de datos establecidas por la universidad.
+Requisitos Específicos
+Requisitos Funcionales
+Priorizar
+ 
+casos
+ 
+de
+ 
+uso
+ID
+Requisito Específico
+Prioridad
+RF1
+El sistema debe permitir el registro de nuevos usuarios (vendedores y compradores) mediante correo, contraseña y nombre.
+Esencial
+RF2
+El sistema debe permitir a los usuarios iniciar sesión y generar un token de autenticación para mantener la sesión activa.
+Esencial
+RF3
+El vendedor podrá gestionar sus aplicaciones: crear, visualizar, editar y eliminar según sea necesario.
+Esencial
+RF4
+El vendedor podrá consultar estadísticas detalladas de sus aplicaciones, incluyendo descargas, calificaciones y pagos recibidos.
+Esencial
+RF5
+El vendedor podrá visualizar las reseñas y calificaciones realizadas por los compradores sobre sus aplicaciones.
+Esencial
+RF6
+El sistema debe permitir al vendedor consultar y confirmar pagos recibidos por sus aplicaciones.
+Esencial
+RF7
+El sistema notificará automáticamente al vendedor cuando se registre un nuevo pago a través de QR.
+Esencial
+RF8
+El sistema ofrecerá recomendaciones inteligentes a los vendedores con ideas de nuevas aplicaciones basadas en análisis de datos mediante Machine 
+Learning
+.
+Deseable
+RF9
+El sistema debe permitir a los usuarios cerrar sesión de forma segura.
+Esencial
+RF10
+El comprador podrá registrarse e iniciar sesión para acceder a las funcionalidades del 
+marketplace
+.
+Esencial
+RF11
+El comprador podrá visualizar todas las aplicaciones disponibles para explorar, descargar o comprar.
+Esencial
+RF12
+El comprador podrá ejecutar aplicaciones web dentro de la plataforma, siempre que estas estén disponibles.
+Deseable
+RF13
+El sistema permitirá realizar pagos mediante códigos QR, registrando el estado de pago pendiente hasta su confirmación.
+Esencial
+RF14
+El sistema ofrecerá recomendaciones personalizadas de aplicaciones a los compradores, generadas por el módulo de Machine 
+Learning
+.
+Deseable
+RF15
+El comprador podrá dejar reseñas y calificaciones sobre las aplicaciones adquiridas o utilizadas.
+Esencial
+RF16
+El comprador podrá consultar su historial de aplicaciones compradas, con detalles de fecha, estado y valor.
+Deseable
+RF17
+El sistema garantizará que todas las acciones críticas (pagos, reseñas, creación o eliminación de apps) sean registradas en un log de auditoría.
+Esencial
+Especificación de requisitos funcionales
+RF1.
+ Registro de vendedor
+RF1
+Registro
+ 
+de
+ vendedor
+ Descripción
+¿Quién?
+Vendedor
+¿Qué?
+Creación
+ 
+y
+ 
+gestión
+ 
+de
+ 
+cuenta
+ 
+de
+ 
+vendedor
+ 
+en
+ 
+la
+ 
+plataforma 
+AppSwap
+¿Por
+ 
+qué?
+Permitir
+ que los
+ desarrolladores académicos
+ publiquen
+, 
+administren
+ 
+y
+ 
+moneticen
+ 
+sus
+ 
+aplicaciones
+ 
+en el
+ 
+marketplace
+.
+Criterios
+ 
+de
+ 
+Aceptación
+Registro
+ 
+con
+ 
+correo,
+ 
+nombre
+ 
+y
+ 
+contraseña
+ válidos
+Validación
+ 
+de
+ 
+correo
+ 
+no
+ 
+registrado
+ 
+previamente.
+Generación
+ 
+automática
+ 
+de
+ 
+token
+ 
+y activación
+ 
+de 
+cuenta
+RF2.
+ 
+Iniciar
+ 
+sesión
+RF2
+Iniciar
+ 
+sesión
+Descripcion
+¿Quién?
+Vendedor
+ 
+/
+ 
+Comprador
+¿Qué?
+Autenticación
+segura
+de
+usuarios
+mediante
+correo
+ 
+y
+ 
+contraseña.
+¿Por
+ 
+qué?
+Permitir
+ 
+el
+ 
+acceso
+ 
+controlado
+ 
+a
+ 
+las
+ 
+funciones
+ 
+del
+ 
+sistema
+ 
+según
+ 
+rol.
+Criterios
+ 
+de
+ 
+Aceptacion
+Validación
+ 
+de
+ 
+credenciales.
+Generación
+ 
+de
+ 
+token
+ 
+JWT
+ 
+para
+ 
+sesión
+ 
+activa.
+Mensaje
+ 
+de
+ 
+error ante
+ 
+datos
+ 
+inválidos
+ 
+o
+ 
+cuenta
+ 
+inactiva.
+RF3.
+ 
+Gestión
+ 
+de
+ 
+aplicaciones
+ 
+(CRUD)
+RF3
+Gestión
+ 
+de
+ 
+aplicaciones
+ 
+(CRUD)
+ 
+Descripción
+¿Quién?
+Vendedor
+¿Qué?
+Creación,
+visualización,
+edición
+y
+eliminación
+ 
+de 
+aplicaciones.
+¿Por
+ 
+qué?
+Permitir
+ 
+que
+ 
+los
+ 
+desarrolladores
+ 
+mantengan
+ 
+actualizado
+ 
+su catálogo de apps.
+Criterios
+ 
+de
+ 
+Aceptación
+Creación
+ 
+de
+ 
+apps
+ 
+con
+ 
+nombre,
+ 
+descripción,
+ 
+categoría
+ 
+y
+ 
+archivo adjunto.
+Edición
+ 
+o
+ 
+eliminación
+ 
+solo
+ 
+de
+ 
+aplicaciones
+ 
+propias.
+Prohibir la eliminación si existen transacciones o descargas 
+activas.
+RF4.
+ 
+Consultar
+ 
+estadísticas
+ 
+de
+ 
+aplicaciones
+RF4
+Consultar
+ 
+estadísticas
+ 
+de
+ 
+aplicaciones
+Descripcion
+¿Quién?
+Vendedor
+¿Qué?
+Visualización
+de
+métricas
+de
+descargas,
+ventas
+y 
+calificaciones
+¿Por
+ 
+qué?
+Permitir
+ 
+que
+ 
+los
+ 
+desarrolladores
+ 
+evalúen
+ 
+el
+ 
+rendimiento
+ 
+de
+ 
+sus
+ 
+aplicaciones.
+Criterios
+ 
+de
+ 
+Aceptacion
+Acceso a
+ 
+datos
+ 
+en
+ 
+tiempo real
+ 
+de
+ 
+uso y
+ 
+popularidad.
+Visualización
+ 
+gráfica
+ 
+de
+ 
+estadísticas
+ 
+y
+ 
+reportes
+ 
+resumidos.
+RF5.
+ 
+Ver
+ 
+reseñas
+ 
+de
+ aplicaciones
+RF5
+Ver
+ 
+reseñas
+ 
+de
+ aplicaciones
+Descripcion
+¿Quién?
+Vendedor
+¿Qué?
+Visualización
+ 
+de
+ 
+comentarios
+ 
+y
+ 
+calificaciones
+ 
+de
+ 
+los
+ 
+compradores.
+¿Por
+ 
+qué?
+Permitir conocer la opinión de los usuarios para mejorar las 
+aplicaciones.
+Criterios
+ 
+de
+ 
+Aceptacion
+Mostrar
+ 
+reseñas
+ 
+ordenadas
+ 
+por
+ 
+fecha
+ 
+y
+ 
+rating.
+Permitir
+ 
+filtrar
+ 
+comentarios
+ 
+por
+ 
+app.
+RF6.
+ 
+Ver
+ 
+y
+ 
+confirmar
+ pagos
+RF6
+Ver
+ 
+y
+ 
+confirmar
+ pagos
+Descripcion
+¿Quién?
+Vendedor
+¿Qué?
+Consulta
+ 
+de
+ 
+pagos
+pendientes
+ 
+y
+ 
+confirmación
+ 
+de
+ 
+transacciones.
+¿Por
+ 
+qué?
+Facilitar
+ 
+el
+ 
+control
+ 
+financiero
+ 
+de
+ 
+las
+ 
+ventas
+ 
+realizadas.
+Criterios
+ 
+de
+ 
+Aceptación
+Visualización
+ 
+del
+ 
+estado
+ 
+de
+ 
+cada
+ 
+pago.
+Actualización
+ 
+de
+ 
+estado a
+ 
+“confirmado”
+ 
+al
+ 
+verificar
+ 
+el
+ 
+pago.
+RF7.
+ 
+Notificaciones
+ 
+automáticas
+ 
+de
+ 
+pago
+RF7
+Notificaciones
+ 
+automáticas
+ 
+de
+ 
+pago
+Descripción
+¿Quién?
+Vendedor
+¿Qué?
+Recepción
+ 
+de alertas
+ 
+sobre
+ 
+pagos
+ 
+completados.
+¿Por
+ 
+qué?
+Mantener
+informado
+al
+desarrollador
+sobre
+ 
+ingresos recientes.
+Criterios
+ 
+de
+ 
+Aceptación
+Envío
+ 
+automático
+ 
+de
+ 
+correo
+ 
+o
+ 
+mensaje
+ 
+interno
+ 
+tras
+ 
+recibir
+ 
+un 
+pago.
+Registro
+ 
+de
+ 
+notificaciones
+ 
+en
+ 
+el
+ 
+panel
+ 
+de
+ 
+vendedor.
+RF8.
+ 
+Recomendaciones
+ 
+inteligentes
+ 
+para
+ vendedores
+RF8
+Recomendaciones
+ 
+inteligentes
+ 
+para
+ 
+vendedores
+Descripcion
+¿Quién?
+Vendedor
+¿Qué?
+Generación
+ 
+de
+ 
+sugerencias
+ 
+de
+ 
+nuevas
+ 
+ideas
+ 
+de 
+aplicaciones.
+¿Por
+ 
+qué?
+Impulsar
+ 
+la
+ 
+innovación
+ 
+mediante
+ 
+el
+ 
+análisis
+ 
+de
+ 
+tendencias
+ 
+del 
+marketplace
+.
+Criterios
+ 
+de
+ 
+Aceptación
+Empleo de modelos de Machine 
+Learning
+ para detección de 
+patrones.
+Visualización de sugerencias personalizadas según historial del usuario.
+RF9.
+ 
+Cerrar
+ sesión
+RF9
+Cerrar
+ 
+sesión
+Descripcion
+¿Quién?
+Vendedor
+ 
+/
+ 
+Comprador
+¿Qué?
+Cierre
+ 
+seguro de
+ 
+sesión activa
+ 
+en
+ 
+la
+ 
+plataforma.
+¿Por
+ 
+qué?
+Garantizar
+ 
+la
+ 
+privacidad
+ 
+y
+ 
+seguridad
+ 
+de
+ 
+los
+ 
+datos
+ 
+del
+ 
+usuario.
+Criterios
+ 
+de
+ 
+Aceptacion
+Eliminación
+ 
+de
+ 
+token
+ 
+JWT
+ 
+al
+ 
+cerrar
+ 
+sesión.
+Mensaje
+ 
+de
+ 
+confirmación
+ 
+tras
+ 
+cierre
+ 
+exitoso.
+RF10.
+ 
+Registro
+ 
+de 
+comprador
+RF10
+Registro
+ 
+de
+ comprador
+Descripcion
+¿Quién?
+Comprador
+¿Qué?
+Creación
+ 
+de
+ 
+cuenta
+ 
+de
+ 
+usuario
+ 
+para
+ 
+acceder
+ 
+al
+ 
+marketplace
+.
+¿Por
+ 
+qué?
+Permitir
+ 
+que
+ 
+los
+ 
+compradores
+ 
+puedan
+ 
+explorar
+ 
+y
+ 
+adquirir 
+aplicaciones.
+Criterios
+ 
+de
+ 
+Aceptacion
+Registro
+ 
+con
+ 
+correo,
+ 
+contraseña
+ 
+y
+ 
+datos
+ 
+básicos.
+Validación
+ 
+de
+ 
+correo
+ 
+no existente
+ 
+previamente.
+RF11.
+ 
+Visualizar
+ 
+aplicaciones
+ 
+disponibles
+RF11
+Visualizar
+ 
+aplicaciones
+ 
+disponibles
+Descripcion
+¿Quién?
+Comprador
+¿Qué?
+Consulta
+ 
+general
+ 
+del
+ 
+catálogo
+ 
+de aplicaciones
+ 
+publicadas.
+¿Por
+ 
+qué?
+Facilitar
+ 
+la
+ 
+exploración
+ 
+de
+ 
+software
+ 
+académico
+ 
+en
+ 
+la
+ 
+plataforma.
+Criterios
+ 
+de
+ 
+Aceptacion
+Mostrar
+lista
+completa
+con
+filtros
+por
+categoría
+y 
+popularidad.
+Cargar
+ 
+detalles
+ 
+al
+ 
+seleccionar
+ 
+una
+ 
+aplicación.
+RF12.
+ 
+Ejecutar
+ 
+aplicaciones
+ 
+web
+RF12
+Ejecutar
+ 
+aplicaciones
+ 
+web
+Descripcion
+¿Quién?
+Comprador
+¿Qué?
+Permitir
+ 
+el
+ 
+uso
+ 
+directo
+ 
+de
+ 
+aplicaciones
+ 
+dentro
+ 
+del
+ 
+navegador.
+¿Por
+ 
+qué?
+Brindar
+ 
+una
+ 
+experiencia práctica
+ 
+sin
+ 
+instalación
+ 
+local.
+Criterios
+ 
+de
+ 
+Aceptacion
+Acceso
+ 
+mediante
+ 
+URL
+ 
+o
+ 
+visor
+ 
+interno
+ 
+de
+ 
+AppSwap
+.
+Validación
+ 
+de
+ 
+permisos
+ 
+antes de
+ 
+ejecutar
+ 
+la
+ 
+app.
+RF13.
+ 
+Pago mediante
+ 
+código 
+QR
+RF13
+Pago mediante código QR
+Descripcion
+¿Quién?
+Comprador
+¿Qué?
+Realización de pagos por medio de QR, sin pasarela externa.
+¿Por
+ 
+qué?
+Facilitar transacciones seguras y rápidas.
+Criterios
+ 
+de
+ 
+Aceptacion
+Generación automática de QR con datos de compra.
+Registro
+ 
+del
+ 
+pago
+ 
+con
+ 
+estado
+ 
+“pendiente”
+ 
+hasta confirmación.
+RF14.
+ 
+Recomendaciones
+ 
+personalizadas
+ 
+de
+ 
+apps
+RF14
+Recomendaciones
+ 
+personalizadas
+ 
+de
+ 
+apps
+Descripción
+¿Quién?
+Comprador
+¿Qué?
+Sugerencias
+inteligentes
+de
+aplicaciones
+basadas
+ 
+en
+ 
+preferencias
+ 
+y
+ 
+uso.
+¿Por
+ 
+qué?
+Mejorar
+ 
+la
+ 
+experiencia
+ 
+del
+ 
+usuar
+i
+o
+ 
+mediante
+ 
+Machine
+ 
+Learning
+.
+Criterios
+ 
+de
+ 
+Aceptación
+Generación
+ 
+de recomendaciones
+ 
+en
+ 
+función
+ 
+del
+ 
+historial
+ 
+y 
+popularidad.
+Actualización
+ 
+periódica
+ 
+de
+ 
+resultados
+ 
+según
+ 
+comportamiento del usuario.
+RF15.
+ 
+Reseñas
+ 
+y
+ 
+calificaciones
+RF1
+5
+Reseñas
+ 
+y 
+calificaciones
+Descripción
+¿Quién?
+Comprador
+¿Qué?
+Envío
+de
+reseñas
+y
+puntuaciones
+sobre
+ 
+aplicaciones
+ 
+adquiridas.
+¿Por
+ 
+qué?
+Permitir
+retroalimentación
+de
+los
+usuarios
+hacia
+ 
+los
+ 
+desarrolladores.
+Criterios
+ 
+de
+ 
+Aceptación
+Registro
+ 
+de
+ 
+calificación
+ 
+(1–5
+ 
+estrellas)
+ 
+y
+ 
+comentario.
+Publicación
+ 
+visible
+ 
+para
+ 
+otros
+ 
+usuarios.
+RF16.
+ 
+Historial
+ 
+de
+ 
+compras
+RF16
+Historial
+ 
+de
+ compras
+Descripción
+¿Quién?
+Comprador
+¿Qué?
+Consulta
+ 
+de
+ 
+aplicaciones adquiridas
+ 
+y
+ 
+su
+ 
+estado
+ 
+actual.
+¿Por
+ 
+qué?
+Permitir
+ 
+seguimiento
+ 
+de
+ 
+descargas
+ 
+y
+ 
+accesos
+ 
+previos.
+Criterios
+ 
+de
+ 
+Aceptación
+Visualización
+ 
+de fecha,
+ 
+versión
+ 
+y
+ 
+comprobante
+ 
+de 
+compra.
+Acceso restringido
+ 
+a
+ 
+cuentas
+ 
+autenticadas.
+RF17.
+ 
+Registro
+ 
+de
+ 
+auditoría
+ 
+del 
+sistema
+RF17
+Registro
+ 
+de
+ 
+auditoría
+ 
+del
+ 
+sistema
+Descripción
+¿Quién?
+Sistema
+¿Qué?
+Registro
+ 
+de
+ 
+todas
+ 
+las
+ 
+acciones
+ 
+críticas
+ 
+realizadas
+ 
+por 
+usuarios.
+¿Por
+ 
+qué?
+Garantizar
+ 
+trazabilidad
+ 
+y
+ 
+transparencia
+ 
+en
+ 
+las
+ 
+operaciones.
+Criterios
+ 
+de
+ 
+Aceptación
+Almacenar
+ 
+fecha,
+ 
+usuario
+ 
+y tipo
+ 
+de
+ 
+acción.
+Permitir
+ 
+revisión
+ 
+por
+ 
+parte
+ 
+del
+ 
+administrador
+ 
+DTIC.
+Diagrama general de casos de uso
+ 
+Requisitos de Interfaces 
+Interfaz de Usuario
+El
+ 
+sistema
+ 
+debe
+ 
+proporcionar
+ 
+una
+ 
+interfaz
+ 
+gráfica
+ 
+moderna,
+ 
+intuitiva
+ 
+y
+ 
+accesible
+ 
+para
+ 
+todos los usuarios, considerando la diversidad de roles dentro de la plataforma (administradores, organizadores, validadores y asistentes). Las principales características son:
+La
+ 
+interfaz
+ 
+debe
+ 
+ser
+ 
+gráfica,
+ 
+clara
+ 
+y
+ 
+fácil
+ 
+de
+ 
+usar,
+ 
+permitiendo
+ 
+que
+ 
+los
+ 
+usuarios
+ 
+sin conocimientos técnicos puedan interactuar sin dificultad.
+Debe
+ 
+ser
+ 
+adaptable
+ 
+(responsiva)
+ 
+a
+ 
+diferentes
+ 
+dispositivos
+ 
+y
+ 
+tamaños
+ 
+de
+ 
+pantalla
+ 
+(computadoras, 
+tablets
+ y smartphones).
+El
+ 
+diseño
+ 
+debe
+ 
+mantener
+ 
+una
+ 
+estética
+ 
+profesional
+ 
+y
+ 
+moderna,
+ 
+alineada
+ 
+con
+ 
+la
+ 
+identidad institucional de la U.A.G.R.M.
+La
+ 
+navegación
+ 
+entre
+ 
+módulos
+ 
+debe
+ 
+ser fluida,
+ 
+con
+ 
+menús
+ 
+accesibles
+ 
+y
+ 
+rutas
+ 
+claras.
+Se deben
+ 
+incluir mensajes de error,
+ 
+advertencia
+ 
+y confirmación que orienten al usuario
+ 
+durante la ejecución de las acciones.
+Dashboard
+ 
+del
+ 
+superadministrador:
+ 
+control
+ 
+de
+ 
+suscripciones,
+ 
+cuotas,
+ 
+usuarios
+ 
+y
+ 
+reportes 
+consolidados.
+Módulo
+ 
+de
+ 
+eventos:
+ 
+creación,
+ 
+edición
+ 
+y
+ 
+visualización
+ 
+de
+ 
+eventos
+ 
+universitarios.
+Módulo
+ 
+de
+ 
+venta
+ 
+de
+ 
+entradas:
+ 
+catálogo
+ 
+de
+ 
+eventos,
+ 
+selección
+ 
+de
+ 
+tipo
+ 
+de
+ 
+entrada,
+ 
+validación de stock y flujo de pago.
+Módulo
+ 
+de
+ 
+validación
+ 
+QR:
+ 
+vista
+ 
+simplificada
+ 
+para
+ 
+escanear
+ 
+códigos
+ 
+y
+ 
+mostrar
+ 
+resultados de autenticación en tiempo real.
+Interfaz
+ 
+con
+ 
+Otras
+ Aplicaciones
+El
+ 
+sistema
+ 
+AppSwap
+ 
+contará
+ 
+con
+ 
+una
+ 
+API
+ 
+RESTful
+ 
+que
+ 
+permitirá
+ 
+la
+ 
+interoperabilidad
+ 
+con otros servicios académicos o comerciales. Los requisitos principales son:
+La
+ 
+API
+ 
+debe
+ 
+permitir
+ 
+enviar
+ 
+y recibir
+ 
+datos de
+ 
+manera
+ 
+segura
+ 
+entre el 
+backend
+ y servicios 
+externos.
+Las
+ 
+respuestas
+ 
+deben estar
+ 
+estructuradas en
+ 
+formato
+ 
+JSON,
+ 
+conforme
+ 
+a
+ 
+estándares
+ 
+REST.
+Se deben incluir mecanismos de autenticación y control de acceso (por ejemplo, tokens
+ 
+JWT).
+Debe
+ 
+garantizarse
+ 
+la confidencialidad
+ 
+y
+ 
+trazabilidad
+ 
+de
+ 
+la
+ 
+información 
+transmitida.
+Se
+ 
+considerarán futuras integraciones con servicios de terceros, como almacenamiento en la nube, analítica o servicios de IA adicionales.
+Interfaz de Comunicación entre Componentes
+La
+ 
+comunicación
+ 
+entre
+ 
+los
+ 
+módulos
+ 
+internos
+ 
+del
+ 
+sistema
+ 
+debe
+ 
+cumplir
+ 
+los
+ 
+siguientes criterios técnicos:
+Todas las interacciones deben realizarse mediante el protocolo HTTPS para asegurar la
+ 
+transmisión de datos.
+Implementación de mecanismos de autenticación y autorización basados en JWT (JSON Web Tokens).
+El
+ 
+sistema
+ 
+debe
+ 
+incluir
+ 
+gestión
+ 
+de
+ 
+errores
+ 
+y reintentos
+ 
+en
+ 
+la
+ 
+comunicación
+ 
+entre
+ servicios.
+La
+ 
+integridad
+ 
+de
+ 
+los
+ 
+datos
+ 
+transmitidos
+ 
+debe
+ 
+garantizarse
+ 
+mediante
+ 
+firmas
+ 
+digitales
+ 
+y cifrado TLS.
+Interfaces
+ 
+Externas
+El sistema interactúa con diversos servicios externos que amplían sus capacidades, especialmente en los procesos de pago, verificación de identidad y soporte técnico. Estas
+ integraciones permiten ofrecer un entorno más seguro, automatizado y confiable tanto para vendedores como para compradores dentro del Marketplace.
+Stripe
+: Se integrará con 
+Stripe
+ 
+Checkout
+ 
+Session
+ y 
+Webhooks
+ para gestionar los pagos de aplicaciones, suscripciones y comisiones del 
+marketplace
+Servicio de Machine 
+Learning
+ (
+Recomendador
+ Inteligente) incorpora un módulo de Machine 
+Learning
+ que se comunica con un servicio externo de predicción y análisis. Su propósito es generar recomendaciones personalizadas para compradores y sugerencias de nuevas aplicaciones para vendedores, basándose en el comportamiento histórico de los usuarios y en métricas de interacción.
+Herramientas, técnicas y metodologías
+Herramienta / Técnica / Metodología
+Uso previsto
+Aplicabilidad
+Limitaciones
+Pruebas de Caja Negra
+Validar funcionalidades sin conocer la lógica interna.
+Al validar requisitos funcionales e interfaces.
+No detecta errores internos de código ni cubre todos los caminos posibles.
+Pruebas de Caja Blanca
+Validar la lógica interna y cobertura del código.
+Durante el desarrollo o revisión de código.
+Requiere conocimiento técnico profundo y puede no detectar errores en la integración.
+Scrum
+Gestión ágil del desarrollo y aseguramiento de calidad.
+Durante la planificación, seguimiento y revisión de iteraciones (
+sprints
+).
+Puede ser difícil de aplicar en equipos muy pequeños o sin experiencia ágil.
+Enterprise 
+Architect
+Modelado y documentación de la arquitectura de software, generación de diagramas UML.
+En fases de diseño arquitectónico y documentación técnica.
+Requiere licencia comercial, curva de aprendizaje. No es ideal para cambios muy frecuentes o prototipos rápidos.
+PlantUML
+Creación rápida de diagramas UML y de arquitectura a partir de texto.
+Para documentar y compartir diagramas de clases, secuencia, componentes, etc. Especialmente útil en revisiones y documentación colaborativa.
+Limitado frente a herramientas gráficas avanzadas, puede requerir integración adicional para grandes proyectos.
+Control De Medios
+Esta
+ 
+sección
+ 
+describe
+ 
+los
+ 
+métodos
+ 
+y
+ 
+procedimientos
+ 
+utilizados
+ 
+para
+ 
+identificar,
+ 
+almacenar, proteger, copiar y restaurar los medios físicos y digitales que contienen productos de trabajo intermedios y finales del software, así como la documentación asociada.
+Identificación
+ 
+y
+ 
+almacenamiento
+ 
+de
+ 
+medios
+Para la gestión de los productos de trabajo computacionales (código fuente, versiones intermedias, ejecutables, documentación técnica y de usuario, entre otros), se utilizarán principalmente medios digitales almacenados en la nube y repositorios seguros:
+Medios principales:
+Repositorios
+ 
+de
+ 
+código
+ 
+fuente
+ 
+y
+ 
+versiones:
+ 
+GitHub
+ 
+(repositorios
+ 
+privados).
+Documentación
+ 
+técnica: Google
+ 
+Drive
+ 
+y/o
+ 
+Confluence
+.
+Copias de seguridad de versiones finales: almacenamiento en la nube (Google
+ 
+Drive,
+ 
+Dropbox,
+ 
+etc.)
+ 
+y
+ 
+respaldos
+ 
+locales
+ 
+en
+ 
+discos
+ 
+duros
+ 
+externos cuando sea necesario.
+Identificación:
+Cada producto de trabajo será identificado mediante nombre de archivo,
+ 
+versión, fecha y responsable.
+Los
+ 
+repositorios
+ 
+tendrán
+ 
+una
+ 
+estructura
+ 
+organizada
+ 
+por
+ 
+carpetas
+ 
+y
+ 
+convenciones
+ 
+de
+ 
+nomenclatura
+ 
+para
+ 
+facilitar
+ 
+la
+ 
+identificación
+ 
+y
+ 
+trazabilidad.
+Procesos
+ 
+de
+ 
+copia
+ 
+y 
+restauración:
+Se realizarán respaldos automáticos y/o manuales de los repositorios y documentos clave de manera periódica (al menos una vez por semana).
+En caso de pérdida o fallo, los procedimientos de restauración incluyen la recuperación desde la nube o desde las copias locales, siguiendo las instrucciones documentadas en el plan de configuración.
+Protección
+ 
+de
+ 
+los
+ 
+medios
+ 
+físicos
+ 
+y
+ 
+digitales
+Para
+ 
+proteger
+ 
+los
+ 
+medios
+ 
+que
+ 
+contienen
+ 
+información
+ 
+crítica
+ 
+del
+ 
+software,
+ 
+se
+ 
+implementarán las siguientes medidas:
+Acceso controlado a los repositorios y carpetas mediante autenticación 
+segura y
+ 
+permisos restringidos solo al personal autorizado.
+Uso
+ 
+de
+ 
+autenticación
+ 
+en
+ 
+dos
+ 
+factores
+ 
+(2FA)
+ 
+en
+ 
+plataformas
+ 
+como
+ 
+GitHub
+ 
+y
+ 
+servicios en la nube.
+Protección contra alteraciones accidentales mediante el uso de
+ 
+sistemas de control de versiones (Git) y restricciones de modificación en carpetas sensibles.
+Almacenamiento
+ 
+seguro
+ 
+de
+ 
+copias
+ 
+físicas
+ 
+(si
+ 
+existieran),
+ 
+como
+ 
+discos
+ 
+duros
+ 
+externos, en lugares bajo llave y con acceso limitado.
+Monitoreo
+ 
+periódico
+ 
+de
+ 
+los
+ 
+accesos
+ 
+y
+ 
+actividades
+ 
+en
+ 
+los
+ 
+repositorios
+ 
+y
+ 
+carpetas 
+clave.
+Control de
+ 
+proveedores
+Esta sección establece las disposiciones y procedimientos necesarios para garantizar que cualquier
+ 
+software
+ 
+suministrado
+ 
+por
+ 
+terceros
+ 
+cumpla
+ 
+con
+ 
+los
+ 
+requisitos
+ 
+definidos
+ 
+para
+ 
+el
+ 
+proyecto, así como los mecanismos para comunicar y verificar dichos requisitos.
+Aseguramiento
+ 
+de
+ 
+requisitos
+ 
+entregados
+ 
+a
+ 
+proveedores
+Para
+ 
+todos
+ 
+los
+ 
+proveedores
+ 
+de
+ 
+software
+ 
+involucrados
+ 
+en
+ 
+el
+ 
+proyecto,
+ 
+se
+ 
+implementarán
+ 
+los siguientes métodos para asegurar que reciban requisitos completos y adecuados:
+Elaboración
+ 
+y
+ 
+entrega
+ 
+de
+ 
+un
+ 
+documento
+ 
+de
+ 
+requisitos
+ 
+detallado
+ 
+y
+ 
+formal,
+ 
+que
+ 
+deberá ser revisado y aprobado tanto por el equipo de la 
+start
+-up como por 
+el proveedor antes de iniciar cualquier desarrollo o integración.
+Realización de reuniones de alineación y aclaración de requisitos previas al inicio del trabajo, para asegurar el correcto entendimiento por parte del proveedor.
+Comunicación
+continua
+mediante
+canales
+oficiales
+(correo
+electrónico, 
+videollamadas, herramientas de gestión de proyectos).
+Verificación
+ 
+de
+ 
+software
+ 
+previamente
+ 
+desarrollado
+Para software previamente desarrollado por terceros que se planee integrar al sistema, se aplicarán los siguientes métodos de verificación:
+Revisión
+ 
+de
+ 
+la
+ 
+documentación
+ 
+técnica
+ 
+del
+ 
+software
+ 
+provisto,
+ 
+validando
+ 
+su compatibilidad y cumplimiento con los requisitos del proyecto.
+Ejecución
+ 
+de
+ 
+pruebas
+ 
+de
+ 
+integración
+ 
+y
+ 
+validación
+ 
+funcional,
+ 
+asegurando
+ 
+la
+ 
+correcta interacción con los elementos propios del software cubiertos por el SQAP.
+Análisis
+ 
+de
+ 
+licencias
+ 
+y
+ 
+condiciones
+ 
+de
+ 
+uso,
+ 
+garantizando
+ 
+que
+ 
+no
+ 
+existan
+ 
+restricciones legales para su integración y distribución.
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Herramientas Case
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz 
+–
+ Bolivia
+Aspectos relacionados con la productividad
+Durante el desarrollo del proyecto, se empleó un conjunto de herramientas CASE orientadas a incrementar la productividad del equipo, optimizar los flujos de trabajo y garantizar un desarrollo ordenado, escalable y de calidad. En este capítulo se presenta una revisión detallada de las herramientas utilizadas, abarcando desde plataformas de planificación y gestión ágil, hasta soluciones para modelado, control de versiones, despliegue y automatización. El objetivo de esta revisión es ofrecer una visión completa y fundamentada de cómo cada herramienta contribuyó al rendimiento del equipo y a la calidad del producto final.
+Las herramientas seleccionadas no solo facilitaron la organización del trabajo, sino que también influyeron directamente en la eficiencia del desarrollo, la colaboración entre los integrantes, la documentación del proyecto y la correcta implementación de los requisitos funcionales y no funcionales. En este sentido, el uso adecuado de herramientas CASE permitió reducir errores, acelerar iteraciones y reforzar la transparencia del proceso, aspectos fundamentales para el éxito del proyecto.
+Enterprise 
+Architec
+Enterprise 
+Architect
+ es una herramienta colaborativa de modelado, diseño y gestión que implementa UML 2.5 y otros estándares relacionados. Se caracteriza por ser ágil, intuitiva y extensible, ofreciendo potentes funcionalidades para dominios específicos completamente integrados a un costo significativamente menor que muchas soluciones competidoras. Esta herramienta permite a las organizaciones visualizar, analizar, modelar, probar y mantener una amplia variedad de sistemas, software, procesos y arquitecturas, convirtiéndose en una solución completa para necesidades empresariales de modelado y diseño
+Propósito y Beneficios
+Enterprise 
+Architect
+ permite acelerar significativamente el proceso de desarrollo de software al:
+Facilitar el modelado visual: Permite la creación de diagramas UML que sirven como base para la implementación del código.
+Mantener la coherencia arquitectónica: Asegura que todos los componentes de un sistema distribuido (
+backend
+ y 
+blockchain
+) se integren correctamente.
+Generar documentación automáticamente: Reduce el tiempo dedicado a documentar manualmente la arquitectura.
+Permitir el trabajo colaborativo: Varios miembros del equipo pueden trabajar simultáneamente en diferentes aspectos del diseño.
+Modelos Elaborados
+Durante los 
+sprints
+ de desarrollo, Enterprise 
+Architect
+ facilita la creación de diversos modelos que aceleran la productividad:
+Diagrama de Arquitectura del Sistema
+La herramienta permite modelar arquitecturas distribuidas entre componentes como 
+backend
+ 
+NestJS
+ y componentes 
+Blockchain
+, definiendo claramente: 
+La comunicación entre los servicios 
+backend
+ y contratos inteligentes 
+Los puntos de integración con servicios externos (AWS, 
+Cloudinary
+) 
+Los flujos de datos y las dependencias entre componentes 
+Este tipo de modelo permite visualizar la arquitectura completa antes de comenzar la implementación, evitando problemas de integración posteriores y acelerando el proceso de desarrollo.
+Diagramas de Casos de Uso
+Enterprise 
+Architect
+ facilita la creación de diagramas de casos de uso que representan visualmente las principales funcionalidades del sistema 
+AppSwap
+.
+ 
+Entre las funcionalidades modeladas se incluyen:
+Autenticación y gestión de identidad del usuario
+Representación de los procesos de registro, inicio de sesión y cierre de sesión para vendedores y compradores.
+Gestión de aplicaciones dentro del Marketplace
+ Incluye la creación, edición, eliminación y visualización de aplicaciones por parte del vendedor.
+Procesamiento de pagos a través de códigos QR
+ Modela el flujo de compra, generación del QR, validación del pago y confirmación por parte del vendedor.
+Sistema de recomendaciones inteligentes
+ Diagramas que muestran cómo el sistema sugiere aplicaciones relevantes a compradores y nuevas ideas a vendedores mediante análisis de datos.
+Interacción con reseñas y calificaciones
+ Representación del proceso para dejar, consultar y gestionar reseñas asociadas a las aplicaciones.
+Diagrama de Clases
+La herramienta permite modelar las entidades principales del sistema 
+AppSwap
+, lo que facilita la comprensión de la estructura interna del software y la relación entre sus componentes. A través del diagrama de clases se definieron los elementos esenciales del dominio, tales como:
+Estructura de datos para los usuarios Modelando atributos como nombre, correo, contraseña y rol (vendedor o comprador).
+Modelo de datos para las aplicaciones del Marketplace Incluyendo información como nombre, descripción, categoría, precio, URL de acceso y propietario.
+Clases relacionadas con pagos mediante código QR Representando la relación entre compradores, aplicaciones y registros de pago.
+Modelo de reseñas y calificaciones Estructurando las entidades necesarias para almacenar comentarios, puntajes y fechas de publicación.
+Clases de soporte para categorías y roles del sistema Utilizadas para mantener ordenada y normalizada la información.
+Diagramas de Secuencia
+Diagramas de Secuencia
+Enterprise 
+Architect
+ facilita el desarrollo de diagramas de secuencia que representan los flujos más importantes del sistema. Estos diagramas permiten visualizar la interacción temporal entre los distintos componentes y actores, ayudando a comprender el comportamiento dinámico del sistema en funcionalidades clave. Entre los procesos modelados se encuentran:
+Proceso de autenticación y autorización de usuarios
+ 
+Secuencias que describen el flujo desde que el usuario ingresa sus credenciales hasta la validación y generación del token de sesión.
+Proceso de compra y validación de pagos mediante código QR
+ 
+Incluye la generación del QR, el registro del pago y la confirmación realizada por el vendedor dentro de la plataforma.
+Generación y entrega de recomendaciones inteligentes mediante Machine 
+Learning
+ 
+Representación del flujo de interacción entre el módulo ML, la base de datos y el usuario para obtener sugerencias personalizadas.
+Diagramas de Componentes
+La herramienta permite crear diagramas de componentes que representan la arquitectura modular del sistema 
+AppSwap
+ y la manera en que sus distintos módulos se relacionan entre sí. Estos diagramas proporcionan una visión clara de la organización interna del software y de las dependencias entre los elementos principales. Entre los componentes modelados se incluyen:
+Estructura modular del 
+backend
+ desarrollado con Django y 
+FastAPI
+ 
+Se representan componentes como los controladores (
+endpoints
+), servicios internos, modelos de datos, manejadores de autenticación y módulos dedicados a pagos, reseñas y recomendaciones inteligentes.
+Módulo de Machine 
+Learning
+ para recomendaciones personalizadas
+ 
+Incluye el componente encargado del análisis de datos del usuario, generación de sugerencias y comunicación con la API principal.
+Frontend
+ 
+React
+ y sus módulos de interfaz
+ 
+Se ilustran componentes como el módulo de autenticación, vistas del 
+marketplace
+, exploración de apps, visor interno de apps web, gestión de compras y panel del vendedor.
+Interfaces entre los distintos módulos del sistema
+ 
+Se describen los canales de comunicación basados en API REST, intercambio de datos en formato JSON, validaciones de sesión mediante tokens y manejo de eventos generados por el usuario
+.
+Jira
+Jira es una herramienta de gestión de proyectos y seguimiento de problemas desarrollada por 
+Atlassian
+, ampliamente utilizada en equipos de desarrollo de software y otras áreas para planificar, rastrear y gestionar trabajos de manera efectiva. Los tableros de Jira son parte integral de Jira Software y se basan en metodologías ágiles como Scrum y Kanban, facilitando la visualización del flujo de trabajo y el progreso del proyecto
+.
+Funcionalidades Principales
+Tableros Ágiles
+Jira proporciona diferentes tipos de tableros que se adaptan a diversas metodologías de trabajo:
+Tableros Scrum: Diseñados para equipos que trabajan en 
+sprints
+, con funcionalidades como backlog, planificación de 
+sprints
+ y gráficos de 
+burndown
+. 
+Tableros Kanban: Para equipos que prefieren un flujo de trabajo continuo, con límites de trabajo en curso (WIP) y métricas de flujo. 
+Tableros híbridos: Que combinan elementos de ambas metodologías según las necesidades del equipo.
+Gestión de Incidencias
+La herramienta permite la creación y gestión de diferentes tipos de incidencias: 
+Historias de usuario: Para capturar requisitos desde la perspectiva del usuario final. 
+Tareas: Elementos de trabajo específicos dentro del proyecto. 
+Errores: Para registrar y dar seguimiento a problemas o defectos encontrados. 
+Épicas: Para agrupar historias de usuario relacionadas con una funcionalidad mayor
+.
+Flujos de Trabajo Personalizables
+Jira permite definir flujos de trabajo personalizados que reflejan el proceso específico de un equipo: 
+Creación de estados personalizados (como "En revisión de código", "En pruebas", etc.) 
+Definición de transiciones entre estados y sus requisitos 
+Automatización de transiciones basadas en eventos como la creación de 
+pull
+ 
+requests
+Informes y Métricas
+La plataforma ofrece una variedad de informes para monitorear el progreso y rendimiento: 
+Gráficos de 
+burndown
+/
+burnup
+ para visualizar el progreso dentro de un sprint 
+Informes de velocidad para mejorar la planificación futura 
+Métricas de tiempo de ciclo y tiempo de entrega 
+Informes personalizados según las necesidades del proyecto
+Integración con Otras Herramientas
+Jira se integra con numerosas herramientas para crear un flujo de trabajo cohesionado:
+Sistemas de control de versiones: Como GitHub y 
+Bitbucket
+, permitiendo vincular 
+commits
+ y 
+pull
+ 
+requests
+ con incidencias 
+Herramientas de CI/CD: Como Jenkins, 
+CircleCI
+ o GitHub 
+Actions
+ para visualizar el estado de las compilaciones 
+Herramientas de comunicación: Como 
+Slack
+ para notificaciones y actualizaciones 
+Herramientas de documentación: Como 
+Confluence
+ para mantener la documentación detallada
+Beneficios para el Proceso de Desarrollo
+Visibilidad y Transparencia
+Jira proporciona visibilidad completa sobre el estado del proyecto:
+Todos los miembros del equipo pueden ver en qué se está trabajando actualmente 
+Los gerentes pueden obtener una visión general del progreso sin interrumpir al equipo 
+Las partes interesadas pueden acceder a paneles personalizados con información relevante
+Mejora de la Planificación
+La herramienta facilita una planificación más precisa mediante: 
+El registro histórico de la velocidad del equipo 
+La capacidad de desglosar el trabajo en tareas más pequeñas y estimables 
+La priorización visual del backlog
+Optimización de Procesos
+Jira ayuda a optimizar los procesos de desarrollo mediante: 
+La identificación de cuellos de botella a través de métricas de tiempo de ciclo 
+La implementación de límites WIP para mantener un flujo constante 
+La recopilación de datos para retrospectivas y mejoras continuas
+Colaboración Mejorada
+La plataforma mejora la colaboración entre los miembros del equipo: 
+Centralización de la información y discusiones sobre cada tarea 
+Asignación clara de responsabilidades 
+Notificaciones automáticas sobre cambios relevantes
+Aplicación en Proyectos de Desarrollo
+En proyectos de desarrollo de software complejos, como sistemas distribuidos que integran 
+backend
+ tradicional con tecnologías 
+blockchain
+, Jira demuestra su valor al:
+Facilitar la gestión de dependencias entre componentes desarrollados por diferentes equipos 
+Proporcionar una visión unificada del progreso a través de múltiples repositorios y tecnologías 
+Permitir el seguimiento detallado de tareas técnicas complejas 
+Mantener la alineación entre objetivos técnicos y de negocio
+Git y GitHub
+Git es un sistema de control de versiones distribuido diseñado para manejar proyectos de cualquier tamaño con velocidad y eficiencia. GitHub es una plataforma basada en la web que proporciona alojamiento para repositorios Git, añadiendo funcionalidades de colaboración como seguimiento de problemas, solicitudes de extracción, revisiones de código y más. Juntos, forman un ecosistema integral para el desarrollo colaborativo de software.
+Git: Sistema de Control de Versiones
+Características Principales
+Git ofrece un conjunto de características que lo hacen indispensable en el desarrollo de software moderno:
+Control de versiones distribuido: Cada desarrollador tiene una copia completa del repositorio, permitiendo trabajar sin conexión. 
+Ramificación eficiente: Permite crear, fusionar y eliminar ramas con facilidad, facilitando el desarrollo paralelo. 
+Historial completo: Mantiene un registro detallado de todos los cambios, quién los realizó y cuándo. 
+Integridad de datos: Utiliza algoritmos criptográficos para garantizar que el historial no pueda ser modificado inadvertidamente. 
+Staging
+ 
+area
+: Proporciona un área intermedia que permite seleccionar qué cambios incluir en cada confirmación.
+Flujos de Trabajo
+Git facilita diversos flujos de trabajo adaptables a diferentes necesidades de proyecto:
+Gitflow
+: Un modelo con ramas para desarrollo, características, versiones y correcciones que proporciona una estructura clara para proyectos complejos. 
+GitHub Flow: Un enfoque más simplificado basado en la rama principal y ramas de características. 
+Trunk-Based
+ 
+Development
+: Un modelo donde los desarrolladores integran frecuentemente a la rama principal, utilizando técnicas como 
+feature
+ 
+flags
+ para características en desarrollo.
+Comandos Fundamentales
+Git proporciona un conjunto de comandos que permiten gestionar el ciclo de vida completo del código: 
+Comandos
+ 
+básicos
+: git 
+init
+, git clone, git add, git commit, git push, git pull 
+Gestión
+ de 
+ramas
+: git branch, git checkout, git merge, git rebase 
+Revisión de cambios: 
+git
+ log, 
+git
+ 
+diff
+, 
+git
+ show, 
+git
+ 
+blame
+ 
+Manejo de conflictos: Herramientas para resolver conflictos durante fusiones o rebase
+GitHub: Plataforma Colaborativa
+Funcionalidades Principales
+GitHub extiende las capacidades de Git con herramientas para la colaboración: 
+Alojamiento de repositorios: Almacenamiento centralizado accesible para todo el equipo. 
+Pull
+ 
+Requests
+ (PR): Mecanismo para revisar, discutir y aprobar cambios antes de integrarlos. 
+Issues: Sistema de seguimiento para errores, mejoras y tareas. 
+Projects
+: Tableros Kanban integrados para la gestión de proyectos. 
+Actions
+: Automatización de flujos de trabajo para CI/CD. 
+Wikis: Documentación colaborativa para el proyecto.
+Revisión de Código
+GitHub ofrece herramientas robustas para la revisión de código: 
+Revisiones líneas
+ por línea: Posibilidad de comentar en líneas específicas del código. 
+Discusiones encadenadas: Conversaciones estructuradas sobre aspectos específicos del código. 
+Solicitudes de cambios: Capacidad para solicitar modificaciones antes de aprobar un PR. 
+Protección de ramas: Configuración de reglas para asegurar que el código cumpla ciertos criterios antes de ser fusionado.
+Integración y Extensibilidad
+GitHub se integra con numerosas herramientas y servicios: 
+Integraciones con servicios de CI/CD: Travis, 
+Circle
+ CI, Jenkins, GitHub 
+Actions
+. 
+Notificaciones: Alertas por email o integración con plataformas como 
+Slack
+. 
+GitHub Apps y 
+Webhooks
+: Extensibilidad para crear flujos de trabajo personalizados. 
+GitHub Marketplace: Acceso a aplicaciones y acciones creadas por la comunidad.
+Beneficios para el Proceso de Desarrollo
+Colaboración Eficiente
+Git y GitHub facilitan la colaboración entre equipos distribuidos: 
+Los desarrolladores pueden trabajar simultáneamente en diferentes características sin interferir entre sí. 
+Las revisiones de código se realizan de manera estructurada y asíncrona. 
+La documentación y las discusiones se mantienen junto al código, proporcionando contexto.
+Control de Calidad
+Estas herramientas contribuyen a mantener altos estándares de calidad: 
+Los procesos de revisión de código detectan problemas antes de que lleguen a producción. 
+La integración con herramientas de CI/CD permite verificar automáticamente que el código cumple con los estándares establecidos. 
+El historial detallado facilita la identificación del origen de los errores cuando surgen.
+Transparencia y Trazabilidad
+El uso de estas herramientas mejora la visibilidad del proyecto: 
+Cualquier miembro del equipo puede ver el estado actual del código y su evolución histórica. 
+Cada cambio está documentado con mensajes de 
+commit
+, revisiones y discusiones relacionadas. 
+Las métricas de contribución y actividad proporcionan información sobre el progreso del proyecto.
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Aspectos Legales
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz 
+–
+ Bolivia
+Aspectos Legales para la apertura de una empresa de desarrollo de software
+La apertura de una empresa de desarrollo de software implica una serie de consideraciones
+legales que son cruciales para asegurar el cumplimiento de la normativa vigente y para
+proteger los intereses tanto de los fundadores como de los clientes. Estos aspectos legales
+abarcan una variedad de áreas, desde la formación de la empresa hasta la propiedad
+intelectual y la protección de datos.
+Licencias de Software
+Software Libre
+Es software licenciado por su autor, bajo una licencia de código fuente abierta. EL DECRETO
+ 
+SUPREMO 1793 PROMUEVE EL USO DEL SOFTWARE LIBRE Y ESTANDARES ABIERTOS La
+ 
+ADSIB establecerá los mecanismos y proceso de registro, consulta y uso del repositorio
+ 
+Estatal del software libre. El 12 de julio 2017 se promulga el Decreto Supremo 3251, donde
+ 
+son aprobados los planes de implementación de software Libre e Implementación de
+ 
+Gobierno Electrónico.
+Software Privado
+Para entidades públicas de Bolivia que requieran adquirir, recibir, ampliar o renovar
+ 
+licencias de software propietario, la máxima Autoridad Ejecutiva debe solicitar conformidad
+ 
+a la ADSIB, adjuntando un informe técnico que fundamente la necesidad del uso de dicho
+ 
+software. Este mismo procedimiento aplica para el desarrollo de aplicaciones sobre
+ 
+plataformas propietarias, 
+donde el informe técnico debe justificar específicamente por qué
+ 
+se requiere utilizar dicha plataforma para el desarrollo.
+Razón Social
+Constituye la denominación oficial y jurídicamente reconocida de una organización empresarial. Este identificador único es requerido en toda documentación legal, contractual y transaccional de la empresa, sirviendo como elemento de identificación oficial ante autoridades gubernamentales y otras entidades del ecosistema empresarial.
+Organización Jurídica
+ Alternativas de Conformación
+El Servicio Plurinacional de Registro de Comercio establece seis modalidades para inscripción empresarial, cada una otorgando personalidad jurídica para operar legalmente en territorio boliviano:
+Comerciante Individual o Empresa Unipersonal
+Se entiende por comerciante individual o empresa unipersonal a la persona natural que ejerce el comercio en forma individual y por cuenta propia, haciendo de esta una actividad económica habitual.
+Sociedad de Responsabilidad Limitada (S.R.L.), Sociedad Colectiva o Sociedad en Comandita Simple
+La sociedad de responsabilidad limitada, es aquella cuyo capital está integrado por cuotas de capital no representadas por títulos negociables, cuyo giro se efectúa bajo una razón social o 
+denominación, seguido del aditamento "Sociedad de Responsabilidad Limitada", o su abreviatura "S.
+R.L
+", o, la palabra "Limitada" o la abreviatura "Ltda.", en las que la responsabilidad de los socios se limita a su aporte societario. La sociedad colectiva, es aquella en que los socios, actuando bajo una denominación responden de obligaciones sociales en forma solidaria e ilimitada. La sociedad en comandita simple, es aquella constituida por uno o varios socios llamados gestores o colectivos que asumen la responsabilidad por las obligaciones en forma solidaria e ilimitada, mientras que otros socios llamados comanditarios responden exclusivamente con el capital que se han obligado a aportar en la sociedad.
+Sociedad Anónima (S.A.) o Sociedad en Comandita por Acciones constituidas por acto único
+La sociedad anónima es un tipo societario integrado por socios que responden y están obligados hasta el monto de los aportes que hayan suscrito. El capital en estas sociedades, se encuentra representado por acciones cuyos títulos son negociables. Las sociedades en comandita por acciones, son aquellas sociedades en las cuales los socios gestores responden por las obligaciones sociales como los socios de la sociedad colectiva y los socios comanditarios limitan su responsabilidad al monto de las acciones que hayan suscrito.
+Sociedad Anónima (S.A.) o Sociedad en Comandita por Acciones por suscripción pública de acciones
+Las sociedades anónimas constituidas por suscripción pública están integradas por socios que responden y están obligados hasta el monto de los aportes que hayan suscrito. El capital en estas sociedades, se encuentra representado por acciones cuyos títulos son negociables.
+Sociedad de Economía Mixta (S.A.M.)
+Sociedades que integran al tipo de las anónimas y que invisten naturaleza pública y privada, es decir mixta por el origen de los aportes que constituyen su capital. En ellas, el Estado interviene en la dirección y administración de la sociedad a la par de los particulares, suscribiendo acciones para su constitución.
+Sociedad Constituida en el Extranjero
+Las sociedades constituidas en el extranjero pueden operar en Bolivia, para el ejercicio habitual de actos de comercio, como sucursal o representación permanente.
+Tipo de Sociedad
+Al tener conocimiento de todas las sociedades se recomienda optar por una Sociedad de Responsabilidad Limitada (S.R.L.) por los siguientes motivos:
+La empresa es una persona jurídica, es otra persona, no es el socio o socios, sino una entidad abstracta, pero persona única al fin. 
+Si la empresa tiene una deuda, la deudora es la empresa, no los socios. O en todo caso cada socio paga solo hasta el aporte que dio, no pueden cobrarle 86 más. Las deudas pueden ser a entidades estatales o rectoras (SIN, 
+AFPs
+, Ministerios, CNS, 
+etc
+) y también otros (dependientes, proveedores, clientes, 
+etc
+) y el titular de la deuda es la empresa. 
+Paga los mismos impuestos al igual que una empresa unipersonal. 
+Las obligaciones con CNS, 
+AFPs
+ y otras entidades es igual que una unipersonal. 
+Puede tener pérdida a pesar de haber tenido ventas, al igual que una empresa unipersonal. 
+Cumple de igual forma que la unipersonal para el caso de actualización de matrícula en 
+Fundempresa
+. 
+Refleja más prestigio a sus clientes al ser una empresa de sociedad.
+Apertura de una Empresa
+Como parte de los aspectos legales para constituir una empresa de desarrollo de software especializada en gestión de eventos universitarios con tecnología 
+blockchain
+ para la unidad DTIC de la UAGRM, se deben completar los siguientes pasos secuenciales, adaptados específicamente a las características del proyecto:
+SEPREC: Servicio Plurinacional de Registro Comercial.
+SIN: Número de Identificación Tributaria.
+Gobierno Municipal: Padrón municipal y licencia de funcionamiento.
+Caja de Salud: Afiliación de Empresas/Afiliación del trabajador.
+Gestora Pública: Sistema Integral de Pensiones de Largo Plazo (reemplaza a las 
+AFPs
+).
+Ministerio de Trabajo: Registro Obligatorio de Empleadores (ROE) a través de la Oficina Virtual de Trámites (OVT) y registro de contratos.
+Servicio Plurinacional de Registro de Comercio (SEPREC)
+El SEPREC es la entidad responsable del registro formal de empresas en Bolivia, operando bajo supervisión del Ministerio de Desarrollo Productivo y Economía Plural. Para el proyecto de 
+software de gestión de eventos universitarios con 
+blockchain
+, se recomienda constituir una Sociedad de Responsabilidad Limitada (S.R.L.) por las ventajas mencionadas anteriormente.
+Se debe ingresar a SEPREC - Servicio Plurinacional de Registro de Comercio (
+https://www.seprec.gob.bo/
+).
+La Sociedad de Responsabilidad Limitada, es aquella cuyo capital está integrado por cuotas de capital no representadas por títulos negociables, cuyo giro se efectúa bajo una razón social o denominación, seguido del aditamento «Sociedad de Responsabilidad Limitada», o su abreviatura «S.R.L.», o, la palabra «Limitada» o su abreviatura «Ltda.», en las que la responsabilidad de los socios se limita a su aporte societario.
+Marco Legal:
+D.L. No. 14379 de 25 de febrero de 1977, Código de Comercio (Artículos 127, 195 al 216).
+Ley No. 393 de 21 de agosto de 2013, Ley de Servicios Financieros (para aspectos relacionados con transacciones).
+Decreto Supremo 1793 (Software Libre y Estándares Abiertos) • Decreto Supremo 3251 (Implementación de Gobierno Electrónico).
+Normativa específica sobre protección de datos académicos.
+Requisitos Tramite Presencial
+Formulario Virtual de Inscripción con declaración jurada, especificando el desarrollo de software de gestión de eventos universitarios con tecnología 
+blockchain
+.
+Testimonio de Escritura Pública de Constitución Social que detalle: 
+El mencionado instrumento debe contener los aspectos previstos en el Art. 127 del Código de Comercio
+ 
+Objeto social enfocado en desarrollo de software para gestión de eventos académicos; Mención específica a la implementación de tecnología 
+blockchain
+:
+ Cláusulas sobre propiedad intelectual y licenciamiento del software.
+Testimonio de Escritura Pública de Poder del Representante Legal.
+Pago por trámite y publicación del Testimonio en la Gaceta Electrónica. (Bs. 192,00)
+En caso de ser sociedad regulada por Ley, cargar en formato PDF la autorización emitida por el ente regulador.
+Requisitos Trámite Virtual
+Formulario Virtual de Inscripción con carácter de declaración jurada, debidamente llenado por el Representante Legal con aprobación vía ciudadanía digital.
+Obtener el Testimonio de Escritura Pública de Constitución Social, en formato PDF con firma digital del Notario de Fe Pública del SINPLU.
+Obtener el Testimonio de Escritura Pública de Poder del Representante Legal, en formato PDF con firma digital del Notario de Fe Pública del SINPLU.
+Realizar el pago correspondiente del trámite y la Publicación in extenso del Testimonio de Escritura Pública de Constitución en la Gaceta Electrónica del Registro de Comercio.
+En caso de ser sociedad regulada por Ley, cargar en formato PDF la autorización emitida por el ente regulador.
+Procedimiento Oficial de Registro
+Las siguientes normativas y procedimientos son establecidos oficialmente por el SEPREC y deben seguirse sin alteraciones para el registro legal de la empresa.
+Costos Oficiales
+Sociedad de Responsabilidad Limitada: Bs 455,00 (Cuatrocientos cincuenta y cinco 00/100 bolivianos).
+Publicación en la Gaceta Electrónica del Registro de Comercio: Bs 192,00 (Ciento noventa y dos 00/100 bolivianos).
+Requisitos para la obtención de NIT Personas Jurídicas
+Se debe realizar mediante el portal del Servicio de Impuestos Nacionales (SIN), presentando Escritura Pública de Constitución, Poder del Representante Legal, Factura de luz del domicilio fiscal y croquis de ubicación.
+Inscripción a la caja de salud
+Requisitos para afiliación del empleador a la Caja de Salud (Actualizado para Santa Cruz):
+FORM. AVC-01 (SIN LLENAR) NOTA: EL FORMULARIO DEBE TENER LA FIRMA DEL REPRESENTANTE LEGAL Y SELLO DE LA EMPRESA.
+FORM. AVC-02 (SIN LLENAR) NOTA: ADQUIRIR EL FORMULARIO EN LA UNIDAD DE TESORERIA REGIONAL SANTA CRUZ.
+FORM. RCI-1 A (SIN LLENAR) NOTA: EL FORMULARIO DEBE TENER LA FIRMA DEL REPRESENTANTE LEGAL Y EL NUMERO DE CEDULA DE IDENTIDAD.
+SOLICITUD ESCRITA DIRIGIDA A LA JEFATURA DE AFILIACION REGIONAL SANTA CRUZ.
+FOTOCOPIA NÍTIDA DEL C.I. DEL REPRESENTANTE LEGAL O PROPIETARIO Y PODER NOTARIADO LEGALIZADO.
+FOTOCOPIA NÍTIDA DEL NIT Y CERTIFICADO ELECTRÓNICO.
+BALANCE DE APERTURA FIRMADO POR EL COLEGIO DEPARTAMENTAL DE AUDITORES O CONTADORES.
+UN ORIGINAL Y CINCO COPIAS DE LA PLANILLA DE HABERES FIRMADA POR LOS TRABAJADORES.
+NÓMINA DEL PERSONAL CON FECHAS DE NACIMIENTO.
+CROQUIS DE UBICACIÓN DE LA EMPRESA.
+EXAMEN PREOCUPACIONAL POR CADA TRABAJADOR. NOTA: ADQUIRIR EL RECIBO PARA EL EXAMEN EN LA UNIDAD DE TESORERIA REGIONAL SANTA CRUZ.
+SI LA EMPRESA SE ENCUENTRA EN SOCIEDAD PRESENTAR FOTOCOPIA LEGALIZADA DEL TESTIMONIO DE CONSTITUCION.
+Obtención de la Patente Municipal
+Requisitos:
+Declaración Jurada Formulario N°101 (debidamente llenado y firmado).
+Carta de solicitud de modificaciones dirigida al 
+Jefe
+ de Departamento de Patentes y Otros Ingresos.
+Fotocopia del Poder del Representante Legal (si corresponde).
+Documento de Identidad del Representante Legal (fotocopia a color).
+Acta de Constitución de la Empresa o Personería Jurídica o Documento que acredite la Asociación (fotocopia).
+Licencia de Funcionamiento (original).
+Aviso de cobranza de Luz y/o Agua del domicilio de la Actividad Económica (fotocopia).
+Certificado de Registro al Padrón Nacional de Contribuyentes o Número de Identificación Tributaria (NIT) (fotocopia).
+Plano de Uso de Suelo o croquis de ubicación de la Actividad Económica (fotocopia).
+Evaluación del Impacto Ambiental (fotocopia).
+Registro de la Marca Comercial y Logotipo en SENAPI
+El Servicio Nacional de Propiedad Intelectual (SENAPI), presenta la cartilla de Derecho de Autor y Derechos Conexos. El Derecho de Autor otorga a las personas naturales o jurídicas que deseen registrar sus obras, toda la protección y los derechos de uso para que ésta no sea plagiada ni utilizada de forma errónea por terceras personas.
+Requisitos Específicos para Marca
+Un ejemplar del Formulario PI-100 Solicitud de Signo Distintivo.
+Crear usuario y contraseña para llenar el formulario en la página web del 
+Senapi
+.
+Si la marca tiene diseño adicionar en tamaño 4x4 cm formato JPG-RGB e imprimir el formulario a color.
+Llenar la casilla de descripción del signo distintivo y código Pantone del diseño.
+Indicar cuál es el producto o servicio de acuerdo al clasificador Internacional de Niza (Para software suele ser la Clase 9 y/o Clase 42).
+Para personas jurídicas adjuntar el poder en original o copia legalizada del representante legal.
+Comprobante original y fotocopia del pago a la cuenta de la Gaceta de Bolivia.
+Comprobante original y fotocopia del pago a la cuenta del 
+Senapi
+.
+En caso de tener registro anterior en otro país (Reivindicación de Prioridad) adjuntar copia certificada del documento.
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Infraestructura para la 
+Producción
+ de Soft
+ware
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz - Bolivia
+Infraestructura para la Producción del Software.
+Gestión de Configuración
+La Gestión de la Configuración del Software (GCS) representa un proceso esencial dentro de la ingeniería de software que asegura el desarrollo, mantenimiento y evolución de las aplicaciones de manera organizada y bajo estricto control. Este enfoque metodológico establece e implementa procedimientos técnicos específicos dirigidos a controlar y potenciar la calidad del software, garantizando una administración adecuada de los cambios y preservando la integridad del producto durante todas las etapas de su ciclo de vida. La GCS proporciona un marco estructurado que permite a los equipos de desarrollo gestionar eficazmente las diferentes versiones, componentes y documentación del software, facilitando la trazabilidad y auditabilidad de todas las modificaciones realizadas.
+Gestión para la Configuración del Software
+FastAPI
+ (
+Backend
+)
+FastAPI
+ es un 
+framework
+ moderno y de alto rendimiento para el desarrollo de 
+APIs
+ en Python. Su arquitectura está basada en estándares como 
+OpenAPI
+ y JSON 
+Schema
+, lo que permite crear aplicaciones robustas, seguras y altamente escalables. Gracias a su sistema de tipado con Python 3.12 y su integración nativa con 
+pydantic
+ y 
+asyncio
+, 
+FastAPI
+ facilita la validación de datos, la programación asíncrona y la generación automática de documentación interactiva.
+Gestión de Configuración
+Versionado:
+ 
+Se utiliza Git para administrar el versionado del 
+backend
+, aplicando una estrategia basada en ramas 
+main
+, 
+develop
+ y 
+feature
+/
+ para mantener separado el código de producción del código en desarrollo.
+Estructura modular:
+ 
+La aplicación está organizada en módulos independientes (
+auth
+, 
+apps
+, 
+payments
+, 
+reviews
+, 
+ml
+, 
+users
+), cada uno con sus propios 
+routers
+, servicios y esquemas 
+Pydantic
+, siguiendo principios de responsabilidad única.
+Dependencias del 
+backend
+:
+ 
+El archivo 
+pyproject.toml
+ (o requirements.txt) gestiona las versiones específicas de librerías como 
+SQLAlchemy
+, 
+python-jose
+, 
+bcrypt
+, 
+scikit-learn
+ y otras, asegurando la consistencia entre entornos.
+Variables de entorno:
+ 
+Se emplean 
+archivos .
+env
+ para almacenar claves JWT, cadenas de conexión a PostgreSQL, configuraciones del ML y parámetros sensibles, evitando exponer información crítica en el repositorio.
+Documentación automática:
+ 
+FastAPI
+ genera automáticamente la documentación 
+Swagger
+ y 
+Redoc
+, garantizando que todos los 
+endpoints
+ estén documentados y actualizados según los modelos 
+Pydantic
+.
+Pruebas automatizadas:
+ 
+Se implementaron pruebas unitarias y de integración con 
+pytest
+, validando rutas, autenticación, consultas a la base de datos y lógica del sistema.
+React
+ 19 (
+FrontEnd
+)
+React
+ es una biblioteca moderna para la construcción de interfaces de usuario, basada en componentes reutilizables y con un rendimiento altamente optimizado. Con el uso de 
+React
+ 19, 
+TypeScript
+ y Material-UI, se logró una experiencia de usuario fluida, modular y completamente 
+responsiva.
+React
+ permite construir aplicaciones SPA (Single Page 
+Applications
+) donde la navegación es rápida, sin recargas completas y con una arquitectura basada en componentes y 
+hooks
+.
+Gestión de Configuración
+Arquitectura modular:
+ 
+La aplicación se organiza con una estructura clara basada en 
+components
+, 
+hooks
+, 
+services
+, 
+contexts
+, 
+pages
+ y 
+routes
+, siguiendo buenas prácticas de 
+React
+.
+Estructura de carpetas estandarizada:
+ 
+Se separan componentes UI, componentes lógicos, modelos 
+TypeScript
+, contextos globales, servicios de API y 
+assets
+, facilitando el mantenimiento y escalabilidad.
+Control de versiones:
+ 
+Se emplea Git con ramas dedicadas al 
+frontend
+. Cada funcionalidad se desarrolla en una rama 
+feature
+/
+ para evitar conflictos y garantizar integridad del código.
+Gestión de dependencias:
+ 
+Vite facilita la inicialización del proyecto con una configuración ligera y optimizada. Material-UI se utiliza para mantener consistencia visual y accesibilidad en toda la plataforma.
+Configuración por entorno:
+ 
+Se utilizan 
+archivos .
+env
+ como .
+env.development
+ y .
+env.production
+ para definir las 
+URLs
+ de la API, claves del ML y parámetros adicionales sin modificar el código.
+Estándares de código:
+ 
+Se implementaron 
+ESLint
+ y 
+Prettier
+ para mantener estilo uniforme y detectar errores tempranos al escribir componentes o 
+hooks
+.
+Gestión de estilos:
+ 
+Material-UI, junto con estilos personalizados en CSS/SCSS, permite construir interfaces modernas, responsivas y adaptadas a los flujos del 
+marketplace
+.
+Pruebas automatizadas:
+ 
+Se utilizan pruebas unitarias con 
+Jest
+ y 
+React
+ 
+Testing
+ Library, validando componentes críticos como formularios, listas, navegación y modales.
+Build
+ y despliegue:
+ 
+Vite permite generar 
+builds
+ altamente optimizadas.
+El despliegue se gestiona mediante Docker y Caddy, con soporte para HTTP/2 y certificados SSL automáticos.
+PostgreSQL
+PostgreSQL es un Sistema de Gestión de Bases de Datos Relacional (SGBDR) de código abierto, ampliamente utilizado por su robustez, estabilidad y soporte avanzado para transacciones, integridad referencial y procesamiento eficiente de consultas.
+ 
+Se eligió PostgreSQL 15 debido a su alto rendimiento, su capacidad de escalabilidad y su excelente compatibilidad con 
+SQLAlchemy
+, el ORM utilizado en el 
+backend
+ desarrollado con 
+FastAPI
+.
+Gestión de Configuración
+Estructura del esquema:
+ 
+La base de datos está normalizada siguiendo las entidades principales del sistema: usuarios, aplicaciones, pagos, reseñas, categorías y roles.
+Cada tabla define claves primarias, foráneas y restricciones UNIQUE para mantener consistencia y evitar duplicaciones.
+Conexión mediante 
+SQLAlchemy
+:
+ 
+El 
+backend
+ se conecta a PostgreSQL usando 
+SQLAlchemy
+ con un motor asíncrono (
+asyncpg
+), permitiendo ejecutar consultas eficientes y seguras desde 
+FastAPI
+.
+Manejo de migraciones:
+ 
+El sistema utiliza 
+Alembic
+ para gestionar migraciones, permitiendo:
+Controlar versiones del esquema,
+Aplicar cambios progresivos,
+Mantener compatibilidad durante actualizaciones del sistema.
+Índices y optimización:
+ 
+Se implementan índices en campos críticos como:
+correo de usuario,
+categoría de apps,
+ids
+ de relación (FK),
+fecha de creación en pagos y reseñas.
+Esto permite mejorar la velocidad en búsquedas y filtrados.
+Seguridad de datos:
+ 
+Se configuran roles de PostgreSQL con accesos diferenciados (solo lectura, lectura/escritura) para proteger información sensible.
+ 
+Las conexiones se realizan mediante credenciales almacenadas únicamente en archivos
+ 
+env
+.
+Backups
+ automáticos:
+ 
+Se emplean respaldos regulares usando 
+pg_dump
+ para garantizar disponibilidad ante fallos o pérdidas de datos.
+Integridad y consistencia:
+ 
+Se aplican reglas estrictas como:
+NOT NULL en campos obligatorios,
+validación de correos únicos,
+cascadas controladas (ON DELETE CASCADE y ON DELETE SET NULL) entre
+ 
+las tablas relacionadas.
+Despliegue con Docker:
+ 
+PostgreSQL opera dentro de un contenedor Docker, garantizando:
+fácil replicación del entorno,
+aislamiento,
+portabilidad,
+consistencia entre los ambientes de desarrollo y producción.
+Visual Studio 
+Code
+Visual Studio 
+Code
+ (VS 
+Code
+) es un editor de código fuente ligero pero potente, desarrollado por Microsoft para Windows, Linux, macOS y Web. Este editor se ha convertido en una herramienta esencial para el desarrollo moderno gracias a su combinación de interfaz intuitiva y funcionalidades avanzadas. VS 
+Code
+ incluye características como soporte para depuración, control integrado de Git, resaltado de sintaxis inteligente, autocompletado de código, refactorización y una amplia gama de extensiones. Basado en 
+Electron
+, VS 
+Code
+ utiliza el componente editor 
+Monaco
+, el mismo que emplea Visual Studio 
+Team
+ 
+Services
+, ofreciendo una experiencia de desarrollo robusta mientras mantiene un rendimiento ágil.
+Gestión de Configuración:
+Configuración personalizada: Establecer un conjunto de ajustes estandarizados para el equipo de desarrollo mediante archivos 
+settings.json
+ compartidos, garantizando una experiencia de codificación consistente entre todos los miembros del equipo. 
+Control de versiones integrado: Aprovechar la integración nativa con Git para gestionar el ciclo completo de control de versiones, desde la creación de ramas hasta la resolución de conflictos y la visualización del historial de cambios, sin necesidad de salir del entorno de desarrollo. 
+Extensiones estandarizadas: Definir un conjunto básico de extensiones requeridas para el proyecto, como 
+ESLint
+ para JavaScript/
+TypeScript
+, 
+Prettier
+ para formato de código, 
+Debugger
+ 
+for
+ Chrome, y extensiones específicas para Angular y 
+NestJS
+, facilitando su instalación mediante un archivo de recomendaciones de extensiones. 
+Snippets
+ personalizados: Crear fragmentos de código personalizados para el proyecto que aceleren la escritura de patrones recurrentes, manteniendo la consistencia en la implementación de estructuras comunes como componentes Angular o controladores 
+NestJS
+. 
+Depuración configurada: Mantener configuraciones de lanzamiento (
+launch.json
+) para facilitar la depuración tanto del 
+frontend
+ como del 
+backend
+, permitiendo puntos de interrupción y evaluación de variables en tiempo de ejecución. 
+Tareas automatizadas: Configurar tareas (
+tasks.json
+) para procesos comunes como compilación, ejecución de pruebas o despliegue, permitiendo ejecutarlas directamente desde el editor. 
+Sincronización entre dispositivos: Utilizar la funcionalidad de sincronización de configuraciones de VS 
+Code
+ para mantener coherencia entre diferentes estaciones de trabajo e incluso entornos de desarrollo remotos. 
+Integración con 
+linters
+ y formateadores: Configurar VS 
+Code
+ para ejecutar automáticamente herramientas de análisis estático y formateo de código al guardar archivos, asegurando que todo el código cumpla con los estándares del proyecto. 
+Espacios de trabajo 
+multi-raíz
+: Organizar el proyecto en espacios de trabajo que incluyan múltiples repositorios relacionados (
+frontend
+, 
+backend
+, documentación), facilitando la navegación entre componentes del sistema distribuido. 
+Aislamiento de entorno: Utilizar la integración con contenedores de desarrollo para garantizar que todos los desarrolladores trabajen en entornos idénticos, eliminando problemas derivados de diferencias en configuraciones locales.
+Gestión de Proyectos
+Jira
+Jira es una potente plataforma de gestión de proyectos y seguimiento de incidencias desarrollada por 
+Atlassian
+, diseñada específicamente para equipos de desarrollo de software que implementan metodologías ágiles. Esta herramienta permite a los equipos planificar, rastrear y gestionar proyectos de desarrollo de software con un enfoque en la visibilidad, la transparencia y la adaptabilidad.
+Componentes Principales
+ 
+La estructura fundamental de Jira se compone de elementos esenciales que facilitan la organización del trabajo:
+Proyectos: Contenedores principales que agrupan el trabajo relacionado bajo una iniciativa común. Cada proyecto puede configurarse con diferentes flujos de 215 trabajo, campos personalizados y permisos específicos según las necesidades del equipo. 
+Tableros: Representaciones visuales del flujo de trabajo que permiten a los equipos ver el estado actual de todas las tareas. Los tableros pueden ser de tipo Scrum (orientados a 
+sprints
+) o Kanban (para flujo continuo), adaptándose a diferentes metodologías de trabajo. 
+Incidencias: Unidades básicas de trabajo en Jira que pueden representar historias de usuario, tareas, errores o cualquier elemento que requiera seguimiento. Cada incidencia puede contener descripciones detalladas, archivos adjuntos, comentarios y campos personalizados. 
+Flujos de trabajo: Secuencias de estados por los que pasan las incidencias desde su creación hasta su resolución. Estos flujos pueden personalizarse completamente para reflejar los procesos específicos de cada equipo u organización.
+Funcionalidades Clave
+Jira ofrece un conjunto completo de características que potencian la gestión de proyectos de software:
+Planificación ágil: Herramientas especializadas para la planificación de 
+sprints
+, estimación de historias con puntos de historia, y priorización del backlog del producto. 
+Informes y métricas: Amplia variedad de informes como gráficos de 
+burndown
+, diagramas de velocidad y métricas de tiempo de ciclo que proporcionan visibilidad sobre el rendimiento del equipo. 
+Automatización: Motor de reglas que permite automatizar tareas repetitivas basadas en eventos específicos, reduciendo el trabajo manual y mejorando la consistencia. 
+Integraciones: Conexiones nativas con herramientas de desarrollo como GitHub, 
+Bitbucket
+ y Jenkins, permitiendo la trazabilidad completa desde el requisito hasta el código implementado. 
+Personalización avanzada: Capacidad para crear campos personalizados, diseñar paneles de control específicos y configurar notificaciones según las necesidades particulares del proyecto.
+Aplicación en el Ciclo de Desarrollo
+En el contexto del desarrollo de software, Jira facilita la implementación de prácticas ágiles: 
+Gestión de requisitos
+: Captura y refinamiento de historias de usuario, manteniendo un backlog priorizado y estructurado. 
+Planificación iterativa
+: Organización del trabajo en 
+sprints
+ con objetivos claros y compromisos del equipo. 
+Seguimiento transparente:
+ Visibilidad en tiempo real del estado de las tareas y el progreso general del proyecto. 
+Mejora continua
+: Análisis de métricas y resultados de 
+sprints
+ anteriores para identificar áreas de mejora en el proceso.
+Gestión de Versiones
+Git
+Git es un sistema de control de versiones distribuido que permite gestionar eficientemente el código fuente durante el desarrollo de software. Su diseño facilita el trabajo colaborativo entre múltiples desarrolladores y proporciona herramientas robustas para controlar los cambios en el código
+Elementos Fundamentales
+Repositorio
+: Almacén del historial completo del proyecto, puede ser local (en la máquina del desarrollador) o remoto (alojado en servidores como GitHub). 
+Commit
+:
+ Punto específico en el historial que registra cambios con un mensaje descriptivo asociado. 
+Rama (Branch
+): Línea de desarrollo independiente que permite trabajar en paralelo sin afectar el código principal. 
+Merge
+:
+ Proceso de integración de cambios entre ramas diferentes. 
+Pull
+ 
+Request
+: Mecanismo para solicitar la revisión e incorporación de cambios de una rama a otra.
+Flujos de Trabajo
+Git permite implementar diversos flujos de trabajo según las necesidades del proyecto: 
+Centralizado: Todos los desarrolladores trabajan directamente sobre la rama principal. 
+Feature
+ Branch: Cada nueva funcionalidad se desarrolla en una rama separada antes de integrarse. 
+Gitflow
+: Estructura más compleja con ramas específicas: 
+Master: Código estable de producción 
+Develop
+: Código de desarrollo integrado 
+Feature
+: Ramas para nuevas características 
+Release
+: Preparación de versiones 
+Hotfix
+: Correcciones urgentes para producción
+Operaciones Principales
+Gestión de Ramas:
+git
+ 
+checkout
+ -b 
+feature
+/nueva-funcionalidad # Crear rama
+git
+ 
+checkout
+ 
+develop
+ # Cambiar de rama
+git
+ 
+merge
+ 
+feature
+/nueva-funcionalidad # Fusionar rama
+git
+ 
+branch
+ -d 
+feature
+/nueva-funcionalidad # Eliminar rama
+Gestión de 
+Commits
+:
+git
+ 
+add
+ .
+ # Preparar cambios
+git
+ 
+commit
+ -m "Descripción clara del cambio" # Registrar cambios
+Gestión de Documentos
+Microsoft Word y OneDrive
+Microsoft Word combinado con OneDrive ofrece una solución robusta para la creación, edición y almacenamiento de documentos técnicos en la nube. Esta combinación proporciona las herramientas necesarias para mantener una documentación estructurada y accesible durante todo el ciclo de vida del desarrollo.
+Capacidades de Formato
+Estilos unificados
+: Sistema de estilos para mantener consistencia visual en toda la documentación técnica, facilitando la creación de documentos profesionales. 
+Elementos estructurales
+: Herramientas para la creación automática de tablas de contenido, referencias cruzadas e índices que mejoran la navegabilidad de documentos extensos. 
+Tablas y visualizaciones
+: Capacidad avanzada para incorporar tablas, diagramas y gráficos que complementan la documentación técnica con elementos visuales.
+Colaboración y Control
+Almacenamiento en OneDrive
+: Centralización de documentos en la nube, permitiendo acceso desde cualquier ubicación y dispositivo. 
+Trabajo colaborativo:
+ Edición simultánea por múltiples usuarios con control de cambios para registrar modificaciones de forma clara. 
+Historial de versiones
+: Seguimiento completo de cambios con capacidad para restaurar versiones anteriores, eliminando el riesgo de pérdida de información.
+Integración y Comunicación
+Discord
+: Plataforma utilizada para comunicaciones del equipo y reuniones virtuales, sustituyendo Microsoft 
+Teams
+ como herramienta de coordinación. 
+Referencias y citaciones
+: Herramientas integradas para gestionar fuentes bibliográficas y citas técnicas, especialmente útiles en documentación formal. 
+Compartición flexible
+: Opciones para compartir documentos con diferentes niveles de permisos (lectura/escritura) según necesidades del proyecto.
+Optimización del Flujo de Trabajo
+Plantillas personalizadas
+: Creación de plantillas específicas para diferentes tipos de documentos técnicos (especificaciones, manuales, informes). 
+Revisión asistida
+: Herramientas de revisión ortográfica y gramatical que mejoran la calidad general de la documentación. 
+Acceso multiplataforma:
+ Disponibilidad a través de aplicaciones web, móviles y de escritorio, garantizando continuidad del trabajo en diferentes entornos.
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Sitio Web de la Empresa
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz - Bolivia
+Sitio Web Corporativo
+G
+roq
+Para la construcción del 
+chatbot
+ se hizo uso de 
+Groq
+ para poder crear un chat enriquecido con información de la empresa, listo para responder de manera ultrarrápida a cualquier pregunta que los usuarios tengan.
+Página Web
+Sitio:
+El sitio web ha sido construido completamente con 
+React
+, 
+TypeScript
+ y Vite, más el uso de 
+Nest
+ JS para el control de la IA con sus respuestas e interacciones en vivo con el usuario.
+Página Home
+Crear Cuenta
+Dashboard
+Pagos por 
+Stripe
+ 
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Estudio de Mercado
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz - Bolivia
+Resumen Ejecutivo
+El presente proyecto tiene como objetivo implementar un Marketplace de Aplicaciones de Emprendimiento Digital Académico (
+AppSwap
+) para la comunidad universitaria de la UAGRM, permitiendo a estudiantes, docentes y emprendedores tecnológicos publicar, comercializar y consumir aplicaciones web dentro de un entorno centralizado, moderno y seguro. Esta iniciativa surge como respuesta a la creciente necesidad de contar con un espacio digital que fomente la innovación, facilite la visibilidad de proyectos estudiantiles y mejore el acceso a herramientas académicas y productivas desarrolladas dentro de la universidad. Actualmente, la distribución de aplicaciones creadas por estudiantes presenta dificultades importantes: no existen canales formales de publicación, la visibilidad es limitada, y los procesos de prueba, compra y acceso carecen de estandarización. Esto provoca pérdida de oportunidades, baja motivación emprendedora y escaso aprovechamiento del talento universitario. 
+AppSwap
+ busca resolver estas problemáticas mediante un esquema de Nube Privada Institucional (PaaS/IaaS), en el cual la DTIC podrá administrar la plataforma y habilitar categorías, reglas de publicación y mecanismos de control de calidad.
+El desarrollo del proyecto se ejecutará bajo metodologías ágiles, permitiendo iterar sobre prototipos funcionales, validar con usuarios reales y asegurar un producto final estable y escalable. Se proyecta que 
+AppSwap
+ pueda incrementar en un 70 % la visibilidad de aplicaciones estudiantiles, mejorar la adopción tecnológica dentro de la universidad y consolidar un espacio digital institucional para la innovación académica. Asimismo, se busca reducir significativamente los obstáculos que actualmente impiden la difusión y monetización de proyectos digitales creados por la comunidad universitaria.
+Descripción del producto
+AppSwap
+ es un sistema basado en infraestructura de Nube Privada Institucional de 
+marketplace
+ académico diseñado para centralizar, distribuir y monetizar aplicaciones desarrolladas por estudiantes, docentes y emprendedores digitales dentro de la UAGRM. A través de una plataforma web única, 
+AppSwap
+ permite que los creadores publiquen sus aplicaciones, gestionen ventas y reciban retroalimentación, mientras que los compradores pueden explorar, evaluar y utilizar aplicaciones de manera inmediata desde un entorno seguro y estandarizado. La plataforma surge como respuesta a la falta de espacios institucionales para difundir proyectos digitales académicos, la ausencia de mecanismos formales de monetización y la limitada visibilidad de aplicaciones desarrolladas en la universidad. 
+AppSwap
+ establece un ecosistema digital donde la innovación estudiantil se convierte en un recurso accesible,
+ 
+ordenado y escalable.
+Propuestas de Valor y Problemas que Resuelve
+Problema 
+Propuesta de Valor (Solución 
+AppSwap
+) 
+Falta de un espacio centralizado para publicar aplicaciones académicas 
+AppSwap
+ crea un repositorio institucional donde las apps pueden ser subidas, administradas y categorizadas. 
+Dificultad para monetizar proyectos estudiantiles 
+Permite ventas mediante códigos QR interoperables, eliminando la necesidad de pasarelas de pago internacionales complejas o costosas. 
+Baja visibilidad de proyectos digitales dentro de la universidad 
+Los compradores pueden explorar apps por categoría, popularidad o recomendaciones personalizadas generadas con Machine 
+Learning
+. 
+Ausencia de métricas para evaluar el rendimiento de una app 
+Los vendedores reciben estadísticas sobre descargas, reseñas, calificaciones y compras. 
+Poca retroalimentación sobre la calidad del software desarrollado por estudiantes 
+AppSwap
+ incorpora un sistema de reseñas que permite evaluar apps y mejorar su alcance. 
+Falta de control y trazabilidad en las compras 
+El sistema registra cada transacción, evitando duplicaciones, inconsistencias o pérdidas de información. 
+Funciones Principales
+1. Gestión de Aplicaciones (Vendedor) 
+Publicación de nuevas apps con nombre, descripción, categoría, precio y enlaces. 
+Edición y eliminación de aplicaciones existentes. 
+Carga de imágenes de portada y videos demostrativos. 
+Visualización de estadísticas de rendimiento (descargas, reseñas, pagos). 
+2. Compra y Pago mediante QR Interoperable (Simple) 
+El comprador selecciona el pago y cancela escaneando un código QR generado dinámicamente desde cualquier app bancaria móvil local. 
+El vendedor recibe una notificación automática cuando el pago sea completado y verificado. 
+Flujo completo adaptado a la realidad financiera boliviana sin necesidad de una pasarela de pagos internacional compleja. 
+3. Recomendaciones Inteligentes con Machine 
+Learning
+ 
+El sistema analiza comportamiento, historial de compras y categorías consultadas. 
+Ofrece sugerencias personalizadas para: - Compradores (apps relevantes para su perfil). - Vendedores (ideas de apps con alta demanda). 
+Implementado con 
+scikit-learn
+, pandas y 
+numpy
+. 
+4. Sistema de Reseñas y Calificaciones 
+Los compradores pueden: - Calificar una aplicación. - Escribir comentarios. - Editar o eliminar sus reseñas. 
+Las apps muestran un promedio dinámico de calificaciones. 
+Los vendedores pueden visualizar y responder reseñas para mejorar su producto. 
+5. Historial y Uso de Aplicaciones 
+Cada comprador tiene acceso a un historial completo de sus apps adquiridas. 
+Puede ejecutar apps directamente dentro de 
+AppSwap
+ gracias al visor integrado. 
+El sistema asegura disponibilidad constante y acceso inmediato. 
+Análisis del Problema
+En la actualidad, la UAGRM carece de una plataforma centralizada que permita a estudiantes, docentes y emprendedores digitales publicar, distribuir y monetizar sus aplicaciones de manera formal, lo que obliga a los desarrolladores a depender de métodos informales como redes sociales y enlaces dispersos, dificultando la visibilidad de sus proyectos y limitando su
+crecimiento. Asimismo, la ausencia de un sistema de pago integrado genera procesos manuales poco confiables, sin comprobantes claros y con alta probabilidad de errores, afectando tanto a compradores como a vendedores. Por otra parte, los usuarios enfrentan problemas para encontrar aplicaciones relevantes debido a la falta de un buscador eficiente y de un sistema de recomendaciones inteligentes que se adapte a sus intereses. Tampoco existe un historial 
+centralizado de compras ni una forma estructurada de ejecutar apps web desde un solo lugar, lo que reduce la calidad de la experiencia del usuario.
+Igualmente, los desarrolladores no tienen un canal formal para recibir calificaciones o comentarios que les permitan mejorar sus productos. Esta carencia de infraestructura digital institucional limita el emprendimiento académico y la innovación tecnológica dentro de la universidad. Frente a estos problemas, se vuelve necesaria la creación de un 
+marketplace
+ académico moderno que unifique apps universitarias, garantice pagos seguros mediante códigos QR interoperables, ofrezca recomendaciones inteligentes basadas en Machine 
+Learning
+ y proporcione un entorno confiable para la interacción entre compradores y vendedores.
+Análisis de la Competencia
+Tendencias Actuales
+El mercado de plataformas digitales para distribución de software y contenido educativo avanza aceleradamente hacia modelos centralizados (PaaS) que permiten a desarrolladores publicar, administrar y monetizar aplicaciones sin necesidad de infraestructura propia. En los últimos años, los 
+marketplaces
+ académicos y plataformas de innovación universitaria han incrementado su adopción gracias a su facilidad de uso, la automatización de procesos y la integración con pasarelas de pago locales seguras basadas en códigos QR interoperables, que representan el método de mayor crecimiento y adopción en transacciones digitales en el país. Paralelamente, las soluciones basadas en Machine 
+Learning
+ están ganando terreno para mejorar la experiencia del usuario mediante sistemas de recomendación capaces de analizar preferencias, 
+historial de uso y patrones de comportamiento, incrementando la retención de usuarios en hasta un 35 %.
+La búsqueda inteligente, los rankings dinámicos y la categorización automatizada se han convertido en características esenciales en 
+marketplaces
+ modernos. Además, la tendencia hacia aplicaciones ejecutables directamente en el navegador (
+WebApps
+) ha crecido debido a la demanda de accesibilidad inmediata sin instalaciones locales, especialmente en entornos educativos. En conjunto, estas tendencias consolidan plataformas como APPSWAP como una respuesta necesaria a la digitalización del ecosistema académico, ofreciendo una experiencia moderna, segura y altamente personalizada.
+Competencias
+En el mercado existen diversas plataformas que ofrecen soluciones para la publicación, venta y gestión de aplicaciones, particularmente los grandes 
+marketplaces
+ como Google Play, App Store y tiendas de software educativas. Sin embargo, estas plataformas presentan limitaciones para el contexto universitario, ya que no permiten a los desarrolladores académicos publicar prototipos, aplicaciones web internas o productos experimentales sin cumplir estrictos requisitos comerciales. Frente a ello, APPSWAP ofrece un enfoque especializado orientado exclusivamente a la comunidad académica, permitiendo a estudiantes, docentes e investigadores publicar aplicaciones web sin procesos complejos de verificación ni costos elevados.
+Además, mientras los 
+marketplaces
+ tradicionales se enfocan en modelos globales y masivos, la aplicación incorpora características diferenciales como un sistema de recomendaciones personalizadas basado en Machine 
+Learning
+, capaz de sugerir apps según el comportamiento y necesidades de cada usuario dentro del entorno universitario. A esto se suma la integración de 
+pagos con QR Simple (Interoperable), una solución simplificada y adaptada al contexto local para compras seguras que no requiere infraestructura financiera internacional adicional por parte del desarrollador. Estas ventajas permiten que la aplicación se adapte mejor al ecosistema académico, fomentando la innovación interna y facilitando la distribución de software universitario de forma accesible, segura y personalizada.
+Público Objetivo
+DTIC de la UAGRM:
+ Entidad responsable de supervisar la plataforma y garantizar que el ecosistema digital cumpla con las políticas institucionales. Requiere control centralizado, reportes de uso, métricas de adopción y administración general del servicio de nube privada institucional.
+Unidades académicas (facultades y carreras):
+ Buscan un espacio donde estudiantes y docentes puedan publicar aplicaciones académicas, prototipos o herramientas de innovación sin depender de plataformas externas como Play Store. Requieren autonomía y una plataforma intuitiva para gestionar su contenido digital.
+Desarrolladores académicos (vendedores):
+ Estudiantes, docentes o investigadores que desean publicar, administrar y monetizar sus aplicaciones dentro del entorno universitario. Necesitan un proceso simple de registro, carga de apps, estadísticas claras y un sistema confiable de pagos mediante códigos QR interoperables.
+Estudiantes y comunidad universitaria (compradores/usuarios finales):
+ Personas que consumen las aplicaciones disponibles en el 
+marketplace
+. Valoran una interfaz rápida, recomendaciones personalizadas (ML), un flujo de compra seguro 
+mediante su app bancaria y accesibilidad inmediata a las apps adquiridas sin procesos complejos de instalación.
+Segmentación del Mercado
+Tendencias de uso digital y pagos en Bolivia
+Bolivia atraviesa un crecimiento acelerado en su digitalización, especialmente en el uso de plataformas web, banca móvil y pagos electrónicos. Entre 2022 y 2024, el pago digital especialmente mediante billeteras móviles y sistemas de pago en línea experimentó un aumento superior al 300 %, impulsado por bancos y 
+fintech
+ que han incorporado pagos rápidos y verificados a través de plataformas locales de QR interoperable (Simple).
+El 66 % de la población utiliza Internet de forma regular, y los pagos digitales se han masificado en sectores como educación, comercio, transporte, servicios profesionales y 
+marketplaces
+. Asimismo, el usuario boliviano ha adoptado sistemas de pago online para compras de bajo costo, con montos promedio entre Bs 30 y Bs 150, lo que alinea perfectamente con el modelo de 
+microtransacciones
+ de la aplicación. Esta tendencia confirma que el entorno universitario y académico de Bolivia está listo para plataformas que integren:
+pagos electrónicos seguros mediante QR
+contenido digital
+recomendaciones personalizadas
+acceso inmediato al producto comprado
+Público Objetivo
+1. Estudiantes universitarios (18–24 años)
+Representan uno de los sectores más digitalizados del país, con acceso regular a smartphones y aplicaciones web.
+El 66 % de la población nacional navega regularmente en Internet, y más del 70 % en áreas urbanas como Santa Cruz, La Paz y Cochabamba.
+Son consumidores activos de contenido digital: apps educativas, herramientas académicas y recursos para emprendimientos tecnológicos.
+Tienen alta afinidad con pagos electrónicos y 
+microtransacciones
+, especialmente mediante billeteras móviles conectadas a bancos locales a través de QR.
+Constituyen el segmento principal para el uso del 
+marketplace
+ y para la adopción del motor de recomendaciones.
+2. Desarrolladores académicos (Vendedores)
+Estudiantes avanzados, docentes o investigadores interesados en publicar y monetizar aplicaciones web creadas para proyectos, clases o emprendimientos.
+Necesitan plataformas que eliminen barreras técnicas como hosting, infraestructura o pasarelas de pago internacionales restrictivas.
+Buscan visibilidad dentro del entorno universitario y métricas claras sobre uso y descargas de sus apps.
+Este grupo se beneficia directamente del modelo de APPSWAP, que ofrece publicación
+ 
+sencilla y estadísticas integradas.
+3. Profesores, exalumnos y público general (Compradores ocasionales)
+Usuarios entre 18 y 40 años con nivel de bancarización medio a alto.
+Acostumbrados a pagar servicios digitales, cursos o herramientas online.
+Valoran procesos simples: registro rápido, navegación intuitiva y compras seguras mediante códigos QR interoperables.
+Consumen aplicaciones educativas, simuladores, utilidades web o herramientas específicas de nicho.
+4. Unidades académicas (Facultades y Carreras)
+Buscan plataformas que impulsen la innovación estudiantil y permitan publicar proyectos digitales sin depender de terceros (Play Store, hosting privado, etc.).
+Requieren métricas de adopción, control de contenido y facilidad para incentivar emprendimientos tecnológicos internos.
+Funcionan como clientes estratégicos dentro del ecosistema.
+Análisis de Tecnologías y Tendencias
+El mercado tecnológico en educación superior y soluciones digitales en Bolivia y Latinoamérica atraviesa una transformación acelerada, impulsada por la adopción masiva de plataformas en la nube, el crecimiento del comercio digital y el uso intensivo de inteligencia artificial. Estas tendencias crean un entorno altamente favorable para la implementación de APPSWAP como un 
+marketplace
+ académico de aplicaciones web.
+Crecimiento de plataformas de Nube y PaaS en Latinoamérica
+El ecosistema de soluciones gestionadas en la nube en la región alcanzó un valor de USD 13,5 mil millones en 2024, y se proyecta que supere los USD 62 mil millones para 2037, con una tasa de crecimiento anual compuesta (CAGR) del 12 % entre 2025 y 2037. Este crecimiento está impulsado por:
+la necesidad de digitalizar procesos educativos,
+la adopción de soluciones en la nube,
+la demanda de plataformas escalables y de bajo costo.
+IA aplicada a educación y 
+marketplaces
+La inteligencia artificial dejó de ser una tecnología experimental para convertirse en un estándar en plataformas educativas y comerciales. Su aplicación más extendida incluye:
+motores de recomendación,
+análisis de comportamiento de usuarios,
+predicción de intereses,
+personalización automática de contenido.
+Estas tendencias validan el uso del módulo de Machine 
+Learning
+ en APPSWAP para ofrecer recomendaciones inteligentes tanto para compradores como para vendedores, mejorando la retención y el flujo de interacción dentro del 
+marketplace
+.
+Pago electrónico y adopción de pasarelas locales (QR Interoperable)
+El crecimiento del comercio electrónico en Bolivia ha impulsado la adopción masiva del QR interoperable (Simple), facilitando transacciones seguras, locales y con alta disponibilidad. En Bolivia:
+el uso de pagos digitales aumentó más del 300 % entre 2022 y 2024,
+la mayoría de transacciones se realizan mediante apps bancarias y billeteras digitales leyendo códigos QR,
+los jóvenes universitarios son el grupo con mayor adopción.
+El uso del QR Simple permite integrar pagos en línea confiables, auditables y compatibles con 
+microtransacciones
+ —modelo ideal para la compra de aplicaciones dentro de APPSWAP sin los costos ni fricciones de pasarelas extranjeras.
+Preferencia por aplicaciones web sin instalación (
+WebApps
+)
+Las tendencias globales muestran que los usuarios prefieren aplicaciones web ejecutables desde el navegador, debido a:
+menor uso de almacenamiento,
+independencia del sistema operativo,
+actualizaciones automáticas,
+disponibilidad inmediata.
+Contenedores y despliegues ligeros (Docker + 
+cloud
+)
+Las universidades y startups en 
+Latam
+ adoptan cada vez más entornos basados en contenedores por su bajo costo y facilidad de despliegue. Esto respalda la infraestructura de APPSWAP, basada en:
+Docker,
+Docker 
+Compose
+,
+servidores ligeros como Caddy,
+bases de datos PostgreSQL,
+backend
+ 
+FastAPI
+ modular.
+Mecanismos de Monetización para 
+AppSwap
+AppSwap
+ es un 
+marketplace
+ académico destinado a que desarrolladores universitarios (vendedores) publiquen, moneticen y distribuyan aplicaciones web dentro de un ecosistema controlado. Dado que sí es un producto de mercado digital, su modelo de monetización se basa en mecanismos propios de las plataformas de distribución de software, manteniendo siempre un enfoque accesible para estudiantes y emprendedores tecnológicos.
+1. Comisión por Venta de Aplicaciones (Modelo Principal)
+Cada vez que un comprador adquiere una aplicación, 
+AppSwap
+ retiene un pequeño porcentaje del monto total, por ejemplo: 5 % – 12 % por transacción, dependiendo de:
+categoría de la app,
+volumen de ventas del vendedor,
+promociones activas.
+Este modelo permite que los vendedores moneticen sus apps, la plataforma genere ingresos sostenibles, y no existan barreras de entrada para nuevos desarrolladores.
+2. Suscripción para Vendedores Premium (Modelo Freemium):
+Cuenta Gratuita:
+Publicación de 1–3 apps.
+Acceso básico a estadísticas.
+Interfaz estándar.
+Cuenta Premium (pago mensual o anual):
+Publicación ilimitada de apps
+Estadísticas avanzadas (embudo, cohortes, retención, ingresos)
+Mayor visibilidad dentro del 
+marketplace
+Prioridad en soporte
+Acceso a herramientas avanzadas (A/B 
+testing
+, optimización, 
+insights
+ ML)
+Este modelo aumenta la recurrencia y crea ingresos estables.
+3. Cobro por Destacar Aplicaciones (Publicidad Interna / 
+Boosting
+)
+Los vendedores pueden pagar para obtener:
+Posiciones destacadas en la página principal
+Anuncios dentro de categorías específicas
+Prioridad en búsquedas
+Banner promocional dentro de la plataforma
+Este modelo es habitual en 
+marketplaces
+ educativos y genera ingresos adicionales sin afectar la experiencia del usuario.
+4. Licenciamiento del Modelo ML como Servicio
+recomendaciones inteligentes para compradores,
+sugerencias de ideas de nuevas apps para vendedores.
+Para vendedores premium:
+Ajuste personalizado del motor de recomendaciones
+Análisis predictivo del rendimiento de apps
+Para instituciones educativas:
+Dashboards
+ especializados
+Tendencias tecnológicas del ecosistema académico
+Reportes para incubadoras o centros de innovación
+5. Comisiones por Servicios Externos (Integración QR u otros pagos)
+Se pueden integrar 
+microcomisiones
+ por transacción
+La plataforma puede recibir incentivos o beneficios por volumen al utilizar integradores locales de QR.
+Anexos
+Anexo A. Ecosistemas digitales y crecimiento del comercio electrónico en Bolivia
+DataReportal
+ (2026). Digital 2026: Bolivia. Este reporte detalla las estadísticas más recientes sobre el uso de internet, redes sociales, conexiones móviles e indicadores clave del comercio electrónico en el país para el año 2026.
+Anexo B. Crecimiento y uso del QR en transacciones digitales en Bolivia
+Banco Central de Bolivia / La Razón (17 de mayo de 2026). Pagos con QR crecen 131% en Bolivia y consolidan digitalización financiera. El Informe de Vigilancia del Sistema de Pagos del BCB refleja el crecimiento exponencial del 131% en operaciones mediante códigos QR, registrando hasta 1.697 pagos por minuto, consolidándose como el instrumento de uso masivo para la digitalización de los usuarios financieros en Bolivia.
+Anexo C. Mercado tecnológico latinoamericano y adopción de soluciones Cloud/SaaS
+Atlantico
+ (2025). 
+Latin
+ 
+America
+ Digital 
+Transformation
+ 
+Report
+ 2025. Este informe destaca la acelerada innovación en América Latina, la rápida adopción de la Inteligencia Artificial superando promedios globales, y cómo la región emerge con una fuerte infraestructura digital basada en la nube.
+Anexo D. Tendencias de innovación y adopción tecnológica en educación superior
+Datápolis
+ / Asamblea Legislativa Plurinacional (2025-2026). El futuro de la educación superior en Bolivia e innovación tecnológica. Documentación y propuestas legislativas recientes (PL-293-2025-2026) que enfocan la innovación tecnológica, la implementación de plataformas digitales soberanas y la economía basada en el conocimiento como pilares para el sistema universitario.
+Anexo E. Inteligencia Artificial aplicada a recomendaciones y análisis de datos
+scikit-learn
+ 
+Developers
+ (2026). Machine 
+Learning
+ in Python – 
+scikit-learn
+ 1.9.0 
+documentation
+. La documentación oficial más reciente de la biblioteca estándar de Python utilizada para implementar el motor de recomendaciones, algoritmos de clasificación y análisis de datos en la plataforma.
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Pruebas en el Software
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz - Bolivia
+Planeación de Pruebas
+Para la realización de las pruebas al software se utilizará el método de pruebas de caja negra. Las pruebas de caja negra, también llamadas pruebas de comportamiento se enfocan en los requerimientos funcionales del software, es decir, las técnicas de prueba de la caja negra permiten derivar conjuntos de condiciones de entrada que revisara por completo todos los requerimientos funcionales para un programa. Las pruebas de caja negra intentan encontrar error en la categoría siguiente:
+Funciones incorrectas o faltantes.
+Errores de interfaz.
+Errores en las estructuras de datos o en el acceso a la base de datos externa.
+Errores de comportamiento o rendimiento.
+Errores de inicialización y terminación
+Diseño de las Pruebas
+Se presenta la siguiente estructura para realizar la prueba a los casos de prueba:
+Nombre del caso de prueba: se deberá de especificar el nombre completo del caso de uso a realizar la prueba.
+Entrada: Información que requiera el caso de uso para producir o genera resultados que sean significativos para el usuario.
+Condición de ejecución: Cuando el caso de prueba presente alguna restricción para demostrar su correcto funcionamiento
+Resultado: Transcribir lo que dio como respuesta el software para su validación o corrección si fuese necesario.
+Realización de Pruebas
+Prueba de caja Negra
+Nombre del Caso de Prueba
+Autentificación
+ de Usuario
+Entrada
+Email: “Correo Electrónico del 
+usuario “Contraseña
+: “Contraseña del usuario”
+Condición 
+de ejecución
+El actor que se identifica debe ser de tipo 
+Administrador. Se
+ valida sus credenciales de autentificación.
+Resultado
+La aplicación redirige al usuario a la pantalla de inicio.
+CU
+2
+ Gestionar Inicio de Sesión
+Permite que los usuarios accedan al sistema mediante credenciales válidas (correo/usuario y contraseña). Puede incluir validación con roles o doble autenticación.
+Pruebas realizadas:
+Escenario
+Entrada
+Salida esperada
+Resultado
+Usuario y contraseña 
+validos
+Usuario: admin@
+uagrm.edu
+.
+bo
+Contraseña: 12345
+Redirección al panel del Administrador
+Aprobado
+Usuario in
+v
+alido, Contraseña valida
+Usuario: 
+waldo
+@
+gmail
+.com
+Contraseña: 12345
+Mensaje de error: "Usuario o 
+ontraseña
+ incorrectos."
+Aprobado
+Usuario valido, contraseña invalida
+Usuario: 
+frank
+@
+gmail
+.com
+Contraseña: 
+wrong
+Mensaje de error: "Usuario o 
+c
+ontraseña incorrectos."
+Aprobado
+Campos vacíos
+Usuario:"
+ 
+" Contraseña: "
+ 
+"
+Mensaje de error: "Debe completar ambos campos."
+Aprobado
+CU3. Gestionar Usuarios
+Objetivo: Permitir al Administrador crear, editar, y eliminar usuarios.
+Pruebas realizadas:
+Escenario
+Entrada
+Salida esperada
+Resultado
+Crear Usuario valido
+Nombre: mollo
+@
+gmail.com
+Contraseña: 12345
+Mensaje de 
+éxito
+: "Usuario 
+creado correctamente
+."
+Aprobado
+Crear Usuario 
+duplicado
+Usuario: 
+waldo
+@
+gmail
+.com
+Contraseña: 12345
+Mensaje de error: "
+Email ya 
+está
+ en uso
+"
+Aprobado
+Editar usuario existente
+Usuario: 
+frank
+@
+gmail
+.com
+Contraseña: 
+hola12345
+Mensaje de 
+éxito
+: "Usuario 
+editado correctamente
+"
+Aprobado
+Eliminar usuario
+ID de usuario: 2
+Usuario eliminado de la Lista
+Aprobado
+Pruebas de vulnerabilidad
+Para realizar este tipo de tipo de pruebas utilizaremos la herramienta:
+OWASP ZAP 2.4.2
+Una vez se tenga la herramienta descargada se debe de instalar, tiene un formato de instalación como todas las aplicaciones de Windows, solo se debe de seguir los pasos.
+Con la herramienta ya ejecutada y abierta proporcionar a la herramienta la dirección donde se encuentra alojada nuestra página o aplicación web.
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Mar
+keting
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz - Bolivia
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Aspectos de Prueba en Marcha del Software
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz - Bolivia
+FACULTAD DE INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN Y TELECOMUNICACIONES
+Software como Producto
+ 
+Integrantes:
+Mollo 
+Ayllon
+ Waldo Frank 
+215049225
+Pecho Garnica 
+Limberg
+221045392
+Materia: Ingeniería de Software 2 
+–
+ SB
+Docente: Ing. 
+Martinez
+ Canedo Rolando Antonio
+Santa Cruz - Bolivia
