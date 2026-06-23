@@ -124,17 +124,9 @@ def semantic_search(req: SemanticSearchRequest, db: Session = Depends(get_db)):
     
     check_and_update_limits(usuario, 'search')
     
-    # Obtener todas las aplicaciones activas para que la IA las evalúe (separando demo de reales)
-    demo_emails = ["admin@nexus.com", "carlos@nexus.com", "techcorp@nexus.com", "juan@nexus.com", "maria@nexus.com"]
-    is_demo_mode = usuario.correo in demo_emails
-
+    # Obtener todas las aplicaciones activas para que la IA las evalúe
     query = db.query(models.Aplicacion).join(models.Usuario, models.Aplicacion.vendedor_id == models.Usuario.id)
     query = query.filter(models.Aplicacion.estado == models.EstadoApp.ACTIVA.value)
-
-    if is_demo_mode:
-        query = query.filter(models.Usuario.correo.in_(demo_emails))
-    else:
-        query = query.filter(models.Usuario.correo.notin_(demo_emails))
 
     active_apps = query.all()
     apps_data = [
@@ -293,18 +285,9 @@ def get_recommendations(usuario_id: int, db: Session = Depends(get_db)):
         titulo = titulo_por_id.get(h.aplicacion_id, f"App #{h.aplicacion_id}")
         perfil[titulo] = perfil.get(titulo, 0) + h.peso
     
-    # 3. Obtener apps activas que el usuario NO ha visto todavía (separando demo vs reales)
-    demo_emails = ["admin@nexus.com", "carlos@nexus.com", "techcorp@nexus.com", "juan@nexus.com", "maria@nexus.com"]
-    usuario = db.query(models.Usuario).filter(models.Usuario.id == usuario_id).first()
-    is_demo_mode = usuario and usuario.correo in demo_emails
-
+    # 3. Obtener apps activas que el usuario NO ha visto todavía
     query = db.query(models.Aplicacion).join(models.Usuario, models.Aplicacion.vendedor_id == models.Usuario.id)
     query = query.filter(models.Aplicacion.estado == models.EstadoApp.ACTIVA.value)
-
-    if is_demo_mode:
-        query = query.filter(models.Usuario.correo.in_(demo_emails))
-    else:
-        query = query.filter(models.Usuario.correo.notin_(demo_emails))
 
     todas_activas = query.all()
     apps_data = [

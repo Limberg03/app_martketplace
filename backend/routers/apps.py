@@ -28,21 +28,9 @@ def explore_marketplace(
     usuario_id: Optional[int] = Query(None, description="ID del usuario actual"),
     db: Session = Depends(get_db)
 ):
-    """CU8/CU26 – Explorar Marketplace con filtros avanzados. (Separa Demo vs Real)"""
-    demo_emails = ["admin@nexus.com", "carlos@nexus.com", "techcorp@nexus.com", "juan@nexus.com", "maria@nexus.com"]
-    is_demo_mode = False
-    if usuario_id:
-        user_db = db.query(models.Usuario).filter(models.Usuario.id == usuario_id).first()
-        if user_db and user_db.correo in demo_emails:
-            is_demo_mode = True
-
+    """CU8/CU26 – Explorar Marketplace con filtros avanzados."""
     query = db.query(models.Aplicacion).join(models.Usuario, models.Aplicacion.vendedor_id == models.Usuario.id)
     query = query.filter(models.Aplicacion.estado == models.EstadoApp.ACTIVA.value)
-
-    if is_demo_mode:
-        query = query.filter(models.Usuario.correo.in_(demo_emails))
-    else:
-        query = query.filter(models.Usuario.correo.notin_(demo_emails))
     if categoria_id:
         query = query.filter(models.Aplicacion.categoria_id == categoria_id)
     if q:
