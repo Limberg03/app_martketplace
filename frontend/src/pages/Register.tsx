@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStore, faUser, faEnvelope, faLock, faExclamationCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../context/AuthContext';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = '/api';
 
 const Register: React.FC = () => {
   const [role, setRole] = useState<'developer' | 'buyer'>('developer');

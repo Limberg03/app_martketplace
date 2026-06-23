@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faFilePdf, faCheckCircle, faSpinner, faBoxOpen, faStar, faCommentDots, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../context/AuthContext';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = '/api';
 
 interface Compra {
   id_transaccion: number;
@@ -153,7 +153,7 @@ const MyPurchases: React.FC = () => {
                 <FontAwesomeIcon icon={faFilePdf} /> Ver Detalles
               </Link>
               <a 
-                href={`http://127.0.0.1:8000${compra.aplicacion.url_codigo}`} 
+                href={`${compra.aplicacion.url_codigo}`} 
                 download 
                 className="btn btn-primary"
               >

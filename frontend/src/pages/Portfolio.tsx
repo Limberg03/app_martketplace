@@ -10,7 +10,7 @@ import { useAuth } from '../context/AuthContext';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = '/api';
 const LIMITE_BASIC = 5;
 
 interface AppItem {

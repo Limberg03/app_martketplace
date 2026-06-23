@@ -5,7 +5,7 @@ import { faDollarSign, faShoppingCart, faChartLine, faSpinner, faBoxOpen } from 
 import { useAuth } from '../context/AuthContext';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = '/api';
 
 interface Venta {
   id_venta: number;

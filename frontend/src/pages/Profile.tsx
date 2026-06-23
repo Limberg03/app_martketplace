@@ -8,7 +8,7 @@ import {
   faCheckCircle, faSpinner, faCrown, faRocket, faRobot, faCode, faChartLine
 } from '@fortawesome/free-solid-svg-icons';
 
-const API_BASE = 'http://127.0.0.1:8000';
+const API_BASE = '';
 
 const Profile: React.FC = () => {
   const { user, updateProfile, uploadPhoto, updateLocalUser } = useAuth();

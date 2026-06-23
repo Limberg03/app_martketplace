@@ -29,7 +29,7 @@ export interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
+export const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(() => {
@@ -79,7 +79,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
       // 2. Conectar WebSocket
       const wsProto = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const wsUrl = `${wsProto}//127.0.0.1:8000/api/notificaciones/ws/${userId}`;
+      const wsUrl = `${wsProto}//${window.location.host}/api/notificaciones/ws/${userId}`;
       const ws = new WebSocket(wsUrl);
       ws.onmessage = (event) => {
         if (event.data === "pong") return;

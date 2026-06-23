@@ -1,6 +1,9 @@
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Obtenemos la URL de la base de datos desde las variables de entorno (Render).
 # Si no existe, usamos la local por defecto.

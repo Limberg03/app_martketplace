@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../../context/AuthContext';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = '/api';
 
 const AdminReports: React.FC = () => {
   const { user } = useAuth();

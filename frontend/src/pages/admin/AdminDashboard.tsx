@@ -4,7 +4,7 @@ import { faUsers, faBox, faDollarSign, faChartPie } from '@fortawesome/free-soli
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { useAuth } from '../../context/AuthContext';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = '/api';
 
 const AdminDashboard: React.FC = () => {
   const { user } = useAuth();

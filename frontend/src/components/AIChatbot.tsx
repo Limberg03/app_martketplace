@@ -9,7 +9,7 @@ interface AIChatbotProps {
   appId: number;
 }
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = '/api';
 
 const AIChatbot: React.FC<AIChatbotProps> = ({ appId }) => {
   const { user } = useAuth();

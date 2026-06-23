@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faFilter, faStar, faMicrochip, faSpinner, faBoxOpen, faWandMagicSparkles, faMicrophone, faShieldHalved } from '@fortawesome/free-solid-svg-icons';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = '/api';
 
 interface Categoria {
   id: number;
@@ -29,7 +29,7 @@ const getImageUrl = (url: string | null | undefined) => {
   if (!url) return 'none';
   const firstUrl = url.split(',')[0];
   if (firstUrl.startsWith('http')) return `url(${firstUrl})`;
-  return `url(http://127.0.0.1:8000${firstUrl})`;
+  return `url(${firstUrl})`;
 };
 
 const Marketplace: React.FC = () => {

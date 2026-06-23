@@ -11,7 +11,7 @@ import AIChatbot from '../components/AIChatbot';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = '/api';
 
 interface AppDetalle {
   id: number;
@@ -258,7 +258,7 @@ const AppDetail: React.FC = () => {
             <div className="glass-card" style={{ padding: '16px' }}>
               <div style={{ position: 'relative', width: '100%', height: '450px', borderRadius: '12px', overflow: 'hidden', background: '#000' }}>
                 <img 
-                  src={`http://127.0.0.1:8000${imagesList[activeImage]}`} 
+                  src={`${imagesList[activeImage]}`} 
                   alt={`${app.titulo} screenshot ${activeImage + 1}`} 
                   style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
                 />
@@ -300,7 +300,7 @@ const AppDetail: React.FC = () => {
                         boxShadow: activeImage === idx ? '0 0 0 2px rgba(59,130,246,0.3)' : 'none'
                       }}
                     >
-                      <img src={`http://127.0.0.1:8000${img}`} alt={`thumb ${idx}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <img src={`${img}`} alt={`thumb ${idx}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
                   ))}
                 </div>

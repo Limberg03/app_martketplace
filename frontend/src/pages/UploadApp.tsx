@@ -7,7 +7,7 @@ import {
 import { useNavigate, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = '/api';
 
 interface Categoria { id: number; nombre: string; icono: string; }
 

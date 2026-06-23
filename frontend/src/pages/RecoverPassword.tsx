@@ -6,7 +6,7 @@ import {
   faEnvelope, faKey, faLock, faSpinner, faEye, faEyeSlash
 } from '@fortawesome/free-solid-svg-icons';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = '/api';
 
 type Step = 'email' | 'code' | 'done';
 
