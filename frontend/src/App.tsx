@@ -22,6 +22,8 @@ import { useLocation } from 'react-router-dom';
 import About from './pages/About';
 import UserGuide from './pages/UserGuide';
 import DemoMode from './pages/DemoMode';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
 
 function MainLayout() {
   const location = useLocation();
@@ -59,8 +61,10 @@ function MainLayout() {
               <Route path="/compras" element={<MyPurchases />} />
               <Route path="/sales" element={<SalesDashboard />} />
               <Route path="/about" element={<About />} />
-              <Route path="/guide" element={<UserGuide />} />
+              <Route path="/user-guide" element={<UserGuide />} />
               <Route path="/demo" element={<DemoMode />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </main>
       <Footer />

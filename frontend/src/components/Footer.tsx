@@ -31,14 +31,14 @@ const Footer: React.FC = () => {
 
         {/* Columna 3 */}
         <div className="footer-column">
-          <h3 className="footer-title">Company</h3>
-          <ul className="footer-links">
-            <li><Link to="/about">About UAGRM</Link></li>
-            <li><Link to="/terms">Terms of Service</Link></li>
-            <li><Link to="/privacy">Privacy Policy</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-          </ul>
-        </div>
+            <h4 style={{ color: '#f8fafc', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Company</h4>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <li><Link to="/about" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }}>About UAGRM</Link></li>
+              <li><Link to="/terms" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }}>Terms of Service</Link></li>
+              <li><Link to="/privacy" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }}>Privacy Policy</Link></li>
+              <li><a href="#" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }}>Contact</a></li>
+            </ul>
+          </div>
 
       </div>
       

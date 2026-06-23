@@ -2,15 +2,21 @@ import sys
 import json
 import os
 from dotenv import load_dotenv
-load_dotenv()
-import google.generativeai as genai
+from groq import Groq
 from database import SessionLocal
 from models import Aplicacion, EstadoApp
 from services import ai_service
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-if GEMINI_API_KEY:
-    genai.configure(api_key=GEMINI_API_KEY)
+# Cargar variables de entorno desde el archivo .env
+load_dotenv()
+
+# Configuración de Groq
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+if GROQ_API_KEY:
+    client = Groq(api_key=GROQ_API_KEY)
+else:
+    client = None
 
 db = SessionLocal()
 apps = db.query(Aplicacion).filter(Aplicacion.estado == EstadoApp.ACTIVA.value).all()
@@ -25,7 +31,6 @@ res = ai_service.advanced_ai_search('construccion', apps_data)
 print("Resultado de la función (parseado):", res)
 
 print("\n--- RAW LLM TEST ---")
-model = genai.GenerativeModel("gemini-2.5-flash")
 apps_context = json.dumps([{"id": a["id"], "titulo": a["titulo"], "descripcion": a["descripcion"][:200], "tecnologia": a["tecnologia"]} for a in apps_data], ensure_ascii=False)
 prompt = f"""
 Eres una IA experta en recomendación de software de un marketplace.
@@ -45,9 +50,16 @@ Formato esperado exacto:
 ]
 Si no hay ninguna aplicación que sirva ni remotamente, devuelve []. No incluyas bloques de código markdown como ```json o texto extra, SOLO el JSON crudo.
 """
-try:
-    response = model.generate_content(prompt)
-    print("RAW TEXT:")
-    print(repr(response.text))
-except Exception as e:
-    print("Error generating content:", e)
+
+if not client:
+    print("Error: No se ha configurado la API Key de Groq en .env")
+else:
+    try:
+        response = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model=GROQ_MODEL
+        )
+        print("RAW TEXT:")
+        print(response.choices[0].message.content)
+    except Exception as e:
+        print("Error generating content:", e)

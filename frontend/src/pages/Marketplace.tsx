@@ -203,15 +203,15 @@ const Marketplace: React.FC = () => {
       </div>
 
       <div style={{ display: 'flex', gap: '16px', marginBottom: '40px', flexWrap: 'wrap' }}>
-        <div className={`form-control ${isAiSearch ? 'ai-search-active-wrapper' : ''}`} style={{ flex: 1, minWidth: '250px', display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 16px', background: 'var(--surface-color)', border: isAiSearch ? 'none' : '1px solid var(--border-color)', borderRadius: '12px', transition: 'all 0.3s ease' }}>
+        <div className={`form-control ${isAiSearch ? 'ai-search-active-wrapper' : ''}`} style={{ flex: '1 1 400px', display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 16px', background: 'var(--surface-color)', border: isAiSearch ? 'none' : '1px solid var(--border-color)', borderRadius: '12px', transition: 'all 0.3s ease' }}>
           <FontAwesomeIcon icon={isAiSearch ? faWandMagicSparkles : faSearch} style={{ color: isAiSearch ? '#8b5cf6' : 'var(--text-secondary)' }} />
           <input 
             type="text" 
-            placeholder={isAiSearch ? "Describe por voz o texto (Ej. 'necesito app de inventario')..." : "Buscar aplicación por título..."}
+            placeholder={isAiSearch ? "Describe qué tipo de app necesitas..." : "Buscar aplicación por título..."}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyDown}
-            style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', outline: 'none', width: '100%', fontSize: '1.05rem', padding: '8px 0' }}
+            style={{ flex: 1, minWidth: 0, background: 'transparent', border: 'none', color: 'var(--text-primary)', outline: 'none', fontSize: '1.05rem', padding: '8px 0' }}
           />
           
           {/* Botón Micrófono */}

@@ -2,17 +2,15 @@ import os
 import zipfile
 import tempfile
 import chromadb
-import google.generativeai as genai
 import json
 import re
 from typing import List, Dict, Any
+from groq import Groq
 
-# Configuración de Gemini
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-if GEMINI_API_KEY:
-    genai.configure(api_key=GEMINI_API_KEY)
-
-MODEL_NAME = "gemini-2.5-flash"
+# Configuración de Groq
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
 # Configuración de ChromaDB (Base de datos vectorial local)
 CHROMA_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "chroma_db")
@@ -46,14 +44,12 @@ def _extract_code_context(zip_path: str, max_files: int = 5, max_chars: int = 15
 
 def suggest_price(titulo: str, descripcion: str, tecnologia: str, zip_path: str = None) -> str:
     """CU13: Sugiere un precio de venta para la aplicación."""
-    if not GEMINI_API_KEY:
+    if not client:
         return "Sugerencia IA (Simulada): Bs. 150 - Bs. 300"
         
     contexto_zip = ""
     if zip_path and os.path.exists(zip_path):
         contexto_zip = _extract_code_context(zip_path, max_files=4, max_chars=8000)
-        
-    model = genai.GenerativeModel(MODEL_NAME)
     prompt = f"""
     Eres un experto en evaluación de software para un MARKETPLACE ACADÉMICO UNIVERSITARIO en Bolivia.
     CONTEXTO CRÍTICO: 
@@ -85,18 +81,20 @@ def suggest_price(titulo: str, descripcion: str, tecnologia: str, zip_path: str 
     Ejemplo: "Bs. 250 - Bs. 400. (Sistema complejo con alta demanda en Pymes locales. El código muestra buena estructura modular)."
     """
     try:
-        response = model.generate_content(prompt)
-        return response.text.strip()
+        response = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model=GROQ_MODEL
+        )
+        return response.choices[0].message.content.strip()
     except Exception as e:
         return f"Error al generar sugerencia: {e}"
 
 def analyze_code_for_quality(zip_path: str, titulo: str) -> bool:
     """CU15: Analiza si la app merece 'Sello Grado A'."""
-    if not GEMINI_API_KEY:
+    if not client:
         return True # Simulado
         
     context = _extract_code_context(zip_path)
-    model = genai.GenerativeModel(MODEL_NAME)
     prompt = f"""
     Evalúa si la siguiente aplicación ("{titulo}") tiene una estructura de código aceptable para recibir un "Sello Grado A" (aprobado).
     Solo revisa si el código se ve coherente y bien estructurado.
@@ -107,18 +105,20 @@ def analyze_code_for_quality(zip_path: str, titulo: str) -> bool:
     Responde ÚNICAMENTE con "APROBADO" o "RECHAZADO".
     """
     try:
-        response = model.generate_content(prompt)
-        return "APROBADO" in response.text.upper()
+        response = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model=GROQ_MODEL
+        )
+        return "APROBADO" in response.choices[0].message.content.upper()
     except Exception:
         return False
 
 def generate_documentation(zip_path: str, titulo: str) -> str:
     """CU14: Genera un manual de usuario a partir del código."""
-    if not GEMINI_API_KEY:
+    if not client:
         return f"# Manual de {titulo}\n\nDocumentación generada automáticamente."
         
     context = _extract_code_context(zip_path)
-    model = genai.GenerativeModel(MODEL_NAME)
     prompt = f"""
     Eres un Technical Writer. Genera un breve Manual de Usuario en formato Markdown puro para la aplicación '{titulo}'.
     Usa este código fuente parcial como contexto para entender qué hace:
@@ -133,8 +133,11 @@ def generate_documentation(zip_path: str, titulo: str) -> str:
     INSTRUCCIÓN CRÍTICA: NO incluyas ninguna introducción conversacional, ni saludos, ni explicaciones previas como "Aquí tienes el manual" o "Como technical writer he analizado". Empieza INMEDIATAMENTE con `# Manual de Usuario`. Tu respuesta debe ser SOLO código Markdown válido.
     """
     try:
-        response = model.generate_content(prompt)
-        return response.text
+        response = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model=GROQ_MODEL
+        )
+        return response.choices[0].message.content
     except Exception as e:
         return f"Error al generar documentación: {e}"
 
@@ -167,10 +170,8 @@ def semantic_search(query: str, n_results: int = 3) -> List[int]:
 
 def advanced_ai_search(query: str, apps_data: List[Dict[str, Any]], limit: int = 3) -> List[Dict[str, Any]]:
     """Búsqueda IA Avanzada que evalúa el contexto de todas las apps y genera razones."""
-    if not GEMINI_API_KEY or not apps_data:
+    if not client or not apps_data:
         return []
-        
-    model = genai.GenerativeModel(MODEL_NAME)
     
     # Reducimos los datos al mínimo necesario para ahorrar tokens
     context_data = [
@@ -199,8 +200,11 @@ def advanced_ai_search(query: str, apps_data: List[Dict[str, Any]], limit: int =
     """
     
     try:
-        response = model.generate_content(prompt)
-        text = response.text.strip()
+        response = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model=GROQ_MODEL
+        )
+        text = response.choices[0].message.content.strip()
         
         # Extracción robusta de JSON usando expresiones regulares
         match = re.search(r'\[.*\]', text, re.DOTALL)
@@ -217,7 +221,7 @@ def advanced_ai_search(query: str, apps_data: List[Dict[str, Any]], limit: int =
 
 def chat_rag_app(app_id: int, user_query: str, zip_path: str = None) -> str:
     """CU17: RAG Chat. Responde una pregunta usando el contexto de ChromaDB y extractos del código fuente real."""
-    if not GEMINI_API_KEY:
+    if not client:
         return "Chat IA (Simulado): No tengo respuesta en este momento."
         
     try:
@@ -231,8 +235,6 @@ def chat_rag_app(app_id: int, user_query: str, zip_path: str = None) -> str:
         codigo_context = ""
         if zip_path and os.path.exists(zip_path):
             codigo_context = _extract_code_context(zip_path, max_files=10, max_chars=25000)
-            
-        model = genai.GenerativeModel(MODEL_NAME)
         prompt = f"""
         Eres el ingeniero en jefe y asistente técnico experto de esta aplicación en un marketplace. Un usuario potencial tiene una duda.
         
@@ -259,8 +261,11 @@ def chat_rag_app(app_id: int, user_query: str, zip_path: str = None) -> str:
         
         Pregunta del usuario: {user_query}
         """
-        response = model.generate_content(prompt)
-        return response.text
+        response = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model=GROQ_MODEL
+        )
+        return response.choices[0].message.content
     except Exception as e:
         return f"Error en el chat: {e}"
 
@@ -272,7 +277,7 @@ def generate_recommendations(perfil_intereses: Dict[str, int], apps_data: List[D
         apps_data: Lista de todas las apps activas disponibles.
         excluir_ids: IDs de apps que el usuario ya visitó/compró (para no repetirlas).
     """
-    if not GEMINI_API_KEY or not apps_data:
+    if not client or not apps_data:
         # Simulación: devolver primeras 4 apps
         return [{"id": a["id"], "razon": "Recomendado para ti"} for a in apps_data[:4]]
     
@@ -290,8 +295,6 @@ def generate_recommendations(perfil_intereses: Dict[str, int], apps_data: List[D
         {"id": a["id"], "titulo": a["titulo"], "descripcion": a["descripcion"][:180], "tecnologia": a["tecnologia"]}
         for a in apps_nuevas[:20]  # Máximo 20 para no gastar demasiados tokens
     ], ensure_ascii=False)
-    
-    model = genai.GenerativeModel(MODEL_NAME)
     prompt = f"""
     Eres un motor de recomendaciones de un marketplace de software universitario.
     
@@ -311,8 +314,11 @@ def generate_recommendations(perfil_intereses: Dict[str, int], apps_data: List[D
     """
     
     try:
-        response = model.generate_content(prompt)
-        text = response.text.strip()
+        response = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model=GROQ_MODEL
+        )
+        text = response.choices[0].message.content.strip()
         match = re.search(r'\[.*\]', text, re.DOTALL)
         if match:
             return json.loads(match.group(0))
