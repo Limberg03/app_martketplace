@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # Base de Datos Relacional (PostgreSQL)
+  db:
+    image: postgres:15-alpine
+    container_name: nexusapp_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-68867805}
+      POSTGRES_DB: ${POSTGRES_DB:-marketplace_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - nexusapp_network
+
+  # Servidor Backend (FastAPI)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: nexusapp_backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      # Enlazamos la base de datos al contenedor "db" por su nombre DNS interno de Docker
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-68867805}@db:5432/${POSTGRES_DB:-marketplace_db}
+      GROQ_API_KEY: ${GROQ_API_KEY}
+      GROQ_MODEL: ${GROQ_MODEL:-llama-3.3-70b-versatile}
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+      VAPID_PUBLIC_KEY: ${VAPID_PUBLIC_KEY}
+      VAPID_PRIVATE_KEY: ${VAPID_PRIVATE_KEY}
+      VAPID_CLAIMS_EMAIL: ${VAPID_CLAIMS_EMAIL}
+    volumes:
+      - uploads_data:/app/uploads
+      - chroma_data:/app/chroma_db
+    networks:
+      - nexusapp_network
+
+  # Servidor Frontend (Nginx + React SPA)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: nexusapp_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - nexusapp_network
+
+volumes:
+  pgdata:
+  uploads_data:
+  chroma_data:
+
+networks:
+  nexusapp_network:
+    driver: bridge
