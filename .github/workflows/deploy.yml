@@ -1,0 +1,30 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Desplegar en servidor AWS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            # 1. Ir a la carpeta del proyecto en el servidor
+            cd /home/ubuntu/app_martketplace
+
+            # 2. Descartar cambios locales en el servidor (evita errores de conflictos)
+            git reset --hard
+
+            # 3. Asegurar que estamos en la rama main y traer la última actualización
+            git checkout main
+            git pull origin main
+
+            # 4. Reconstruir y levantar los contenedores actualizados en Docker
+            docker compose up --build -d
